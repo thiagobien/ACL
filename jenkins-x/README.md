@@ -4,6 +4,8 @@ docs, instructions, additional material for autonomous cloud labs - Dynatrace So
 
 # jenkins-dtcli in Jenkins-X
 
+(instructions from Andi)
+
 1. Added the two global Jenkins Variables DT_API_TOKEN and DT_TENANT_ID
 Once we have the Dynatrace Tenant setup that we use to monitor the envioronment we have to specify the correct URL and API Token
   ![](./assets/dtcli-1.jpg)
