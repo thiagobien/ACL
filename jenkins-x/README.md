@@ -2,7 +2,29 @@
 docs, instructions, additional material for autonomous cloud labs - Dynatrace Sockshop Workshop
 
 
-# jx cli
+# jenkins-dtcli in Jenkins-X
+
+1. Added the two global Jenkins Variables DT_API_TOKEN and DT_TENANT_ID
+Once we have the Dynatrace Tenant setup that we use to monitor the envioronment we have to specify the correct URL and API Token
+  ![](./assets/dtcli-1.jpg)
+
+1. Added the Kubernetes Pod Template and point it to the Docker Image that Pete built and pushed on Quay
+Here the question is whether we want to keep it on Quay or whether we push it to the local Jenkins-X Registry. The container itself can easily be built from the dynatrace-cli github repo. I am good with Quay for now
+  ![](./assets/dtcli-2.jpg)
+
+1. JMeter
+    -	The project jmeter-tests has not yet been imported: https://github.com/acm-workshop/jmeter-tests -> can you do that?
+        - This project calls the JMeter tests that are in the scripts subdirectory
+    - The jmeter-tests is using a JMeter Kubernetes Pod Template – similar to the DT CLI – I also configured this one now
+  ![](./assets/dtcli-3.jpg)  
+
+1. Missing is the call of the JMeter Tests  
+I have seen that right now the test stages in the pipelines are commented out. Once you import the JMeter-Test Repo you should be able to comment them in. Please have a look at the catalogue Jenkinsfile where we already changed the pipeline to call the “JMeter-tests” vs the old “Jmeter-as-container” job
+Please make sure that every project includes these stages and also make sure that they are calling the correct script
+  ![](./assets/dtcli-4.jpg)
+
+
+# jx cli for your local machine
 
 How to configure jx cli on your local macine if you already have a kubectl installed and configured.
 
