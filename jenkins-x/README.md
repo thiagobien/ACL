@@ -24,6 +24,11 @@ Here the question is whether we want to keep it on Quay or whether we push it to
 I have seen that right now the test stages in the pipelines are commented out. Once you import the JMeter-Test Repo you should be able to comment them in. Please have a look at the catalogue Jenkinsfile where we already changed the pipeline to call the “JMeter-tests” vs the old “Jmeter-as-container” job
 Please make sure that every project includes these stages and also make sure that they are calling the correct script
   ![](./assets/dtcli-4.jpg)
+  
+1. Install & Configure Performance Signature for Dynatrace Plugin
+This plugin is from our partner T-Systems https://plugins.jenkins.io/performance-signature-dynatracesaas
+* Install it through the Jenkins -> Manage Plugins
+* Configure the plugin in the global settings and provide the Dynatrace Tenant Credentials
 
 
 # jx cli for your local machine
