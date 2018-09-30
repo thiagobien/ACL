@@ -35,6 +35,7 @@ This plugin is from our partner T-Systems https://plugins.jenkins.io/performance
 * Configure a Dynatrace API Credential
   ![](./assets/perfsignature_dtcredential.jpg)
 * Configure the plugin in the global settings and provide the Dynatrace Tenant Credentials
+  - Give the configuration the name "Dynatrace Tenant" as this will be referenced in our Pipelines
   ![](./assets/perfsignature_config.jpg)
 
 # Application Domains as Variables in Jenkins-x
