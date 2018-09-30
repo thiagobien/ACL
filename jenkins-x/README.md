@@ -37,6 +37,15 @@ This plugin is from our partner T-Systems https://plugins.jenkins.io/performance
 * Configure the plugin in the global settings and provide the Dynatrace Tenant Credentials
   ![](./assets/perfsignature_config.jpg)
 
+# Application Domains as Variables in Jenkins-x
+
+(from Andi)
+
+For different tasks, e.g: Load or Functional Tests we need to construct the full URL to our deployed application.
+In order not to hardcode the domain name I created two variables 
+ ![](./assets/app_domains_as_variables.jpg)
+They can then be used in e.g: Jenkinsfiles like to construct service URLs, e.g: "${env.APP_NAME}.{APP_STAGING_DOMAIN}" -> which results e.g: in carts.jx-staging.35.233.15.115.nip.io
+
 # jx cli for your local machine
 
 How to configure jx cli on your local macine if you already have a kubectl installed and configured.
