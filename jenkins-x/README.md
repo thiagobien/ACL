@@ -25,11 +25,17 @@ I have seen that right now the test stages in the pipelines are commented out. O
 Please make sure that every project includes these stages and also make sure that they are calling the correct script
   ![](./assets/dtcli-4.jpg)
   
+# Performance Signature in Jenkins-X
+
+(instructions from Andi)
+
 1. Install & Configure Performance Signature for Dynatrace Plugin
 This plugin is from our partner T-Systems https://plugins.jenkins.io/performance-signature-dynatracesaas
 * Install it through the Jenkins -> Manage Plugins
+* Configure a Dynatrace API Credential
+  ![](./assets/perfsignature_dtcredential.jpg)
 * Configure the plugin in the global settings and provide the Dynatrace Tenant Credentials
-
+  ![](./assets/perfsignature_config.jpg)
 
 # jx cli for your local machine
 
