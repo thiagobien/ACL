@@ -2,36 +2,39 @@
 docs, instructions, additional material for autonomous cloud labs - Dynatrace Sockshop Workshop
 
 
-# jenkins-dtcli in Jenkins-X
+# Enable Dynatrace DTCLI & JMeter on Jenkins-X
 
 (instructions from Andi)
 
-1. Added the two global Jenkins Variables DT_API_TOKEN and DT_TENANT_ID
-Once we have the Dynatrace Tenant setup that we use to monitor the envioronment we have to specify the correct URL and API Token
+1. Add two global Jenkins Variables DT_API_TOKEN and DT_TENANT_ID
+This is a general good practice to keep the token and tenant in Jenkins. Another option would be to define a so called "Credential" for the API TOKEN. The benefit of that woudl be that the credential will NEVER be logged out to a log file
+For the moment - lets go with this though as shown on the screenshot:
   ![](./assets/dtcli-1.jpg)
 
-1. Added the Kubernetes Pod Template and point it to the Docker Image that Pete built and pushed on Quay
-Here the question is whether we want to keep it on Quay or whether we push it to the local Jenkins-X Registry. The container itself can easily be built from the dynatrace-cli github repo. I am good with Quay for now
+1. Configure DTCLI Pod Template:
+Right now we take the dtcli docker from our quay.io/dtacmworkshop repositories. For future discussion: a) do we want to keep it there and b) who is taking care of updates?
   ![](./assets/dtcli-2.jpg)
 
-1. JMeter
-    -	The project jmeter-tests has not yet been imported: https://github.com/acm-workshop/jmeter-tests -> can you do that?
-        - This project calls the JMeter tests that are in the scripts subdirectory
-    - The jmeter-tests is using a JMeter Kubernetes Pod Template – similar to the DT CLI – I also configured this one now
+1. Configure JMeter Pod
+Same as for JMeter
   ![](./assets/dtcli-3.jpg)  
 
-1. Missing is the call of the JMeter Tests  
-I have seen that right now the test stages in the pipelines are commented out. Once you import the JMeter-Test Repo you should be able to comment them in. Please have a look at the catalogue Jenkinsfile where we already changed the pipeline to call the “JMeter-tests” vs the old “Jmeter-as-container” job
-Please make sure that every project includes these stages and also make sure that they are calling the correct script
+1. Calling JMeter tests
+We will use the jmeter-tests pipeline to execute tests. All test scripts reside in that directory as well. See from the following screenshot how to call that script!
   ![](./assets/dtcli-4.jpg)
   
+# Performance Report Plugin for Jenkins-X
+The following plugin needs to be installed in order to generate nice reports for JMeter, JUnit, ... types of reports. Our pipelines will call the perfReport pipeline extension: https://plugins.jenkins.io/performance 
+
+
 # Performance Signature in Jenkins-X
+We also need the Performance Signature for Dynatrace Plugin which was developed by our partner T-Systems!
 
-(instructions from Andi)
+Simply install the following two plugins via Jenkins -> Manage Plugins 
+* "Performance Signature: Dynatrace": https://plugins.jenkins.io/performance-signature-dynatracesaas
+* "Performance Signature: Viewer" https://plugins.jenkins.io/performance-signature-viewer
 
-1. Install & Configure Performance Signature for Dynatrace Plugin
-This plugin is from our partner T-Systems https://plugins.jenkins.io/performance-signature-dynatracesaas
-* Install it through the Jenkins -> Manage Plugins
+Now we need to configure it
 * Configure a Dynatrace API Credential
   ![](./assets/perfsignature_dtcredential.jpg)
 * Configure the plugin in the global settings and provide the Dynatrace Tenant Credentials
