@@ -41,6 +41,22 @@ Now we need to configure it
   - Give the configuration the name "Dynatrace Tenant" as this will be referenced in our Pipelines
   ![](./assets/perfsignature_config.jpg)
 
+We have to change a security setting to allow everyone read access
+* Via Jenkins -> Configure Global Security check the box "allow anonymous read access" 
+
+Last but not least we have to do some "magic" in order to enable JFreeChart on that Jenkins-X:
+* We need to rename a file like this via Jenkins Script Console
+
+`
+def cmd = "mv /etc/java-8-openjdk/accessibility.properties /etc/java-8-openjdk/accessibility.propertiesx"
+cmd.execute()
+`
+* NOW we need to restart Jenkins-X
+* Now we need to change a system property via Jenkins Script Console
+`
+System.setProperty("java.awt.headless","true")
+`
+
 # Application Domains as Variables in Jenkins-x
 
 (from Andi)
