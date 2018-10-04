@@ -2,7 +2,7 @@
 
 In this workshop you'll learn ...
 
-(!!) An example of a workshop structure can be found here: https://github.com/aws-samples/aws-serverless-workshops
+(!!) An example of a workshop structure can be found here: https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication
 
 ## Prerequisites
 
