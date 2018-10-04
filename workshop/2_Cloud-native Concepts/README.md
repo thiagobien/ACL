@@ -1,6 +1,6 @@
 # Cloud-native Concepts
 
-This session gives an overview of ...
+This module gives an overview of cloud-native concepts such as: Container, Kubernetes
 
 ## Labs
 
