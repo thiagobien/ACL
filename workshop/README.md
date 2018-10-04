@@ -21,7 +21,7 @@ You will need a ...
 This workshop is broken up into multiple modules. You must complete each module before proceeding to the next.
 
 1. [Autonomous Cloud Concepts](./01_Autonomous_Cloud_Concepts)
-2. [Cloud-native Concepts](./02_Cloud-native_Concepts)
+2. [Cloud-native Concepts](./02_Cloud_native_Concepts)
 3. [Monolith to Microservices](./03_Monolith_to_Microservices)
 4. [Building Environment zero](./04_Building_Environment_zero)
 5. ...
