@@ -2,7 +2,9 @@
 
 In this workshop you'll learn ...
 
-(!!) An example of a workshop structure can be found here: https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication
+- The content is summarized here: https://community.dynatrace.com/community/pages/viewpage.action?pageId=251693290
+
+- An example of a (nice) workshop structure is here: https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication
 
 ## Prerequisites
 
