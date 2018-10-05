@@ -1,4 +1,4 @@
-# Lab 1
+# Kubernetes (K8S)
 
 This lab gives an overview of ...
 

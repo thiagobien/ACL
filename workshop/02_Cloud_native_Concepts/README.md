@@ -4,10 +4,10 @@ This module gives an overview of cloud-native concepts such as: Container, Kuber
 
 ## Labs
 
-### Lab 1
+### Working with Containers
 
-In directory `lab 1`, follow the [Instructions](./lab1/README.md).
+In directory `containers`, follow the [Instructions](./Containers/README.md).
 
-### Lab 2
+### Kubernetes
 
-In directory `lab 2`, follow the [Instructions](./lab2/README.md).
+In directory `Kubernetes`, follow the [Instructions](./Kubernetes/README.md).
