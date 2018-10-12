@@ -20,10 +20,10 @@ This module gives an overview of ...
     ```
     oc login <OurClusterIP:port>
     ```
-    User: `wsXX` where XX... your assigned number<br>
-    Password: ask instructor 
+    * User: `wsXX` where XX... your assigned number<br>
+    * Password: ask instructor 
     
-    After the successful login, create your own project:
+1. After the successful login, create your own project:
     ```
     oc new-project wsXX
     ```
