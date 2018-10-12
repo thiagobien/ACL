@@ -6,12 +6,12 @@ In this lab you'll learn how to move a monolithic application to a Cloud Platfor
 
 ## Step 1: Create the Database
 
-1. Deploy a MySQL Database Service
+1. Deploy a MySQL database service
    ```
    oc new-app -e MYSQL_USER=ticket -e MYSQL_PASSWORD=monster -e MYSQL_DATABASE=ticketmonster mysql:5.5
    ```
 
-1. Get the IP of the Service
+1. Get the IP of the service
    ```
    oc get svc
    ```
@@ -23,7 +23,7 @@ In this lab you'll learn how to move a monolithic application to a Cloud Platfor
    oc new-app -e MYSQL_SERVICE_HOST=mysql -e MYSQL_SERVICE_PORT=3306 --docker-image=dynatracesockshop/ticket-monster-monolith:latest
    ```
 
-1. Expose the TicketMonster Service
+1. Expose the TicketMonster service
    ```
    oc expose service ticket-monster-monolith --name=monolith 
    ```
@@ -34,4 +34,4 @@ In this lab you'll learn how to move a monolithic application to a Cloud Platfor
    ```
    oc get routes
    ```
-   Open the route a browser and navigate through the applicaiton.
+   Open the route a browser and navigate through the application.
