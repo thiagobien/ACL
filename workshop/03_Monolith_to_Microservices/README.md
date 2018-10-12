@@ -1,6 +1,6 @@
 # Monolith to Microservices 
 
-![tm](assets/ticketmonster.png)
+![ticketmonster](assets/ticketmonster.png)
 
 This module gives an overview of ...
 
