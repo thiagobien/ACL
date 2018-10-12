@@ -4,11 +4,11 @@ In this lab you'll learn how to move a monolithic application to a Cloud Platfor
 
 ![lift-and-shift](../assets/lift_and_shift.png)
 
-## Step 1: Create the Database
+## Step 1: Create Database for Monolith
 
 1. Deploy a MySQL database service
     ```
-    oc new-app -e MYSQL_USER=ticket -e MYSQL_PASSWORD=monster -e MYSQL_DATABASE=ticketmonster mysql:5.5
+    oc new-app -e MYSQL_USER=ticket -e MYSQL_PASSWORD=monster -e MYSQL_DATABASE=ticketmonster mysql:5.5 ((--name=ticket-db))
     ```
 
 1. Get the IP of the service
