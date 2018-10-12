@@ -28,10 +28,11 @@ In this lab you'll learn how to move a monolithic application to a Cloud Platfor
    oc expose service ticket-monster-monolith --name=monolith 
    ```
 
-1. Test your TicketMonster
+## Step 3: Test your TicketMonster
 
-   Get the public endpoint of your ticketmonster application:
+1. Get the public endpoint of your ticketmonster application:
    ```
    oc get routes
    ```
-   Open the route a browser and navigate through the application.
+
+1. Open the route using a browser and navigate through the application.
