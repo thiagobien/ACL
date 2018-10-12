@@ -14,9 +14,9 @@ In this lab ...
 
 ## Step 2: Decouple the UI from the Monolith
 
-1. For this step we need the `tm-ui-v1` sub-project.
+1. Switch to the `tm-ui-v1` directory.
 
-1. (optional) Check Configuration of Proxy and ReverseProxy in `tm-ui-v1/httpd.conf`:
+1. (optional) Check configuration of Proxy and ReverseProxy in `tm-ui-v1/httpd.conf`:
     ```
     ProxyPass "/rest" "http://backend-xxx.xxx/rest"
     ProxyPassReverse "/rest" "http://backend-xxx.xxx/rest"
