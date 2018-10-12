@@ -2,6 +2,8 @@
 
 In this lab ...
 
+For more details about this lab, please take a look at the following blog post: [Identifying its Domain Model](https://www.dynatrace.com/news/blog/monolith-to-microservices-the-microservice-and-its-domain-model/).
+
 ![domain_model](../assets/domain_model.png)
 
 ## Step 1: Create Database for Microservice
