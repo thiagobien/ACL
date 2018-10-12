@@ -2,10 +2,11 @@
 
 In this lab ...
 
+![tm-ui-v1](../assets/extract_ui.png)
 
 ## Step 1: Define a new Route to the Monolith
 
-1. Create another route for TicketMonster monolith under the name "backend".
+1. Create another route for TicketMonster monolith under the name `backend`.
     ```
     oc expose service ticket-monster-monolith --name=backend
     oc get routes
@@ -15,7 +16,7 @@ In this lab ...
 
 1. For this step we need the `tm-ui-v1` sub-project.
 
-1. (optional) Check Configuration of Proxy and ReverseProxy in ```tm-ui-v1/httpd.conf```:
+1. (optional) Check Configuration of Proxy and ReverseProxy in `tm-ui-v1/httpd.conf`:
     ```
     ProxyPass "/rest" "http://backend-xxx.xxx/rest"
     ProxyPassReverse "/rest" "http://backend-xxx.xxx/rest"
