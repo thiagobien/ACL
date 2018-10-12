@@ -2,7 +2,7 @@
 
 In this lab you'll learn how to move a monolithic application to a Cloud Platform, which is OpenShift. The applied moving approach follows a lift-and-shift concept. This means that the application will not be prepared for being Cloud-native, but rather taken as it is. Nevertheless, the database for the application will be service, which is running on OpenShift. 
 
-![tm](../assets/lift_and_shift.png)
+![lift-and-shift](../assets/lift_and_shift.png)
 
 ## Step 1: Create the Database
 
