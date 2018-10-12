@@ -2,6 +2,6 @@
 
 In this lab ...
 
-![scaling](../assets/scale_up.png)
+![scaling_up](../assets/scale_up.png)
 
 
