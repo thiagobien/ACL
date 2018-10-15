@@ -28,7 +28,7 @@ To start breaking up the monolith, a best practice is extracting the user interf
     
 1. Deploy the user interface.
     ```
-    oc new-app -e BACKENDURL=<yourbackendurl> --docker-image=dynatraceacm/ticketmonster-ui-v1:latest
+    oc new-app -e BACKENDURL=<your-backend-url> --docker-image=dynatraceacm/ticketmonster-ui-v1:latest
     oc expose service ticketmonster-ui-v1
     ```
 

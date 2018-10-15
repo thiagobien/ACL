@@ -6,72 +6,36 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 
 ![deploy_microservice](../assets/deploy_microservice.png)
 
-## Step 1: Prepare the Microservice
+## Step 1: Deploy the Microservice
 
-1. Switch to the `orders-service/` directory.
-
-1. Edit the database connection strings in `\src\main\resources\application-mysql.properties`:
-    ```properties
-    spring.datasource.legacyDS.url=jdbc:mysql://<your-ticketmonster-db>:3306/ticketmonster?useSSL=false
-    spring.datasource.legacyDS.username=ticket
-    spring.datasource.legacyDS.password=monster
-    spring.datasource.legacyDS.driverClassName=com.mysql.jdbc.Driver
-
-    spring.datasource.ordersDS.url=jdbc:mysql://<you-order-db>:3306/orders?useSSL=false
-    spring.datasource.ordersDS.username=ticket
-    spring.datasource.ordersDS.password=monster
-    spring.datasource.ordersDS.driverClassName=com.mysql.jdbc.Driver
+1. Create a new application in OpenShift.
+    ```
+    oc new-app --docker-image=dynatraceacm/ticketmonster-orders-service:latest
     ```
 
-    You'll get this information with:
+1. Expose your microservice.
     ```
-    oc get services
-    ```
-
-1. Build the application with Maven
-    ```
-    mvn clean install -P mysql,kubernetes fabric8:build -D docker.image.name=<yourdocker>/orders-service:latest -D skipTests
+    oc expose service ticketmonster-orders-service --name=orders-service
     ```
 
-1. Build the Docker image in `\target\docker\<your dockerhub account>\orders-service\latest\build\`
-    ```
-    docker build . -t <your-docker>/orders-service:latest
-    ``` 
+## Step 2. Deploy a new backend version (v2) of the Monolith
 
-1. Push the application to Dockerhub
+1. Make sure to replace XX with your assigned workshop number.
     ```
-    docker push <your-docker>/orders-service:latest
+    oc new-app -e MYSQL_SERVICE_HOST=ticketmonster-db -e MYSQL_SERVICE_PORT=3306 --docker-image=dynatraceacm/ticketmonster-backend-v2:latest
     ```
 
-## Step 2: Deploy the Microservice
-
-1. Create a new application in OpenShift
+1. Expose the backend service.
     ```
-    oc new-app --docker-image=<yourdocker>/ticketmonster-orders-service:latest
+    oc expose service ticketmonster-backend-v2 --name=backend-v2
     ```
 
-1. Expose your microservice
+1. We need to re-route the backend route to hit the new backend service.
     ```
-    oc expose service orders-service
-    ```
-
-## Step 3. Deploy a new backend version for the microservice
-1. Make sure to replace XX with your assigned workshop number
-    ```
-    oc new-app -e ORDERS_SERVICE_IP=orders-service-wsXX.18.207.174.41.xip.io --docker-image=dynatraceacm/ticketmonster-backend-v2:latest
+    oc set route-backends backend ticketmonster-monolith=0 ticketmonster-backend-v2=100 
     ```
 
-1. Expose the Backend service.
-    ```
-    oc expose service backend-v2
-    ```
-
-1. We need to re-route the backend route to hit the new backend service
-    ```
-    oc set route-backends backend backend=0 backend-v2=100 
-    ```
-
-## Step 4: Switch feature flag and test your microservice
+## Step 3: Switch feature flag and test your microservice
 
 1. In your browser, navigate to your `ff4j` console: `https://<your-backend>-XX.<ip>/ff4j-console`. You will be able to switch on/off your new microservice from here. 
 
@@ -83,4 +47,3 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
     1. asdf
     1. bdfg
     1. TBD ....
-

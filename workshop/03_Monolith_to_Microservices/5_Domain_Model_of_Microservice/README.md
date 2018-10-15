@@ -32,7 +32,7 @@ For more details about this lab, please take a look at the following blog post: 
     oc rsync src/main/resources/db/migration/ <your-db-pod>:/var/lib/mysql --no-perms=true
     ```
 
-1. Connect to the DB Pod and execute SQL scripts 
+1. Connect to the DB Pod and execute SQL scripts
     ```
     oc rsh <your-db-pod>
     cd ~
