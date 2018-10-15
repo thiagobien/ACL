@@ -35,7 +35,7 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
     oc set route-backends backend ticketmonster-monolith=0 ticketmonster-backend-v2=100 
     ```
 
-## Step 3: Switch feature flag and test your microservice
+## Step 3: Switch feature flag and test your Microservice
 
 1. In your browser, navigate to your `ff4j` console: `https://<your-backend>-XX.<ip>/ff4j-console`. You will be able to switch on/off your new microservice from here. 
 
@@ -51,4 +51,4 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
     1. From the left menu, choose the **Transaction & services** tab.
     1. Select service **TicketMonsterUI**.
     1. Click on **View service flow**.
-    1. Then you see the service flow containing the microservice `orders-service`.
+    1. Finally, you see the service flow containing the microservice `orders-service`.
