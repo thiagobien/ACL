@@ -41,9 +41,10 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 
 ![ff4j_console](../assets/ff4j_console.png)
 
-1. When making an order now the order will be operated and persisted by the **OrderService** instead of the monolithic booking service (in fact, the booking service calls the OrderService).
+1. Set the flags as shown for **life-traffic**.
+
+![ff4j_console](../assets/ff4j_feature_flags.png)
+
+1. When now making an order, the order will be operated and persisted by the **OrderService** instead of the monolithic booking service (in fact, the booking service calls the OrderService).
 
 1. We can verify the service flow in Dynatrace.
-    1. asdf
-    1. bdfg
-    1. TBD ....

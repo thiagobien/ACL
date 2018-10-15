@@ -10,12 +10,21 @@ For more details about this lab, please take a look at the following blog post: 
 1. Login to the Dynatrace tenant: tenant-url (Please ask instructor for Dynatrace tenant and login credentials.)
 1. From the left menu, choose the **Settings** tab.
 1. In the Settings page, open **Server-side service monitoring** and **Custom service detection**.
+1. Click on **Define Jave service**, set name of custom service to `ws-xx-orders-service` and click **Find entry point**.
 1. Select the process group that contains your entry point `ticketmonster-monolith` and click **Continue**.
 1. Search for loaded classes and interfaces with names `BookingService`, select `org.jboss.examples.ticketmonster.rest.BookingService` and click **Continue**.
 1. Select `createBooking` as entry points and click **Finish**.
 
 ## Step 2: Book a Ticket on TicketMonster
-1. 
+1. Open your **ticketmonster-ui-v1** in a browser.
+1. Click on **Events**, **Concerts** and on, e.g., **Rock concert of the decade**.
+1. Select the **Venue**, **Date** and click on **Order ticket**.
+1. Select tickets by selecting a section and the number of tickets.
+1. **Checkout** your ticket booking after specifying your email.
+1. Review your booking details.
 
 ## Step 3: See Service Flow in Dynatrace
-1. 
+1. From the left menu, choose the **Transaction & services** tab.
+1. Select service **TicketMonsterUI**.
+1. Click on **View service flow**.
+1. Then you see the service flow with the name `ws-xx-orders-service` service.

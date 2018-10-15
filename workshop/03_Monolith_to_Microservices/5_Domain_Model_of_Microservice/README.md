@@ -8,7 +8,7 @@ For more details about this lab, please take a look at the following blog post: 
 
 ## Step 1: Use Dynatrace to learn more about the Domain Model
 
-1. Open Dynatrace ... 
+1. Open Dynatrace 
 
 
 ## Step 2: Create Database for Microservice
@@ -43,7 +43,7 @@ For more details about this lab, please take a look at the following blog post: 
     exit
     ```
 
-1. (option) Check database `orders` in your pod.
+1. (optional) Check database `orders` in your pod.
     ```
     oc rsh <your-db-pod>
     cd ~
