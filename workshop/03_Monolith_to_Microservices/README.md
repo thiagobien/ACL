@@ -2,7 +2,7 @@
 
 ![ticketmonster](assets/ticketmonster.png)
 
-In this module you'll learn how to migrate a monolithic application to the cloud and how to fearlessly break it up into microservices. Therefore, we want to walk you through the different stages of identifying and extracting a microservice, as well as strangling it around its origin – the monolith. For this purpose, the module provides step-by-step instructions and labs showing the best practices we have identified for migrating a monolith to the cloud. This module goes along a blog post series, which you can find [here](https://www.dynatrace.com/news/blog/fearless-monolith-to-microservices-migration-a-guided-journey/). Please look at the different blog posts to learn more about certain steps.
+In this module you'll learn how to migrate a monolithic application to the cloud and how to fearlessly break it up into microservices. Therefore, we want to walk you through the different stages of identifying and extracting a microservice, as well as strangling it around its origin – the monolith. For this purpose, the module provides step-by-step instructions and labs showing the best practices we have identified for migrating a monolith to the cloud. This module goes along a blog post series, which you can find [here](https://www.dynatrace.com/news/blog/fearless-monolith-to-microservices-migration-a-guided-journey/). Please look at the different blog posts to learn more about certain migration steps.
 
 # Requirements
 
@@ -20,7 +20,7 @@ Install the following tool(s):
     ```
     oc login <OurClusterIP:port>
     ```
-    * User: `wsXX` where XX is your assigned number<br>
+    * User: `wsXX` (`XX` is your assigned number)<br>
     * Password: ask instructor 
     
 1. After the successful login, create your own project:
@@ -31,8 +31,8 @@ Install the following tool(s):
 1. Set up a management zone for your OpenShift project
     1. Login to the Dynatrace tenant: tenant-url (Please ask instructor for Dynatrace tenant and login credentials.)
     1. From the left menu, choose the **Settings** tab.
-    1. From the Settings page, open **Preferences** and **Management zones**.
-    1. Click **Create management zone**  and set name to `ws-XX-mz` (XX... your assigned number).
+    1. In the Settings page, open **Preferences** and **Management zones**.
+    1. Click **Create management zone**  and set name to `ws-XX-mz` (`XX` is your assigned number).
     1. Click **Add new rule** and set rule applies to `Process groups`. 
     1. As condition define: `Kubernetes namespace` > `begins with` > enable `Case sensitive` > name of your project `ws-XX`
     1. Finally, click **Save**.

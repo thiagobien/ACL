@@ -1,6 +1,6 @@
 # Lift-and-shift TicketMonster to a Cloud Platform
 
-In this lab you'll learn how to move a monolithic application to a Cloud Platform, which is OpenShift. The applied moving approach follows a lift-and-shift concept. This means that the application will not be prepared for being Cloud-native, but rather taken as it is. Nevertheless, the database for the application will be service, which is running on OpenShift. 
+In this lab you'll learn how to move a monolithic application to a cloud platform, OpenShift in this case. The applied moving approach follows a lift-and-shift concept. This means that the application will not be prepared for being Cloud-native, but rather taken as it is. Nevertheless, the database for the application will be a service that runs on OpenShift. 
 
 ![lift-and-shift](../assets/lift_and_shift.png)
 
@@ -8,7 +8,7 @@ In this lab you'll learn how to move a monolithic application to a Cloud Platfor
 
 1. Deploy a MySQL database service
     ```
-    oc new-app -e MYSQL_USER=ticket -e MYSQL_PASSWORD=monster -e MYSQL_DATABASE=ticketmonster mysql:5.5 ((--name=ticket-db))
+    oc new-app --name=ticketmonster-db -e MYSQL_USER=ticket -e MYSQL_PASSWORD=monster -e MYSQL_DATABASE=ticketmonster mysql:5.5
     ```
 
 1. Get the IP of the service
@@ -16,16 +16,16 @@ In this lab you'll learn how to move a monolithic application to a Cloud Platfor
     oc get svc
     ```
 
-## Step 2: Deploy TicketMonster, the Monolith
+## Step 2: Deploy TicketMonster
 
 1. Create a new application
     ```
-    oc new-app -e MYSQL_SERVICE_HOST=mysql -e MYSQL_SERVICE_PORT=3306 --docker-image=dynatracesockshop/ticket-monster-monolith:latest
+    oc new-app -e MYSQL_SERVICE_HOST=ticketmonster-db -e MYSQL_SERVICE_PORT=3306 --docker-image=dynatraceacm/ticketmonster-monolith:latest
     ```
 
 1. Expose the TicketMonster service
     ```
-    oc expose service ticket-monster-monolith --name=monolith 
+    oc expose service ticketmonster-monolith --name=monolith 
     ```
 
 ## Step 3: Test your TicketMonster
