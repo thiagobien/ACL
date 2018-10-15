@@ -1,6 +1,6 @@
 # Extract the User Interface from the Monolith
 
-In this lab ...
+To start breaking up the monolith, a best practice is extracting the user interface from TicketMonster since this helps to decouple the client facing part from the business logic. So, this lab launches the first microservice to seperate the user interface from the rest of TicketMonster shown below.
 
 ![tm-ui-v1](../assets/extract_ui.png)
 
