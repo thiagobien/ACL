@@ -48,3 +48,7 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 1. When now making an order, the order will be operated and persisted by the **OrderService** instead of the monolithic booking service (in fact, the booking service calls the OrderService).
 
 1. We can verify the service flow in Dynatrace.
+    1. From the left menu, choose the **Transaction & services** tab.
+    1. Select service **TicketMonsterUI**.
+    1. Click on **View service flow**.
+    1. Then you see the service flow containing the microservice `orders-service`.

@@ -27,4 +27,4 @@ For more details about this lab, please take a look at the following blog post: 
 1. From the left menu, choose the **Transaction & services** tab.
 1. Select service **TicketMonsterUI**.
 1. Click on **View service flow**.
-1. Then you see the service flow with the name `ws-xx-orders-service` service.
+1. Then you see the service flow containing the virtual microservice `ws-xx-orders-service`.
