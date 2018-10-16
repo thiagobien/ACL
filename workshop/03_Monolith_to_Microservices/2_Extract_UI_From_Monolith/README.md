@@ -1,6 +1,6 @@
 # Extract the User Interface from the Monolith
 
-To start breaking up the monolith, a best practice is extracting the user interface from TicketMonster since this helps to decouple the client facing part from the business logic. So, this lab launches the first microservice to seperate the user interface from the rest of TicketMonster depicted below.
+To start breaking up the monolith, a best practice is extracting the user interface from TicketMonster since this helps to decouple the client facing part from the business logic. So, this lab launches the first microservice to seperate the user interface from the rest of TicketMonster as depicted below.
 
 ![tm-ui-v1](../assets/extract_ui.png)
 
@@ -29,6 +29,10 @@ To start breaking up the monolith, a best practice is extracting the user interf
 1. Deploy the user interface.
     ```
     oc new-app -e BACKENDURL=<your-backend-url> --docker-image=dynatraceacm/ticketmonster-ui-v1:latest
+    ```
+
+1. Expose the user interface service.
+    ```
     oc expose service ticketmonster-ui-v1
     ```
 

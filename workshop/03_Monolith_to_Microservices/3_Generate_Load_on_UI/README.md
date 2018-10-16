@@ -13,19 +13,19 @@ Install the following tool(s):
 
 1. Switch to the `load-generation` directory.
 
-1. Build image using Docker
+1. Build image using Docker.
     ```
     docker build -t <your dockerhub account>/loadgeneration:latest .
     docker images
     ```
 
 ## Step 2. Run container and start script
-1. Usage of load generation script
+1. Usage of load generation script:
     ```
     usage: loadgeneration.sh <target URL> <duration in minutes> <[clients/minute] | [empty = random number of clients (1..10) / minute] >
     ```
 
-1. Start script using the container
+1. Start script using the container.
     ```
     docker run -d --rm <imageID> /bin/bash loadgeneration.sh <your-front-end-url> 10 15
     ```
