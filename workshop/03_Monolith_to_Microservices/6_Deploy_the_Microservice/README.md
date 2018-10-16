@@ -8,7 +8,7 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 
 ## Step 1: Deploy the Microservice
 
-1. Create a new application in OpenShift.
+1. Create a new application representing the microservice **OrdersService**.
     ```
     oc new-app --docker-image=dynatraceacm/ticketmonster-orders-service:latest
     ```
@@ -20,7 +20,7 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 
 ## Step 2. Deploy a new backend version (v2) of the Monolith
 
-1. Make sure to replace XX with your assigned workshop number.
+1. Create a new version of the monolith that can deal with the microservice **OrdersService**.
     ```
     oc new-app -e MYSQL_SERVICE_HOST=ticketmonster-db -e MYSQL_SERVICE_PORT=3306 --docker-image=dynatraceacm/ticketmonster-backend-v2:latest
     ```
@@ -30,7 +30,7 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
     oc expose service ticketmonster-backend-v2 --name=backend-v2
     ```
 
-1. We need to re-route the backend route to hit the new backend service.
+1. Re-route the backend route to hit the new backend service.
     ```
     oc set route-backends backend ticketmonster-monolith=0 ticketmonster-backend-v2=100 
     ```
