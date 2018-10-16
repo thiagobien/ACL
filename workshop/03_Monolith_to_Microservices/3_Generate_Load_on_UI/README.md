@@ -27,5 +27,5 @@ Install the following tool(s):
 
 1. Start script using the container
     ```
-    docker run -d --rm <imageID> /bin/bash loadgeneration.sh https://ticket-monster.YOUR-SYSTEM-DOMAIN.com/#/ 10 15
+    docker run -d --rm <imageID> /bin/bash loadgeneration.sh <your-front-end-url> 10 15
     ```

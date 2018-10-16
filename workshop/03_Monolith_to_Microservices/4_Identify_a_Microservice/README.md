@@ -1,6 +1,6 @@
 # Identify a Microservice using Dynatrace
 
-In this lab you'll learn how to virtually break a monolithic application.
+In this lab you'll learn how to virtually break a monolithic application. For this task, Dynatrace provides the feature of **Custom service detection** that allows to define an entry point at which the monolith should be broken without touching any line of code.
 
 For more details about this lab, please take a look at the following blog post: [Identifying a Microservice](https://www.dynatrace.com/news/blog/monolith-to-microservices-how-to-identify-your-first-microservice/)
 
@@ -23,7 +23,7 @@ For more details about this lab, please take a look at the following blog post: 
 1. **Checkout** your ticket booking after specifying your email.
 1. Review your booking details.
 
-## Step 3: See Service Flow in Dynatrace
+## Step 3: Consider Service Flow in Dynatrace
 1. From the left menu, choose the **Transaction & services** tab.
 1. Select service **TicketMonsterUI**.
 1. Click on **View service flow**.

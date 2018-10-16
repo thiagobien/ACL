@@ -32,7 +32,7 @@ Install the following tool(s):
     1. Login to the Dynatrace tenant: tenant-url (Please ask instructor for Dynatrace tenant and login credentials.)
     1. From the left menu, choose the **Settings** tab.
     1. In the Settings page, open **Preferences** and **Management zones**.
-    1. Click **Create management zone**  and set name to `ws-XX-mz` (`XX` is your assigned number).
+    1. Click **Create management zone**  and set name to `ws-XX` (`XX` is your assigned number).
     1. Click **Add new rule** and set rule applies to `Process groups`. 
     1. As condition define: `Kubernetes namespace` > `begins with` > enable `Case sensitive` > name of your project `ws-XX`
     1. Finally, click **Save**.
