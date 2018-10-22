@@ -1,4 +1,4 @@
-# Virtual operations / API
+# Virtual Operations and Dynatrace API
 
 This session gives an overview of ...
 
