@@ -20,7 +20,7 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. Select **Apply to underlying process groups of matching services**.
 1. **Save** and test the Management Zone in the Smartscape View.
 
-## Step 2: Create Management Zone for Dev Team**
+## Step 2: Create Management Zone for Dev Team
 1. Choose the **Settings** tab from the left menu.
 1. Click on **Management zones** and **Create management zones**.
 1. Set the name of the management zone: `Dev Team`.
@@ -30,7 +30,7 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. Select **Apply to underlying process groups of matching services**.
 1. **Save** and test the Management Zone in the Smartscape View.
 
-## Step 3: Create Management Zone for Architect Team**
+## Step 3: Create Management Zone for Architect Team
 1. Choose the **Settings** tab from the left menu.
 1. Click on **Management zones** and **Create management zones**.
 1. Set the name of the management zone: `Architect Team`.
@@ -44,8 +44,8 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. Select **Apply to underlying process groups of matching services**.
 1. **Save** and test the Management Zone in the Smartscape View.
 
-## Step 4: Create Management Zone for Operations Team**
+## Step 4: Create Management Zone for Operations Team
 Create a Management Zone for all HOSTS & Processes.
 
-## (optional) Step 5: Create Management Zone for Business Team**
+## Step 5: (optional) Create Management Zone for Business Team
 Create a Management Zone that covers all Web Applications.

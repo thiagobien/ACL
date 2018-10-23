@@ -24,3 +24,25 @@ It will take about 30s until the tags are automatically applied to the services.
 1. Click in **Filtered by** edit field.
 1. Select `SERVICE_TYPE` and select `FRONTEND`.
 1. You should see the service `front-end`. Open it up.
+
+## Step 3: Create Service Tag Rule for App Name
+1. Choose the **Settings** tab from the left menu.
+1. Click on **Tags** and **Automatically applied tags**.
+1. Create a new custom tag with the name `app`.
+1. Edit that tag and **Add new rule** .
+    * Rule applies to: `Services` 
+    * Optional tag value: `{ProcessGroup:KubernetesContainerName}`
+    * Condition on `Kubernetes container name` if `exists`
+1. Click on **Preview** to validate rule works.
+1. Click on **Save** for the rule and then **Done**.
+
+## Step 4: Create Service Tag Rule for Environment
+1. Choose the **Settings** tab from the left menu.
+1. Click on **Tags** and **Automatically applied tags**.
+1. Create a new custom tag with the name `environment`.
+1. Edit that tag and **Add new rule** .
+    * Rule applies to: `Services` 
+    * Optional tag value: `{ProcessGroup:KubernetesNamespace}`
+    * Condition on `Kubernetes namespace` if `exists`
+1. Click on **Preview** to validate rule works.
+1. Click on **Save** for the rule and then **Done**.
