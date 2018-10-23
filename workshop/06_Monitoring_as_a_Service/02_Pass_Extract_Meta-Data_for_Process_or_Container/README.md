@@ -2,7 +2,7 @@
 
 In this lab you learn which meta-data is captured automatically, how to pass custom meta data and how you can use this meta data to influence process group detection and automated tagging.
 
-The OneAgent automatically captures a lot of meta data for each process which will be propagated to the Process Group Instance and the Process Group itself, e.g: Technology, JVM Version, Docker Image, Kubernetes pod names, service version number, etc. You can add additional meta data to every processes [via the environment variable DT_CUSTOM_PROP, DT_TAGS, ...](https://www.dynatrace.com/support/help/infrastructure/processes/how-do-i-define-my-own-process-group-metadata/)
+The OneAgent automatically captures a lot of meta data for each process which will be propagated to the Process Group Instance and the Process Group itself, e.g: Technology, JVM Version, Docker Image, Kubernetes pod names, service version number, etc. You can add additional meta data to every processes [via the environment variable like DT_CUSTOM_PROP, DT_TAGS](https://www.dynatrace.com/support/help/infrastructure/processes/how-do-i-define-my-own-process-group-metadata/)
 
 * *Which additional meta data should we pass?*
 It depends on your environment but here are some ideas, e.g: Build Number, Version Number, Team Ownership, or Type of Service.
@@ -12,12 +12,57 @@ You can use custom and existing meta data from, e.g: Java Properties, Environmen
 
 ## Step 1: Pass Meta-data via Custom Environment Variables
 
-1. TBD
+1. Switch to the `carts/` directory and open `./manifest/carts.yml`.
 
-## Step 2: Influence PGI Detection to detect each Build as separate PGI
+1. Add the **DT_TAGS** and **DT_CUSTOM_PROP** environment variable with the values shown below.
+    ```
+    env:
+      - name: JAVA_OPTS
+        value: -Xms128m -Xmx512m -XX:PermSize=128m -XX:MaxPermSize=128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+      - name: DT_TAGS
+        value: "SERVICE_TYPE=BACKEND"
+      - name: DT_CUSTOM_PROP
+        value: "SERVICE_TYPE=BACKEND"
+    ```
 
-1. TBD
+1. Commit/Push the changes to your GitHub Repository *carts*. 
 
-## Step 3: Influence PGI Detection through Process Group Detection Rules
+1. Re-deploy the carts service by triggering a Jenkins build.
 
-1. TBD
+1. Indetify the tag and custom meta data in Dynatrace for the *carts* service and process group as shown below.
+    * Screenshot
+
+## Step 2 (Optional): Influence PGI Detection to detect each Build as separate PGI
+
+For this step it is necessary to add the **DT_NODE_ID** environment variable to the service definition. This changes the default Process Group Instance detection mechanism and every docker instance, even if it comes from the same docker image, will be split into its own PGI. **Note: Kubernetes, OpenShift, CloudFoundry:** For these platforms the OneAgent automatically detects containers running in different pods, spaces or projects. There should be no need to leverage DT_NODE_ID to separate your container instances.
+
+1. Open `./manifest/carts.yml` again.
+
+1. Add the **DT_NODE_ID** environment variable with the value shown below.
+    ```
+    env:
+      - name: JAVA_OPTS
+        value: -Xms128m -Xmx512m -XX:PermSize=128m -XX:MaxPermSize=128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+      - name: DT_TAGS
+        value: "SERVICE_TYPE=BACKEND"
+      - name: DT_CUSTOM_PROP
+        value: "SERVICE_TYPE=BACKEND"
+      - name: DT_NODE_ID
+        value: to-be-replaced-by-jenkins
+    ```
+
+1. Open `Jenkinsfile` of carts.
+
+1. In the `steps` section of stage `Deploy to dev namespace`, add the following `sed` command right before the `kubectl apply`.
+    ```
+    sh "sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' manifest/payment.yml"      
+    ```
+
+1. In the `steps` section of stage `Deploy to staging`, add the following `sed` command right before the `kubectl apply`.
+    ```
+    sh "cd k8s-deploy-staging/ && sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' payment.yml"
+    ```
+
+1. Commit/Push the changes to your GitHub Repository *carts*. 
+
+1. Re-deploy the carts service by triggering a Jenkins build.

@@ -1,6 +1,6 @@
 # Instrument Kubernetes Cluster with Dynatrace OneAgent Operator
 
-In this lab you'll instrument a Kubernetes Cluster with Dynatrace OneAgent, which automatically monitors all our processes, containers, services, applications and end-users.
+In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, which automatically monitors all our processes, containers, services, applications and end-users.
 
 ## Step 1: Get Dynatrace API Token and PaaS Token
 1. Set Dynatrace API Url

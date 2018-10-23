@@ -2,7 +2,7 @@
 
 In this lab you'll learn how to automatically apply tags on service level. This allows you to query service-level metrics (Response Time, Failure Rate, Throughput) automatically based on meta-data that you have passed during a deployment, e.g: *Service Type* (e.g., frontend, backend), *Deployment Stage* (e.g., dev, staging, production).
 
-In order to tag services, Dynatrace provides **Automated Service Tag Rules**. In this lab you want Dynatrace to create a new Service-level TAG with the name **SERVICE_TYPE**. It should only apply the tag *if* the underlying Process Group has the custom meta-data property **SERVICE_TYPE**. If that is the case, you also want to take this value and apply it as the tag value for **Service_Type**.
+In order to tag services, Dynatrace provides **Automated Service Tag Rules**. In this lab you want Dynatrace to create a new Service-level tag with the name **SERVICE_TYPE**. It should only apply the tag *if* the underlying Process Group has the custom meta-data property **SERVICE_TYPE**. If that is the case, you also want to take this value and apply it as the tag value for **Service_Type**.
 
 ## Step 1: Create Service Tag Rule
 1. Go to Settings -> Tags -> Automatically applied tags
@@ -15,7 +15,7 @@ The next screenshot shows that rule definition:
 
 
 
-## Step 2: Search for Services with Tag
+## Step 2: Search for Services by Tag
 It will take about 30s until the tags are automatically applied to the services.
 1. Go to Transaction & services
 1. Click in "Filtered by" edit field
