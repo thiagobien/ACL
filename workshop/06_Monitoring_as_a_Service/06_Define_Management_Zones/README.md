@@ -1,3 +1,0 @@
-# Define Management Zones in Dynatrace
-
-## Step 1: ...

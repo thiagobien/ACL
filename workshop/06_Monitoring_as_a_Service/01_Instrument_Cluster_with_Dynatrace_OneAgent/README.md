@@ -1,6 +1,6 @@
 # Instrument Kubernetes Cluster with Dynatrace OneAgent Operator
 
-In this lab you'll learn how to instrument a Kubernetes Cluster with Dynatrace OneAgent and how OneAgent automatically monitors all our processes, containers, services, applications and end-users.
+In this lab you'll instrument a Kubernetes Cluster with Dynatrace OneAgent, which automatically monitors all our processes, containers, services, applications and end-users.
 
 ## Step 1: Get Dynatrace API Token and PaaS Token
 1. Set Dynatrace API Url
@@ -30,7 +30,7 @@ In this lab you'll learn how to instrument a Kubernetes Cluster with Dynatrace O
         export API_TOKEN=<DT_API_Token>
         ```
 
-## Step 2. Roll-out Dynatrace OneAgent Operator
+## Step 2. Rollout Dynatrace OneAgent Operator
 1. Create Dynatrace Operator
     ```
     kubectl create -f https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/master/deploy/kubernetes.yaml
@@ -67,4 +67,16 @@ In this lab you'll learn how to instrument a Kubernetes Cluster with Dynatrace O
     kubectl create -f oneagent.yml
     ```
 
-## Step 3. Take a look into Dynatrace
+## Step 3. Execute some load on Application
+
+## Step 4. Explore automated Monitoring Result in Dynatrace
+
+Here are a couple of things that happened "automagically" due to the installation of Dynatrace OneAgent Operator.
+
+1. View Properties and Tags of Hosts in your Cluster
+    * Screenshot needed
+
+1. View Process Groups for each application
+    * Screenshot needed
+
+    If you run multiple process or docker instances of the same process or container image, Dynatrace will group them all into a single **Process Group Instance (PGI)**. In this case that means that we will see **one** PGI for front-end, **one** for carts, **one** for users, etc. The fact that you have multiple instances of the same container on the same host doesn't give you individual PGIs. That is the default behavior. You have ways to change that behavior through Process Group Detection rules or by using some of the DT_ environment variables, as shown in a next lab.
