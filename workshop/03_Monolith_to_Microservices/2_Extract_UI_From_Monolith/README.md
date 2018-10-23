@@ -26,7 +26,7 @@ To start breaking up the monolith, a best practice is extracting the user interf
     ProxyPassReverse "/rest" "http://${BACKENDURL}/rest"
     ```
     
-1. Deploy the user interface.
+1. Deploy the user interface. Paste your backend-url in the following format, e.g., `http://backend-ticketmonster.XX.XX.XX.XX.nip.io/`
     ```
     oc new-app -e BACKENDURL=<your-backend-url> --docker-image=dynatraceacm/ticketmonster-ui-v1:latest
     ```
