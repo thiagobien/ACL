@@ -51,5 +51,5 @@ Based on this assumption, you will learn how to create Management Zones that wil
 **Step 4: Create Management Zone for Operations Team**
 Create a Management Zone for all HOSTS & Processes.
 
-**Step 5: Create Management Zone for Business Team**
+**(optional) Step 5: Create Management Zone for Business Team**
 Create a Management Zone that covers all Web Applications
