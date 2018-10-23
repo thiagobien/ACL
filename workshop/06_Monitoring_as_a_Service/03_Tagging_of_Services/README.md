@@ -15,7 +15,7 @@ In order to tag services, Dynatrace provides **Automated Service Tag Rules**. In
 1. Click on **Preview** to validate rule works.
 1. Click on **Save** for the rule and then **Done**.
 
-Here is the screenshot that shows that rule definition.
+Here is a screenshot showing that rule definition.
 ![tagging-rule](../assets/tagging_rule.png)
 
 ## Step 2: Search for Services by Tag

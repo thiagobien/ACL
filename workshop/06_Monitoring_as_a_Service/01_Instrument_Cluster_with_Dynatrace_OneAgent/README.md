@@ -20,7 +20,6 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
         ```
 
 1. Get/Set Dynatrace API Token
-    1. Login to Dynatrace.
     1. Choose the **Settings** tab from the left menu.
     1. Click on **Integration** and **Dynatrace API**.
     1. Click on **Generate token**, specify a name of the token (e.g. k8s_operator) and click on **Generate**.

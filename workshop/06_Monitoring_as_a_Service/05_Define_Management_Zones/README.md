@@ -11,22 +11,45 @@ This lab assumes that there are following teams:
 Based on this assumption, you will learn how to create Management Zones that will give each team access to the data they are supposed to see. 
 
 ## Step 1: Create Management Zone for Frontend & Backend Team
-1. Go to Settings -> Preferences -> Management Zones
-1. Create a Zone named "Frontend Services"
-1. Add a new rule for "Services"
-1. Define a condition for SERVICE_TYPE=FRONTEND
-1. Select "Apply to underlying process groups of matching services"
-1. Add a second rule for SERVICE_TYPE=BACKEND
-1. Save and test the Management Zone in the Smartscape View
+1. Choose the **Settings** tab from the left menu.
+1. Click on **Management zones** and **Create management zones**.
+1. Set the name of the management zone: `Frontend & Backend Services`.
+1. **Add new rule** for frontend service:
+    * Rule applies to: `Services` 
+    * Condition on `SERVICE_TYPE` equals `FRONTEND`
+1. Select **Apply to underlying process groups of matching services**
+1. **Add new rule** for backend services:
+    * Rule applies to: `Services` 
+    * Condition on `SERVICE_TYPE` equals `BACKEND`
+1. Select **Apply to underlying process groups of matching services**
+1. **Save** and test the Management Zone in the Smartscape View
 
 **Step 2: Create Management Zone for Dev Team**
-Create a Zone that shows ALL entities that are tagged with Environment=Development
+1. Choose the **Settings** tab from the left menu.
+1. Click on **Management zones** and **Create management zones**.
+1. Set the name of the management zone: `Dev Team`.
+1. **Add new rule** for frontend service:
+    * Rule applies to: `Services` 
+    * Condition on `Kubernetes` equals `dev`
+1. Select **Apply to underlying process groups of matching services**
+1. **Save** and test the Management Zone in the Smartscape View
 
 **Step 3: Create Management Zone for Architect Team**
-Create a Zone that shows ALL entities that are tagged with Environment=Development or Environment=Staging
+1. Choose the **Settings** tab from the left menu.
+1. Click on **Management zones** and **Create management zones**.
+1. Set the name of the management zone: `Architect Team`.
+1. **Add new rule** for frontend service:
+    * Rule applies to: `Services` 
+    * Condition on `Kubernetes` equals `dev`
+1. Select **Apply to underlying process groups of matching services**
+1. **Add new rule** for frontend service:
+    * Rule applies to: `Services` 
+    * Condition on `Kubernetes` equals `staging`
+1. Select **Apply to underlying process groups of matching services**
+1. **Save** and test the Management Zone in the Smartscape View
 
 **Step 4: Create Management Zone for Operations Team**
-Create a Zone for all HOSTS & Processes.
+Create a Management Zone for all HOSTS & Processes.
 
 **Step 5: Create Management Zone for Business Team**
-Create a Zone that covers all Web Applications
+Create a Management Zone that covers all Web Applications
