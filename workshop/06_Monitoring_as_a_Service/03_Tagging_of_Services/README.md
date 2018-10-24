@@ -8,7 +8,7 @@ In order to tag services, Dynatrace provides **Automated Service Tag Rules**. In
 1. Choose the **Settings** tab from the left menu.
 1. Click on **Tags** and **Automatically applied tags**.
 1. Create a new custom tag with the name `SERVICE_TYPE`.
-1. Edit that tag and **Add new rule** .
+1. Edit that tag and **Add new rule**.
     * Rule applies to: `Services` 
     * Optional tag value: `{ProcessGroup:Environment:SERVICE_TYPE}`
     * Condition on `Process group properties -> SERVICE_TYPE` if `exists`
@@ -29,7 +29,7 @@ It will take about 30s until the tags are automatically applied to the services.
 1. Choose the **Settings** tab from the left menu.
 1. Click on **Tags** and **Automatically applied tags**.
 1. Create a new custom tag with the name `app`.
-1. Edit that tag and **Add new rule** .
+1. Edit that tag and **Add new rule**.
     * Rule applies to: `Services` 
     * Optional tag value: `{ProcessGroup:KubernetesContainerName}`
     * Condition on `Kubernetes container name` if `exists`
@@ -40,7 +40,7 @@ It will take about 30s until the tags are automatically applied to the services.
 1. Choose the **Settings** tab from the left menu.
 1. Click on **Tags** and **Automatically applied tags**.
 1. Create a new custom tag with the name `environment`.
-1. Edit that tag and **Add new rule** .
+1. Edit that tag and **Add new rule**.
     * Rule applies to: `Services` 
     * Optional tag value: `{ProcessGroup:KubernetesNamespace}`
     * Condition on `Kubernetes namespace` if `exists`

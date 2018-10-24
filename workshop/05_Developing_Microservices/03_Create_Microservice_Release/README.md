@@ -15,6 +15,6 @@ In this lab you'll learn
     1. Reads the current version of the microservice.
     1. Creates a release branch with the name release/**version**.
     1. Increments the current version by 1. 
-    1. Pushes the new version to the Git repository.
+    1. Commits/Pushes the new version to the Git repository.
 
 ## Step 2. Build new Release in Jenkins
