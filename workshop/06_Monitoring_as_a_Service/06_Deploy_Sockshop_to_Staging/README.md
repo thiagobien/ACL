@@ -36,7 +36,7 @@ Now as you have everything correctly setup and configured for our first environm
 1. Release `catalogue` service to staging as shown above.
 
 ## Step 2. Build new Release in Jenkins
-1. Go to **Jenkins**, and **sockshop**
+1. Go to **Jenkins** and **sockshop**.
 1. Click on the pipeline for each service and **Scan Multibranch Pipeline Now**.
 1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 
 
