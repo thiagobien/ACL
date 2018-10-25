@@ -1,5 +1,7 @@
 # Check Prerequisites
 
+![Lab Setup Step 1](../assets/lab-setup-1.png)
+
 1. If you don't have received your user credentials and connection information for the bastion host, please reach out to one of the instructors.
 
 1. Use your ssh client to connect to the bastion host and ensure the ```kubectl``` is configured for your GKE cluster.
@@ -24,3 +26,7 @@
     The output should look similiar to the following image.
 
     ![kubectl get namespaces](../assets/kubectl-get-namespaces.png)
+
+:arrow_forward: [Next chapter](../2_Fork_GitHub_Repositories)
+
+:arrow_up: [Back to overview](../)
