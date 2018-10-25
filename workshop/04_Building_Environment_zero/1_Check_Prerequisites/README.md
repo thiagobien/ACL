@@ -14,7 +14,7 @@
 
     The output should look similiar to the following image, where (1) should be the name of your cluster, and (2) is the generated access token.
 
-    ![kubectl config view](assets/kubectl-config-view.png)
+    ![kubectl config view](../assets/kubectl-config-view.png)
 
     ```
     (bastion)$ kubectl get namespaces
