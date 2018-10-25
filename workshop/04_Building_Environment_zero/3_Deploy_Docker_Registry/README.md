@@ -27,6 +27,6 @@
 
 ---
 
-[Previous Step: Check Prerequisites](../2_Fork_GitHub_Repositories) :arrow_left: :arrow_forward: [Next Step: Deploy Jenkins](../4_Deploy_Jenkins)
+[Previous Step: Check Prerequisites](../2_Fork_GitHub_Repositories) :arrow_backward: :arrow_forward: [Next Step: Deploy Jenkins](../4_Deploy_Jenkins)
 
 :arrow_up_small: [Back to overview](../)

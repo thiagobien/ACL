@@ -38,6 +38,6 @@
 
 ---
 
-[Previous Step: Check Prerequisites](../1_Check_Prerequisites) :arrow_left: :arrow_forward: [Next Step: Fork GitHub Repositories](../3_Deploy_Docker_Registry)
+[Previous Step: Check Prerequisites](../1_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Fork GitHub Repositories](../3_Deploy_Docker_Registry)
 
 :arrow_up_small: [Back to overview](../)
