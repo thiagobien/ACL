@@ -27,6 +27,6 @@
 
     ![kubectl get namespaces](../assets/kubectl-get-namespaces.png)
 
-:arrow_forward: [Next chapter](../2_Fork_GitHub_Repositories)
+---
 
-:arrow_up: [Back to overview](../)
+:arrow_forward: [Next Step: Fork GitHub Repositories](../2_Fork_GitHub_Repositories) || :arrow_up_small: [Back to overview](../)
