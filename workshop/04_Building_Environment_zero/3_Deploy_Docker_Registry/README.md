@@ -19,11 +19,21 @@
     (bastion)$ kubectl create -f manifests/k8s-namespaces.yml
     ```
 
-2. We specify that we want to have fast SSD storage by executing the following command (`~/manifests/k8s-storage.yml`):
+1. We specify that we want to have fast SSD storage by executing the following command (`~/manifests/k8s-storage.yml`):
 
     ```
     (bastion)$ kubectl create -f manifests/k8s-storage.yml
     ```
+
+1. Now we create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data when the pod is restarted.
+
+    ```
+    (bastion)$ kubectl create -f manifests/k8s-docker-pvc-registry.yml
+    ```
+
+1. 
+
+
 
 ---
 
