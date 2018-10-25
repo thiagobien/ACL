@@ -29,6 +29,8 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
         export API_TOKEN=<DT_API_Token>
         ```
 
+![generate-api-token](../assets/api_token.png)
+
 ## Step 2. Rollout Dynatrace OneAgent Operator
 1. Create Dynatrace Operator
     ```
