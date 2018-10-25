@@ -30,8 +30,7 @@ Install the following tool(s):
 
 1. Set up a management zone for your OpenShift project
     1. Login to the Dynatrace tenant: tenant-url (Please ask instructor for Dynatrace tenant and login credentials.)
-    1. Choose the **Settings** tab from the left menu.
-    1. Open **Preferences** and **Management zones** in the Settings page.
+    1. Go to **Settings**, **Preferences**, and click on **Management zones**.
     1. Click **Create management zone**  and set name to `ws-XX` (`XX` is your assigned number).
     1. Click **Add new rule** and set rule applies to `Process groups`. 
     1. As condition define: `Kubernetes namespace` > `begins with` > enable `Case sensitive` > name of your project `ws-XX`

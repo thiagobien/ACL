@@ -11,8 +11,7 @@ This lab assumes that there are following teams:
 Based on this assumption, you will learn how to create Management Zones that will give each team access to the data they are supposed to see. 
 
 ## Step 1: Create Management Zone for Frontend Team
-1. Choose the **Settings** tab from the left menu.
-1. Click on **Management zones** and **Create management zones**.
+1. Go to **Settings**, **Management zones**, and click on **Create management zones**.
 1. Set the name of the management zone: `Frontend Services`.
 1. **Add new rule** for frontend service:
     * Rule applies to: `Services` 
@@ -21,8 +20,7 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. **Save** and test the Management Zone in the Smartscape View.
 
 ## Step 2: Create Management Zone for Dev Team
-1. Choose the **Settings** tab from the left menu.
-1. Click on **Management zones** and **Create management zones**.
+1. Go to **Settings**, **Management zones**, and click on **Create management zones**.
 1. Set the name of the management zone: `Dev Team`.
 1. **Add new rule** for frontend service:
     * Rule applies to: `Services` 
@@ -31,8 +29,7 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. **Save** and test the Management Zone in the Smartscape View.
 
 ## Step 3: Create Management Zone for Architect Team
-1. Choose the **Settings** tab from the left menu.
-1. Click on **Management zones** and **Create management zones**.
+1. Go to **Settings**, **Management zones**, and click on **Create management zones**.
 1. Set the name of the management zone: `Architect Team`.
 1. **Add new rule** for frontend service:
     * Rule applies to: `Services` 

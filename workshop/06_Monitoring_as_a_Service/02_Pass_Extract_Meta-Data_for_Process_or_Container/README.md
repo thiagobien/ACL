@@ -20,7 +20,7 @@ You can use custom and existing meta data from, e.g: Java Properties, Environmen
       - name: JAVA_OPTS
         value: -Xms128m -Xmx512m -XX:PermSize=128m -XX:MaxPermSize=128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
       - name: DT_TAGS
-        value: "SERVICE_TYPE=BACKEND"
+        value: "product=sockshop"
       - name: DT_CUSTOM_PROP
         value: "SERVICE_TYPE=BACKEND"
     ```

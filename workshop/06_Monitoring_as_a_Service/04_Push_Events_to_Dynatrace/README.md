@@ -12,8 +12,7 @@ Before using the Performance Signature Plugin into build pipelines, it is necess
 1. Besides, specify a Dynatrace API Token by clicking on **Add** > **Jenkins**.
 1. The kind is **Dynatrace API Token** and the ID is `dynatraceToken`.
 1. To retrieve the API token from Dynatrace:
-    1. Choose the **Settings** tab from the left menu.
-    1. Click on **Integration** and **Dynatrace API**.
+    1. Go to **Settings**, **Integration**, and click on **Dynatrace API**.
     1. Click on **Generate token**, specify a name of the token (e.g. jenkins_pipeline) and click on **Generate**.
     1. Open the API Token and **Copy** the token to the clipboard.
 1. Paste the API Token and click on **Add**.

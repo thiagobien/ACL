@@ -8,8 +8,7 @@ For more details about this lab, please take a look at the following blog post: 
 
 ## Step 1: Define Custom Service Entry Points
 1. Login to the Dynatrace tenant: tenant-url (Please ask instructor for Dynatrace tenant and login credentials.)
-1. Choose the **Settings** tab from the left menu.
-1. Open **Server-side service monitoring** and **Custom service detection** in the Settings page.
+1. Go to **Settings**, **Server-side service monitoring**, and click on **Custom service detection**.
 1. Click on **Define Jave service**, set name of custom service to `ws-xx-orders-service` and click **Find entry point**.
 1. Select the process group that contains your entry point `ticketmonster-monolith` and click **Continue**.
 1. Search for loaded classes and interfaces with name `BookingService`, select `org.jboss.examples.ticketmonster.rest.BookingService` and click **Continue**.

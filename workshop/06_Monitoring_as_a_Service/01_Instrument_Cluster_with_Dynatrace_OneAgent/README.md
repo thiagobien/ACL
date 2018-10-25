@@ -10,8 +10,7 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
 
 1. Get/Set Dynatrace PaaS Token
     1. Login to Dynatrace.
-    1. Choose the **Deploy Dynatrace** tab from the left menu.
-    1. Click on **Set up PaaS integration** and **Generate new token**.
+    1. Go to **Deploy Dynatrace**, **Set up PaaS integration** and click on **Generate new token**.
     1. Specify a name of the token (e.g. k8s_workshop) and click on **Generate**.
     1. **Copy** the token to the clipboard. 
     1. Finally, set the PaaS Token as environment variable:
@@ -20,8 +19,7 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
         ```
 
 1. Get/Set Dynatrace API Token
-    1. Choose the **Settings** tab from the left menu.
-    1. Click on **Integration** and **Dynatrace API**.
+    1. Go to **Settings**, **Integration** and click on **Dynatrace API**.
     1. Click on **Generate token**, specify a name of the token (e.g. k8s_operator_token) and click on **Generate**.
     1. Open the API Token and **Copy** the token to the clipboard. 
     1. Finally, set the API Token as environment variable:
@@ -80,4 +78,4 @@ Here are a couple of things that happened "automagically" due to the installatio
 1. View Process Groups for each application
     * Screenshot needed
 
-    If you run multiple process or docker instances of the same process or container image, Dynatrace will group them all into a single **Process Group Instance (PGI)**. In this case that means that we will see **one** PGI for front-end, **one** for carts, **one** for users, etc. The fact that you have multiple instances of the same container on the same host doesn't give you individual PGIs. That is the default behavior. You have ways to change that behavior through Process Group Detection rules or by using some of the DT_ environment variables, as shown in a next lab.
+    If you run multiple process or docker instances of the same process or container image, Dynatrace will group them all into a single **Process Group Instance (PGI)**. In this case that means that we will see **one** PGI for front-end, **one** for carts, **one** for users, etc. The fact that you have multiple instances of the same container on the same host doesn't give you individual PGIs. That is the default behavior. You have ways to change that behavior through Process Group Detection rules or by using some of the *DT_* environment variables, as shown in a next lab.
