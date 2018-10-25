@@ -28,7 +28,7 @@ In this lab you'll first investigate the code structure of a microservice includ
 1. Consider the **Service** section.
     * Identify the **Port** defintion.
 
-## Step 3. Deploy Carts on the Kubernetes Cluster
+## Step 3. Deploy Carts on Kubernetes Cluster
 
 1. Copy the `manifest` folder to `lab-manifest`.
 
