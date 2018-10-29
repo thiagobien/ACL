@@ -4,10 +4,6 @@
 
 ![Lab Setup Step 1](../assets/lab-setup-1.png)
 
-## Data needed
-* IP address of bastion host
-* Credentials for bastion host
-
 ## Steps
 
 1. If you don't have received your user credentials and connection information for the bastion host, please reach out to one of the instructors.

@@ -25,13 +25,27 @@
     (bastion)$ kubectl create -f manifests/k8s-storage.yml
     ```
 
-1. Now we create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data when the pod is restarted.
+1. Now we create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data, even when the pod is restarted. 
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-docker-pvc-registry.yml
+    (bastion)$ kubectl create -f manifests/k8s-docker-registry-pvc.yml
     ```
 
-1. 
+1. Now we create the service and the deployment for the Docker registry.
+
+    ```
+    (bastion)$ kubectl create -f manifests/k8s-docker-registry-service.yml
+    (bastion)$ kubectl create -f manifests/k8s-docker-registry-deployment.yml
+    ```
+
+    Ensure the Docker registry service, the dployment, and the corresponding pods are running.
+
+    ```
+    (bastion)$ kubectl -n cicd get services
+    (bastion)$ kubectl -n cicd get deployments
+    (bastion)$ kubectl -n cicd get pods
+    ```
+
 
 
 
