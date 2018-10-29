@@ -9,7 +9,7 @@
 (nil)
 
 ## Steps
-1. In Preparation for deploying the Docker registry we're going to use throught the week, we want to create some Kubernetes namespaces (`~/manifests/k8s-namespaces.yml`):
+1. In Preparation for deploying the Docker registry we're going to use throughout the week, we want to create some Kubernetes namespaces (`~/manifests/k8s-namespaces.yml`):
     - `cicd`: hosts all CI/CD related pods and services
     - `dev`: represents the development stage
     - `stage`: represents the staging stage
