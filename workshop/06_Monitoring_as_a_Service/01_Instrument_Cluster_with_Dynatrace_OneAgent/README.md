@@ -46,7 +46,12 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
     kubectl -n dynatrace create secret generic oneagent --from-literal="apiToken=${API_TOKEN}" --from-literal="paasToken=${PAAS_TOKEN}"
     ```
 
-1. (optional) Check Configuration in `operator.yml`
+1. Check configuration in `operator.yml` and set `HOST_GROUP` parameter to assign hosts to a group.
+    ```
+      - HOST_GROUP=k8s_cluster_sockshop
+    ```
+    See the final configuration:
+
     ```
     apiVersion: dynatrace.com/v1alpha1
     kind: OneAgent
@@ -62,6 +67,7 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
       image: ""
       args:
       - APP_LOG_CONTENT_ACCESS=1
+      - HOST_GROUP=k8s_cluster_sockshop
       env:
       - name: ONEAGENT_ENABLE_VOLUME_STORAGE
         value: "true"
