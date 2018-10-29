@@ -2,7 +2,13 @@
 
 In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, which automatically monitors all our processes, containers, services, applications and end-users.
 
-## Step 1: Get Dynatrace API Token and PaaS Token
+## Step 1: Define the Cluster Role Binding
+1. Set the Cluster Role Binding for your User on Cluster Admin
+    ```
+    kubectl create clusterrolebinding dynatrace-cluster-admin-binding --clusterrole=cluster-admin --user=<your cluster user>
+    ```
+
+## Step 2: Get Dynatrace API Token and PaaS Token
 1. Set Dynatrace API Url
     ```
     export API_URL=<DT_API_URL>
@@ -29,7 +35,7 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
 
 ![generate-api-token](../assets/api_token.png)
 
-## Step 2. Rollout Dynatrace OneAgent Operator
+## Step 3. Rollout Dynatrace OneAgent Operator
 1. Create Dynatrace Operator
     ```
     kubectl create -f https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/master/deploy/kubernetes.yaml
@@ -66,9 +72,9 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
     kubectl create -f oneagent.yml
     ```
 
-## Step 3. Execute some load on Application
+## Step 4. Execute some load on Application
 
-## Step 4. Explore automated Monitoring Result in Dynatrace
+## Step 5. Explore automated Monitoring Result in Dynatrace
 
 Here are a couple of things that happened "automagically" due to the installation of Dynatrace OneAgent Operator.
 
