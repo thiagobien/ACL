@@ -19,6 +19,7 @@ In the last lab, you'll clone the GitHub repositories we've forked in lab 2 to y
     catalogue
     front-end
     jmeter-tests
+    k8s-deploy-staging
     orders
     payment
     queue-master
@@ -27,4 +28,4 @@ In the last lab, you'll clone the GitHub repositories we've forked in lab 2 to y
     user
     ```
 
-1. This concludes the la
+1. This concludes the lab
