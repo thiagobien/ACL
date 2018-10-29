@@ -46,7 +46,7 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
  
     ![](../assets/kubectl-get-services-cicd.png)
 
-1. Open `EXTERNAL-IP` in your browser and see the Jenkins UI
+1. Open `EXTERNAL-IP` in your browser and see the Jenkins UI with the preconfigured build pipelines for the Sockshop projects.
 
     ![](../assets/jenkins-ui.png)
 
@@ -58,9 +58,17 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
     ![](../assets/jenkins-ui-credentials.png)
 
-1. Provide your Git username :one:, your password :two:, and the ID "git-acm-credentials" :three:. It's important to use this ID, as the credentials are referenced by this ID by selected builds. To save the credentials click OK :four:.
+1. Provide your Git username :one:, your password :two:, and the ID :three:
+
+    ```
+    git-acm-credentials
+    ```
+    
+    It's important to use this ID, as the credentials are referenced by this ID by selected builds. To save the credentials click OK :four:.
 
     ![](../assets/jenkins-ui-add-credentials.png)
+
+1. This concludes the setup and the configuration of Jenkins.
 
 ---
 
