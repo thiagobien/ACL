@@ -5,7 +5,7 @@
 
     ![](../assets/jenkins-ui-enter-sockshop-folder.png)
 
-1. You see a list of build pipeline. **For all of the pipelines** please execute the following steps. Mouse-over the pipeline name and click on the small black arrow next to it :one: and click `Scan Multibranch Pipeline Now" in the menu :two:. By doing that, Jenkins looks for active branches of the configured GitHub project and builds the found branches accordingly.
+1. You see a list of build pipeline. **For all of the pipelines** please click the icons in the rightmost column of the table that shows all build pipelines in the Sockshop folder. By doing that, Jenkins looks for active branches of the configured GitHub project and builds the found branches accordingly.
 
     ![](../assets/jenkins-ui-trigger-pipeline.png)
 
