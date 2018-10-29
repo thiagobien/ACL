@@ -1,9 +1,5 @@
 # Fork GitHub Repositories
 
-## Overview
-
-![Lab Setup Step 2](../assets/lab-setup-2.png)
-
 ## Data needed
 * GitHub organization
 * GitHub user and email address and password

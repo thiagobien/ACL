@@ -1,12 +1,6 @@
 # Deploy Docker Registry
 
-## Overview
-
-![Lab Setup Step 3](../assets/lab-setup-3.png)
-
-## Data needed
-
-(nil)
+We use the Docker registry to save the build artefacts, i.e. Docker containers. The registry allows us to host multiple versions of an artefact. 
 
 ## Steps
 1. In Preparation for deploying the Docker registry we're going to use throughout the week, we want to create some Kubernetes namespaces (`~/manifests/k8s-namespaces.yml`):
