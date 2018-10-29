@@ -6,10 +6,17 @@
 
 ## Data needed
 * GitHub organization
-* GitHub user and password
+* GitHub user and email address and password
 
 ## Steps
-1. There is a script on the bastion host, the `~/forkGitHubRepositories.sh` script in your home directory. This script takes the name of the GitHub organization you have created in preparation for this workshop as a paramter.
+1. Configure your git user name and email address.
+
+    ```
+    (bastion)$ git config --global user.name "<firstname> <lastname>"
+    (bastion)$ git config --global user.eamil "<GitHubEmail>"
+    ```
+
+1. Execute the `~/forkGitHubRepositories.sh` script in your home directory. This script takes the name of the GitHub organization you have created in preparation for this workshop as a paramter.
 
     ```
     (bastion)$ ./forkGitHubRepositories.sh <GitHubOrg>
@@ -25,7 +32,6 @@
     catalogue
     front-end
     jmeter-tests
-    k8s-deploy-staging
     load-test
     orders
     payment
@@ -38,6 +44,6 @@
 
 ---
 
-[Previous Step: Check Prerequisites](../1_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Fork GitHub Repositories](../3_Deploy_Docker_Registry)
+[Previous Step: Check Prerequisites](../1_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Deploy Docker Registry](../3_Deploy_Docker_Registry)
 
 :arrow_up_small: [Back to overview](../)

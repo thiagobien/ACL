@@ -19,35 +19,73 @@
     (bastion)$ kubectl create -f manifests/k8s-namespaces.yml
     ```
 
+    Expected output:
+
+    ![](../assets/kubectl-create-namespaces.png)
+
 1. We specify that we want to have fast SSD storage by executing the following command (`~/manifests/k8s-storage.yml`):
 
     ```
     (bastion)$ kubectl create -f manifests/k8s-storage.yml
     ```
 
-1. Now we create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data, even when the pod is restarted. 
+    Expected output:
+
+    ![](../assets/kubectl-create-storageclass.png)
+
+1. We create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data, even when the pod is restarted. 
 
     ```
     (bastion)$ kubectl create -f manifests/k8s-docker-registry-pvc.yml
     ```
 
-1. Now we create the service and the deployment for the Docker registry.
+    Expected output:
+
+    ![](../assets/kubectl-create-registrypvc.png)
+
+1. We create the service and the deployment for the Docker registry.
 
     ```
     (bastion)$ kubectl create -f manifests/k8s-docker-registry-service.yml
+    ```
+    
+    Expected output:
+
+    ![](../assets/kubectl-create-registrysvc.png)
+
+    ```
     (bastion)$ kubectl create -f manifests/k8s-docker-registry-deployment.yml
     ```
 
-    Ensure the Docker registry service, the dployment, and the corresponding pods are running.
+    Expected output: 
+
+    ![](../assets/kubectl-create-registrydpl.png)
+
+1. Ensure the Docker registry service, the deployment, and the corresponding pods are running. **Write down the IP address of the service** - we'll need it in the next step.
 
     ```
     (bastion)$ kubectl -n cicd get services
+    ```
+
+    Expected output: 
+
+    ![](../assets/kubectl-get-services.png)
+
+    ```
     (bastion)$ kubectl -n cicd get deployments
+    ```
+
+    Expected output: 
+
+    ![](../assets/kubectl-get-deployment.png)
+
+    ```
     (bastion)$ kubectl -n cicd get pods
     ```
 
+    Expected output: 
 
-
+    ![](../assets/kubectl-get-pods.png)
 
 ---
 
