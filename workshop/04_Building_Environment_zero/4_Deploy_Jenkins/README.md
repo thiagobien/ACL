@@ -61,7 +61,7 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 1. Provide your Git username :one:, your password :two:, and the ID :three:
 
     ```
-    git-acm-credentials
+    git-credentials-acm
     ```
     
     It's important to use this ID, as the credentials are referenced by this ID by selected builds. To save the credentials click OK :four:.
