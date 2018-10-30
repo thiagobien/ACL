@@ -14,7 +14,7 @@ In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in 
     Verify the pods are running in each of the namespaces using the following command
 
     ```
-    (bastion)$ kubectl -n [dev|staging|production] get pods
+    (bastion)$ kubectl get pods --all-namespaces | grep user-db
     ```
 
 1. Start the `rabbitmq` service in all three namespaces.
@@ -28,7 +28,7 @@ In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in 
     Verify the pods are running in each of the namespaces using the following command
 
     ```
-    (bastion)$ kubectl -n [dev|staging|production] get pods
+    (bastion)$ kubectl get pods --all-namespaces | grep rabbit
     ```
 
 1. To warm up Jenkins and to populate the `dev` namespace in Kubernetes with artefacts from Sockshop, we now trigger all build pipelines in the Sockshop folder in Jenkins. To that end, we enter the Sockshop folder :one: in the Jenkins UI.
