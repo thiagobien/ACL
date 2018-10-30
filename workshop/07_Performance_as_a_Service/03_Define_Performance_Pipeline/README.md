@@ -34,7 +34,7 @@ In this lab you will build a Jenkins pipeline for implementing the Performance a
     ```
     build job: "jmeter-tests",
       parameters: [
-        string(name: 'SCRIPT_NAME', value: "${env.APP_NAME}_load.jmx"),
+        string(name: 'SCRIPT_NAME', value: "${env.APP_NAME}_perfcheck.jmx"),
         string(name: 'SERVER_URL', value: "${env.APP_NAME}.dev"),
         string(name: 'SERVER_PORT', value: '80'),
         string(name: 'CHECK_PATH', value: '/health'),
@@ -88,7 +88,7 @@ pipeline {
         {
           build job: "jmeter-tests",
             parameters: [
-              string(name: 'SCRIPT_NAME', value: "${env.APP_NAME}_load.jmx"),
+              string(name: 'SCRIPT_NAME', value: "${env.APP_NAME}_perfcheck.jmx"),
               string(name: 'SERVER_URL', value: "${env.APP_NAME}.dev"),
               string(name: 'SERVER_PORT', value: '80'),
               string(name: 'CHECK_PATH', value: '/health'),
