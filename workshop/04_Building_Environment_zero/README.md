@@ -9,7 +9,5 @@ In this module you'll learn how to setup your environment in your own GKE cluste
 1. [Trigger Build Pipelines](5_Trigger_Build_Pipelines)
 1. [Clone GitHub Repositories](6_Clone_GitHub_Repositories)
 
-![Lab Setup](assets/lab-setup.png)
-
 ## Troubleshooting and useful links
 - [`kubectl` Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
