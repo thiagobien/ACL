@@ -50,8 +50,8 @@ In this lab you'll instrument your Kubernetes Cluster with Dynatrace OneAgent, w
     ```
       - HOST_GROUP=k8s_cluster_sockshop
     ```
-    See the final configuration:
 
+    See the final configuration:
     ```
     apiVersion: dynatrace.com/v1alpha1
     kind: OneAgent
