@@ -99,7 +99,7 @@ pipeline {
               string(name: 'AVG_RT_VALIDATION', value: '250')
             ]
         }
-        // Now we use the Performance Signature Plugin to pull in Dynatrace Metrics based on the spec file
+
         perfSigDynatraceReports(
           envId: 'Dynatrace Tenant', 
           nonFunctionalFailure: 1, 
