@@ -78,7 +78,7 @@
             "deploymentVersion":"test",
             "source":"Ansible Tower",
             "remediationAction": "{{remediation_action}}",
-            customProperties":{
+            "customProperties":{
                 "CI Tool": "Ansible Tower",
                 "Build Number": "123",
                 "Git commit": "23422323233332"
