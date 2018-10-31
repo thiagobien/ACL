@@ -12,7 +12,7 @@ In this lab you will learn how to capture request attributes based on web reques
 1. At *Preprocess by extracting substring* set: `between` > `LTN=` > `;`
 1. Finally, click **Save**, click **Save**.
 
-![request-attribute](../assets/request-attribute.png)
+![request-attribute](../assets/request_attribute.png)
 
 ## Step 2: Create Request Attribute for Load Script Name (LSN)
 1. Go to **Settings**, **Server-side monitoring**, and click on **Request attributes**.
@@ -33,5 +33,5 @@ In this lab you will learn how to capture request attributes based on web reques
 1. Select the *Request attribute source*: `HTTP request header`.
 1. Specify the *Parameter name*: `x-dynatrace-test`.
 1. Open *Optionally restrict or process the captured parameter(s) further*
-1. At *Preprocess by extracting substring* set: `between` > `LTN=` > `;`
+1. At *Preprocess by extracting substring* set: `between` > `TSN=` > `;`
 1. Finally, click **Save**, click **Save**.
