@@ -17,7 +17,7 @@
       - error_rate_change
 
 
-  - name: update configuration for carts service
+  - name: update response configuration for carts service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -43,7 +43,6 @@
             "source":"Ansible Tower",
             "configuration":"response delay",
             "customProperties": {
-              "CI Tool": "Ansible",
               "remediation": "{{remediation_action}}"
             }
           }'
@@ -52,44 +51,8 @@
     tags:
       - response_time_change
 
-  - name: update deployment for carts service
-    uri:
-      url: "{{dteventapiurl}}"
-      method: POST
-      body_format: json
-      body: '{
-            "eventType": "CUSTOM_DEPLOYMENT",
-            "attachRules": {
-              "tagRule" : [{
-                  "meTypes" : ["SERVICE"],
-                  "tags" : [ {
-                    "context" : "CONTEXTLESS",
-                    "key" : "app",
-                    "value" : "carts"            
-                  }, {
-                    "context" : "CONTEXTLESS",
-                    "key" : "environment",
-                    "value" : "dev" 
-                  }
-                  ]
-                }]
-            },
-            "deploymentName":"test",
-            "deploymentVersion":"test",
-            "source":"Ansible Tower",
-            "remediationAction": "{{remediation_action}}",
-            "customProperties":{
-                "CI Tool": "Ansible Tower",
-                "Build Number": "123",
-                "Git commit": "23422323233332"
-            }
-          }'
-      return_content: yes
-    register: configurationresponse
-    tags:
-      - response_time_change
 
-  - name: update configuration for carts service
+  - name: update erorr configuration for carts service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -114,7 +77,9 @@
             "description":"error rate set to {{error_rate}} %",
             "source":"Ansible Tower",
             "configuration":"error rate",
-            "remediationAction": "{{remediation_action}}"
+            "customProperties": {
+              "remediation": "{{remediation_action}}"
+            }
           }'
       return_content: yes
     register: configurationresponse
