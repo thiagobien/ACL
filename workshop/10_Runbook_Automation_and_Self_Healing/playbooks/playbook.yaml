@@ -2,12 +2,12 @@
 - hosts: localhost
   tasks:
 
-  - name: update response time for carts service
+  - name: update response delay for carts service
     uri:
       url: "{{carts_delay_url}}/{{response_delay}}"
       method: GET
     tags:
-      - response_time_change
+      - response_delay_change
 
   - name: update error rate for carts service
     uri:
@@ -39,9 +39,9 @@
                   ]
                 }]
             },
-            "description":"response time set to {{response_delay}}ms",
+            "description":"response delay set to {{response_delay}}ms",
             "source":"Ansible Tower",
-            "configuration":"response time"
+            "configuration":"response delay"
           }'
       return_content: yes
     register: configurationresponse
@@ -70,7 +70,7 @@
                   ]
                 }]
             },
-            "description":"erorr rate set to {{erorr_rate}} %",
+            "description":"error rate set to {{error_rate}} %",
             "source":"Ansible Tower",
             "configuration":"error rate"
           }'
