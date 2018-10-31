@@ -43,7 +43,8 @@
             "source":"Ansible Tower",
             "configuration":"response delay",
             "customProperties": {
-              "remediationAction": "{{remediation_action}}"
+              "CI Tool": "Ansible",
+              "remediation": "{{remediation_action}}"
             }
           }'
       return_content: yes
@@ -76,7 +77,12 @@
             "deploymentName":"test",
             "deploymentVersion":"test",
             "source":"Ansible Tower",
-            "remediationAction": "{{remediation_action}}"
+            "remediationAction": "{{remediation_action}}",
+            customProperties":{
+                "CI Tool": "Ansible Tower",
+                "Build Number": "123",
+                "Git commit": "23422323233332"
+            }
           }'
       return_content: yes
     register: configurationresponse
