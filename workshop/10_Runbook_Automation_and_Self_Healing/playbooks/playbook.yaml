@@ -43,7 +43,7 @@
             "source":"Ansible Tower",
             "configuration":"response delay",
             "customProperties": {
-              "remediation": "{{remediation_action}}"
+              "remediationAction": "{{remediation_action}}"
             }
           }'
       return_content: yes
@@ -78,7 +78,7 @@
             "source":"Ansible Tower",
             "configuration":"error rate",
             "customProperties": {
-              "remediation": "{{remediation_action}}"
+              "remediationAction": "{{remediation_action}}"
             }
           }'
       return_content: yes
