@@ -17,7 +17,7 @@
       - error_rate_change
 
 
-  - name: update configuration for carts service
+  - name: update response configuration for carts service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -39,16 +39,20 @@
                   ]
                 }]
             },
-            "description":"response delay set to {{response_delay}}ms",
+            "description":"response delay set to {{response_delay}} ms",
             "source":"Ansible Tower",
-            "configuration":"response delay"
+            "configuration":"response delay",
+            "customProperties": {
+              "remediationAction": "{{remediation_action}}"
+            }
           }'
       return_content: yes
     register: configurationresponse
     tags:
       - response_time_change
 
-  - name: update configuration for carts service
+
+  - name: update erorr configuration for carts service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -72,10 +76,13 @@
             },
             "description":"error rate set to {{error_rate}} %",
             "source":"Ansible Tower",
-            "configuration":"error rate"
+            "configuration":"error rate",
+            "customProperties": {
+              "remediationAction": "{{remediation_action}}"
+            }
           }'
       return_content: yes
-    register: configurationresponse
+    register: errorresponse
     tags:
       - error_rate_change
 

@@ -2,17 +2,11 @@
 - name: autoremediaton playbook
   hosts: localhost
   vars:
-    #tenanturl: https://nbt24337.live.dynatrace.com
-    #apitoken: tJoueDAgQbWenSijKhNek
-    now: "{{ ansible_date_time.epoch|int * 1000}}"
-    past: "{{ now|int - 86400000 }}" # 1h = 3600000   24h = 86400000
-    #commentuser: "Ansible Playbook"
-    #dtcommentapiurl: "{{tenanturl}}/api/v1/problem/details/{{pid}}/comments?Api-Token={{apitoken}}"
-    #dtdeploymentapiurl: "{{tenanturl}}/api/v1/events/?eventType=CUSTOM_DEPLOYMENT&from={{past}}&to={{now}}&Api-Token={{apitoken}}"
-    payload:
-      #PID: "{{pid}}"
-      #ImpactedEntities: "{{impactedEntities}}"
-      #State: "{{state}}"
+    relative_time: "hour"
+    commentuser: "Ansible Playbook"
+    tower_user: "admin"
+    tower_password: "dynatrace"
+
 
 # when triggered by dynatrace problem notification
 # 1. receive event
@@ -36,9 +30,14 @@
       when: state == "OPEN"
 
 
+    - name: get entityId
+      set_fact:
+        myEntity: "{{impactedEntities | first}}"
+      when: state == "OPEN"
+
     - name: fetch custom deployment events
       uri:
-        url: "{{dtdeventapiurl}}"
+        url: "{{dteventapiurl}}&relativeTime={{relative_time}}&entityId={{myEntity.entity}}&eventType=CUSTOM_CONFIGURATION"
         return_content: yes
       with_items: "{{ impactedEntities }}"
       when: state == "OPEN"
@@ -59,12 +58,10 @@
 
     - name: call remediation action
       uri:
-        url: "{{ myItem.remediationAction }}"
+        url: "{{ myItem.customProperties.remediationAction }}"
         method: POST
-        #body_format: json
-        #body: "{{ payload | to_json }}"
-        user: admin
-        password: dynatrace
+        user: "{{tower_user}}"
+        password: "{{tower_password}}"
         force_basic_auth: yes
         status_code: [200,201,202]
         validate_certs: no
