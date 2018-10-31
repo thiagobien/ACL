@@ -1,15 +1,18 @@
 ---
 - hosts: localhost
-  tasks:
+  vars:
+    app: "carts"
+    environment: "dev"
 
-  - name: update response delay for carts service
+  tasks:
+  - name: update response delay for {{app}} service
     uri:
       url: "{{carts_delay_url}}/{{response_delay}}"
       method: GET
     tags:
       - response_delay_change
 
-  - name: update error rate for carts service
+  - name: update error rate for {{app}} service
     uri:
       url: "{{carts_error_url}}/{{error_rate}}"
       method: GET
@@ -30,11 +33,11 @@
                   "tags" : [ {
                     "context" : "CONTEXTLESS",
                     "key" : "app",
-                    "value" : "carts"            
+                    "value" : "{{app}}"            
                   }, {
                     "context" : "CONTEXTLESS",
                     "key" : "environment",
-                    "value" : "dev" 
+                    "value" : "{{environment}}" 
                   }
                   ]
                 }]
@@ -65,11 +68,11 @@
                   "tags" : [ {
                     "context" : "CONTEXTLESS",
                     "key" : "app",
-                    "value" : "carts"            
+                    "value" : "{{app}}"            
                   }, {
                     "context" : "CONTEXTLESS",
                     "key" : "environment",
-                    "value" : "dev" 
+                    "value" : "{{environment}}" 
                   }
                   ]
                 }]
