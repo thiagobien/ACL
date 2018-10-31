@@ -15,7 +15,7 @@ Each requests from the test need to be correctly tagged in order to identify the
 * **LTN** - The Load Test Name uniquely identifies a test execution (for example, 6h Load Test – June 25)
 
 ## Step 1: Open Performance Test Template
-1. Open the file `carts_perf_test.jmx`.
+1. Open the file `carts_perfcheck.jmx`.
 1. In this file locate the XML tag `<stringProp name="script">`.
 1. The tag shows the following Java code:
     ```
@@ -61,5 +61,5 @@ Each requests from the test need to be correctly tagged in order to identify the
     ```
 
 ## Step 4: Add file to script set in jmeter-tests
-1. Save the file and copy it to `jmeter-tests/scripts`. 
-1. Commit/Push the changes to your GitHub Repository *jmeter-tests*.
+1. Save the file and copy it to `.carts/scripts`. 
+1. Commit/Push the changes to your GitHub Repository *carts*.
