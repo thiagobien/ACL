@@ -36,9 +36,14 @@
       when: state == "OPEN"
 
 
+    - name: get entityId
+      set_fact:
+        myEntity: "{{impactedEntities | first}}"
+      when: state == "OPEN"
+
     - name: fetch custom deployment events
       uri:
-        url: "{{dtdeventapiurl}}&relativeTime=60mins&entityId={{impactedEntities.entity}}"
+        url: "{{dteventapiurl}}&relativeTime=hour&entityId={{myEntity.entity}}&eventType=CUSTOM_CONFIGURATION"
         return_content: yes
       with_items: "{{ impactedEntities }}"
       when: state == "OPEN"
@@ -59,7 +64,7 @@
 
     - name: call remediation action
       uri:
-        url: "{{ myItem.remediationAction }}"
+        url: "{{ myItem.customProperties.remediationAction }}"
         method: POST
         #body_format: json
         #body: "{{ payload | to_json }}"
