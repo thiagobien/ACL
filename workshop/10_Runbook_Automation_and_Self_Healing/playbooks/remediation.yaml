@@ -38,7 +38,7 @@
 
     - name: fetch custom deployment events
       uri:
-        url: "{{dtdeploymentapiurl}}"
+        url: "{{dtdeventapiurl}}"
         return_content: yes
       with_items: "{{ impactedEntities }}"
       when: state == "OPEN"
