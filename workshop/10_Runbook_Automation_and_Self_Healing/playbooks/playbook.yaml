@@ -10,7 +10,7 @@
       url: "{{carts_delay_url}}/{{response_delay}}"
       method: GET
     tags:
-      - response_delay_change
+      - response_time_change
 
   - name: update error rate for {{dt_app}} service
     uri:
@@ -55,7 +55,7 @@
       - response_time_change
 
 
-  - name: update erorr configuration for {{dt_app}} service
+  - name: update error configuration for {{dt_app}} service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
