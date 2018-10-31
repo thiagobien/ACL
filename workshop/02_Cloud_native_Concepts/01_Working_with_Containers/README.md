@@ -1,0 +1,51 @@
+# Working with Container Images and Containers
+
+In this lab you'll learn how 
+
+## Step 1: Create a Dockerfile
+
+1. Create a file `Dockerfile` and open it using an editor.
+
+1. Copy the following snippet into the `Dockerfile` and save it.
+    ```
+    FROM ubuntu:latest 
+    COPY . /app 
+    WORKDIR /app  
+    CMD ["helloWorld.sh"]
+    ```
+
+## Step 2. Build and tag a Container Image
+
+1. Build the container image (`-t` specifies the repository and a tag).
+    ```
+    docker build -t acm-workshop/hello-world:latest .
+    ```
+
+1. (optional) Set another tag.
+    ```
+    docker tag acm-workshop/hello-world:latest acm-workshop/hello-world:0.0.1 
+    ```
+
+1. List all container images on your local machine.
+    ```
+    docker images
+    ```
+
+## Step 3. Run a Container
+
+1. Run the container based on a container image.
+    ```
+    docker run acm-workshop/hello-world:latest
+    ```
+
+## Step 4. Pull a Container Image from a Container Registry
+
+1. Pull a container image from a container registry (*hub.docker.com* by default).
+    ```
+    docker pull dynatraceacm/ticketmonster-ui-v1:latest
+    ```
+
+1. Run the pulled container image (`-d` runs the container in detached mode).
+    ```
+    docker run -d dynatraceacm/ticketmonster-ui-v1:latest
+    ```

@@ -6,7 +6,7 @@ In this workshop you'll learn ...
 
 - An example of a (nice) workshop structure is here: https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication
 
-## Prerequisites
+## Pre-Requisites
 
 ### GitHub Account
 
