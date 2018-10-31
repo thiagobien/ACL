@@ -1,18 +1,18 @@
 ---
 - hosts: localhost
   vars:
-    app: "carts"
-    environment: "dev"
+    dt_app: "carts"
+    dt_env: "dev"
 
   tasks:
-  - name: update response delay for {{app}} service
+  - name: update response delay for {{dt_app}} service
     uri:
       url: "{{carts_delay_url}}/{{response_delay}}"
       method: GET
     tags:
       - response_delay_change
 
-  - name: update error rate for {{app}} service
+  - name: update error rate for {{dt_app}} service
     uri:
       url: "{{carts_error_url}}/{{error_rate}}"
       method: GET
@@ -20,7 +20,7 @@
       - error_rate_change
 
 
-  - name: update response configuration for carts service
+  - name: update response configuration for {{dt_app}} service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -33,11 +33,11 @@
                   "tags" : [ {
                     "context" : "CONTEXTLESS",
                     "key" : "app",
-                    "value" : "{{app}}"            
+                    "value" : "{{dt_app}}"            
                   }, {
                     "context" : "CONTEXTLESS",
                     "key" : "environment",
-                    "value" : "{{environment}}" 
+                    "value" : "{{dt_env}}" 
                   }
                   ]
                 }]
@@ -55,7 +55,7 @@
       - response_time_change
 
 
-  - name: update erorr configuration for carts service
+  - name: update erorr configuration for {{dt_app}} service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -68,11 +68,11 @@
                   "tags" : [ {
                     "context" : "CONTEXTLESS",
                     "key" : "app",
-                    "value" : "{{app}}"            
+                    "value" : "{{dt_app}}"            
                   }, {
                     "context" : "CONTEXTLESS",
                     "key" : "environment",
-                    "value" : "{{environment}}" 
+                    "value" : "{{dt_env}}" 
                   }
                   ]
                 }]
