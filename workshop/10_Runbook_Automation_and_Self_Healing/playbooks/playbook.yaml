@@ -42,7 +42,9 @@
             "description":"response delay set to {{response_delay}}ms",
             "source":"Ansible Tower",
             "configuration":"response delay",
-            "remediationAction": "{{remediation_action}}"
+            "customProperties": {
+              "remediationAction": "{{remediation_action}}"
+            }
           }'
       return_content: yes
     register: configurationresponse
@@ -71,8 +73,9 @@
                   ]
                 }]
             },
-            "deploymentName":"test".
+            "deploymentName":"test",
             "deploymentVersion":"test",
+            "source":"Ansible Tower",
             "remediationAction": "{{remediation_action}}"
           }'
       return_content: yes
