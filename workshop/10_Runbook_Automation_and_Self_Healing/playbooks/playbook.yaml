@@ -39,7 +39,7 @@
                   ]
                 }]
             },
-            "description":"response delay set to {{response_delay}}ms",
+            "description":"response delay set to {{response_delay}} ms",
             "source":"Ansible Tower",
             "configuration":"response delay",
             "customProperties": {
@@ -82,7 +82,7 @@
             }
           }'
       return_content: yes
-    register: configurationresponse
+    register: errorresponse
     tags:
       - error_rate_change
 
