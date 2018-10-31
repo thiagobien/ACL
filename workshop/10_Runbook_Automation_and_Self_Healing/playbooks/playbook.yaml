@@ -41,7 +41,8 @@
             },
             "description":"response delay set to {{response_delay}}ms",
             "source":"Ansible Tower",
-            "configuration":"response delay"
+            "configuration":"response delay",
+            "remediationAction": "{{remediation_action}}"
           }'
       return_content: yes
     register: configurationresponse
@@ -72,7 +73,8 @@
             },
             "description":"error rate set to {{error_rate}} %",
             "source":"Ansible Tower",
-            "configuration":"error rate"
+            "configuration":"error rate",
+            "remediationAction": "{{remediation_action}}"
           }'
       return_content: yes
     register: configurationresponse
