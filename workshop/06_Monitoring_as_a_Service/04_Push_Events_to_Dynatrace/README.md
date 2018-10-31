@@ -94,3 +94,5 @@ Besides, it is necessary to update the staging pipeline to push deployment event
 1. Enter `environment` and select `dev`.
 1. Select the service `carts` and open it.
 1. You should now see the deployment event on the right side.
+
+![deployment_events](../assets/deployment_events.png)
