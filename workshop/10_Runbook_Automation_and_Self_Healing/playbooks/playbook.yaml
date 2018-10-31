@@ -24,15 +24,11 @@
                   ]
                 }]
             },
-            "deploymentName":"Disable microservice service",
-            "deploymentVersion":"1.1",
-            "deploymentProject":"Feature toggle",
-            "source":"Ansible",
-            "customProperties":{
-                "CI Tool": "Ansible Tower",
-                "Build Number": "123",
-                "Git commit": "23422323233332"
-            }
+            "description":"change settings",
+            "source":"Ansible Tower",
+            "configuration":"change settings",
+            "original":"zero",
+            
           }'
       return_content: yes
     register: configurationresponse
