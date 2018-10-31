@@ -14,7 +14,7 @@ In this lab you will learn how to capture request attributes based on web reques
 
 ![request-attribute](../assets/request_attribute.png)
 
-## Step 2: Create Request Attribute for Load Script Name (LSN)
+## Step 3: Create Request Attribute for Load Script Name (LSN)
 1. Go to **Settings**, **Server-side monitoring**, and click on **Request attributes**.
 1. Click the **Create new request attribute** button.
 1. Provide a unique *Request attribute name*: `LSN`.
