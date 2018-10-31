@@ -1,0 +1,82 @@
+---
+- hosts: localhost
+  tasks:
+
+  - name: update response delay for carts service
+    uri:
+      url: "{{carts_delay_url}}/{{response_delay}}"
+      method: GET
+    tags:
+      - response_delay_change
+
+  - name: update error rate for carts service
+    uri:
+      url: "{{carts_error_url}}/{{error_rate}}"
+      method: GET
+    tags:
+      - error_rate_change
+
+
+  - name: update configuration for carts service
+    uri:
+      url: "{{dteventapiurl}}"
+      method: POST
+      body_format: json
+      body: '{
+            "eventType": "CUSTOM_CONFIGURATION",
+            "attachRules": {
+              "tagRule" : [{
+                  "meTypes" : ["SERVICE"],
+                  "tags" : [ {
+                    "context" : "CONTEXTLESS",
+                    "key" : "app",
+                    "value" : "carts"            
+                  }, {
+                    "context" : "CONTEXTLESS",
+                    "key" : "environment",
+                    "value" : "dev" 
+                  }
+                  ]
+                }]
+            },
+            "description":"response delay set to {{response_delay}}ms",
+            "source":"Ansible Tower",
+            "configuration":"response delay"
+          }'
+      return_content: yes
+    register: configurationresponse
+    tags:
+      - response_time_change
+
+  - name: update configuration for carts service
+    uri:
+      url: "{{dteventapiurl}}"
+      method: POST
+      body_format: json
+      body: '{
+            "eventType": "CUSTOM_CONFIGURATION",
+            "attachRules": {
+              "tagRule" : [{
+                  "meTypes" : ["SERVICE"],
+                  "tags" : [ {
+                    "context" : "CONTEXTLESS",
+                    "key" : "app",
+                    "value" : "carts"            
+                  }, {
+                    "context" : "CONTEXTLESS",
+                    "key" : "environment",
+                    "value" : "dev" 
+                  }
+                  ]
+                }]
+            },
+            "description":"error rate set to {{error_rate}} %",
+            "source":"Ansible Tower",
+            "configuration":"error rate"
+          }'
+      return_content: yes
+    register: configurationresponse
+    tags:
+      - error_rate_change
+
+
