@@ -2,20 +2,24 @@
 - hosts: localhost
   tasks:
 
-  - name: update deployment information
+  - name: update configuration for carts service
     uri:
-      url: "{{dtdeploymentapiurl}}"
+      url: "{{dteventapiurl}}"
       method: POST
       body_format: json
       body: '{
-            "eventType": "CUSTOM_DEPLOYMENT",
+            "eventType": "CUSTOM_CONFIGURATION",
             "attachRules": {
               "tagRule" : [{
                   "meTypes" : ["SERVICE"],
                   "tags" : [ {
                     "context" : "CONTEXTLESS",
-                    "key" : "Service",
-                    "value" : "{{bookingservice_tag}}"            
+                    "key" : "app",
+                    "value" : "{{carts}}"            
+                  }, {
+                    "context" : "CONTEXTLESS",
+                    "key" : "environment",
+                    "value" : "{{dev}}" 
                   }
                   ]
                 }]
@@ -31,7 +35,6 @@
             }
           }'
       return_content: yes
-    register: deploymentresponse
-    tags: 
-      - featuretoggle-disable-microservice
+    register: configurationresponse
+
 
