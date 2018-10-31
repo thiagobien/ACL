@@ -28,8 +28,10 @@ In this lab you will build a Jenkins pipeline for implementing the Performance a
     // trigger JMeter test
     }  
     ```
+1. As a result of this step, the pipeline pushes a *Custom Info Event* for Performance Signature Validation including exact timeframe:
+![performance_signature_event](../assets/performance_signature_event.png)
 
-## Step 2: Trigger JMeter Test by a separate Pipeline
+## Step 2: Trigger JMeter Test by a separate Function
 1. Replace the comment **// trigger JMeter test** with the following snippet:
     ```
     container('jmeter') {
@@ -63,6 +65,14 @@ In this lab you will build a Jenkins pipeline for implementing the Performance a
       specFile: "monspec/${env.APP_NAME}_perfsig.json"
     ) 
     ```
+
+## Step 4: Create a Performance Pipeline for Carts
+1. Go to your **Jenkins** and click on **sockshop** folder.
+1. Click on **New Item** and specify name `carts.performance`.
+1. Select **Multibranch Pipeline** and click on **OK**.
+1. At *Branch Sources* select **Git** and specify the link to your Github Project Repository *carts*.
+1. At *Build Configuration* change *Script Path* from `Jenkins` to `Jenkins.performance`.
+1. Finally, click **Save**. This step automatically triggers the pipeline.
 
 ## Performance as a Self-Service Pipeline for Carts:
 ```
