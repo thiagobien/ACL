@@ -2,6 +2,16 @@
 - hosts: localhost
   tasks:
 
+  - name: update response time for carts service
+    uri:
+      url: "{{carts_delay_url}}"
+      method: GET
+
+  - name: update error rate for carts service
+    uri:
+      url: "{{carts_error_url}}"
+      method: GET
+
   - name: update configuration for carts service
     uri:
       url: "{{dteventapiurl}}"
@@ -26,9 +36,8 @@
             },
             "description":"change settings",
             "source":"Ansible Tower",
-            "configuration":"change settings",
-            "original":"zero",
-            
+            "configuration":"Response time \"tweak\"",
+            "original":"zero"
           }'
       return_content: yes
     register: configurationresponse
