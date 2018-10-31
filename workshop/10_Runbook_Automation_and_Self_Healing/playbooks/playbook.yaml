@@ -4,13 +4,31 @@
 
   - name: update response time for carts service
     uri:
-      url: "{{carts_delay_url}}"
+      url: "{{carts_delay_url}}/{{response_delay}}"
       method: GET
+    tags:
+      - response_time_increase
+
+  - name: update response time for carts service
+    uri:
+      url: "{{carts_delay_url}}/{{response_delay}}"
+      method: GET
+    tags:
+      - response_time_normal
 
   - name: update error rate for carts service
     uri:
-      url: "{{carts_error_url}}"
+      url: "{{carts_error_url}}/{{error_rate}}"
       method: GET
+    tags:
+      - error_rate_increase
+
+  - name: update error rate for carts service
+    uri:
+      url: "{{carts_error_url}}/{{error_rate}}"
+      method: GET
+    tags:
+      - error_rate_normal
 
   - name: update configuration for carts service
     uri:
@@ -34,10 +52,9 @@
                   ]
                 }]
             },
-            "description":"change settings",
+            "description":"response time set to {{delay}}",
             "source":"Ansible Tower",
-            "configuration":"Response time \"tweak\"",
-            "original":"zero"
+            "configuration":"response time"
           }'
       return_content: yes
     register: configurationresponse
