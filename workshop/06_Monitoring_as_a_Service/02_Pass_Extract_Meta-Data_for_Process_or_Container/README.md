@@ -69,6 +69,6 @@ For this step it is necessary to add the **DT_NODE_ID** environment variable to 
 
 ---
 
-[Previous Step: Instrument Cluster with Dynatrace OneAgent](../01_Instrument_Cluster_with_Dynatrace_OneAgent) :arrow_backward: :arrow_forward: [Next Step: Tagging_of_Services](../03_Tagging_of_Services)
+[Previous Step: Instrument Cluster with Dynatrace OneAgent](../01_Instrument_Cluster_with_Dynatrace_OneAgent) :arrow_backward: :arrow_forward: [Next Step: Tagging of Services](../03_Tagging_of_Services)
 
 :arrow_up_small: [Back to overview](../)
