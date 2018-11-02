@@ -7,7 +7,7 @@ In this lab you'll learn how to leverage Dynatrace to identify the difference be
 1. Go to **Diagnostic tools** and click on **Top web requests**.
 1. (optional) Filter on a Management Zone. 
 
-## Step 2: Narrow down the Requests based on Requests Attributes
+## Step 2: Narrow down the Requests based on Request Attributes
 1. Click on **Add filter**.
 1. Create filter for: `Request attribute` > `LTN`.
 1. Click on **Apply**.

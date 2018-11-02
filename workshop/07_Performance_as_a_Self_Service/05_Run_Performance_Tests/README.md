@@ -16,7 +16,7 @@ In this lab you'll trigger a performance test for (1) the current implementation
 1. Go to your **Jenkins** and click on **sockshop** folder.
 1. Click on **carts** and select the **master** branch.
 1. Click on **Build Now** to trigger the performance pipeline.
-1. Wait for until the pipeline shows: *Success*.
+1. Wait until the pipeline shows: *Success*.
 
 ## Step 4: Run Performance Test on new Version
 1. Go to **Jenkins** and click on **sockshop** folder.

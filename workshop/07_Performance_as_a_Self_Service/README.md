@@ -9,7 +9,6 @@ To achieve this goal, you will learn how to:
 * Define request attributes in Dynatrace based on header data: [Lab](./02_Define_Request_Attributes)
 * Define a performance signature for carts service: [Lab](./03_Define_Performance_Signature)
 * Build a Jenkins pipeline that offers performance validation as a self-service: [Lab](./04_Define_Performance_Pipeline)
-* Create Management Zones to make data easily available for the different groups: dev, test, operations, business: [Lab](./05_Define_Management_Zones)
 * Compare the result of load tests in Dynatrace: [Lab](./06_Compare_Tests_in_Dynatrace)
 
 
