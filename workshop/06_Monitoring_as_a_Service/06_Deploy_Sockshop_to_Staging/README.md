@@ -1,6 +1,6 @@
 # Deploy Sockshop to Staging and validate Automation
 
-Now as you have everything correctly setup and configured for our first environment (i.e., dev), lets do the same thing for a second enviornment by following this lab.
+Now as you have everything correctly setup and configured for the first environment (i.e., the *dev* environment), let's see how the automation works for the second environment (i.e., the *staging* environment) by following this lab. To deploy services to staging it is necessary to create a release branch first. Afterwards, the execution of the Jenkins pipeline automatically detects this release branch und deploys the service to staging.  
 
 ## Step 1: Deploy all services to Staging
 
@@ -18,7 +18,7 @@ Now as you have everything correctly setup and configured for our first environm
     1. Switch to the `carts/` directory.
     1. Run the `create_release.sh` script within the directory.
         ```
-        sh ..\create_release.sh
+        (local)$ sh ..\create_release.sh
         ```
 
         The script does the following:
@@ -38,7 +38,7 @@ Now as you have everything correctly setup and configured for our first environm
 ## Step 2. Build new Release in Jenkins
 1. Go to **Jenkins** and **sockshop**.
 1. Click on the pipeline for each service and **Scan Multibranch Pipeline Now**.
-1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 
+1. Hit **F5** and you should see the release branch, which gets built and deployed to staging. 
 
 ---
 
