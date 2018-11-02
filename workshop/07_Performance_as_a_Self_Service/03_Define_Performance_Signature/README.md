@@ -1,13 +1,15 @@
-# Define the Performance Signature for the Carts Service
+# Define Performance Signature for Carts Service
 
-In this lab you'll learn how to define the performance signature of the carts service. In more details, this lab focues on validating the performance of the service based on the:
+In this lab you'll learn how to define the performance signature for the carts service. In more details, this lab focuses on validating the performance of the service based on the:
 * Average response time
 * Percentile of response time
-* Number of requests
-* Server side failure rate  
+* Number of requests and requests/minute
+* Server-side failure rate 
+
+For further performance metrics, [please look at](https://www.dynatrace.com/support/help/shortlink/api-metrics).
 
 ## Step 1: Add a timeseries for Response Time
-1. Switch to the `carts/` directory and open file `./carts/monspec/carts_perfsig.json`.
+1. Switch to the `carts/` directory and open file `carts/monspec/carts_perfsig.json`.
 1. In this file you find the empty JSON array: **"timeseries": []**
 1. Add the following query to retrieve timeseries data for the **average response time** of the carts service. 
     ```
@@ -17,14 +19,14 @@ In this lab you'll learn how to define the performance signature of the carts se
         "tags"         : "app:carts,environment:dev",
     },
     ```
-1. Specify the upper limit:
+1. Specify the upper limit.
     ```
         ...
         "tags"         : "app:carts,environment:dev",
         "upperLimit"   : 1000
     },
     ```
-1. Add the following query to retrieve timeseries data about the **percentile of response time** of the carts service. 
+1. Add the following query to retrieve timeseries data for the **percentile of response time** of the carts service. 
     ```
     {
         "timeseriesId"  : "com.dynatrace.builtin:service.responsetime",
@@ -32,14 +34,14 @@ In this lab you'll learn how to define the performance signature of the carts se
         "tags"          : "app:carts,environment:dev"
     },
     ```
-1. Specify the upper limit:
+1. Specify the upper limit.
     ```
         ...
         "tags"         : "app:carts,environment:dev",
         "upperLimit"   : 1000
     },
     ```
-1. After this step, the **timeseries** array should look as follows: 
+1. After these steps, the **timeseries** array should look as follows: 
     ```
     "timeseries" : [
         {
@@ -58,7 +60,7 @@ In this lab you'll learn how to define the performance signature of the carts se
     ```
 
 ## Step 2: Add a timeseries for Requests
-1. Add the following query to retrieve timeseries data about the **number of requestes** of the carts service. 
+1. Add the following query to retrieve timeseries data for the **number of requests** of the carts service. 
     ```
     {
         "timeseriesId" : "com.dynatrace.builtin:service.requests",
@@ -66,7 +68,7 @@ In this lab you'll learn how to define the performance signature of the carts se
         "tags"         : "app:carts,environment:dev",
     },
     ```
-1. Specify the lower limit (number of requests):
+1. Specify the lower limit (number of requests).
     ```
         ...
         "tags"          : "app:carts,environment:dev",
@@ -74,8 +76,8 @@ In this lab you'll learn how to define the performance signature of the carts se
     },
     ```
 
-## Step 3: Add a timeseries for Response per Minute
-1. Add the following query to retrieve timeseries data about the **failure rate** of the carts service. 
+## Step 3: Add a timeseries for Requests per Minute
+1. Add the following query to retrieve timeseries data for the **requests per minute** of the carts service. 
     ```
     {
         "timeseriesId"  : "com.dynatrace.builtin:service.requestspermin",
@@ -83,7 +85,7 @@ In this lab you'll learn how to define the performance signature of the carts se
         "tags"          : "app:carts,environment:dev"
     }
     ```
-1. Specify the lower limit:
+1. Specify the lower limit.
     ```
         ...
         "tags"          : "app:carts,environment:dev",
@@ -92,7 +94,7 @@ In this lab you'll learn how to define the performance signature of the carts se
     ```
 
 ## Step 4: Add a timeseries for Failure Rate
-1. Add the following query to retrieve timeseries data about the **failure rate** of the carts service. 
+1. Add the following query to retrieve timeseries data for the **failure rate** of the carts service. 
     ```
     {
         "timeseriesId"  : "com.dynatrace.builtin:service.serversidefailurerate",
@@ -100,7 +102,7 @@ In this lab you'll learn how to define the performance signature of the carts se
         "tags"          : "app:carts,environment:dev"
     }
     ```
-1. Specify the upper limit:
+1. Specify the upper limit.
     ```
         ...
         "tags"          : "app:carts,environment:dev",
@@ -108,7 +110,11 @@ In this lab you'll learn how to define the performance signature of the carts se
     },
     ```
 
-## Performance Signature for Carts:
+## Step 5: Save Changes and Push to Repository
+1. Save the file. 
+1. Commit/Push the changes to your GitHub Repository *carts*.
+
+## Result: Performance Signature for Carts
 ```
 {
     "_lowerLimit" : 0,

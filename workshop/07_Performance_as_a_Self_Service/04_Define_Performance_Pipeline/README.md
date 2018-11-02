@@ -1,6 +1,6 @@
 # Define Performance Pipeline
 
-In this lab you will build a Jenkins pipeline for implementing the Performance as a Self-Service approach for the carts service. The purpose of this pipeline is that a developer can manually trigger it in order to run a performance test against a service (in the dev environment) and to retrieve a performance test result. This gives fast feedback if recent changes slowed down the service and whether this new version would make it through the performance in the continuous delivery pipeline.
+In this lab you will build a Jenkins pipeline for implementing the *Performance as a Self-Service* approach for the carts service. The purpose of this pipeline is that a developer can manually trigger it to run a performance test against a service (in the dev environment) and to retrieve an immediate performance test results. This gives fast feedback if recent changes negatively impacted the service and whether this new version would pass the performance test in the CI pipeline.
 
 ## Step 1: Record Dynatrace Session and Push Info Events
 1. Switch to the `carts/` directory and open file `./carts/Jenkins.performance`.
@@ -28,7 +28,7 @@ In this lab you will build a Jenkins pipeline for implementing the Performance a
     // trigger JMeter test
     }  
     ```
-1. As a result of this step, the pipeline pushes a *Custom Info Event* for Performance Signature Validation including exact timeframe:
+Consequently, the pipeline pushes a *Custom Info Event* for *Performance Signature Validation* including exact timeframe shown in the screenshot below. Besides, the execution of the load test is recorded based the *recordDynatraceSession* function. 
 ![performance_signature_event](../assets/performance_signature_event.png)
 
 ## Step 2: Trigger JMeter Test by a separate Function
@@ -51,10 +51,11 @@ In this lab you will build a Jenkins pipeline for implementing the Performance a
         if (status != 0) {
           currentBuild.result = 'FAILED'
           error "Performance check failed."
-         }
+        }
       }
     }
     ```
+Consequently, this part of the pipeline executes a jMeter script (as defined by the sriptName) in the context of a jmeter container. The script receives a list of parameters for its configuration. The condition after the *executeJMeter* function terminates the pipeline in case of a failed test.  
 
 ## Step 3: Validate the Performance Signature Definition
 1. Add the following snippet after the **recordDynatraceSession**:
@@ -65,16 +66,17 @@ In this lab you will build a Jenkins pipeline for implementing the Performance a
       specFile: "monspec/${env.APP_NAME}_perfsig.json"
     ) 
     ```
+Consequently, this part of the pipeline validates the load test result against the performance signature of the carts service.
 
 ## Step 4: Create a Performance Pipeline for Carts
-1. Go to your **Jenkins** and click on **sockshop** folder.
-1. Click on **New Item** and specify name `carts.performance`.
+1. Go to  **Jenkins** and click on the **sockshop** folder.
+1. Click on **New Item** and specify name: `carts.performance`.
 1. Select **Multibranch Pipeline** and click on **OK**.
-1. At *Branch Sources* select **Git** and specify the link to your Github Project Repository *carts*.
+1. At *Branch Sources* select **Git** and set the link to your Github Project Repository *carts*.
 1. At *Build Configuration* change *Script Path* from `Jenkins` to `Jenkins.performance`.
 1. Finally, click **Save**. This step automatically triggers the pipeline.
 
-## Performance as a Self-Service Pipeline for Carts:
+## Result: Performance as a Self-Service Pipeline for Carts
 ```
 @Library('dynatrace@master') _
 
