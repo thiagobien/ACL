@@ -1,9 +1,9 @@
 # Compare Builds in Dynatrace
 
-In this lab you'll 
+In this lab you'll learn how to leverage Dynatrace to identify the difference between two performance tests. Literally, a couple of clicks can tell you the reason why one build was slower compared to another one. 
 
 ## Step 1: Open Dynatrace from Jenkins Pipeline
-1. In the Performance Signature for a specfic build, click on **open in Dynatrace**. (This opens up the correct timeframe.)
+1. In the Performance Signature for a selected build, click on **open in Dynatrace**. (This opens the correct timeframe.)
 1. Go to **Diagnostic tools** and click on **Top web requests**.
 1. (optional) Filter on a Management Zone. 
 
@@ -14,14 +14,14 @@ In this lab you'll
 
 ## Step 3. Open Comparison View
 1. Select the timeframe of a *good build*.
-1. Click on *...* and select **Comparison** as shown below:
+1. Click on **...** and select **Comparison** as shown below:
 ![compare_builds](../assets/compare_builds.png)
 
 ## Step 4. Compare Response Time Hotspots
 1. Select the timeframe of the *bad build* by selecting *compare with*: `custom time frame`
-1. Click on **Compare response time hotspots**:
+1. Click on **Compare response time hotspots**.
 ![compare_hotspots](../assets/compare_hotspots.png)
-1. There we can see that the *Active wait time* increased:
+1. There you can see that the *Active wait time* increased.
 ![compare_overview](../assets/compare_overview.png)
 1. Click on **View method hotspots** to identify the root cause.
 ![method_hotspot](../assets/method_hotspot.png)

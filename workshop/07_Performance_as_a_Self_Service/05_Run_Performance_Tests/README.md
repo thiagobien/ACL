@@ -29,7 +29,7 @@ There you get an overview of the last builds similar to the screenshot below.
 ![jenkins_result](../assets/jenkins_result.png)
 
 1. Click on the **Build No** of one particular build and click on **Performance Signature**.
-This opens a detailed view about the performance validation of the particular build. 
+This opens a detailed view about the performance validation of the selected build. 
 ![built_result](../assets/built_result.png)
 
 ---
