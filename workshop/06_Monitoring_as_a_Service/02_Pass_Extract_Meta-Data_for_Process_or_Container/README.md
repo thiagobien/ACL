@@ -2,7 +2,7 @@
 
 In this lab you learn which meta-data is captured automatically, how to pass custom meta-data and how you can use this meta-data to influence process group detection and automated tagging.
 
-The OneAgent automatically captures a lot of meta-data for each process which will be propagated to the Process Group Instance (PGI) and the Process Group (PG) itself, e.g.: Technology, JVM Version, Docker Image, Kubernetes pod names, service version number, etc. You can add additional -data to every processes [via the environment variable like DT_CUSTOM_PROP, DT_TAGS](https://www.dynatrace.com/support/help/infrastructure/processes/how-do-i-define-my-own-process-group-metadata/)
+The OneAgent automatically captures a lot of meta-data for each process which will be propagated to the Process Group Instance (PGI) and the Process Group (PG) itself, e.g.: Technology, JVM Version, Docker Image, Kubernetes pod names, service version number, etc. You can add additional meta-data to every processes [via the environment variable like DT_CUSTOM_PROP, DT_TAGS](https://www.dynatrace.com/support/help/infrastructure/processes/how-do-i-define-my-own-process-group-metadata/)
 
 * *Which additional Meta-data should we pass?*
 It depends on your environment but here are some ideas, e.g.: Build Number, Version Number, Team Ownership, or Type of Service.
