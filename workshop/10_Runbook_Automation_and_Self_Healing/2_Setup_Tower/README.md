@@ -1,6 +1,15 @@
 # Setup Ansible Tower
 
-1. Add **Git credentials** to your Ansible Tower organization
+In this lab, we will setup and configure our Ansible Tower environment.
+Therefore, we will have to 
+- add Github credentials to be able to check out Github repository
+- create a project in Ansible Tower that holds defines which repository to use
+- create an inventory that holds additional information such as userdata and variables
+- create job templates that can then be executed and that will run our playbooks.
+
+Let's get started!
+
+1. Navigate to **Credentials** and add Git credentials to your Ansible Tower organization
     - Name: git-token
     - Organization: orgX (X... your workshop user number)
     - Credential Type: Source Control (click on magnifier and search for the correct type)
@@ -8,7 +17,7 @@
 
     ![create credentials](../assets/create-credential.png) 
 
-1. Add a **Project** in Ansible Tower
+1. Navigate to **Project** in Ansible Tower and create a new project
     - Name: self-healing
     - Organization: orgX (X... your workshop user number)
     - SCM Type: Git
@@ -19,7 +28,7 @@
 
     ![create project](../assets/create-project.png)
 
-1. Create **Inventory** to store variables
+1. Navigate to **Inventory** and create a new inventory
     - Name: inventory
     - Organization: orgX (X... your workshop user number)
     - Variables: copy & paste the following snippet
@@ -37,7 +46,7 @@
 
       ![create inventory](../assets/create-inventory.png)
 
-1. Create **Job Template** for our playbooks
+1. Navigate to **Templates** and create a new Job Template
     - Name: remediation-userX (X... your workshop user number) <br>
       (_job template names have to be unique across the whole Ansible Tower installation_)
     - Job Type: Run
