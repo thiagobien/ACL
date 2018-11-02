@@ -1,15 +1,18 @@
 ---
 - hosts: localhost
-  tasks:
+  vars:
+    dt_app: "carts"
+    dt_env: "dev"
 
-  - name: update response delay for carts service
+  tasks:
+  - name: update response delay for {{dt_app}} service
     uri:
       url: "{{carts_delay_url}}/{{response_delay}}"
       method: GET
     tags:
       - response_delay_change
 
-  - name: update error rate for carts service
+  - name: update error rate for {{dt_app}} service
     uri:
       url: "{{carts_error_url}}/{{error_rate}}"
       method: GET
@@ -17,7 +20,7 @@
       - error_rate_change
 
 
-  - name: update response configuration for carts service
+  - name: update response configuration for {{dt_app}} service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -30,11 +33,11 @@
                   "tags" : [ {
                     "context" : "CONTEXTLESS",
                     "key" : "app",
-                    "value" : "carts"            
+                    "value" : "{{dt_app}}"            
                   }, {
                     "context" : "CONTEXTLESS",
                     "key" : "environment",
-                    "value" : "dev" 
+                    "value" : "{{dt_env}}" 
                   }
                   ]
                 }]
@@ -52,7 +55,7 @@
       - response_time_change
 
 
-  - name: update erorr configuration for carts service
+  - name: update erorr configuration for {{dt_app}} service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -65,11 +68,11 @@
                   "tags" : [ {
                     "context" : "CONTEXTLESS",
                     "key" : "app",
-                    "value" : "carts"            
+                    "value" : "{{dt_app}}"            
                   }, {
                     "context" : "CONTEXTLESS",
                     "key" : "environment",
-                    "value" : "dev" 
+                    "value" : "{{dt_env}}" 
                   }
                   ]
                 }]

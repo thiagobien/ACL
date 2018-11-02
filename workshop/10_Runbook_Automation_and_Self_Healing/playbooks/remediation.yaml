@@ -8,17 +8,6 @@
     tower_password: "dynatrace"
 
 
-# when triggered by dynatrace problem notification
-# 1. receive event
-# 2. parse deployment events
-# 3. fetch last deployment
-# 4. call remediation action of deployment
-#    which does the following
-#     1. comment on Dynatrace problem ID to take over action
-#     2. disable microservice (toggle feature flag)
-#     3. enable backend service (toggle feature flag)
-#     4. send deployment event to dynatrace
-#     5. comment on Dyntrace problem ID
 
   tasks:
     - name: push comment to dynatrace
