@@ -18,7 +18,7 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
     ![integration successful](../assets/ansible-integration-successful.png)
 
 1. Login (or navigate back) to you Ansible Tower instance and check what happenend when setting up the integration.
-    - Navigate to _Jobs_ and click on your _remediation_ job
+    - Navigate to _Jobs_ and click on your _remediation-userX_ job
     - You can see all tasks from the playbook that have been triggered by the integration.
 
     ![integration run](../assets/ansible-integration-run.png)
