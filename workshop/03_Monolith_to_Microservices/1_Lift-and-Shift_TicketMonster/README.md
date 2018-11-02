@@ -38,3 +38,9 @@ In this lab you'll learn how to move a monolithic application to a cloud platfor
 1. Open the route using a browser and navigate through the application.
 
 ![ticketmonster](../assets/ticketmonster.png)
+
+---
+
+:arrow_forward: [Next Step: Extract UI From Monolith](../2_Extract_UI_From_Monolith)
+
+:arrow_up_small: [Back to overview](../)

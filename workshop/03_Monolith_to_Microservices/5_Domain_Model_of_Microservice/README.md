@@ -68,3 +68,10 @@ For more details about this lab, please take a look at the following blog post: 
     ```
 
 1. Now, the database is prepared to store orders.
+
+---
+
+[Previous Step: Identify a Microservice](../4_Identify_a_Microservice)
+:arrow_backward: :arrow_forward: [Next Step: Deploy the Microservice](../6_Deploy_the_Microservice)
+
+:arrow_up_small: [Back to overview](../)

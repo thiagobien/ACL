@@ -27,3 +27,10 @@ For more details about this lab, please take a look at the following blog post: 
 1. Select service **TicketMonsterUI**.
 1. Click on **View service flow**.
 1. Finally, you see the service flow containing the virtual microservice `ws-xx-orders-service`.
+
+---
+
+[Previous Step: Generate Load on UI](../3_Generate_Load_on_UI)
+:arrow_backward: :arrow_forward: [Next Step: Domain Model of Microservice](../5_Domain_Model_of_Microservice)
+
+:arrow_up_small: [Back to overview](../)
