@@ -45,11 +45,7 @@ Let's get started!
 
       ![create inventory](../assets/create-inventory.png)
 
-<<<<<<< HEAD
-1. Create **Job Template** for our playbook
-=======
 1. Navigate to **Templates** and create a new Job Template
->>>>>>> 689a279c228f0ebfab4e36e1d168a96e8a94a7a3
     - Name: remediation-userX (X... your workshop user number) <br>
       (_job template names have to be unique across the whole Ansible Tower installation_)
     - Job Type: Run

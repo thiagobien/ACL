@@ -29,6 +29,7 @@ In order to be able to have fine-grained decision when to start and stop the cam
 1. Run the promotional campain
     - Navigate to _Templates_ in your Ansible Tower
     - Click on the "rocket" icon (🚀) next to your _promotion campaign userX_ job template
+    ![run template](../assets/ansible-template-run.png)
     - Adjust the values accordingly for you promotional campaign:
       - Set the value for `promotion_rate: '10'` to allow for 10 % of the user interactions to receive the promotional gift
       - Do not change the `remedation_action` 
