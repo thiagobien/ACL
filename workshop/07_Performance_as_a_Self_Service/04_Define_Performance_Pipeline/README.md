@@ -74,7 +74,7 @@ In this lab you will build a Jenkins pipeline for implementing the Performance a
 1. At *Build Configuration* change *Script Path* from `Jenkins` to `Jenkins.performance`.
 1. Finally, click **Save**. This step automatically triggers the pipeline.
 
-## Performance as a Self-Service Pipeline for Carts:
+## Result: Performance as a Self-Service Pipeline for Carts:
 ```
 @Library('dynatrace@master') _
 
