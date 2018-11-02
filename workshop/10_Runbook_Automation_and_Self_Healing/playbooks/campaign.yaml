@@ -4,56 +4,10 @@
     dt_app: "carts"
     dt_env: "dev"
 
-  tasks:
-  - name: update response delay for {{dt_app}} service
-    uri:
-      url: "{{carts_delay_url}}/{{response_delay}}"
-      method: GET
-    tags:
-      - response_time_change
-
   - name: update percentage of promotion for {{dt_app}} service
     uri:
       url: "{{carts_promotion_url}}/{{promotion_rate}}"
       method: GET
-    tags:
-      - promotion_rate_change
-
-
-  - name: update response configuration for {{dt_app}} service
-    uri:
-      url: "{{dteventapiurl}}"
-      method: POST
-      body_format: json
-      body: '{
-            "eventType": "CUSTOM_CONFIGURATION",
-            "attachRules": {
-              "tagRule" : [{
-                  "meTypes" : ["SERVICE"],
-                  "tags" : [ {
-                    "context" : "CONTEXTLESS",
-                    "key" : "app",
-                    "value" : "{{dt_app}}"            
-                  }, {
-                    "context" : "CONTEXTLESS",
-                    "key" : "environment",
-                    "value" : "{{dt_env}}" 
-                  }
-                  ]
-                }]
-            },
-            "description":"response delay set to {{response_delay}} ms",
-            "source":"Ansible Tower",
-            "configuration":"response delay",
-            "customProperties": {
-              "remediationAction": "{{remediation_action}}"
-            }
-          }'
-      return_content: yes
-    register: configurationresponse
-    tags:
-      - response_time_change
-
 
   - name: update promotion configuration for {{dt_app}} service
     uri:
@@ -86,7 +40,4 @@
           }'
       return_content: yes
     register: promotionresponse
-    tags:
-      - promotion_rate_change
-
 
