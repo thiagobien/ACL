@@ -10,7 +10,7 @@ This load test needs a list of parameters:
 * **VUCount** - The number of virtual users. 
 * **LoopCount** - The number of loops each virtual user performs.
 
-Each requests need to be correctly tagged in order to identify them later on. Therefore, we generate the **x-dynatrace-test** header as defined in a [best practice](https://www.dynatrace.com/support/help/integrations/test-automation-frameworks/how-do-i-integrate-dynatrace-into-my-load-testing-process/) and containing the following key-value pairs:
+Each request needs to be correctly tagged in order to identify them later on. Therefore, we generate the **x-dynatrace-test** header as defined in a [best practice](https://www.dynatrace.com/support/help/integrations/test-automation-frameworks/how-do-i-integrate-dynatrace-into-my-load-testing-process/) and containing the following key-value pairs:
 * **VU** - Virtual User ID of the unique user who sent the request.
 * **TSN** - Test Step Name is a logical test step within your load testing script (for example, Login or Add to cart.
 * **LSN** - Load Script Name - name of the load testing script. This groups a set of test steps that make up a multi-step transaction (for example, an online purchase).
