@@ -27,8 +27,7 @@
       ---
       tenantid: "YOUR-TENANT"
       apitoken: "YOUR-API-TOKEN"
-      carts_delay_url: "http://SERVICE-URL/carts/1/items/delay"
-      carts_error_url: "http://SERVICE-URL/carts/1/items/errors"
+      carts_promotion_url: "http://SERVICE-URL/carts/1/items/errors"
       
       commentuser: "Ansible Playbook"
       dtcommentapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/problem/details/{{pid}}/comments?Api-Token={{apitoken}}"
@@ -37,7 +36,7 @@
 
       ![create inventory](../assets/create-inventory.png)
 
-1. Create **Job Template** for our playbooks
+1. Create **Job Template** for our playbook
     - Name: remediation-userX (X... your workshop user number) <br>
       (_job template names have to be unique across the whole Ansible Tower installation_)
     - Job Type: Run
