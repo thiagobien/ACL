@@ -1,6 +1,6 @@
 # Run Performance Test on Carts Service
 
-In this lab you'll trigger a performance test for (1) the current implementation of carts and (2) a new version of the carts service. The new version of the carts intentionally contain a slow down of the service, which should be detected by the performance validation.
+In this lab you'll trigger a performance test for (1) the current implementation of carts and (2) a new version of the carts service. The new version of the carts intentionally contains a slow down of the service, which should be detected by the performance validation.
 
 ## Step 1: Run Performance Test on current Implementation
 1. Go to  **Jenkins** and click on **sockshop** folder.
