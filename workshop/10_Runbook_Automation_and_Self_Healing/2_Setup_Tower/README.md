@@ -48,4 +48,3 @@
 
     ![create job template](../assets/create-job-template.png)
 
-1. 
