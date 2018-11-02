@@ -1,6 +1,8 @@
 # Write Load Test Script for Performance Validation
 
-In this lab you'll how to write a JMeter load test that stresses a service with a bulk of requests. The test receives a list of parameters:
+In this lab you will write a JMeter load test that stresses a service with a bulk of requests. 
+
+This load test needs a list of parameters:
 * **SERVER_URL** - The domain of the service.
 * **SERVER_PORT** - The port of the service.
 * **CHECK_PATH** - The endpoint to send the requests to.
@@ -8,7 +10,7 @@ In this lab you'll how to write a JMeter load test that stresses a service with 
 * **VUCount** - The number of virtual users. 
 * **LoopCount** - The number of loops each virtual user performs.
 
-Each requests from the test need to be correctly tagged in order to identify them later on. Therefore, we generate the **x-dynatrace-test** header as defined in a [best practice] (https://www.dynatrace.com/support/help/integrations/test-automation-frameworks/how-do-i-integrate-dynatrace-into-my-load-testing-process/) and containing the following key-value pairs:
+Each requests need to be correctly tagged in order to identify them later on. Therefore, we generate the **x-dynatrace-test** header as defined in a [best practice](https://www.dynatrace.com/support/help/integrations/test-automation-frameworks/how-do-i-integrate-dynatrace-into-my-load-testing-process/) and containing the following key-value pairs:
 * **VU** - Virtual User ID of the unique user who sent the request.
 * **TSN** - Test Step Name is a logical test step within your load testing script (for example, Login or Add to cart.
 * **LSN** - Load Script Name - name of the load testing script. This groups a set of test steps that make up a multi-step transaction (for example, an online purchase).
@@ -16,8 +18,7 @@ Each requests from the test need to be correctly tagged in order to identify the
 
 ## Step 1: Open Performance Test Template
 1. Open the file `carts_perfcheck.jmx`.
-1. In this file locate the XML tag `<stringProp name="script">`.
-1. The tag shows the following Java code:
+1. In this file, locate the XML tag `<stringProp name="script">`, which contains the following Java code fragment:
     ```
     import org.apache.jmeter.util.JMeterUtils;
     import org.apache.jmeter.protocol.http.control.HeaderManager;
@@ -60,8 +61,8 @@ Each requests from the test need to be correctly tagged in order to identify the
     hm.add(new org.apache.jmeter.protocol.http.control.Header(&quot;x-dynatrace-test&quot;, headerValue));  
     ```
 
-## Step 4: Add file to script set in jmeter-tests
-1. Save the file and copy it to `.carts/scripts`. 
+## Step 4: Move file to tests script folder of carts service
+1. Save the file and copy it to `.carts/jmeter`. 
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ---
