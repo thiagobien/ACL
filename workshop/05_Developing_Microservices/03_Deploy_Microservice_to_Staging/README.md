@@ -42,3 +42,9 @@ In this lab you'll learn how to use the Jenkins pipeline to release a microservi
 # Troubleshooting
 Some useful git commands:
 - `git push origin --delete release/1.0.0`: delete the release branch 1.0.0
+
+---
+
+[Previous Step: Deploy Microservice to Dev](../02_Deploy_Microservice_to_Dev) :arrow_backward: 
+
+:arrow_up_small: [Back to overview](../)

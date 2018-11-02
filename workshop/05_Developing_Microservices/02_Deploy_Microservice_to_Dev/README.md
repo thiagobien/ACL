@@ -41,3 +41,9 @@ In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, 
 1. Go to **Jenkins** and **sockshop**.
 1. Click on **carts** pipeline and **Scan Multibranch Pipeline Now**.
 1. Click on the **build** and open the **Console output** to follow the progress of the pipeline.
+
+---
+
+[Previous Step: Deep Dive into Carts Service](../01_Deep_Dive_into_Carts_Service) :arrow_backward: :arrow_forward: [Next Step: Deploy Microservice to Staging](../03_Deploy_Microservice_to_Staging)
+
+:arrow_up_small: [Back to overview](../)

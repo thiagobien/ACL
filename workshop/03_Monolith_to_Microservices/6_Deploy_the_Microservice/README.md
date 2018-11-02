@@ -52,3 +52,9 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
     1. Select service **TicketMonsterUI**.
     1. Click on **View service flow**.
     1. Finally, you see the service flow containing the microservice `orders-service`.
+
+---
+
+[Previous Step: Domain Model of Microservice](../5_Domain_Model_of_Microservice) :arrow_backward: :arrow_forward: [Next Step: Clean up](../9_Clean_up)
+
+:arrow_up_small: [Back to overview](../)

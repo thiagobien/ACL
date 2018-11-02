@@ -78,3 +78,9 @@ In this lab you'll first investigate the code structure of a microservice includ
     ```
 
 1. Delete `lab-manifest` folder.
+
+---
+
+:arrow_forward: [Next Step: Deploy Microservice to Dev](../02_Deploy_Microservice_to_Dev)
+
+:arrow_up_small: [Back to overview](../)

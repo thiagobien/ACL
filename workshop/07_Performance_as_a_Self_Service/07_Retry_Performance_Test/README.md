@@ -17,3 +17,9 @@ In this lab you'll
 1. Go to your **Jenkins** and click on **sockshop** folder.
 1. Click on **carts.performance** and select the **master** branch.  
 1. Click on **Build Now** to trigger the performance pipeline.
+
+---
+
+[Previous Step: Compare Tests in Dynatrace](../06_Compare_Tests_in_Dynatrace) :arrow_backward: 
+
+:arrow_up_small: [Back to overview](../)

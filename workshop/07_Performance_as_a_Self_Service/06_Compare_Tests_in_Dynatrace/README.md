@@ -25,3 +25,9 @@ In this lab you'll
 ![compare_overview](../assets/compare_overview.png)
 1. Click on **View method hotspots** to identify the root cause.
 ![method_hotspot](../assets/method_hotspot.png)
+
+---
+
+[Previous Step: Run Performance Tests](../05_Run_Performance_Tests) :arrow_backward: :arrow_forward: [Next Step: Retry Performance Test](../07_Retry_Performance_Test)
+
+:arrow_up_small: [Back to overview](../)

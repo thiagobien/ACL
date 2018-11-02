@@ -1,12 +1,12 @@
 # Define Management Zones in Dynatrace to create Access Control
 
-[Management Zones](https://www.dynatrace.com/news/blog/grant-fine-grained-access-rights-using-management-zones-beta/) allow you to define who is going to see and who has access to what type of Fullstack data. There are many ways to slice your environment and it will depend on your organizational structure & processes.
+[Management Zones](https://www.dynatrace.com/news/blog/grant-fine-grained-access-rights-using-management-zones-beta/) allow you to define who is going to see and who has access to what type of Full-stack data. There are many ways to slice your environment and it will depend on your organizational structure and processes.
 This lab assumes that there are following teams:
-* a Frontend Team responsible for FRONTEND services
-* a Dev Team responsible for the whole Development Environment
-* an Architecture Team responsible for Development & Staging
-* an Operations Team responsible for all Infrastructure (=all Hosts)
-* a Business Team responsible for all applications
+* Frontend Team responsible for FRONTEND services
+* Dev Team responsible for the whole Development Environment
+* Architecture Team responsible for Development & Staging
+* Operations Team responsible for all Infrastructure (=all Hosts)
+* Business Team responsible for all applications
 
 Based on this assumption, you will learn how to create Management Zones that will give each team access to the data they are supposed to see. 
 
@@ -46,3 +46,9 @@ Create a Management Zone for all HOSTS & Processes.
 
 ## Step 5: (optional) Create Management Zone for Business Team
 Create a Management Zone that covers all Web Applications.
+
+---
+
+[Previous Step: Push Events to Dynatrace](../04_Push_Events_to_Dynatrace) :arrow_backward: :arrow_forward: [Next Step: Deploy Sockshop to Staging](../06_Deploy_Sockshop_to_Staging)
+
+:arrow_up_small: [Back to overview](../)

@@ -29,3 +29,9 @@ Install the following tool(s):
     ```
     docker run -d --rm <imageID> /bin/bash loadgeneration.sh <your-front-end-url> 10 15
     ```
+
+---
+
+[Previous Step: Extract UI From Monolith](../2_Extract_UI_From_Monolith) :arrow_backward: :arrow_forward: [Next Step: Identify a Microservice](../4_Identify_a_Microservice)
+
+:arrow_up_small: [Back to overview](../)
