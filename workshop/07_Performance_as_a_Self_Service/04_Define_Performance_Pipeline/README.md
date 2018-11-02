@@ -28,7 +28,7 @@ In this lab you will build a Jenkins pipeline for implementing the *Performance 
     // trigger JMeter test
     }  
     ```
-Consequently, the pipeline pushes a *Custom Info Event* for *Performance Signature Validation* including exact timeframe shown in the screenshot below. Besides, the execution of the load test is recorded based the *recordDynatraceSession* function. 
+Consequently, the pipeline pushes a *Custom Info Event* for *Performance Signature Validation* including exact timeframe shown in the screenshot below. Besides, the execution of the load test is recorded based on the *recordDynatraceSession* function. 
 ![performance_signature_event](../assets/performance_signature_event.png)
 
 ## Step 2: Trigger JMeter Test by a separate Function
