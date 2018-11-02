@@ -24,7 +24,7 @@
         myEntity: "{{impactedEntities | first}}"
       when: state == "OPEN"
 
-    - name: fetch custom deployment events
+    - name: fetch custom configuration events
       uri:
         url: "{{dteventapiurl}}&relativeTime={{relative_time}}&entityId={{myEntity.entity}}&eventType=CUSTOM_CONFIGURATION"
         return_content: yes
@@ -33,17 +33,17 @@
       register: customproperties
       ignore_errors: no
 
-    - name: parse deployment events
+    - name: parse configuration events
       when: state == "OPEN"
       set_fact:
-        deployment_events: "{{item.json.events}}"
+        configuration_events: "{{item.json.events}}"
       with_items: "{{ customproperties.results }}"
       register: app_result
 
-    - name: get most recent deployment
+    - name: get most recent configuration event
       when: state == "OPEN"
       set_fact:
-        myItem: "{{ deployment_events | first }}"
+        myItem: "{{ configuration_events | first }}"
 
     - name: call remediation action
       uri:

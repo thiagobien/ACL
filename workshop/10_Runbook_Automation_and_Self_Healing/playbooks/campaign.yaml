@@ -10,14 +10,14 @@
       url: "{{carts_delay_url}}/{{response_delay}}"
       method: GET
     tags:
-      - response_delay_change
+      - response_time_change
 
-  - name: update error rate for {{dt_app}} service
+  - name: update percentage of promotion for {{dt_app}} service
     uri:
-      url: "{{carts_error_url}}/{{error_rate}}"
+      url: "{{carts_promotion_url}}/{{promotion_rate}}"
       method: GET
     tags:
-      - error_rate_change
+      - promotion_rate_change
 
 
   - name: update response configuration for {{dt_app}} service
@@ -55,7 +55,7 @@
       - response_time_change
 
 
-  - name: update erorr configuration for {{dt_app}} service
+  - name: update promotion configuration for {{dt_app}} service
     uri:
       url: "{{dteventapiurl}}"
       method: POST
@@ -77,16 +77,16 @@
                   ]
                 }]
             },
-            "description":"error rate set to {{error_rate}} %",
+            "description":"promotion rate set to {{promotion_rate}} %",
             "source":"Ansible Tower",
-            "configuration":"error rate",
+            "configuration":"promotion rate",
             "customProperties": {
               "remediationAction": "{{remediation_action}}"
             }
           }'
       return_content: yes
-    register: errorresponse
+    register: promotionresponse
     tags:
-      - error_rate_change
+      - promotion_rate_change
 
 
