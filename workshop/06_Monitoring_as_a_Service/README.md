@@ -1,6 +1,6 @@
 # Monitoring as a Service
 
-In this module you will learn how to rollout Dynatrace Fullstack monitoring across your infrastructure. Fullstack monitoring means that every host, app, and service that gets deployed will automatically - without any additional configuration - deliver key metrics and meta-data for the individual stakeholders: dev, architects, operations, and business.
+In this module you will learn how to rollout Dynatrace Full-stack monitoring across your infrastructure. Full-stack monitoring means that every host, app, and service that gets deployed will automatically - without any additional configuration - deliver key metrics and meta-data for the individual stakeholders: dev, architects, operations, and business.
 
 To achieve that goal, you will learn how to:
 * Rollout Dynatrace OneAgent on a Kubernetes Cluster: [Lab](./01_Instrument_Cluster_with_Dynatrace_OneAgent)
@@ -12,7 +12,7 @@ To achieve that goal, you will learn how to:
 
 For further information on how to organize monitored entities, it is recommended to read [Best practices on organize monitored entities](https://www.dynatrace.com/support/help/organize-monitored-entities/).
 
-# Pre-Requisits
+# Pre-Requisites
 
 * Before starting with this module, please complete the following modules:
     * Building Environment zero
