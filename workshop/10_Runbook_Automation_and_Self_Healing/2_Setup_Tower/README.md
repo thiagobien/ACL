@@ -1,6 +1,6 @@
 # Setup Ansible Tower
 
-1. Add **Git credentials** to your Ansible Tower organization
+- create job templates that can then be executed and that will run our playbooks.
     - Name: git-token
     - Organization: orgX (X... your workshop user number)
     - Credential Type: Source Control (click on magnifier and search for the correct type)
@@ -27,7 +27,8 @@
       ---
       tenantid: "YOUR-TENANT"
       apitoken: "YOUR-API-TOKEN"
-      carts_promotion_url: "http://SERVICE-URL/carts/1/items/errors"
+      carts_delay_url: "http://SERVICE-URL/carts/1/items/delay"
+      carts_error_url: "http://SERVICE-URL/carts/1/items/errors"
       
       commentuser: "Ansible Playbook"
       dtcommentapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/problem/details/{{pid}}/comments?Api-Token={{apitoken}}"
@@ -36,7 +37,7 @@
 
       ![create inventory](../assets/create-inventory.png)
 
-1. Create **Job Template** for our playbook
+1. Create **Job Template** for our playbooks
     - Name: remediation-userX (X... your workshop user number) <br>
       (_job template names have to be unique across the whole Ansible Tower installation_)
     - Job Type: Run
