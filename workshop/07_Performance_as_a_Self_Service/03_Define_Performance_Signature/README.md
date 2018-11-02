@@ -1,10 +1,10 @@
 # Define Performance Signature for Carts Service
 
-In this lab you'll learn how to define the performance signature for the carts service. In more details, this lab focues on validating the performance of the service based on the:
+In this lab you'll learn how to define the performance signature for the carts service. In more details, this lab focuses on validating the performance of the service based on the:
 * Average response time
 * Percentile of response time
 * Number of requests and requests/minute
-* Server side failure rate 
+* Server-side failure rate 
 
 For further performance metrics, [please look at](https://www.dynatrace.com/support/help/shortlink/api-metrics).
 
@@ -110,7 +110,7 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     },
     ```
 
-## Step 5: Save Changes und Push to Repository
+## Step 5: Save Changes and Push to Repository
 1. Save the file. 
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
