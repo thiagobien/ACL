@@ -1,14 +1,14 @@
 # Pass and Extract Meta-Data for each deployed Process or Container
 
-In this lab you learn which meta-data is captured automatically, how to pass custom meta data and how you can use this meta data to influence process group detection and automated tagging.
+In this lab you learn which meta-data is captured automatically, how to pass custom meta-data and how you can use this meta-data to influence process group detection and automated tagging.
 
-The OneAgent automatically captures a lot of meta data for each process which will be propagated to the Process Group Instance and the Process Group itself, e.g: Technology, JVM Version, Docker Image, Kubernetes pod names, service version number, etc. You can add additional meta data to every processes [via the environment variable like DT_CUSTOM_PROP, DT_TAGS](https://www.dynatrace.com/support/help/infrastructure/processes/how-do-i-define-my-own-process-group-metadata/)
+The OneAgent automatically captures a lot of meta-data for each process which will be propagated to the Process Group Instance (PGI) and the Process Group (PG) itself, e.g.: Technology, JVM Version, Docker Image, Kubernetes pod names, service version number, etc. You can add additional -data to every processes [via the environment variable like DT_CUSTOM_PROP, DT_TAGS](https://www.dynatrace.com/support/help/infrastructure/processes/how-do-i-define-my-own-process-group-metadata/)
 
-* *Which additional meta data should we pass?*
-It depends on your environment but here are some ideas, e.g: Build Number, Version Number, Team Ownership, or Type of Service.
+* *Which additional Meta-data should we pass?*
+It depends on your environment but here are some ideas, e.g.: Build Number, Version Number, Team Ownership, or Type of Service.
 
-* *Using Meta Data (How and Use Cases):*
-You can use custom and existing meta data from, e.g: Java Properties, Environment Variables, or Process Properties to influence [Process Group Detection](https://www.dynatrace.com/support/help/infrastructure/processes/can-i-customize-how-process-groups-are-detected/) as well as [Rule-based Tagging](https://www.dynatrace.com/news/blog/automated-rule-based-tagging-for-services/).
+* *Using Meta-data (How and Use Cases):*
+You can use custom and existing meta-data from, e.g.: Java Properties, Environment Variables, or Process Properties to influence [Process Group Detection](https://www.dynatrace.com/support/help/infrastructure/processes/can-i-customize-how-process-groups-are-detected/) as well as [Rule-based Tagging](https://www.dynatrace.com/news/blog/automated-rule-based-tagging-for-services/).
 
 ## Step 1: Pass Meta-data via Custom Environment Variables
 
@@ -27,14 +27,14 @@ You can use custom and existing meta data from, e.g: Java Properties, Environmen
 
 1. Commit/Push the changes to your GitHub Repository *carts*. 
 
-1. Re-deploy the carts service by triggering a Jenkins build.
+1. Re-deploy the carts service by triggering the Jenkins pipeline for carts.
 
-1. Indetify the tag and custom meta data in Dynatrace for the *carts* service and process group as shown below.
-    * Screenshot
+1. Identify the tag and custom meta-data in Dynatrace for the *carts* service and process group as shown below.
+    * Screenshot needed
 
 ## Step 2 (Optional): Influence PGI Detection to detect each Build as separate PGI
 
-For this step it is necessary to add the **DT_NODE_ID** environment variable to the service definition. This changes the default Process Group Instance detection mechanism and every docker instance, even if it comes from the same docker image, will be split into its own PGI. **Note: Kubernetes, OpenShift, CloudFoundry:** For these platforms the OneAgent automatically detects containers running in different pods, spaces or projects. There should be no need to leverage DT_NODE_ID to separate your container instances.
+For this step it is necessary to add the **DT_NODE_ID** environment variable to the service definition. This changes the default PGI detection mechanism and every docker instance, even if it comes from the same docker image, will be split into its own PGI. **Note: for Kubernetes, OpenShift, CloudFoundry:** For these platforms the OneAgent automatically detects containers running in different pods, spaces, or projects. There should be no need to leverage **DT_NODE_ID** to separate your container instances.
 
 1. Open `./manifest/carts.yml` again.
 
@@ -65,7 +65,7 @@ For this step it is necessary to add the **DT_NODE_ID** environment variable to 
 
 1. Commit/Push the changes to your GitHub Repository *carts*. 
 
-1. Re-deploy the carts service by triggering a Jenkins build.
+1. Re-deploy the carts service by triggering the Jenkins pipeline.
 
 ---
 

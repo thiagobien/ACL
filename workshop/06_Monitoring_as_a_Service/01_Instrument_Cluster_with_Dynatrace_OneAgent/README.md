@@ -9,7 +9,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     ```
 
 ## Step 2: Get Dynatrace API URL, API Token, and PaaS Token
-1. Set Dynatrace API Url.
+1. Set Dynatrace API URL.
     ```
     (bastion$) export API_URL=<DT_API_URL>
     ```
@@ -32,7 +32,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
         ```
         (bastion$) export API_TOKEN=<DT_API_Token>
         ```
-    1. (Screenshots show the process in a nutshell:)
+    (Screenshots show how to get the Dynatrace API Token:)
 
 ![generate-api-token](../assets/api_token.png)
 
@@ -79,7 +79,8 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     (bastion$) kubectl create -f oneagent.yml
     ```
 
-## Step 4. Execute some load on SockShop
+## Step 4. Execute some load on Sockshop
+1. Open the *front-end* URL of your Sockshop and click through the application. 
 
 ## Step 5. Explore automated Monitoring Result in Dynatrace
 
