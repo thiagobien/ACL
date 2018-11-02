@@ -91,3 +91,9 @@ Here are a couple of things that happened "automagically" due to the installatio
     * Screenshot needed
 
     If you run multiple process or docker instances of the same process or container image, Dynatrace will group them all into a single **Process Group Instance (PGI)**. In this case that means that we will see **one** PGI for front-end, **one** for carts, **one** for users, etc. The fact that you have multiple instances of the same container on the same host doesn't give you individual PGIs. That is the default behavior. You have ways to change that behavior through Process Group Detection rules or by using some of the *DT_* environment variables, as shown in a next lab.
+
+---
+
+:arrow_forward: [Next Step: Pass and Extract Meta-Data for Process or Container](../02_Pass_Extract_Meta-Data_for_Process_or_Container)
+
+:arrow_up_small: [Back to overview](../)

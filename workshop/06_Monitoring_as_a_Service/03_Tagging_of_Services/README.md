@@ -43,3 +43,9 @@ It will take about 30s until the tags are automatically applied to the services.
     * Condition on `Kubernetes namespace` if `exists`
 1. Click on **Preview** to validate rule works.
 1. Click on **Save** for the rule and then **Done**.
+
+---
+
+[Previous Step: Pass Extract Meta-Data for Process or Container](../02_Pass_Extract_Meta-Data_for_Process_or_Container) :arrow_backward: :arrow_forward: [Next Step: Push Events to Dynatrace](../04_Push_Events_to_Dynatrace)
+
+:arrow_up_small: [Back to overview](../)

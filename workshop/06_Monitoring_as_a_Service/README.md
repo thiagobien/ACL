@@ -18,7 +18,7 @@ For further information on how to organize monitored entities, it is recommended
     * Building Environment zero
     * Developing Microservices
 
-* Bastion host () with your credentials
+* Access to *Bastion host*
 
 # Prepare Environment for Labs
 

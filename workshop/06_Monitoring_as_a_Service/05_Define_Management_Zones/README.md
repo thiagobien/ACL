@@ -46,3 +46,9 @@ Create a Management Zone for all HOSTS & Processes.
 
 ## Step 5: (optional) Create Management Zone for Business Team
 Create a Management Zone that covers all Web Applications.
+
+---
+
+[Previous Step: Push Events to Dynatrace](../04_Push_Events_to_Dynatrace) :arrow_backward: :arrow_forward: [Next Step: Deploy Sockshop to Staging](../06_Deploy_Sockshop_to_Staging)
+
+:arrow_up_small: [Back to overview](../)

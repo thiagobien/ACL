@@ -40,3 +40,8 @@ Now as you have everything correctly setup and configured for our first environm
 1. Click on the pipeline for each service and **Scan Multibranch Pipeline Now**.
 1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 
 
+---
+
+[Previous Step: Define Management Zones](../05_Define_Management_Zones) :arrow_backward: :arrow_forward: [Next Step: Setup Notification Integration](../07_Setup_Notification_Integration)
+
+:arrow_up_small: [Back to overview](../)
