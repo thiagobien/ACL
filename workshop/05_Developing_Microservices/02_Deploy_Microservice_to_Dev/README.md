@@ -1,6 +1,6 @@
 # Deploy the Carts Service to Dev Environment
 
-In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, and test a microservice after pushing a source code change to the repository of the microservice. The following screenshot shows the different stages of the CI pipeline in an overview:
+In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, and test a microservice after pushing a source code change to its repository. The following screenshot shows the different stages of the CI pipeline in an overview.
 ![pipeline_dev](../assets/pipeline_dev.png)
 
 **Deploy App to Dev Environment** - This step is broken down into four steps:   
@@ -23,7 +23,7 @@ In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, 
 1. Deploy to dev namespace
     ```
     sed -i 's#image: .*#image: ${env.TAG_DEV}#' manifest/service.yml
-    kubectl -n dev apply -f manifest/orders.yml
+    kubectl -n dev apply -f manifest/service.yml
     ```
 
 **Test App in Dev Environment** - This step is conducted using two scenarios:   
