@@ -23,7 +23,7 @@ Before using the Performance Signature Plugin in build pipelines, it is necessar
 To push deployment events to Dynatrace, each build pipeline must be updated with the following stage. 
 
 1. Extend the `Jenkinsfile` for `carts` service. 
-    1. Open the `Jenkinsfile` in `./carts` folder. 
+    1. Open the `Jenkinsfile` in `carts/Jenkinsfile` folder. 
     1. Add the following stage after the **Deploy to dev namespace** stage.
         ```
         stage('DT Deploy Event') {

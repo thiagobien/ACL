@@ -1,8 +1,9 @@
-# Commit and Push a Change of a Microservice to master
+# Deploy the Carts Service to Dev Environment
 
-In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, and test a microservice after pushing a source code change to the repository of a microservice. 
+In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, and test a microservice after pushing a source code change to the repository of the microservice. The following screenshot shows the different stages of the CI pipeline in an overview:
+![pipeline_dev](../assets/pipeline_dev.png)
 
-**Deploy App to Development Environment** - This step is broken down into four steps:   
+**Deploy App to Dev Environment** - This step is broken down into four steps:   
 
 1. Maven (Go) build
     ```
@@ -25,15 +26,15 @@ In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, 
     kubectl -n dev apply -f manifest/orders.yml
     ```
 
-**Test App in Development Environment** - This step is conducted using two scenarios:   
+**Test App in Dev Environment** - This step is conducted using two scenarios:   
 1. (Sleep for some seconds.)
-1. Run health check in dev - Triggers an additional pipeline that executes the jMeter script: *basiccheck.jmx*.
-1. Run functional check in dev - Triggers an additional pipeline that executes the jMeter script: *service_load.jmx*.
+1. Run health check in dev - Triggers a jMeter script: *basiccheck.jmx*.
+1. Run functional check in dev - Triggers a jMeter script: *service_load.jmx*.
 
 ## Step 1: Modify a Microservice
 
-1. Switch to the `carts/` directory and open file `./carts/src/main/java/works/weave/socks/cart/controllers/HealthCheckController.java`. 
-1. Activate the code sections that address the database connection test and save file.
+1. Switch to the `carts/` directory and open file `carts/src/main/java/works/weave/socks/cart/controllers/HealthCheckController.java`. 
+1. Activate the code sections that address the database connection test and save file (i.e., remove all comments).
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 2. Build new Version in Jenkins

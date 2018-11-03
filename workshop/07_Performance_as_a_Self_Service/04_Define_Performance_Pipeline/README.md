@@ -3,7 +3,7 @@
 In this lab you will build a Jenkins pipeline for implementing the *Performance as a Self-Service* approach for the carts service. The purpose of this pipeline is that a developer can manually trigger it to run a performance test against a service (in the dev environment) and to retrieve an immediate performance test results. This gives fast feedback if recent changes negatively impacted the service and whether this new version would pass the performance test in the CI pipeline.
 
 ## Step 1: Record Dynatrace Session and Push Info Events
-1. Switch to the `carts/` directory and open file `./carts/Jenkins.performance`.
+1. Switch to the `carts/` directory and open file `carts/Jenkins.performance`.
 1. In this file you find the empty pipeline stage **Performance Check Stage**.
 1. Add the following snippet into the **steps { }** section:
     ```

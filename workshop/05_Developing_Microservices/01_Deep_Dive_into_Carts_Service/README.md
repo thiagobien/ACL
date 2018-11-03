@@ -1,24 +1,24 @@
 # Deep Dive into the Microserivce Carts
 
-In this lab you'll first investigate the code structure of a microservice including all artifacts that are needed to build, containerize, and to deploy. Based on a solid understanding of the microservice, you will deploy it to a Kubernetes cluster to see the service in action. 
+In this lab you'll first investigate the code structure of a microservice including all artifacts that are needed to build, containerize, and to deploy a service. Based on a solid understanding of the microservice, you will deploy it to a Kubernetes cluster to see the service in action. 
 
 ## Step 1: Familiarize with Microservice from a Code Perspective
 
-1. The source code of carts is in `./carts/src/`.
+1. The source code of carts is in `carts/src/`.
     * `main` - Contains the Java sources and the Application properties. 
     * `test` - Contains all unit tests to test the application logic. 
 
-1. The `./carts/pom.xml` file is used from Maven to build the Java artifact based on all dependencies. 
+1. The `carts/pom.xml` file is used from Maven to build the Java artifact based on all dependencies. 
 
-1. The `./carts/version` file holds the current version of the microservice.
+1. The `carts/version` file holds the current version of the microservice.
 
-1. The `./carts/Dockerfile` specifies the *Container Image* to run the microservice in a container.
+1. The `carts/Dockerfile` specifies the *Container Image* to run the microservice in a container.
 
-1. The `./carts/Jenkisfile` specifies the *Jenkins Pipeline* to build, test, deploy the microservice on a Kubernetes Cluster.
+1. The `carts/Jenkisfile` specifies the *Jenkins Pipeline* to build, test, deploy the microservice on a Kubernetes Cluster.
 
 ## Step 2. Familiarize with the Deployment and Service Specification
 
-1. Open the file `./carts/manifest/carts.yml`.
+1. Open the file `carts/manifest/carts.yml`.
 
 1. Consider the **Deployment** section.
     * Identify the **Container Image** definition.
@@ -26,7 +26,7 @@ In this lab you'll first investigate the code structure of a microservice includ
     * Identify the **Liveness and Readiness Probe** definition.
 
 1. Consider the **Service** section.
-    * Identify the **Port** defintion.
+    * Identify the **Port** definition.
 
 ## Step 3. Deploy Carts on Kubernetes Cluster
 
@@ -62,19 +62,19 @@ In this lab you'll first investigate the code structure of a microservice includ
 
 1. Run kubectl apply command from `.\carts` directory.
     ```
-    kubectl apply -f lab_manifest
+    (bastion)$ kubectl apply -f lab_manifest
     ```
 
 1. Check all ressources that have been created.
     ```
-    kubectl get deployments,pods,services -n lab-dev
+    (bastion)$ kubectl get deployments,pods,services -n lab-dev
     ```
 
 1. Retrieve the external IP of your carts service and open it in a browser by adding the `/health` endpoint.
 
 1. Delete all resources that have been created.
     ```
-    kubectl delete namespace lab-dev
+    (bastion)$ kubectl delete namespace lab-dev
     ```
 
 1. Delete `lab-manifest` folder.
