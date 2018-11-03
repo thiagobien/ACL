@@ -1,12 +1,11 @@
 # Developing Microservices 
 
-This module shows ...
+In this module you will learn more about the structure of a microservice from a code perspective. Besides, this module explains some artifacts for containerizing the service and specifying its continuous integration pipeline. 
 
-Reverse engineer existing sockshop microservice (e.g. carts) and explain concepts based on that service
-
-* : [Lab](./01_Deep_Dive_into_Carts_Service)
-* : [Lab](./02_Deploy_Microservice_to_Dev)
-* : [Lab](./03_Deploy_Microservice_to_Staging)
+To get familiar with the carts service, you will:
+* Deep dive into the carts service from a code perspective: [Lab](./01_Deep_Dive_into_Carts_Service)
+* Commit a change of carts and redeploy it to the dev environment: [Lab](./02_Deploy_Microservice_to_Dev)
+* Create a release branch to trigger the pipeline for the staging environment: [Lab](./03_Deploy_Microservice_to_Staging)
 
 # Pre-Requisites
 

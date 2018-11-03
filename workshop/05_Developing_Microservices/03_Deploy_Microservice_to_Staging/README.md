@@ -6,7 +6,7 @@ The following screenshot depicts the interaction between the two pipelines.
 ![pipeline_staging](../assets/pipeline_staging.png)
 
 **Prepare Deployment to Staging**
-1. Mark artifact for staging namespace
+1. Mark artifact for staging namespace.
     ```
     docker tag ${env.TAG_DEV} ${env.TAG_STAGING}
     docker push ${env.TAG_STAGING}
@@ -17,7 +17,7 @@ The following screenshot depicts the interaction between the two pipelines.
 **Deployment App to Staging**
 1. Update Deployment and Service specification - This step first sets the new version of the application in the deployment and service specification. Afterwards, it pushes the update to the GitHub repository *k8s-deploy-staging*.
 
-1. Deploy to staging namespace
+1. Deploy to staging namespace.
     ```
     kubectl -n staging apply -f .
     ```
