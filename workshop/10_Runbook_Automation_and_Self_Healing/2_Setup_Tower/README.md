@@ -5,9 +5,11 @@ Therefore, we will have to
 - add Github credentials to be able to check out Github repository
 - create a project in Ansible Tower that holds defines which repository to use
 - create an inventory that holds additional information such as userdata and variables
-- create job templates that can then be executed and that will run our playbooks.
+- create job templates that can then be executed and will run our playbooks.
 
-Let's get started!
+Let's get started! 
+
+1. Login to the Ansible Tower with the credentials you received from your instructor.
 
 1. Navigate to **Credentials** and add Git credentials to your Ansible Tower organization
     - Name: git-token
@@ -17,7 +19,7 @@ Let's get started!
 
     ![create credentials](../assets/create-credential.png) 
 
-1. Navigate to **Project** in Ansible Tower and create a new project
+1. Navigate to **Project** and create a new project
     - Name: self-healing
     - Organization: orgX (X... your workshop user number)
     - SCM Type: Git
@@ -45,7 +47,25 @@ Let's get started!
 
       ![create inventory](../assets/create-inventory.png)
 
-1. Navigate to **Templates** and create a new Job Template
+1. Navigate to **Templates** and create a new Job Template for the promotional campaign
+    - Name: promotion campaign-userX (X... your workshop user number) <br>
+      (_job template names have to be unique across the whole Ansible Tower installation_)
+    - Job Type: Run
+    - Inventory: inventory
+    - Project: self-healing
+    - Playbook: `10_Runbook_Automation_and_Self_Healing\playbooks\campaign.yaml`
+    - Extra Variables: check box _Prompt on Launch_ 
+      ```
+      ---
+      promotion_rate: '0'
+      remediation_action: 'https://XX.XXX.XX.XXX/api/v2/job_templates/XX/launch/'
+      ```
+      Make sure to adjust the values for the **IP address** (XX.XXX.XX.XXX) as well as the **job template ID** (XX) - take a look at the current URL in your browser and copy the IP address.
+
+    ![promotion](../assets/ansible-promotion.png)
+
+
+1. Navigate to **Templates** and create a new Job Template for the remediation playbook
     - Name: remediation-userX (X... your workshop user number) <br>
       (_job template names have to be unique across the whole Ansible Tower installation_)
     - Job Type: Run
