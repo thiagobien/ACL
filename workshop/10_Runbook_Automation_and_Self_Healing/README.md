@@ -8,7 +8,7 @@ In this session, we will use [Ansible Tower](https://www.ansible.com/tower) as t
 
 In this module we want to run a promotional campaign in our production environment. The purpose of the campaign is to add a promotional gift (e.g., Halloween/Christmas/Easter themed socks) to a given percentage of user interactions whenever they add an item to their shopping cart. We want to be able to control the amount of users during runtime in our production environment without the need to rollout a new version of the service.
 
-In case we experience problems 
+In case we experience problems with our campaign, we want to mechanisms in place, that automatically stop the campaign. 
 
 
 ![gift socks](./assets/gift-socks.png)
@@ -18,6 +18,13 @@ In case we experience problems
 
 The described use case can already be served by the carts service, since this feature is already implemented, but was not used until now.
 The `carts` service includes the endpoint `carts/1/items/promotional/` that can take as an input a number between 0 and 100 which corresponds to the percentages of user interactions that will receive the promotional gift. E.g., `carts/1/items/promotional/5` will enable it for 5 %, while `carts/1/items/promotional/100` will enable it for 100 % of user interactions. Therefore, we can easily change the behaviour of our `carts` service at runtime.
-However, 
+However, changing the value without using a configuration management system would not allow us to track when changes happened and which configuration values have changed. Therefore, we are using Ansible Tower to execute changes in our configuration.
 
+## Playbooks
+
+There are two playbooks included in this module
+
+1. **campaign.yaml**: This file holds two tasks and is responsible for adjusting the percentage of promotional gifts that will be included in the shopping carts of our users. The first task actually changes the value of the promotional function, while the second task sends a `CUSTOM_CONFIGURATION` change to the Dynatrace tenant to have a comprehensive overview of all configuration changes also in your Dynatrace tenant.
+
+1. **remediation.yaml**: This file holds a couple of tasks that are taken care of remediating an problem ticket of Dynatrace. 
 
