@@ -23,18 +23,35 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 
 1. Generate load for the `carts` service
     - Navigate to the `10_Runbook_Automation_and_Self_Healing` folder
-    - Start the [load generator](./scripts/) (adjust the IP for the cart service): 
+    - Start the [load generator](../scripts/) (adjust the IP for the cart service, receive the IP via <br> `kubectl get svc -n prod` ): 
       ```
       $ cd 10_Runbook_Automation_and_Self_Healing\scripts
       $ ./add-to-cart.sh http://XX.XXX.XXX.XX/carts/1/items
       ```
 
-1. Watch the service in Dynatrace
+1. Verify the update in the `carts` service in Dynatrace: navigate to the `carts` service in your Dynatrace tenant and verify the configuration change that has been applied and sent to Dynatrace.
+    ![custom configuration event](../assets/service-custom-configuration-event.png)
 
-1. Investigate steps of auto-remediation in Dynatrace
+1. Experience an increase of the failure rate: you will experience an increase of the failure rate of the `carts-ItemController` in Dynatrace once you enable the promotional campaign. 
+    ![failure rate increase](../assets/failure-rate-increase.png)
 
-1. Verify executed playbooks in Ansible Tower
+1. Dynatrace will open a problem ticket for the increase of the failure rate. Since we have setup the problem notification with Ansible Tower, the according `remediation` playbook will be executed once Dynatrace sends out the notification.
 
+1. Verify executed playbooks in Ansible Tower:
+    Navigate to "Jobs" and verify that Ansible Tower has executed two jobs. The first job - `remediation-userX` was called since Dynatrace sent out the problem notification to Ansible Tower. This job was then executing the remediation tasks which include the execution of the remediation action that is defined in the custom configuration event of the impacted entities (the `carts` service). Therefore, you will also see the `promotion campaign userX` that was executed.
+
+    ![remediation job execution](../assets/ansible-remediation-execution.png)
+
+1. Verify the change in the configuration in Dynatrace: to fully verify that the remedation was executed, you will find evidence in Dynatrace.
+    - New configuration event that set the promotion rate back to 0 %:
+    ![custom configuration event](../assets/service-custom-configuration-event-remediation.png)
+
+    - Comment on the Dynatrace problem ticket that the playbook has been executed:
+    ![comments on problem](../assets/problem-comments.png)
+    
+1. Finished! :)
+
+1. (optional) Use Dynatrace to find the corresponding Java class as well as the exact line number that is responsible for the increase of the failure rate. 
 
 
 
