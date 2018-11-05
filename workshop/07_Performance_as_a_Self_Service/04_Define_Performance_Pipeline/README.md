@@ -38,7 +38,7 @@ Consequently, the pipeline pushes a *Custom Info Event* for *Performance Signatu
       script {
         def status = executeJMeter ( 
           scriptName: "jmeter/${env.APP_NAME}_perfcheck.jmx",
-          resultsDir: "PerfCheck_${BUILD_NUMBER}",
+          resultsDir: "PerfCheck_${env.APP_NAME}",
           serverUrl: "${env.APP_NAME}.dev", 
           serverPort: 80,
           checkPath: '/health',
