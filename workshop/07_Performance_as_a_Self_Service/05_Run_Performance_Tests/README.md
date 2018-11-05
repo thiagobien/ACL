@@ -24,13 +24,17 @@ In this lab you'll trigger a performance test for (1) the current implementation
 1. Click on **Build Now** to trigger the performance pipeline.
 
 ## Step 4: Explore Results in Jenkins
-1. After a successful pipeline execution, click on **Performance Signature**.
+1. After a successful pipeline execution, click on *Performance Trend*. 
+This opens a trend analysis of the jMeter test results. In more details, it shows a chart for the throughput, response time, and percentage of errors as shown below.
+![performance_trend](../assets/performance_trend.png)
+
+1. Click on **Performance Signature**.
 There you get an overview of the last builds similar to the screenshot below. 
 ![jenkins_result](../assets/jenkins_result.png)
 
 1. Click on the **Build No** of one particular build and click on **Performance Signature**.
 This opens a detailed view about the performance validation of the selected build. 
-![built_result](../assets/built_result.png)
+![build_result](../assets/build_result.png)
 
 ---
 
