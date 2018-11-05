@@ -5,7 +5,7 @@ In this lab you'll learn how to use the Jenkins pipeline to release a microservi
 The following screenshot depicts the interaction between the two pipelines.
 ![pipeline_staging](../assets/pipeline_staging.png)
 
-**Prepare Deployment to Staging**
+**Prepare Deployment for Staging**
 1. Mark artifact for staging namespace.
     ```
     docker tag ${env.TAG_DEV} ${env.TAG_STAGING}
@@ -14,7 +14,7 @@ The following screenshot depicts the interaction between the two pipelines.
 
 1. Deploy to staging - Triggers an additional pipeline that is responsible for deploying the new release to the staging environment. 
 
-**Deployment App to Staging**
+**Deploy App to Staging**
 1. Update Deployment and Service specification - This step first sets the new version of the application in the deployment and service specification. Afterwards, it pushes the update to the GitHub repository *k8s-deploy-staging*.
 
 1. Deploy to staging namespace.

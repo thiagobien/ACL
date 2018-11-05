@@ -4,7 +4,7 @@ In this module you will learn more about the structure of a microservice from a 
 
 To get familiar with the carts service, you will:
 * Deep dive into the carts service from a code perspective: [Lab](./01_Deep_Dive_into_Carts_Service)
-* Commit a change of carts and redeploy it to the dev environment: [Lab](./02_Deploy_Microservice_to_Dev)
+* Commit a change of carts and re-deploy it to the dev environment: [Lab](./02_Deploy_Microservice_to_Dev)
 * Create a release branch to trigger the pipeline for the staging environment: [Lab](./03_Deploy_Microservice_to_Staging)
 
 # Pre-Requisites
