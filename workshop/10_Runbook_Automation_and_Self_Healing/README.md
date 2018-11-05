@@ -28,3 +28,12 @@ There are two playbooks included in this module
 
 1. **remediation.yaml**: This file holds a couple of tasks that are taken care of remediating an problem ticket of Dynatrace. 
 
+    1. Push a comment to Dynatrace that the remediation script is executing.
+    1. Get `entityId` of `ImpactedEntities` of the Dynatrace problem ticket.
+    1. Fetch `CUSTOM_CONFIGURATION` events from the impacted entity
+    1. Get most recent configuration event
+    1. Call the `remediation action` that is defined in the configuration event
+    1. Push a success/error comment to Dynatrace
+
+
+
