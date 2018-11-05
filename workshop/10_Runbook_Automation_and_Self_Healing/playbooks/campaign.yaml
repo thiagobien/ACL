@@ -4,6 +4,7 @@
     dt_app: "carts"
     dt_env: "dev"
 
+  tasks:
   - name: update percentage of promotion for {{dt_app}} service
     uri:
       url: "{{carts_promotion_url}}/{{promotion_rate}}"
