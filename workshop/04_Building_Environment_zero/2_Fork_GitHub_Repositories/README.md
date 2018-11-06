@@ -9,7 +9,7 @@
 
     ```
     (bastion)$ git config --global user.name "<firstname> <lastname>"
-    (bastion)$ git config --global user.eamil "<GitHubEmail>"
+    (bastion)$ git config --global user.email "<GitHubEmail>"
     ```
 
 1. Execute the `~/forkGitHubRepositories.sh` script in your home directory. This script takes the name of the GitHub organization you have created in preparation for this workshop as a paramter.
