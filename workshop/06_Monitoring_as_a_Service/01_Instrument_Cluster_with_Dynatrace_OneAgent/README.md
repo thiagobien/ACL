@@ -89,7 +89,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
 
 ## Step 5. Explore automated Monitoring Result in Dynatrace
 
-Here are a couple of things that happened *automagically*"* due to the installation of Dynatrace OneAgent Operator.
+Here are a couple of things that happened *automagically* due to the installation of Dynatrace OneAgent Operator.
 
 1. View Properties and Tags of Hosts in your Cluster.
     * Screenshot needed
