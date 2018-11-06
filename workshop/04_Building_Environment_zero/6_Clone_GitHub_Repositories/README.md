@@ -20,6 +20,7 @@ In the last lab, you'll clone the GitHub repositories we've forked in lab 2 to y
     front-end
     jmeter-tests
     k8s-deploy-staging
+    k8s-deploy-production
     orders
     payment
     queue-master
