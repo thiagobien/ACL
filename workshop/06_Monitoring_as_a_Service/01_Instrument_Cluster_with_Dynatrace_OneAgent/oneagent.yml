@@ -4,7 +4,7 @@ metadata:
   name: oneagent
   namespace: dynatrace
 spec:
-  apiUrl: API_URL
+  apiUrl: CHANGE_TO_API_URL
   skipCertCheck: false
   tokens: ""
   nodeSelector: {}

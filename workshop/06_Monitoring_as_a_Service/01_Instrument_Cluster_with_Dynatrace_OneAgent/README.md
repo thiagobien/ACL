@@ -3,6 +3,11 @@
 In this lab you'll instrument the Kubernetes Cluster (from *Building Environment zero*) with Dynatrace OneAgent, which automatically monitors all your processes, containers, services, applications, and end-users.
 
 ## Step 1: Define the Cluster Role Binding
+1. Get the current cluster user.
+    ```
+    (bastion$) gcloud info | grep Account
+    ```
+
 1. Set the *Cluster Role Binding* for your User on *Cluster Admin*.
     ```
     (bastion$) kubectl create clusterrolebinding dynatrace-cluster-admin-binding --clusterrole=cluster-admin --user=<your cluster user>
@@ -47,7 +52,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     (bastion$) kubectl -n dynatrace create secret generic oneagent --from-literal="apiToken=${API_TOKEN}" --from-literal="paasToken=${PAAS_TOKEN}"
     ```
 
-1. Check configuration in `operator.yml` and set `HOST_GROUP` parameter to assign hosts to a group.
+1. Check configuration in `oneagent.yml` and set `HOST_GROUP` parameter to assign hosts to a group.
     ```
       - HOST_GROUP=k8s_cluster_sockshop
     ```
@@ -60,7 +65,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       name: oneagent
       namespace: dynatrace
     spec:
-      apiUrl: ${API_URL}
+      apiUrl: CHANGE_TO_API_URL
       skipCertCheck: false
       tokens: ""
       nodeSelector: {}
@@ -84,7 +89,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
 
 ## Step 5. Explore automated Monitoring Result in Dynatrace
 
-Here are a couple of things that happened *automagically*"* due to the installation of Dynatrace OneAgent Operator.
+Here are a couple of things that happened *automagically* due to the installation of Dynatrace OneAgent Operator.
 
 1. View Properties and Tags of Hosts in your Cluster.
     * Screenshot needed
