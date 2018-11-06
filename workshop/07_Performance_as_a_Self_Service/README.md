@@ -21,11 +21,3 @@ To achieve this goal, you will learn how to:
 
 * Access to *Bastion host*
 
-# Prepare Environment for Labs
-
-1. Clone or download this GitHub repository to your local machine.
-    ```
-    git clone https://github.com/dynatrace-innovationlab/acl-docs.git
-    ```
-
-1. Switch to the directory `07_Performance_as_a_Self_Service`.
