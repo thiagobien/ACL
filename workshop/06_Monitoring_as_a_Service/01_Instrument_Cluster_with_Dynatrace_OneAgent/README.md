@@ -5,7 +5,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
 ## Step 1: Define the Cluster Role Binding
 1. Get the current cluster user.
     ```
-    (bastion$) gcloud info | grep Account
+    (bastion$) gcloud config get-value account
     ```
 
 1. Set the *Cluster Role Binding* for your User on *Cluster Admin*.
