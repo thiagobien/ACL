@@ -1,38 +1,15 @@
 # Check Prerequisites
 
-## Data needed
-* Credentials for bastion host
+## Installed Software
+* node.js version >= 8
 
-## Steps
+## Installing Node.js
 
-1. If you don't have received your user credentials and connection information for the bastion host, please reach out to one of the instructors.
+* On Windows and MacOS, open [the Node.js website](https://nodejs.org/) and download the version for your operating System
 
-1. Use your ssh client to connect to the bastion host and ensure the ```kubectl``` is configured for your GKE cluster.
-
-    ```
-    (local)$ ssh <username>@<bastion-ip>
-    ```
-
-    When asked, pelase provide the password and you should be connected to a terminal at the bastion host.
-
-1. Check the `kubectl` configuration
-    ```
-    (bastion)$ kubectl config view
-    ```
-
-    The output should look similiar to the following image, where (1) should be the name of your cluster, and (2) is the generated access token.
-
-    ![kubectl config view](../assets/kubectl-config-view.png)
-
-    ```
-    (bastion)$ kubectl get namespaces
-    ```
-    The output should look similiar to the following image.
-
-    ![kubectl get namespaces](../assets/kubectl-get-namespaces.png)
-
+* On Linux, click on [this link](https://nodejs.org/en/download/package-manager/) and follow the steps for your Distribution
 ---
 
-:arrow_forward: [Next Step: Fork GitHub Repositories](../2_Fork_GitHub_Repositories)
+:arrow_forward: [Next Step: Explore the Dynatrace API](../2_Explore_the_Dynatrace_API)
 
 :arrow_up_small: [Back to overview](../)
