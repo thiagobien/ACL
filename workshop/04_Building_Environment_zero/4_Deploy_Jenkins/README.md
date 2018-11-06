@@ -46,6 +46,12 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
  
     ![](../assets/kubectl-get-services-cicd.png)
 
+1. Give Jenkins `clusteradmin` rights, so she can query for running pods and spawn pods when needed.
+
+    ```
+    (bastion)$ kubectl apply -f manifests/k8s-jenkins-rbac.yml
+    ```
+
 1. Open `EXTERNAL-IP` in your browser and see the Jenkins UI with the preconfigured build pipelines for the Sockshop projects.
 
     ![](../assets/jenkins-ui.png)
