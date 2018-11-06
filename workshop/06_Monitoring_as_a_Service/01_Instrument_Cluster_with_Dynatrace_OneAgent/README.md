@@ -52,7 +52,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     (bastion$) kubectl -n dynatrace create secret generic oneagent --from-literal="apiToken=${API_TOKEN}" --from-literal="paasToken=${PAAS_TOKEN}"
     ```
 
-1. Check configuration in `operator.yml` and set `HOST_GROUP` parameter to assign hosts to a group.
+1. Check configuration in `oneagent.yml` and set `HOST_GROUP` parameter to assign hosts to a group.
     ```
       - HOST_GROUP=k8s_cluster_sockshop
     ```
@@ -65,7 +65,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       name: oneagent
       namespace: dynatrace
     spec:
-      apiUrl: ${API_URL}
+      apiUrl: CHANGE_TO_API_URL
       skipCertCheck: false
       tokens: ""
       nodeSelector: {}
