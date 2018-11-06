@@ -1,6 +1,6 @@
 # Harden Staging Pipeline with Quality Gate
 
-In this lab you'll 
+In this lab you'll add an additional quality gate to your CI pipeline. In other words, a end-to-end check will verify the functionality of the sockshop application in the staging environment.
 
 ## Step 1: Add e2e Test to Staging Pipeline
 1. Copy the following snippet to the end of the Jenkins pipeline of `k8s-deploy-staging`.
@@ -57,4 +57,4 @@ In this lab you'll
     }
     ```
 
-1. Commit/Push changes to the repository `k8s-deploy-staging`.
+1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.

@@ -13,4 +13,3 @@ To get familiar with the carts service, you will:
     * Building Environment zero
 
 * Access to *Bastion host*
-
