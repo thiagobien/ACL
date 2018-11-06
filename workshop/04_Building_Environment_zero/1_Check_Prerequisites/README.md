@@ -5,7 +5,7 @@
 
 ## Steps
 
-1. If you don't have received your user credentials and connection information for the bastion host, please reach out to one of the instructors.
+1. If you haven't received your user credentials and connection information for the bastion host, please reach out to one of the instructors.
 
 1. Use your ssh client to connect to the bastion host and ensure the ```kubectl``` is configured for your GKE cluster.
 
@@ -13,7 +13,7 @@
     (local)$ ssh <username>@<bastion-ip>
     ```
 
-    When asked, pelase provide the password and you should be connected to a terminal at the bastion host.
+    When asked, please provide the password and you should be connected to a terminal at the bastion host.
 
 1. Check the `kubectl` configuration
     ```
