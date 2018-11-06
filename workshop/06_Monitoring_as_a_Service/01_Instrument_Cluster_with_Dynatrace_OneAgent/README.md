@@ -3,6 +3,11 @@
 In this lab you'll instrument the Kubernetes Cluster (from *Building Environment zero*) with Dynatrace OneAgent, which automatically monitors all your processes, containers, services, applications, and end-users.
 
 ## Step 1: Define the Cluster Role Binding
+1. Get the current cluster user.
+    ```
+    (bastion$) gcloud info | grep Account
+    ```
+
 1. Set the *Cluster Role Binding* for your User on *Cluster Admin*.
     ```
     (bastion$) kubectl create clusterrolebinding dynatrace-cluster-admin-binding --clusterrole=cluster-admin --user=<your cluster user>
