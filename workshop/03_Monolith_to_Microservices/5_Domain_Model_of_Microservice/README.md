@@ -37,7 +37,6 @@ For more details about this lab, please take a look at the following blog post: 
     ```
     oc rsh <your-db-pod>
     cd ~
-    cd migration
     mysql -u root orders < 0_ordersdb-schema.sql
     mysql -u root orders < 1_ordersdb-data.sql
     exit
