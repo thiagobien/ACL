@@ -12,7 +12,7 @@ class DynatraceService {
    * Fetch all hosts from the Dynatrace API
    */
   async getHosts() {
-    const url = `${this.baseUrl}/entity/infrastructure/hosts`;
+    const url = `${this.baseUrl}/entity/infrastructure/hosts?relativeTime=day`;
     const result = await axios.get(url, this.axiosConfig);
     if(result.data) return result.data;
     return [];
