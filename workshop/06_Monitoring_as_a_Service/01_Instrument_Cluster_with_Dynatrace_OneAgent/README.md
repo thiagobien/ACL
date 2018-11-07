@@ -83,6 +83,12 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     ```
     (bastion$) kubectl create -f oneagent.yml
     ```
+1. Restart all pods to get method-level insight into your services
+    ```
+    (bastion$) kubectl delete pods --all -n dev
+    (bastion$) kubectl delete pods --all -n staging
+    (bastion$) kubectl delete pods --all -n production
+    ```
 
 ## Step 4. Execute some load on Sockshop
 1. Open the *front-end* URL of your Sockshop and click through the application. 
