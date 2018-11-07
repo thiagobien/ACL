@@ -64,7 +64,8 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
     ![](../assets/jenkins-ui-credentials.png)
 
-1. Provide your Git username :one:, your [Personal Access token](https://github.com/settings/tokens/new) :two:, and the ID :three:
+1. Provide your Git username :one:, your [Personal Access token](https://github.com/settings/tokens/new) :two:, and the ID :three:.
+    Please note that for the Personal Access Token, you can choose whatever name you like when creating it, for example "jenkins token". Please give this access token "Full control of private repositories".
 
     ```
     git-credentials-acm
