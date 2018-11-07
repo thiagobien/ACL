@@ -23,12 +23,12 @@ Install the following tool(s):
     ```
     oc login <OurClusterIP:port>
     ```
-    * User: `wsXX` (`XX` is your assigned number)<br>
+    * User: `userXX` (`XX` is your assigned number)<br>
     * Password: ask instructor 
     
 1. After the successful login, create your own project:
     ```
-    oc new-project <ws-XX>
+    oc new-project <project-XX>
     ```
 
 1. Set up a management zone for your OpenShift project
