@@ -2,7 +2,7 @@
 
 In this lab you'll release a service to staging that is not tested based on performance tests. Intentionally, the service is slowed down to fail at the e2e check in the staging pipeline.
 
-## Step 1: Introduce a slowdown in the Carts Service
+## Step 1: Introduce a Slowdown in the Carts Service
 1. In the directory of `carts\`, open the file: `carts\src\main\resources\application.properties`.
 1. Change the value of `delayInMillis` from `0` to `1000`.
 1. Commit/Push the changes to your GitHub Repository *carts*.
