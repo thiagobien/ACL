@@ -24,7 +24,7 @@ For more details about this lab, please take a look at the following blog post: 
 1. Check status of pod.
     ```(bastion)$ oc get pods```
 
-## Step 2: Book a Ticket on TicketMonster
+## Step 3: Book a Ticket on TicketMonster
 1. Open your **ticketmonster-ui-v1** in a browser.
 1. Click on **Events**, **Concerts** and on, e.g., **Rock concert of the decade**.
 1. Select the **Venue**, **Date** and click on **Order ticket**.
@@ -32,7 +32,7 @@ For more details about this lab, please take a look at the following blog post: 
 1. **Checkout** your ticket booking after specifying your email.
 1. Review your booking details.
 
-## Step 3: Consider Service Flow in Dynatrace
+## Step 4: Consider Service Flow in Dynatrace
 1. Choose the **Transaction & services** tab from the left menu.
 1. Select service **TicketMonsterUI**.
 1. Click on **View service flow**.
