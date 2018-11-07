@@ -25,7 +25,6 @@ The following screenshot depicts the interaction between the two pipelines.
 ## Step 1: Create a new Release
 
 1. Switch to the `carts/` directory.
-
 1. Run the `create_release.sh` script within the directory.
     ```
     (bastion)$ sh create_release.sh

@@ -20,12 +20,4 @@ For further information on how to organize monitored entities, it is recommended
 
 * Access to *Bastion host*
 
-# Prepare Environment for Labs
-
-1. Clone or download this GitHub repository to your local machine.
-    ```
-    git clone https://github.com/dynatrace-innovationlab/acl-docs.git
-    ```
-
-1. Switch to the directory `06_Monitoring_as_a_Service`.
 

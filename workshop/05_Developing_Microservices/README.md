@@ -13,12 +13,3 @@ To get familiar with the carts service, you will:
     * Building Environment zero
 
 * Access to *Bastion host*
-
-# Prepare Environment for Labs
-
-1. Clone or download this GitHub repository to your local machine.
-    ```
-    git clone https://github.com/dynatrace-innovationlab/acl-docs.git
-    ```
-
-1. Switch to the directory `05_Developing_Microservices`.
