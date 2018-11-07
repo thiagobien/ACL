@@ -16,12 +16,15 @@ For more details about this lab, please take a look at the following blog post: 
 
 ## Step 2: Restart Pods to activate Custom Service Detection
 1. Get your pods and copy the pod name starting with *ticketmonster-monolith*.
+
     ```(bastion)$ oc get pods```
 
 1. Delete the pod.
+
     ```(bastion)$ oc delete pod <your-ticketmonster-pod>```
 
 1. Check status of pod.
+
     ```(bastion)$ oc get pods```
 
 ## Step 3: Book a Ticket on TicketMonster
