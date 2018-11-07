@@ -14,6 +14,16 @@ For more details about this lab, please take a look at the following blog post: 
 1. Search for loaded classes and interfaces with name `BookingService`, select `org.jboss.examples.ticketmonster.rest.BookingService` and click **Continue**.
 1. Select `createBooking` as entry point and click **Finish**.
 
+## Step 2: Restart Pods to activate Custom Service Detection
+1. Get your pods and copy the pod name starting with *ticketmonster-monolith*.
+    ```(bastion)$ oc get pods```
+
+1. Delete the pod.
+    ```(bastion)$ oc delete pod <your-ticketmonster-pod>```
+
+1. Check status of pod.
+    ```(bastion)$ oc get pods```
+
 ## Step 2: Book a Ticket on TicketMonster
 1. Open your **ticketmonster-ui-v1** in a browser.
 1. Click on **Events**, **Concerts** and on, e.g., **Rock concert of the decade**.
