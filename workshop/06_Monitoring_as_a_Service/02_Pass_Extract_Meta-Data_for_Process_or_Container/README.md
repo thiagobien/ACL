@@ -55,7 +55,7 @@ For this step it is necessary to add the **DT_NODE_ID** environment variable to 
 
 1. In the `steps` section of stage `Deploy to dev namespace`, add the following `sed` command right before the `kubectl apply`.
     ```
-    sh "sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' manifest/payment.yml"      
+    sh "sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' manifest/carts.yml"      
     ```
 
 1. In the `steps` section of stage `Deploy to staging`, add the following `sed` command right before the `kubectl apply`.
