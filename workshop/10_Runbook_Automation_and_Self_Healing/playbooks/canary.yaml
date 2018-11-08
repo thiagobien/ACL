@@ -1,15 +1,15 @@
 ---
 - hosts: localhost
-  vars:
-    tenantid: "tno85405"
-    apitoken: "9Tgt4MNUSPe6qNdKnvXJA"
-    dt_app: "front-end"
-    dt_env: "dev"
-    dteventapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/events/?Api-Token={{apitoken}}"
-    jenkins_user: "admin"
-    jenkins_password: "admin"
-    jenkins_url: "http://35.239.237.67/job/k8s-deploy-production.canary/job/master/build?delay=0sec"
-    remediation_url: "https://TODO"
+  # vars:
+  #   tenantid: "tno85405"
+  #   apitoken: "9Tgt4MNUSPe6qNdKnvXJA"
+  #   dt_app: "front-end"
+  #   dt_env: "dev"
+  #   dteventapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/events/?Api-Token={{apitoken}}"
+  #   jenkins_user: "admin"
+  #   jenkins_password: "admin"
+  #   jenkins_url: "http://35.239.237.67/job/k8s-deploy-production.canary/job/master/build?delay=0sec"
+  #   remediation_url: "https://TODO"
 
   tasks:
   - name: trigger jenkins pipeline
@@ -17,8 +17,6 @@
       payload:  {"parameter": [{"name":"VERSION1", "value":"{{item.version1}}"}, {"name":"VERSION2", "value":"{{item.version2}}"}, {"name":"REMEDIATIONURL", "value":"{{remediation_url}}"}]}
     command:  curl -X POST {{jenkins_url}} --user admin:admin --data-urlencode json='{{payload | to_json}}'   
     loop:
-      # - version1: 100
-      #   version2: 0
       - version1: 90
         version2: 10
       - version1: 50
@@ -29,4 +27,11 @@
         version2: 100
     loop_control:
       pause: 120
+
+  - name: reset load balancing to 100/0
+    vars:
+      payload:  {"parameter": [{"name":"VERSION1", "value":"100"}, {"name":"VERSION2", "value":"0"}, {"name":"REMEDIATIONURL", "value":"{{remediation_url}}"}]}
+    command:  curl -X POST {{jenkins_url}} --user admin:admin --data-urlencode json='{{payload | to_json}}'   
+    tags:
+      - canary_reset
 
