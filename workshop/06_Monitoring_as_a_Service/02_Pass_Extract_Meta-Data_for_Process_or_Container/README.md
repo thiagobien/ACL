@@ -30,8 +30,10 @@ You can use custom and existing meta-data from, e.g.: Java Properties, Environme
 1. Re-deploy the carts service by triggering the Jenkins pipeline for carts.
 
 1. Identify the tag and custom meta-data in Dynatrace for the *carts* service and process group as shown below.
-    * Screenshot needed
 
+![tagging-rule](../assets/process_tags.png)
+
+<!-- 
 ## Step 2 (Optional): Influence PGI Detection to detect each Build as separate PGI
 
 For this step it is necessary to add the **DT_NODE_ID** environment variable to the service definition. This changes the default PGI detection mechanism and every docker instance, even if it comes from the same docker image, will be split into its own PGI. **Note: for Kubernetes, OpenShift, CloudFoundry:** For these platforms the OneAgent automatically detects containers running in different pods, spaces, or projects. There should be no need to leverage **DT_NODE_ID** to separate your container instances.
@@ -66,6 +68,8 @@ For this step it is necessary to add the **DT_NODE_ID** environment variable to 
 1. Commit/Push the changes to your GitHub Repository *carts*. 
 
 1. Re-deploy the carts service by triggering the Jenkins pipeline.
+
+-->
 
 ---
 
