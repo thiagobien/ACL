@@ -11,16 +11,6 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 
 ## Run the campaign in our PRODUCTION environment
 
-1. Run the promotional campain
-    - Navigate to _Templates_ in your Ansible Tower
-    - Click on the "rocket" icon (🚀) next to your _promotion campaign userX_ job template
-    ![run template](../assets/ansible-template-run.png)
-    - Adjust the values accordingly for you promotional campaign:
-      - Set the value for `promotion_rate: '10'` to allow for 10 % of the user interactions to receive the promotional gift
-      - Do not change the `remediation_action` 
-    - Click _Next_
-    - Click _Launch_
-
 1. Generate load for the `carts` service
     - Navigate to the `10_Runbook_Automation_and_Self_Healing` folder
     - Start the [load generator](../scripts/) (adjust the IP for the cart service, receive the IP via <br> `kubectl get svc -n prod` ): 
@@ -28,6 +18,17 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
       $ cd 10_Runbook_Automation_and_Self_Healing\scripts
       $ ./add-to-cart.sh http://XX.XXX.XXX.XX/carts/1/items
       ```
+
+1. Run the promotional campain
+    - Navigate to _Templates_ in your Ansible Tower
+    - Click on the "rocket" icon (🚀) next to your _promotion campaign userX_ job template
+    ![run template](../assets/ansible-template-run.png)
+    - Adjust the values accordingly for you promotional campaign:
+      - Set the value for `promotion_rate: '20'` to allow for 20 % of the user interactions to receive the promotional gift
+      - Do not change the `remediation_action` 
+    - Click _Next_
+    - Click _Launch_
+
 
 1. Verify the update in the `carts` service in Dynatrace: navigate to the `carts` service in your Dynatrace tenant and verify the configuration change that has been applied and sent to Dynatrace.
     ![custom configuration event](../assets/service-custom-configuration-event.png)
