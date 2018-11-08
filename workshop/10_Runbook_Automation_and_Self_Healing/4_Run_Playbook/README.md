@@ -17,7 +17,7 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
     ![run template](../assets/ansible-template-run.png)
     - Adjust the values accordingly for you promotional campaign:
       - Set the value for `promotion_rate: '10'` to allow for 10 % of the user interactions to receive the promotional gift
-      - Do not change the `remedation_action` 
+      - Do not change the `remediation_action` 
     - Click _Next_
     - Click _Launch_
 
