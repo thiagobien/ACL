@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
     dt_app: "carts"
-    dt_env: "dev"
+    dt_env: "production"
 
   tasks:
   - name: update percentage of promotion for {{dt_app}} service
