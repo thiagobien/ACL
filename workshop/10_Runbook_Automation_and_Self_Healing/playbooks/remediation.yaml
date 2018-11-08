@@ -3,11 +3,6 @@
   hosts: localhost
   vars:
     relative_time: "hour"
-    commentuser: "Ansible Playbook"
-    tower_user: "admin"
-    tower_password: "dynatrace"
-
-
 
   tasks:
     - name: push comment to dynatrace
@@ -17,7 +12,6 @@
         body_format: json
         body: "{ \"comment\": \"Remediation playbook started.\", \"user\": \"{{commentuser}}\", \"context\": \"Ansible Tower\" }"
       when: state == "OPEN"
-
 
     - name: get entityId
       set_fact:
