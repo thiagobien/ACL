@@ -90,10 +90,17 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     (bastion$) kubectl delete pods --all -n production
     ```
 
-## Step 4. Execute some load on Sockshop
+## Step 4. Enable Go monitoring
+To have full insights in your Go applications, make sure to enable Go monitoring.
+
+1. Navigate to _Settings -> Monitoring -> Monitoring technologies_ 
+1. In the Tab _Supported Technologies_ enable "Go"
+
+
+## Step 5. Execute some load on Sockshop
 1. Open the *front-end* URL of your Sockshop and click through the application. 
 
-## Step 5. Explore automated Monitoring Result in Dynatrace
+## Step 6. Explore automated Monitoring Result in Dynatrace
 
 Here are a couple of things that happened *automagically* due to the installation of Dynatrace OneAgent Operator.
 

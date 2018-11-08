@@ -38,9 +38,10 @@ Let's get started!
       ---
       tenantid: "YOUR-TENANT"
       apitoken: "YOUR-API-TOKEN"
-      carts_promotion_url: "http://SERVICE-URL/carts/1/items/errors"
-      
+      carts_promotion_url: "http://SERVICE-URL/carts/1/items/promotion"
       commentuser: "Ansible Playbook"
+      tower_user: "userX"
+      tower_password: "dynatrace"
       dtcommentapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/problem/details/{{pid}}/comments?Api-Token={{apitoken}}"
       dteventapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/events/?Api-Token={{apitoken}}"
       ```
