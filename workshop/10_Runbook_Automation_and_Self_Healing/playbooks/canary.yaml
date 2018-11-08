@@ -17,8 +17,8 @@
       payload:  {"parameter": [{"name":"VERSION1", "value":"{{item.version1}}"}, {"name":"VERSION2", "value":"{{item.version2}}"}, {"name":"REMEDIATIONURL", "value":"{{remediation_url}}"}]}
     command:  curl -X POST {{jenkins_url}} --user admin:admin --data-urlencode json='{{payload | to_json}}'   
     loop:
-      - version1: 100
-        version2: 0
+      # - version1: 100
+      #   version2: 0
       - version1: 90
         version2: 10
       - version1: 50
