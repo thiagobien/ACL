@@ -61,8 +61,9 @@ For this step it is necessary to add the **DT_NODE_ID** environment variable to 
 1. Open `Jenkinsfile` of k8s-deploy-staging.
 
 1. In the `steps` section of stage `Update Deployment and Service specification`, add the following `sed` command right before the `kubectl apply`.
+// Remark: Staging pipeline needs ${env.BUILD_NUMBER} parameter!
     ```
-    sh "cd k8s-deploy-staging/ && sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' payment.yml"
+    sh "cd k8s-deploy-staging/ && sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' ${env.APP_NAME}.yml"
     ```
 
 1. Commit/Push the changes to your GitHub Repository *carts*. 
