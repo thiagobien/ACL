@@ -49,7 +49,7 @@
         status_code: [200,201,202]
         validate_certs: no
         return_content: yes
-      when: state == "OPEN"
+      when: state == "OPEN" and myItem.customProperties.remediationAction is defined
       ignore_errors: yes
       register: result
 
