@@ -35,7 +35,9 @@ In this lab you'll
     * VERSION: *v2*
 1. Hit **Build** and wait until the pipeline shows: *Success*.
 
-## Step 4: Route traffic to the new Front-End Version
+## Step 4: Route Traffic to the new Front-End Version
 1. Go to your **Jenkins** and click on **k8s-deploy-production.canary**.
-1. 
-
+1. Click on **master** and **Build with Parameters**:
+    * VERSION1: 0
+    * VERSION2: 100
+1. Hit **Build** and wait until the pipeline shows: *Success*.
