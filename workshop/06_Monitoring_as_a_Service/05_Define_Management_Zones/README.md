@@ -11,7 +11,7 @@ This lab assumes that there are following teams:
 Based on this assumption, you will learn how to create Management Zones that will give each team access to the data they are supposed to see. 
 
 ## Step 1: Create Management Zone for Frontend Team
-1. Go to **Settings**, **Management zones**, and click on **Create management zones**.
+1. Go to **Settings**, **Preferences**, **Management zones**, and click on **Create management zones**.
 1. Set the name of the management zone: `Frontend Services`.
 1. **Add new rule** for frontend service:
     * Rule applies to: `Services` 
@@ -20,22 +20,22 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. **Save** and test the Management Zone in the Smartscape View.
 
 ## Step 2: Create Management Zone for Dev Team
-1. Go to **Settings**, **Management zones**, and click on **Create management zones**.
+1. Go to **Settings**, **Preferences**, **Management zones**, and click on **Create management zones**.
 1. Set the name of the management zone: `Dev Team`.
-1. **Add new rule** for frontend service:
+1. **Add new rule**:
     * Rule applies to: `Services` 
     * Condition on `Kubernetes` equals `dev`
 1. Select **Apply to underlying process groups of matching services**.
 1. **Save** and test the Management Zone in the Smartscape View.
 
 ## Step 3: Create Management Zone for Architect Team
-1. Go to **Settings**, **Management zones**, and click on **Create management zones**.
+1. Go to **Settings**, **Preferences**, **Management zones**, and click on **Create management zones**.
 1. Set the name of the management zone: `Architect Team`.
-1. **Add new rule** for frontend service:
+1. **Add new rule**:
     * Rule applies to: `Services` 
     * Condition on `Kubernetes` equals `dev`
 1. Select **Apply to underlying process groups of matching services**.
-1. **Add new rule** for frontend service:
+1. **Add new rule**:
     * Rule applies to: `Services` 
     * Condition on `Kubernetes` equals `staging`
 1. Select **Apply to underlying process groups of matching services**.

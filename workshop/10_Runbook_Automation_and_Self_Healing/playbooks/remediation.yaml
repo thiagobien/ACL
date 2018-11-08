@@ -3,11 +3,6 @@
   hosts: localhost
   vars:
     relative_time: "hour"
-    commentuser: "Ansible Playbook"
-    tower_user: "admin"
-    tower_password: "dynatrace"
-
-
 
   tasks:
     - name: push comment to dynatrace
@@ -17,7 +12,6 @@
         body_format: json
         body: "{ \"comment\": \"Remediation playbook started.\", \"user\": \"{{commentuser}}\", \"context\": \"Ansible Tower\" }"
       when: state == "OPEN"
-
 
     - name: get entityId
       set_fact:
@@ -55,7 +49,7 @@
         status_code: [200,201,202]
         validate_certs: no
         return_content: yes
-      when: state == "OPEN"
+      when: state == "OPEN" and myItem.customProperties.remediationAction is defined
       ignore_errors: yes
       register: result
 

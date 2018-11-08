@@ -83,19 +83,30 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     ```
     (bastion$) kubectl create -f oneagent.yml
     ```
+1. Restart all pods to get method-level insight into your services
+    ```
+    (bastion$) kubectl delete pods --all -n dev
+    (bastion$) kubectl delete pods --all -n staging
+    (bastion$) kubectl delete pods --all -n production
+    ```
 
-## Step 4. Execute some load on Sockshop
+## Step 4. Enable Go monitoring
+To have full insights in your Go applications, make sure to enable Go monitoring.
+
+1. Navigate to _Settings -> Monitoring -> Monitoring technologies_ 
+1. In the Tab _Supported Technologies_ enable "Go"
+
+
+## Step 5. Execute some load on Sockshop
 1. Open the *front-end* URL of your Sockshop and click through the application. 
 
-## Step 5. Explore automated Monitoring Result in Dynatrace
+## Step 6. Explore automated Monitoring Result in Dynatrace
 
 Here are a couple of things that happened *automagically* due to the installation of Dynatrace OneAgent Operator.
 
 1. View Properties and Tags of Hosts in your Cluster.
-    * Screenshot needed
 
 1. View Process Groups for each application.
-    * Screenshot needed
 
     If you run multiple process or docker instances of the same process or container image, Dynatrace will group them all into a single **Process Group Instance (PGI)**. In this case that means that we will see **one** PGI for front-end, **one** for carts, **one** for users, etc. The fact that you have multiple instances of the same container on the same host doesn't give you individual PGIs. That is the default behavior. You have ways to change that behavior through Process Group Detection rules or by using some of the *DT_* environment variables, as shown in a next lab.
 

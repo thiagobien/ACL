@@ -30,8 +30,10 @@ You can use custom and existing meta-data from, e.g.: Java Properties, Environme
 1. Re-deploy the carts service by triggering the Jenkins pipeline for carts.
 
 1. Identify the tag and custom meta-data in Dynatrace for the *carts* service and process group as shown below.
-    * Screenshot needed
 
+![tagging-rule](../assets/process_tags.png)
+
+<!-- 
 ## Step 2 (Optional): Influence PGI Detection to detect each Build as separate PGI
 
 For this step it is necessary to add the **DT_NODE_ID** environment variable to the service definition. This changes the default PGI detection mechanism and every docker instance, even if it comes from the same docker image, will be split into its own PGI. **Note: for Kubernetes, OpenShift, CloudFoundry:** For these platforms the OneAgent automatically detects containers running in different pods, spaces, or projects. There should be no need to leverage **DT_NODE_ID** to separate your container instances.
@@ -55,17 +57,26 @@ For this step it is necessary to add the **DT_NODE_ID** environment variable to 
 
 1. In the `steps` section of stage `Deploy to dev namespace`, add the following `sed` command right before the `kubectl apply`.
     ```
-    sh "sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' manifest/payment.yml"      
-    ```
-
-1. In the `steps` section of stage `Deploy to staging`, add the following `sed` command right before the `kubectl apply`.
-    ```
-    sh "cd k8s-deploy-staging/ && sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' payment.yml"
+    sh "sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' manifest/carts.yml"      
     ```
 
 1. Commit/Push the changes to your GitHub Repository *carts*. 
 
+1. Open `Jenkinsfile` of k8s-deploy-staging.
+
+1. In the `steps` section of stage `Update Deployment and Service specification`, add the following `sed` command right before the `kubectl apply`.
+ (1) Remark: Staging pipeline needs ${env.BUILD_NUMBER} parameter!
+    ```
+    sh "cd k8s-deploy-staging/ && sed -i 's#value: to-be-replaced-by-jenkins.*#value: ${env.VERSION}-${env.BUILD_NUMBER}#' ${env.APP_NAME}.yml"
+    ```
+
+1. Commit/Push the changes to your GitHub Repository *k8s-deploy-staging*. 
+
+1. k8s-production-staging
+
 1. Re-deploy the carts service by triggering the Jenkins pipeline.
+
+-->
 
 ---
 
