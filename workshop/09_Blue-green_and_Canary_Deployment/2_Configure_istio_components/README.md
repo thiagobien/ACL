@@ -1,5 +1,7 @@
 # Configure Istio Components
 
+In this lab, we enable Istio's automatic sidecar injection for one k8s namespace, we create and configure mandatory Istio components, and allow mesh external traffic to leave the service mesh.
+
 ## Data needed
 * Dynatrace environment URL
 * PaaS Token

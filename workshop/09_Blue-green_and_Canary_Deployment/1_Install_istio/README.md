@@ -1,5 +1,7 @@
 # Install Istio
 
+In this lab we install all Istio components and verify that they're running in the k8s cluster.
+
 ## Data needed
 (nil)
 
