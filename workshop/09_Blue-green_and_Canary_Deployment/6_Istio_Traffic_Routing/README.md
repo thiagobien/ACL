@@ -36,6 +36,8 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     Edit the file like this:
 
+    **!!! YOU MUST NOT DELETE THE COMMENTS #v1 AND #v2 - WE NEED THOSE LATER ON !!!**
+
     ![modify-canary-yml](../assets/modify-canary-yml.png)
 
     This configuration redirects 10% of all traffic hitting the sockshop `VirtualService` to version 2. Let's take a look how that looks in Dynatrace.
@@ -62,7 +64,85 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     ![chart-done](../assets/chart-done.png)
 
+1. You can now change the weight distribution of verison 1 and 2 to arbitrary values and see it reflect in the chart you've just created.
 
+1. (Optional) You can decide traffic routing also based on information that is included in the HTTP header. For example, you can present version 2 only to users that are logged in. See the following configuration that enables that.
+
+    ```
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+    name: sockshop
+    spec:
+    hosts:
+    - "*"
+    gateways:
+    - sockshop-gateway
+    http:
+    - match:
+        - headers:
+            cookie:
+            regex: ".*logged_in.*"
+        route:
+        - destination:
+            host: front-end.production.svc.cluster.local
+            subset: v2
+    - route:
+        - destination:
+            host: front-end.production.svc.cluster.local
+            subset: v1
+    ```
+
+    Istio checks if the cookie field of the HTTP header contains the string `logged_in` using regular expressions. This, of course, depends on the implementation of your web application and is not univesally appllicable. To set this in action apply the configuration.
+
+    ```
+    (bastion)$ kubectl apply -f virtual_service_v2_for_users.yml
+    ```
+
+    If you login using either a new registrated user, or a user that you've created before, you should see version 2. After logging out, you should see verison 1 again.
+
+1. (Optional) Another option is to redirect traffic based on the user browser. See the following configuration that enables that.
+
+    ```
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+    name: sockshop
+    spec:
+    hosts:
+    - "*"
+    gateways:
+    - sockshop-gateway
+    http:
+    - match:
+        - headers:
+            user-agent:
+            regex: ".*Chrome.*"
+        route:
+        - destination:
+            host: front-end.production.svc.cluster.local
+            subset: v2
+    - route:
+        - destination:
+            host: front-end.production.svc.cluster.local
+            subset: v1
+    ```
+
+    You can apply the configuration to see its effect.
+
+    ```
+    (bastion)$ kubectl apply -f virtual_service_v2_for_chrome.yml
+    ```
+
+    If you open sockshop using Chrome you should see version 2, with any other version 1 should be displayed.
+
+1. Eventually, please apply the following configuration to setup the application to be ready for the next session.
+
+    ```
+    (bastion)$ kubectl apply -f virtual_service_with_carts.yml
+    ```
+
+    This configuration also exposes the `carts` endpoint using Istio. Why do we need that for the next session? Well - we'll cover that in the next session ;-)
 
 ---
 [Previous Step: Deploy front-end v2](../5_Deploy_front-end_v2) :arrow_backward:
