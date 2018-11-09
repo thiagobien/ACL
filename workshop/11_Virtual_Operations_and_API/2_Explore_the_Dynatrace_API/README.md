@@ -30,12 +30,13 @@ Now you can use the API explorer to test endpoints and explore the data returned
 
 Use the API Explorer and [the documentation](https://www.dynatrace.com/support/help/dynatrace-api/) to
 
-1. fetch a list of hosts
-2. fetch the details of a host from the list from step 1 and explore the details returned
-3. fetch the CPU usage for a given host as timeseries
-4. Fetch a list of all events within the last 24 hours
+1. get a list of processes seen in the last 24 hours
+2. get a list of process groups seen in the last 3 days
+3. choose one process group from the previous list query its properties
+4. get all problems from the last week
 
 To perform a call, click on `try out` and then on `execute`.
+The API Explorer also shows the REST call that is performed and the data that is sent along with it. Please, review this as well for each call. 
 
 ![Dynatrace API Explorer](../assets/try_api.png)
 
