@@ -58,7 +58,7 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     ![chart-select-dimension](../assets/chart-select-dimension.png)
 
-1. Your chart should now look something like this, already showing the traffic distribution between the two service instances.
+1. Your chart should now look something like this, already showing the traffic distribution between the two service instances. Finally, click the "Save to Service" button :one: in the upper right corner, so you can easily access this chart form the service overview from now on.
 
     ![chart-done](../assets/chart-done.png)
 
