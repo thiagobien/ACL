@@ -136,13 +136,9 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     If you open sockshop using Chrome you should see version 2, with any other version 1 should be displayed.
 
-1. Eventually, please apply the following configuration to setup the application to be ready for the next session.
+1. Eventually, trigger the parameterized build pipeline `k8s-deploy-production.canary` in your Jenkins instance and provide 100 for the VERSION1 parameter and 0 for the VERSION2 parameter. This build calls a build pipeline that applies the supplied distribution to the `front-end` service and also sends a change event to Dynatrace.
 
-    ```
-    (bastion)$ kubectl apply -f virtual_service_with_carts.yml
-    ```
-
-    This configuration also exposes the `carts` endpoint using Istio. Why do we need that for the next session? Well - we'll cover that in the next session ;-)
+    ![trigger-k8s-deploy-production-canary](../assets/trigger-k8s-deploy-production-canary.png)
 
 ---
 [Previous Step: Deploy front-end v2](../5_Deploy_front-end_v2) :arrow_backward:
