@@ -19,11 +19,12 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
         "tags"         : "app:carts,environment:dev",
     },
     ```
-1. Specify the upper limit.
+1. Specify the upper limit and lower limit.
     ```
         ...
         "tags"         : "app:carts,environment:dev",
-        "upperLimit"   : 1000
+        "upperLimit"   : 3000,
+        "lowerLimit"   : 2800
     },
     ```
 1. Add the following query to retrieve timeseries data for the **percentile of response time** of the carts service. 
@@ -38,7 +39,8 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     ```
         ...
         "tags"         : "app:carts,environment:dev",
-        "upperLimit"   : 1000
+        "upperLimit"   : 3000,
+        "lowerLimit"   : 2800
     },
     ```
 1. After these steps, the **timeseries** array should look as follows: 
@@ -48,17 +50,19 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
             "timeseriesId"  : "com.dynatrace.builtin:service.responsetime",
             "aggregation"   : "avg",
             "tags"          : "app:carts,environment:dev",
-            "upperLimit"    : 1000
+            "upperLimit"    : 3000,
+            "lowerLimit"    : 2800
         },
         {
             "timeseriesId"  : "com.dynatrace.builtin:service.responsetime",
             "aggregation"   : "percentile",
             "tags"          : "app:carts,environment:dev",
-            "upperLimit"    : 1000
+            "upperLimit"    : 3000,
+            "lowerLimit"    : 2800
         },
     ]
     ```
-
+<!-- 
 ## Step 2: Add a timeseries for Requests
 1. Add the following query to retrieve timeseries data for the **number of requests** of the carts service. 
     ```
@@ -92,7 +96,7 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
         "lowerLimit"    : 1
     },
     ```
-
+-->
 ## Step 4: Add a timeseries for Failure Rate
 1. Add the following query to retrieve timeseries data for the **failure rate** of the carts service. 
     ```
@@ -102,11 +106,12 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
         "tags"          : "app:carts,environment:dev"
     }
     ```
-1. Specify the upper limit.
+1. Specify the upper limit and lower limit.
     ```
         ...
         "tags"          : "app:carts,environment:dev",
-        "upperLimit"    : 0
+        "upperLimit"    : 5,
+        "lowerLimit"    : 0
     },
     ```
 
@@ -124,31 +129,15 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
             "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
             "aggregation" : "avg",
             "tags" : "app:carts,environment:dev",
-            "upperLimit" : 1000
-        },
-        {
-            "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
-            "aggregation" : "percentile",
-            "tags" : "app:carts,environment:dev",
-            "upperLimit" : 1000
-        },
-        {
-            "timeseriesId" : "com.dynatrace.builtin:service.requests",
-            "aggregation" : "count",
-            "tags" : "app:carts,environment:dev",
-            "lowerLimit" : 1
-        },
-        {
-            "timeseriesId" : "com.dynatrace.builtin:service.requestspermin",
-            "aggregation" : "count",
-            "tags" : "app:carts,environment:dev",
-            "lowerLimit" : 1
+            "upperLimit" : 3000,
+            "lowerLimit" : 2800
         },
         {
             "timeseriesId" : "com.dynatrace.builtin:service.failurerate",
             "aggregation" : "avg",
             "tags" : "app:carts,environment:dev",
-            "upperLimit" : 0
+            "upperLimit" : 5,
+            "lowerLimit" : 0
         }
     ]
 }
