@@ -140,6 +140,8 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     ![trigger-k8s-deploy-production-canary](../assets/trigger-k8s-deploy-production-canary.png)
 
+    This, of course, is the preferred way to change the attributes of production deployments. If you change something directly from your command line and don't send a change event, you'll have a hard time figuring out why and what happened when.
+
 ---
 [Previous Step: Deploy front-end v2](../5_Deploy_front-end_v2) :arrow_backward:
 
