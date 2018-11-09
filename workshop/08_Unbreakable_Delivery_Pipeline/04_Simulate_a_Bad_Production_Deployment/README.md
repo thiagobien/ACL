@@ -37,9 +37,9 @@ In this lab you'll create a deployment of the front-end service that passes the 
     * VERSION: *v2*
 1. Hit **Build** and wait until the pipeline shows: *Success*.
 
-## Step 5: Run Job Template in the Ansible Tower
+## Step 4: Run Job Template in the Ansible Tower
 1. Go to Ansible Tower.
-1. Start the job template **canary user0** to trigger a canary release of version 2 of the front-end service.
+1. Start the job template **canary userX** to trigger a canary release of version 2 of the front-end service.
 
 ## (optional) Route Traffic to the new Front-End Version
 1. Go to your **Jenkins** and click on **k8s-deploy-production.canary**.
