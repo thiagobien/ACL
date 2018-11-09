@@ -75,6 +75,7 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
     - route:
         - destination:
             host: front-end.production.svc.cluster.local
+            subset: v1
     ```
 
 1. At a later point in time, we'll have two different versions of the `front-end` service deployed. To prepare for this situation, we'll define `DestinationRule`s for both versions. A `DestinationRule` defines policies that apply to traffic intended for a service after a routing has occured.
