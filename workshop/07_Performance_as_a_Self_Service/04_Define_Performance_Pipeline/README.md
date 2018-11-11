@@ -111,8 +111,8 @@ pipeline {
           container('jmeter') {
             script {
               def status = executeJMeter ( 
-                scriptName: "jmeter/${env.APP_NAME}_load.jmx",
-                resultsDir: "PerfCheck_${BUILD_NUMBER}",
+                scriptName: "jmeter/${env.APP_NAME}_perfcheck.jmx",
+                resultsDir: "PerfCheck_${env.APP_NAME}",
                 serverUrl: "${env.APP_NAME}.dev", 
                 serverPort: 80,
                 checkPath: '/health',
@@ -120,7 +120,7 @@ pipeline {
                 loopCount: 250,
                 LTN: "PerfCheck_${BUILD_NUMBER}",
                 funcValidation: false,
-                avgRtValidation: 2000
+                avgRtValidation: 4000
               )
               if (status != 0) {
                 currentBuild.result = 'FAILED'
