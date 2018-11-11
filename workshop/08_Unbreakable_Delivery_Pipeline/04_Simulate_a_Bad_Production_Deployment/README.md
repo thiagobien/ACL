@@ -21,6 +21,10 @@ In this lab you'll create a deployment of the front-end service that passes the 
         <!-- end dummy errors -->
     ...
     ```
+1. Append version number (v2) to the link text in the top bar.
+    ```
+    </a> <a href="#">Buy 1000 socks, get a shoe for free - v2</a>
+    ```
 
 ## Step 2: Deploy the new Front-End to Staging
 1. Switch to the `front-end/` directory.
@@ -40,6 +44,15 @@ In this lab you'll create a deployment of the front-end service that passes the 
 ## Step 4: Run Job Template in the Ansible Tower
 1. Go to Ansible Tower.
 1. Start the job template **canary userX** to trigger a canary release of version 2 of the front-end service.
+
+## Step 5: Adjust Sensitivity of Anomaly Detection
+1. Go to **Applications** and click on **My web application**.
+1. Click on the **...** button in the top right corner and select **Edit**.
+1. Go to **Anomaly Detection** and enable the switch for *Detect increases in failure rate*.
+    * Select `using fixed thresholds`
+    * Alert if `2`% custom error rate threshold is exceeded during any 5-minute period.
+    * Sensitivity: `High`
+1. Go back to **My web application**.
 
 ## (optional) Route Traffic to the new Front-End Version
 1. Go to your **Jenkins** and click on **k8s-deploy-production.canary**.
