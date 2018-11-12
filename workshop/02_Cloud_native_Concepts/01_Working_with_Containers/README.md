@@ -51,5 +51,5 @@ In this lab you'll learn how to create a container image and how to run a contai
 
 1. Run the pulled container image (`-d` runs the container in detached mode).
     ```
-    (local)$ docker run --rm dynatraceacm/ticketmonster-load-generator /bin/bash loadgeneration.sh http://ticketmonster-ui-v1-ticketmonster-demo.18.194.120.69.xip.io 10 15
+    (local)$ docker run --rm dynatraceacm/ticketmonster-load-generator /bin/bash loadgeneration.sh http://ticketmonster-ui-v1-project-0.54.91.71.206.xip.io 10 15
     ```
