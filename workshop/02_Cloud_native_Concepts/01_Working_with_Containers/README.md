@@ -14,7 +14,8 @@ In this lab you'll learn how to create a container image and how to run a contai
     ```
     FROM ubuntu:latest 
     COPY . /app 
-    WORKDIR /app  
+    WORKDIR /app
+    ENTRYPOINT [ "sh" ]
     CMD ["helloWorld.sh"]
     ```
 
