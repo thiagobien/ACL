@@ -29,7 +29,7 @@ In this lab you'll release a service to staging that is not tested based on perf
 
 ## Step 4: Follow the Jenkins Build Pipelines
 1. Open the current build by clicking on the **#no**.
-1. In the consolue output wait for *Starting building: k8s-deploy-staging* and click on that link.
+1. In the Console Output wait for *Starting building: k8s-deploy-staging* and click on that link.
 1. The pipeline should fail due to a too high response time. 
 1. Click on **Performance Report** to see the average response time of the URI: *_cart - add to cart*
 
