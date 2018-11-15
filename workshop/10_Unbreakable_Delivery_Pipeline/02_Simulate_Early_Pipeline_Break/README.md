@@ -12,7 +12,7 @@ In this lab you'll release a service to staging that is not tested based on perf
 1. Open the file `carts\src' and increase the version from `0.6.0` to `0.7.1`
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
-## Step 1: Create a new Release
+## Step 2: Create a new Release
 1. Switch to the `carts/` directory.
 1. Run the following commands to create a new branch.
     ```
@@ -21,13 +21,13 @@ In this lab you'll release a service to staging that is not tested based on perf
     (local)$ git checkout master
     ```
 
-## Step 2. Build the new Release in Jenkins
+## Step 3. Build the new Release in Jenkins
 1. Go to **Jenkins** and **sockshop**.
 1. Click on **carts** pipeline and **Scan Multibranch Pipeline Now**.
 1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 
 1. (trigger build manually) Click on *release/0.7.1* and click on **Build Now**.
 
-## Step 3: Follow the Jenkins Build Pipelines
+## Step 4: Follow the Jenkins Build Pipelines
 1. Open the current build by clicking on the **#no**.
 1. In the consolue output wait for *Starting building: k8s-deploy-staging* and click on that link.
 1. The pipeline should fail due to a too high response time. 
