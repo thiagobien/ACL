@@ -9,7 +9,7 @@ In this lab you'll release a service to staging that is not tested based on perf
     ```
 1. In the directory of `carts\`, open the file: `carts\src\main\resources\application.properties`.
 1. Change the value of `delayInMillis` from `0` to `1000` and save.
-1. Open the file `carts\src' and increase the version from `0.6.0` to `0.7.1`
+1. Open the file `carts\src` and increase the version from `0.6.0` to `0.7.1`
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 2: Create a new Release
