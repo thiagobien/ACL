@@ -82,4 +82,11 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     }
     ```
 
+## Step 2: Set the Upper and Lower Limit in the Performance Signature
+1. Open the file `monspec\e2e_perfsig.json`.
+1. Set the upper and lower limit for the response time as follows:
+    ```
+    "upperLimit" : 800,
+    "lowerLimit" : 600
+    ```
 1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.
