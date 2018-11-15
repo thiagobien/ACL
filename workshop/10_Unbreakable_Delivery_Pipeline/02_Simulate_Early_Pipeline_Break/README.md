@@ -58,7 +58,7 @@ In this lab you'll release a service to staging that is not tested based on perf
 1. Go to **Jenkins** and **sockshop**.
 1. Click on **carts** pipeline and **Scan Multibranch Pipeline Now**.
 1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 
-1. (trigger build manually) Click on *release/0.6.5* and click on **Build Now**.
+1. (trigger build manually) Click on *release/0.6.6* and click on **Build Now**.
 
 
 ---
