@@ -2,7 +2,7 @@
 
 In this lab you'll release a service to staging that is not tested based on performance tests. Intentionally, the service is slowed down to fail at the e2e check in the staging pipeline.
 
-## Step 1: Introduce a Slowdown in the Carts Service
+## Step 1: Introduce a Slowdown into the Carts Service
 1. Make sure you are in the master branch.
     ```
     (local)$ git checkout master

@@ -1,6 +1,6 @@
 # Harden Staging Pipeline with Quality Gate
 
-In this lab you'll add an additional quality gate to your CI pipeline. In other words, a end-to-end check will verify the functionality of the sockshop application in the staging environment.
+In this lab you'll add an additional quality gate to your CI pipeline. In other words, an end-to-end check will verify the functionality of the sockshop application in the staging environment.
 
 ## Step 0: Comment out the "DT Deploy Event"
 1. Open the Jenkins pipeline of `k8s-deploy-staging` and put a comment section around the "DT Deploye Event" as shown below:

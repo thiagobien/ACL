@@ -1,18 +1,38 @@
 # Fork GitHub Repositories
 
 ## Data needed
-* GitHub organization
 * GitHub user and email address and password
 
 ## Steps
-1. Configure your git user name and email address.
+1. Create a new GitHub organization for your source code repositories. Go to https://github.com, login, and create a new organization by clicking the + icon in the upper right :one: corner and selecting "New Organization" :two:.
+
+    ![](../assets/new-org.png)
+
+1. Provide a unique name :one: - the form tells you if the name you've chosen is already taken or not. Provide your email address as billing email address :two: - no worries, this is free of charge, so there won't be any costs. At the bottom of this screen click "Create organization" :three:.
+
+    ![](../assets/org-detail1.png)
+    ![](../assets/org-detail2.png)
+
+1. On the next screen scroll down to the bottom and click on the "skip this step" link :one:.
+
+    ![](../assets/skip-details.png)
+    
+1. Now you're redirected to the homepage of your new organization.
+
+    ![](../assets/org-ready.png)
+
+---
+
+1. Connect to the bastion host ussing ssh and your credentials.
+
+1. Configure your git user name and email address in the commandline on the bastion host.
 
     ```
-    (bastion)$ git config --global user.name "<firstname> <lastname>"
+    (bastion)$ git config --global user.name "<GitHubUser>"
     (bastion)$ git config --global user.email "<GitHubEmail>"
     ```
 
-1. Execute the `~/forkGitHubRepositories.sh` script in your home directory. This script takes the name of the GitHub organization you have created in preparation for this workshop as a paramter.
+1. Execute the `~/forkGitHubRepositories.sh` script in your home directory. This script takes the name of the GitHub organization you have created earlier.
 
     ```
     (bastion)$ ./forkGitHubRepositories.sh <GitHubOrg>
@@ -27,8 +47,8 @@
     carts
     catalogue
     front-end
-    jmeter-tests
-    load-test
+    k8s-deploy-production
+    k8s-deploy-staging
     orders
     payment
     queue-master

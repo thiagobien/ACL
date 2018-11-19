@@ -20,7 +20,7 @@ Pre-requisits coming from module [Runbook Automation and Self-Healing](..\10_Run
       ---
       jenkins_user: "admin"
       jenkins_password: "admin"
-      jenkins_url: "http://X.X.X.X/job/k8s-deploy-production.canary/job/master/build?delay=0sec"
+      jenkins_url: "http://X.X.X.X/job/k8s-deploy-production.canary/build?delay=0sec"
       remediation_url: "https://X.X.X.X/api/v2/job_templates/XX/launch/"
       ``` 
     - Remarks:

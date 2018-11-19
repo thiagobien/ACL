@@ -3,24 +3,25 @@
 We use the Docker registry to save the build artefacts, i.e. Docker containers. The registry allows us to host multiple versions of an artefact. 
 
 ## Steps
-1. In Preparation for deploying the Docker registry we're going to use throughout the week, we want to create some Kubernetes namespaces (`~/manifests/k8s-namespaces.yml`):
+1. In Preparation for deploying the Docker registry we're going to use throughout the week, we want to create some Kubernetes namespaces (`~/manifests-env-zero/k8s-namespaces.yml`):
     - `cicd`: hosts all CI/CD related pods and services
     - `dev`: represents the development stage
     - `stage`: represents the staging stage
-    - `prod`: represents the production stage
+    - `production`: represents the production stage
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-namespaces.yml
+    (bastion)$ cd
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-namespaces.yml
     ```
 
     Expected output:
 
     ![](../assets/kubectl-create-namespaces.png)
 
-1. We specify that we want to have fast SSD storage by executing the following command (`~/manifests/k8s-storage.yml`):
+1. We specify that we want to have fast SSD storage by executing the following command (`~/manifests-env-zero/k8s-storage.yml`):
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-storage.yml
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-storage.yml
     ```
 
     Expected output:
@@ -30,7 +31,7 @@ We use the Docker registry to save the build artefacts, i.e. Docker containers. 
 1. We create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data, even when the pod is restarted. 
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-docker-registry-pvc.yml
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-docker-registry-pvc.yml
     ```
 
     Expected output:
@@ -40,7 +41,7 @@ We use the Docker registry to save the build artefacts, i.e. Docker containers. 
 1. We create the service and the deployment for the Docker registry.
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-docker-registry-service.yml
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-docker-registry-service.yml
     ```
     
     Expected output:
@@ -48,7 +49,7 @@ We use the Docker registry to save the build artefacts, i.e. Docker containers. 
     ![](../assets/kubectl-create-registrysvc.png)
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-docker-registry-deployment.yml
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-docker-registry-deployment.yml
     ```
 
     Expected output: 
