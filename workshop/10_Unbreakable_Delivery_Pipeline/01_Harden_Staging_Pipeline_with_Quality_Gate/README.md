@@ -2,8 +2,33 @@
 
 In this lab you'll add an additional quality gate to your CI pipeline. In other words, a end-to-end check will verify the functionality of the sockshop application in the staging environment.
 
+## Step 0: Comment out the "DT Deploy Event"
+1. Open the Jenkins pipeline of `k8s-deploy-staging` and put a comment section around the "DT Deploye Event" as shown below:
+    ```
+    /*
+    stage('DT Deploy Event') {
+      steps {
+        createDynatraceDeploymentEvent(
+          envId: 'Dynatrace Tenant',
+          tagMatchRules: [
+            [
+              meTypes: [
+                [meType: 'SERVICE']
+              ],
+              tags: [
+                [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
+                [context: 'CONTEXTLESS', key: 'environment', value: 'staging']
+              ]
+            ]
+          ]) {
+        }
+      }
+    }
+    */
+    ```
+
 ## Step 1: Add e2e Test to Staging Pipeline
-1. Copy the following snippet to the end of the Jenkins pipeline of `k8s-deploy-staging`.
+1. Copy the following snippet underneath the "DT Deploy Event" stage in the Jenkins pipeline of `k8s-deploy-staging`.
     ```
     stage('Run production ready e2e check in staging') {
       steps {
@@ -57,4 +82,11 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     }
     ```
 
+## Step 2: Set the Upper and Lower Limit in the Performance Signature
+1. Open the file `monspec\e2e_perfsig.json`.
+1. Set the upper and lower limit for the response time as follows:
+    ```
+    "upperLimit" : 800,
+    "lowerLimit" : 600
+    ```
 1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.
