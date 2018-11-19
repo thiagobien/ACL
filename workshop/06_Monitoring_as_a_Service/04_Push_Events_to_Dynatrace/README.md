@@ -21,34 +21,34 @@ Before using the Performance Signature Plugin in build pipelines, it is necessar
 
 ## Step 2: Add Step to each Service Pipeline
 To push deployment events to Dynatrace, extend the `Jenkinsfile` for `carts` service as follows:
-    1. Open the `Jenkinsfile` in `carts/Jenkinsfile` folder. 
-    1. Add the following stage after the **Deploy to dev namespace** stage.
-        ```
-        stage('DT Deploy Event') {
-            when {
-                expression {
-                return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
-                }
-            }
-            steps {
-                createDynatraceDeploymentEvent(
-                envId: 'Dynatrace Tenant',
-                tagMatchRules: [
-                    [
-                    meTypes: [
-                        [meType: 'SERVICE']
-                    ],
-                    tags: [
-                        [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
-                        [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
-                    ]
-                    ]
-                ]) {
-                }
+1. Open the `Jenkinsfile` in `carts/Jenkinsfile` folder. 
+1. Add the following stage after the **Deploy to dev namespace** stage.
+    ```
+    stage('DT Deploy Event') {
+        when {
+            expression {
+            return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
             }
         }
-        ```
-    1. Commit/Push the changes to your GitHub Repository *carts*.
+        steps {
+            createDynatraceDeploymentEvent(
+            envId: 'Dynatrace Tenant',
+            tagMatchRules: [
+                [
+                meTypes: [
+                    [meType: 'SERVICE']
+                ],
+                tags: [
+                    [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
+                    [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
+                ]
+                ]
+            ]) {
+            }
+        }
+    }
+    ```
+1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 3: Add Step to Staging Pipeline
 Besides, it is necessary to update the staging pipeline to push deployment events for each service that gets deployed to the staging environment.
