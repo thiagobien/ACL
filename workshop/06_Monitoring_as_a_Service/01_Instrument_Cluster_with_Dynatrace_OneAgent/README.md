@@ -14,7 +14,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     ```
 
 ## Step 2: Get Dynatrace API URL, API Token, and PaaS Token
-1. Set Dynatrace API URL.
+1. Set Dynatrace API URL. (e.g.: https://xyz25047.dev.dynatracelabs.com/api)
     ```
     (bastion$) export API_URL=<DT_API_URL>
     ```

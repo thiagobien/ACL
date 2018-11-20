@@ -23,7 +23,7 @@ Let's get started!
     - Name: self-healing
     - Organization: orgX (X... your workshop user number)
     - SCM Type: Git
-    - SCM Url: `https://github.com/dynatrace-innovationlab/acl-docs`
+    - SCM Url: `https://github.com/dynatrace-innovationlab/acl-docs-detroit`
     - SCM Credential: git-token
     - SCM Update Options:
       - Check _Clean_: overwrite local changes each time you get latest SCM version

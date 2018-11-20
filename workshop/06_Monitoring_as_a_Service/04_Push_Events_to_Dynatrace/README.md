@@ -20,45 +20,35 @@ Before using the Performance Signature Plugin in build pipelines, it is necessar
 1. Finally, click **Save**.
 
 ## Step 2: Add Step to each Service Pipeline
-To push deployment events to Dynatrace, each build pipeline must be updated with the following stage. 
-
-1. Extend the `Jenkinsfile` for `carts` service. 
-    1. Open the `Jenkinsfile` in `carts/Jenkinsfile` folder. 
-    1. Add the following stage after the **Deploy to dev namespace** stage.
-        ```
-        stage('DT Deploy Event') {
-            when {
-                expression {
-                return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
-                }
-            }
-            steps {
-                createDynatraceDeploymentEvent(
-                envId: 'Dynatrace Tenant',
-                tagMatchRules: [
-                    [
-                    meTypes: [
-                        [meType: 'SERVICE']
-                    ],
-                    tags: [
-                        [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
-                        [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
-                    ]
-                    ]
-                ]) {
-                }
+To push deployment events to Dynatrace, extend the `Jenkinsfile` for `carts` service as follows:
+1. Open the `Jenkinsfile` in `carts/Jenkinsfile` folder. 
+1. Add the following stage after the **Deploy to dev namespace** stage.
+    ```
+    stage('DT Deploy Event') {
+        when {
+            expression {
+            return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
             }
         }
-        ```
-    1. Commit/Push the changes to your GitHub Repository *carts*.
-
-1. Extend the `Jenkinsfile` for `orders` service as explained above. 
-1. Extend the `Jenkinsfile` for `shipping` service as explained above. 
-1. Extend the `Jenkinsfile` for `queue-master` service as explained above. 
-1. Extend the `Jenkinsfile` for `front-end` service as explained above. 
-1. Extend the `Jenkinsfile` for `users` service as explained above. 
-1. Extend the `Jenkinsfile` for `payment` service as explained above.
-1. Extend the `Jenkinsfile` for `catalogue` service as explained above.
+        steps {
+            createDynatraceDeploymentEvent(
+            envId: 'Dynatrace Tenant',
+            tagMatchRules: [
+                [
+                meTypes: [
+                    [meType: 'SERVICE']
+                ],
+                tags: [
+                    [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
+                    [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
+                ]
+                ]
+            ]) {
+            }
+        }
+    }
+    ```
+1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 3: Add Step to Staging Pipeline
 Besides, it is necessary to update the staging pipeline to push deployment events for each service that gets deployed to the staging environment.

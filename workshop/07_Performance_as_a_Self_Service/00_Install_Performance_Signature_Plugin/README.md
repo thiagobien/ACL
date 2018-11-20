@@ -1,9 +1,9 @@
-# LAB 1
+# Install Performance Signature Plugin
 
 In this lab you'll 
 
-## Step 1: asdf
-1. Set Dynatrace API Token
+## Step 1: 
+1. sub-step
 
-## Step 2: xyz
-1. Set Dynatrace API Url
+## Step 2: 
+1. sub-step

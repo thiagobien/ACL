@@ -40,3 +40,9 @@ In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in 
     ![](../assets/jenkins-ui-trigger-pipeline.png)
 
 1. This step is concluded, once all build pipelines have been run successfully.
+
+---
+
+[Previous Step: Deploy Jenkins](../4_Deploy_Jenkins) :arrow_backward: :arrow_forward: [Next Step: Clone GitHub Repositories](../6_Clone_GitHub_Repositories)
+
+:arrow_up_small: [Back to overview](../)

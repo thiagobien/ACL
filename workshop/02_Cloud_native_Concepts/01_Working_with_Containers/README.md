@@ -15,7 +15,7 @@ In this lab you'll learn how to create a container image and how to run a contai
     FROM ubuntu:latest 
     COPY . /app 
     WORKDIR /app  
-    CMD ["helloWorld.sh"]
+    CMD ["hello_world.sh"]
     ```
 
 ## Step 2. Build and tag a Container Image

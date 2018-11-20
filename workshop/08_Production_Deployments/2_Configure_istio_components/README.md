@@ -54,6 +54,14 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
         - "*"
     ```
 
+1. You can see the external IP address of your `Gateway` executing this command.
+
+    ```
+    (bastion)$ kubectl get svc istio-ingressgateway -n istio-system
+    NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                                      AGE
+    istio-ingressgateway   LoadBalancer   172.21.109.129   1xx.2xx.10.12x  80:31380/TCP,443:31390/TCP,31400:31400/TCP   17h
+    ```
+
 1. A `VirtualService` can be bound to a `Gateway` to control the forwarding of traffic.
 
     ```
