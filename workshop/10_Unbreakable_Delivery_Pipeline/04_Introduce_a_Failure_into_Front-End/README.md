@@ -55,7 +55,7 @@ In this lab lab you will introduce a Java Script error into front-end. This vers
 1. Make sure you are in the `\k8s-deploy-production\istio` folder on bastion.
 1. Run the following command to delete the virtual service for sockshop. 
     ```
-    (bstion)$ kubectl delete -f .\virtual_service.yml
+    (bastion)$ kubectl delete -f .\virtual_service.yml
     ```    
 
 ## Step 5: Deploy the new Front-End to Production
@@ -68,7 +68,7 @@ In this lab lab you will introduce a Java Script error into front-end. This vers
 ## Step 6. Apply the Virtual Service for Sockshop
 1. Run the following command to create the virtual service for sockshop again. 
     ```
-    (bstion)$ kubectl create -f .\virtual_service.yml
+    (bastion)$ kubectl create -f .\virtual_service.yml
     ``` 
 
 ---
