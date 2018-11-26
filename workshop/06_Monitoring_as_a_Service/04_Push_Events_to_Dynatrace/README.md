@@ -19,7 +19,7 @@ Before using the Performance Signature Plugin in build pipelines, it is necessar
 1. Test connection by clicking on **Test connection**.
 1. Finally, click **Save**.
 
-## Step 2: Add Step to each Service Pipeline
+## Step 2: Add additional Step to Carts Pipeline
 To push deployment events to Dynatrace, extend the `Jenkinsfile` for `carts` service as follows:
 1. Open the `Jenkinsfile` in `carts/Jenkinsfile` folder. 
 1. Add the following stage after the **Deploy to dev namespace** stage.
@@ -50,7 +50,7 @@ To push deployment events to Dynatrace, extend the `Jenkinsfile` for `carts` ser
     ```
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
-## Step 3: Add Step to Staging Pipeline
+## Step 3: Add additional Step to Staging Pipeline
 Besides, it is necessary to update the staging pipeline to push deployment events for each service that gets deployed to the staging environment.
 
 1. Open the `Jenkinsfile` for the `k8s-deploy-staging` pipeline.
