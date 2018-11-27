@@ -1,4 +1,4 @@
-# Deep Dive into the Microserivce Carts
+# Deep Dive into the Microservice Carts
 
 In this lab you'll first investigate the code structure of a microservice including all artifacts that are needed to build, containerize, and to deploy a service. Based on a solid understanding of the microservice, you will deploy it to a Kubernetes cluster to see the service in action. 
 

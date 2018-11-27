@@ -22,6 +22,6 @@ In this lab you'll learn how to define an alerting profile for a particular prob
 
 ---
 
-[Previous Step: Deploy Sockshop to Staging](../06_Deploy_Sockshop_to_Staging) :arrow_backward: :arrow_forward: [Next Step: TBD](../)
+[Previous Step: Deploy Sockshop to Staging](../06_Deploy_Sockshop_to_Staging) :arrow_backward:
 
 :arrow_up_small: [Back to overview](../)

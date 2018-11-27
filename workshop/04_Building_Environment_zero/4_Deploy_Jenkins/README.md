@@ -13,14 +13,14 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 1. Create Jenkins PVCs
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-jenkins-pvcs.yml
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-jenkins-pvcs.yml
     ```
 
     Expected output:
 
     ![](../assets/kubectl-create-jenkinspvcs.png)
 
-1. Update the following values in the `manifests/k8s-jenkins-deployment.yml` with your GitHub orginzation, the email address of your GitHub user, and the IP address of the Docker registry we've deployed in the previous step.
+1. Update the following values in the `manifests-env-zero/k8s-jenkins-deployment.yml` with your GitHub orginzation, the email address of your GitHub user, and the IP address of the Docker registry we've deployed in the previous step.
 
     ![](../assets/jenkins-env-vars.png)
 
@@ -31,7 +31,7 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 1. Create the Jenkins service and deployment
 
     ```
-    (bastion)$ kubectl create -f manifests/k8s-jenkins-deployment.yml
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-jenkins-deployment.yml
     ```
 
     Expected output:
@@ -49,7 +49,7 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 1. Give Jenkins `clusteradmin` rights, so she can query for running pods and spawn pods when needed.
 
     ```
-    (bastion)$ kubectl apply -f manifests/k8s-jenkins-rbac.yml
+    (bastion)$ kubectl apply -f manifests-env-zero/k8s-jenkins-rbac.yml
     ```
 
 1. Open `EXTERNAL-IP` in your browser and see the Jenkins UI with the preconfigured build pipelines for the Sockshop projects.

@@ -23,10 +23,11 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     ```
         ...
         "tags"         : "app:carts,environment:dev",
-        "upperLimit"   : 3000,
-        "lowerLimit"   : 2800
+        "upperLimit"   : 800,
+        "lowerLimit"   : 600
     },
     ```
+<!-- 
 1. Add the following query to retrieve timeseries data for the **percentile of response time** of the carts service. 
     ```
     {
@@ -39,8 +40,8 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     ```
         ...
         "tags"         : "app:carts,environment:dev",
-        "upperLimit"   : 3000,
-        "lowerLimit"   : 2800
+        "upperLimit"   : 800,
+        "lowerLimit"   : 600
     },
     ```
 1. After these steps, the **timeseries** array should look as follows: 
@@ -50,8 +51,8 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
             "timeseriesId"  : "com.dynatrace.builtin:service.responsetime",
             "aggregation"   : "avg",
             "tags"          : "app:carts,environment:dev",
-            "upperLimit"    : 3000,
-            "lowerLimit"    : 2800
+            "upperLimit"    : 800,
+            "lowerLimit"    : 600
         },
         {
             "timeseriesId"  : "com.dynatrace.builtin:service.responsetime",
@@ -97,7 +98,7 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     },
     ```
 -->
-## Step 4: Add a timeseries for Failure Rate
+## Step 2: Add a timeseries for Failure Rate
 1. Add the following query to retrieve timeseries data for the **failure rate** of the carts service. 
     ```
     {
@@ -115,22 +116,20 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     },
     ```
 
-## Step 5: Save Changes and Push to Repository
+## Step 3: Save Changes and Push to Repository
 1. Save the file. 
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Result: Performance Signature for Carts
 ```
 {
-    "_lowerLimit" : 0,
-    "_upperLimit" : 1000,
     "timeseries" : [
         {
             "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
             "aggregation" : "avg",
             "tags" : "app:carts,environment:dev",
-            "upperLimit" : 3000,
-            "lowerLimit" : 2800
+            "upperLimit" : 800,
+            "lowerLimit" : 600
         },
         {
             "timeseriesId" : "com.dynatrace.builtin:service.failurerate",
