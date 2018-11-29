@@ -48,8 +48,19 @@ Let's get started!
 
       ![create inventory](../assets/create-inventory.png)
 
-1. Navigate to **Templates** and create a new Job Template for the promotional campaign
-    - Name: promotion campaign-userX (X... your workshop user number) <br>
+1. Navigate to **Templates** and create a new Job Template for the remediation playbook
+    - Name: remediation-userX (X... your workshop user number) <br>
+      (_job template names have to be unique across the whole Ansible Tower installation_)
+    - Job Type: Run
+    - Inventory: inventory
+    - Project: self-healing
+    - Playbook: `10_Runbook_Automation_and_Self_Healing\playbooks\remediation.yaml`
+    - Extra Variables: check box _Prompt on Launch_ 
+
+    ![create job template](../assets/create-job-template.png)
+    
+1. Navigate to **Templates** and create a new Job Template to stop the promotion campaign
+    - Name: stop campaign-userX (X... your workshop user number) <br>
       (_job template names have to be unique across the whole Ansible Tower installation_)
     - Job Type: Run
     - Inventory: inventory
@@ -64,16 +75,4 @@ Let's get started!
       Make sure to adjust the values for the **IP address** (XX.XXX.XX.XXX) as well as the **job template ID** (XX) - take a look at the current URL in your browser and copy the IP address.
 
     ![promotion](../assets/ansible-promotion.png)
-
-
-1. Navigate to **Templates** and create a new Job Template for the remediation playbook
-    - Name: remediation-userX (X... your workshop user number) <br>
-      (_job template names have to be unique across the whole Ansible Tower installation_)
-    - Job Type: Run
-    - Inventory: inventory
-    - Project: self-healing
-    - Playbook: `10_Runbook_Automation_and_Self_Healing\playbooks\remediation.yaml`
-    - Extra Variables: check box _Prompt on Launch_ 
-
-    ![create job template](../assets/create-job-template.png)
 
