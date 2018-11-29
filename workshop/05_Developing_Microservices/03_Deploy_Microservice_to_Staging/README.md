@@ -24,17 +24,18 @@ The following screenshot depicts the interaction between the two pipelines.
 
 ## Step 1: Create a new Release
 
-1. Switch to the `carts/` directory.
-1. Run the `create_release.sh` script within the directory.
-    ```
-    (bastion)$ sh create_release.sh
-    ```
+1. Go to **Jenkins** and **sockshop**.
+1. Click on **create-release-branch** pipeline and **Schedule a build with parameters**.
+1. For the parameter **SERVICE**, enter the name of the service you want to create a release for (**carts**)
 
-    The script does the following:
+    The pipeline does the following:
     1. Reads the current version of the microservice.
     1. Creates a release branch with the name release/**version**.
     1. Increments the current version by 1. 
     1. Commits/Pushes the new version to the Git repository.
+
+![pipeline_release_branch_1](../assets/pipeline_release_branch_1.png)
+![pipeline_release_branch_2](../assets/pipeline_release_branch_2.png)
 
 ## Step 2. Build new Release in Jenkins
 1. Go to **Jenkins** and **sockshop**.
