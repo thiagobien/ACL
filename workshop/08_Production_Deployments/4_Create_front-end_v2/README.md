@@ -7,34 +7,11 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 ## Steps
 
-1. We need the new version of the `front-end` service in the `staging` namespace, before we can start with a blue-green or canary deployment. Therefore, we use the release branch in the `front-end` repository that we've created earlier and make some changes in that branch.
-
-    ```
-    (bastion)$ pwd
-    ~/repositories/front-end
-    (bastion)$ git branch -a
-    ... lists all branches from that repository ...
-    (bastion)$ git checkout release/<release-branch-from-earlier>
-    ```
-
-1. Edit the file `public/topbar.html` in the release branch of the `front-end` repository and change the following lines as seen in the screenshot.
+1. Edit the file `public/topbar.html` in the master branch of the `front-end` repository and change the following lines as seen in the screenshot.
 
     ![change-topbar-html](../assets/change-topbar-html.png)
 
     Save the changes to that file.
-
-1. Furthermore, bump the patch version in the `version` in the branch of the `front-end` repository, so that the build pipelines genereate a new artefact with a new verison that is stored in the Docker registry for further use.
-
-    ```
-    (bastion)$ pwd
-    ~/repositories/front-end
-    (bastion)$ vi version
-    ... 
-    ```
-
-    ![bump-version](../assets/bump-version.png)
-
-    Safe the changes to that file.
 
 1. Now it's time to commit our changes, first locally, and the pushing it to the remote repository.
 
@@ -44,7 +21,22 @@ In this lab, we create an improved version of the front-end service. We'll chang
     (bastion)$ git push
     ```
 
-1. We trigger the build pipeline for the `front-end` service and if all goes well, we wait until the new artefacts is deployed to the `staging` namespace.
+1. We need the new version of the `front-end` service in the `staging` namespace, before we can start with a blue-green or canary deployment. Therefore, we will create a new release branch in the `front-end` repository using our Jenkins pipeline:
+
+    1. Go to **Jenkins** and **sockshop**.
+    1. Click on **create-release-branch** pipeline and **Schedule a build with parameters**.
+    1. For the parameter **SERVICE**, enter the name of the service you want to create a release for (**front-end**)
+
+        The pipeline does the following:
+        1. Reads the current version of the microservice.
+        1. Creates a release branch with the name release/**version**.
+        1. Increments the current version by 1. 
+        1. Commits/Pushes the new version to the Git repository.
+
+![pipeline_release_branch_1](../assets/pipeline_release_branch_1.png)
+![pipeline_release_branch_2](../assets/pipeline_release_branch_2.png)
+
+1. After the **create-release-branch** pipeline has finished, we trigger the build pipeline for the `front-end` service and if all goes well, we wait until the new artefacts is deployed to the `staging` namespace.
 
 1. You can now see your changes in the `front-end` service that is deployed in `staging`. Get the public IP of the `front-end` load balancer in `staging` by listing all services in that namespace.
 

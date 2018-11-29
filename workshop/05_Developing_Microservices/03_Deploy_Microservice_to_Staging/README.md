@@ -38,7 +38,7 @@ The following screenshot depicts the interaction between the two pipelines.
 ![pipeline_release_branch_2](../assets/pipeline_release_branch_2.png)
 
 ## Step 2. Build new Release in Jenkins
-1. Go to **Jenkins** and **sockshop**.
+1. After the **create-release-branch** pipeline has finished, go to **Jenkins** and **sockshop**.
 1. Click on **carts** pipeline and **Scan Multibranch Pipeline Now**.
 1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 
 
