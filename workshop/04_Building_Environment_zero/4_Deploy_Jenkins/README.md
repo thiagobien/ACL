@@ -20,7 +20,12 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
     ![](../assets/kubectl-create-jenkinspvcs.png)
 
-1. Update the following values in the `manifests-env-zero/k8s-jenkins-deployment.yml` with your GitHub orginzation, the email address of your GitHub user, and the IP address of the Docker registry we've deployed in the previous step.
+1. Update the following values in the `manifests-env-zero/k8s-jenkins-deployment.yml` with following values:
+    - your GitHub orginzation
+    - the email address of your GitHub user
+    - the IP address of the Docker registry we've deployed in the previous step
+    - the Dynatrace tenant URL
+    - an API Token form your Dynatrace tenant.
 
     ![](../assets/jenkins-env-vars.png)
 
