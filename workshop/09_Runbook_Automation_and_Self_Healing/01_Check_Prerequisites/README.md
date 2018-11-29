@@ -16,6 +16,6 @@
 
 ---
 
-:arrow_forward: [Next Step: Setup Tower](../01_Setup_Tower)
+:arrow_forward: [Next Step: Setup Tower](../02_Setup_Tower)
 
 :arrow_up_small: [Back to overview](../)
