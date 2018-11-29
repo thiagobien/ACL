@@ -54,17 +54,17 @@ Let's get started!
     - Job Type: Run
     - Inventory: inventory
     - Project: self-healing
-    - Playbook: `10_Runbook_Automation_and_Self_Healing\playbooks\remediation.yaml`
+    - Playbook: `09_Runbook_Automation_and_Self_Healing\playbooks\remediation.yaml`
     - Extra Variables: check box _Prompt on Launch_ 
 
     ![create job template](../assets/create-job-template.png)
     
 1. Create a new Job Template for stopping the promotion campaign
-    - Name: stop campaign userX (X... your workshop user number)
+    - Name: stop-campaign-userX (X... your workshop user number)
     - Job Type: Run
     - Inventory: inventory
     - Project: self-healing
-    - Playbook: `10_Runbook_Automation_and_Self_Healing\playbooks\campaign.yaml`
+    - Playbook: `09_Runbook_Automation_and_Self_Healing\playbooks\campaign.yaml`
       ```
       ---
       promotion_rate: '0'
@@ -72,21 +72,21 @@ Let's get started!
       ```
       Make sure to adjust the values for the **IP address** (XX.XXX.XX.XXX) and the **job template ID** (XX). The **job template ID** you find in the current URL in your browser.
 
-    ![promotion](../assets/ansible-promotion.png)
+    ![promotion](../assets/ansible-stop-promotion.png)
     
 1. Create a new Job Template for starting the promotion campaign
-    - Name: start campaign userX (X... your workshop user number)
+    - Name: start-campaign-userX (X... your workshop user number)
     - Job Type: Run
     - Inventory: inventory
     - Project: self-healing
-    - Playbook: `10_Runbook_Automation_and_Self_Healing\playbooks\campaign.yaml`
+    - Playbook: `09_Runbook_Automation_and_Self_Healing\playbooks\campaign.yaml`
     - Extra Variables: check box _Prompt on Launch_ 
       ```
       ---
       promotion_rate: '0'
       remediation_action: 'https://XX.XXX.XX.XXX/api/v2/job_templates/XX/launch/'
       ```
-      Make sure to adjust the values for the **IP address** (XX.XXX.XX.XXX) and the **job template ID** (XX). For the **job template ID** you specify the ID of the *stop campaign userX* template. 
+      Make sure to adjust the values for the **IP address** (XX.XXX.XX.XXX) and the **job template ID** (XX). For the **job template ID** you specify the ID of the *stop-campaign-userX* template. 
 
-    ![promotion](../assets/ansible-promotion.png)
+    ![promotion](../assets/ansible-start-promotion.png)
 
