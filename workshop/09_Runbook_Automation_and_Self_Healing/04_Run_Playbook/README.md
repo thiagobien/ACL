@@ -21,7 +21,7 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 
 1. Run the promotional campain
     - Navigate to _Templates_ in your Ansible Tower
-    - Click on the "rocket" icon (🚀) next to your _promotion campaign userX_ job template
+    - Click on the "rocket" icon (🚀) next to your _start campaign userX_ job template
     ![run template](../assets/ansible-template-run.png)
     - Adjust the values accordingly for you promotional campaign:
       - Set the value for `promotion_rate: '20'` to allow for 20 % of the user interactions to receive the promotional gift
