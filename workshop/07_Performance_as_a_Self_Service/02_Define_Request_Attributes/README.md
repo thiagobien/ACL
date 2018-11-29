@@ -41,6 +41,6 @@ Screenshot shows this rule definition.
 
 ---
 
-[Previous Step: Write Load Test Scritp](../01_Write_Load_Test_Script) :arrow_backward: :arrow_forward: [Next Step: Define Performance Signature](../03_Define_Performance_Signature)
+[Previous Step: Write Load Test Script](../01_Write_Load_Test_Script) :arrow_backward: :arrow_forward: [Next Step: Define Performance Signature](../03_Define_Performance_Signature)
 
 :arrow_up_small: [Back to overview](../)
