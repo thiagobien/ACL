@@ -16,7 +16,7 @@
       - version1: 0
         version2: 100
     loop_control:
-      pause: 300
+      pause: 120
 
   - name: reset load balancing to 100/0
     vars:
