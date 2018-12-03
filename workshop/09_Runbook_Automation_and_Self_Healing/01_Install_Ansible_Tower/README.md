@@ -9,6 +9,8 @@
 1. Create Role Binding for User Account.
      - exchange YOURNAME with, e.g., your firstname or your alias
      - exchange username@accont.com with your user of the cluster
+    
+    <span style="color:red">**TODO**</span>: check if also working with service account!
     ```
     $ kubectl create clusterrolebinding YOURNAME-cluster-admin-binding --clusterrole=cluster-admin --user=username@account.com
     ```
@@ -54,6 +56,9 @@
 
     ```
     $ wget https://releases.ansible.com/ansible-tower/setup_openshift/ansible-tower-openshift-setup-3.3.1.tar.gz
+    ```
+    Extract it.
+    ```
     $ tar -xzvf ansible-tower-openshift-setup-3.3.1.tar.gz
     $ cd ansible-tower-openshift-setup-3.3.1/
     ```
@@ -63,54 +68,99 @@
 
 ### Inventory
 
-Place your custom values in the inventory, e.g.:
+Place your custom values in the inventory.
 
-```
-# This will create or update a default admin (superuser) account in Tower
-admin_user='admin'
-admin_password='myPassword'
+1. `nano inventory`
+1. Edit the contents, e.g.,:
 
-# Tower Secret key
-# It's *very* important that this stay the same between upgrades or you will lose
-# the ability to decrypt your credentials
-secret_key='myPassword'
+    ```
+    # This will create or update a default admin (superuser) account in Tower
+    admin_user='admin'
+    admin_password='myPassword'
 
-# Database Settings
-# =================
+    # Tower Secret key
+    # It's *very* important that this stay the same between upgrades or you will lose
+    # the ability to decrypt your credentials
+    secret_key='myPassword'
 
-# Set pg_hostname if you have an external postgres server, otherwise
-# a new postgres service will be created
-# pg_hostname=postgresql
+    # Database Settings
+    # =================
 
-# If using an external database, provide your existing credentials.
-# If you choose to use the provided containerized Postgres depolyment, these
-# values will be used when provisioning the database.
-pg_username='admin'
-pg_password='myPassword'
-pg_database='tower'
-pg_port=5432
+    # Set pg_hostname if you have an external postgres server, otherwise
+    # a new postgres service will be created
+    # pg_hostname=postgresql
 
-rabbitmq_password='myPassword'
-rabbitmq_erlang_cookie='myPassword'
+    # If using an external database, provide your existing credentials.
+    # If you choose to use the provided containerized Postgres depolyment, these
+    # values will be used when provisioning the database.
+    pg_username='admin'
+    pg_password='myPassword'
+    pg_database='tower'
+    pg_port=5432
 
-# Note: The user running this installer will need cluster-admin privileges.
-# Tower's job execution container requires running in privileged mode,
-# and a service account must be created for auto peer-discovery to work.
+    rabbitmq_password='myPassword'
+    rabbitmq_erlang_cookie='myPassword'
 
-# Deploy into Openshift
-# =====================
+    # Note: The user running this installer will need cluster-admin privileges.
+    # Tower's job execution container requires running in privileged mode,
+    # and a service account must be created for auto peer-discovery to work.
 
-# skip this section
+    # Deploy into Openshift
+    # =====================
 
-# Deploy into Vanilla Kubernetes
-# ==============================
+    # skip this section
 
-kubernetes_context=my_kubernetes_context
-kubernetes_namespace=tower
+    # Deploy into Vanilla Kubernetes
+    # ==============================
 
-```
+    kubernetes_context=my_kubernetes_context
+    kubernetes_namespace=tower
 
-### Run Script
+    ```
+
+1. Save with <kbd>Ctrl</kbd>+<kbd>O</kbd> and exit with <kbd>Ctrl</kbd>+<kbd>X</kbd> 
+
+### Run Install Script
 
 1. `./setup_openshift.sh` (no typo, it has to be openshift)
 
+## Verify Ansible Tower Installation
+
+### Verify running pods
+
+```
+$ kubectl get pods -n tower
+
+Output:
+NAME                                        READY   STATUS    RESTARTS   AGE
+ansible-tower-0                             4/4     Running   0          1h
+ansible-tower-postgresql-56b5778f9b-lqbpx   1/1     Running   0          2h
+```
+
+### Get services and public IP of Ansible Tower 
+
+**Verify Services**
+
+```
+$ kubectl get svc -n tower
+
+Output:
+NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                          AGE
+ansible-tower-postgresql   ClusterIP   10.31.251.32    <none>        5432/TCP                         3h
+ansible-tower-rmq-mgmt     ClusterIP   10.31.242.237   <none>        15672/TCP                        3h
+ansible-tower-web-svc      NodePort    10.31.248.22    <none>        80:32509/TCP                     3h
+rabbitmq                   NodePort    10.31.241.111   <none>        15672:31040/TCP,5672:31838/TCP   3h
+```
+
+**Get public IP** 
+
+```
+$ kubectl get ingress -n tower
+
+Output:
+
+NAME                    HOSTS   ADDRESS        PORTS   AGE
+ansible-tower-web-svc   *       35.190.14.20   80      3h
+```
+
+Open your favourite browser and navigate to the `ADDRESS` of the `ansible-tower-web-svc`. Login with the credentials provided in the `inventory` file above.
