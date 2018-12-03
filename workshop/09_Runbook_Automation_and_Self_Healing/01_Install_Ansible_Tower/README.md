@@ -163,4 +163,12 @@ NAME                    HOSTS   ADDRESS        PORTS   AGE
 ansible-tower-web-svc   *       35.190.14.20   80      3h
 ```
 
+## Login
+
 Open your favourite browser and navigate to the `ADDRESS` of the `ansible-tower-web-svc`. Login with the credentials provided in the `inventory` file above.
+
+### Provide license
+
+Submit the Ansible Tower license when prompted.
+
+In case you don't have your license yet, you can get a free license here: https://www.ansible.com/license 
