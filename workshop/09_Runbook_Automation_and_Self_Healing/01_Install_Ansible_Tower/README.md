@@ -170,5 +170,13 @@ Open your favourite browser and navigate to the `ADDRESS` of the `ansible-tower-
 ### Provide license
 
 Submit the Ansible Tower license when prompted.
+![ansible license prompt](../assets/ansible-license.png)
+
 
 In case you don't have your license yet, you can get a free license here: https://www.ansible.com/license 
+
+
+## Default dashboard.
+
+![ansible tower dashboard](../assets/ansible-tower-initial.png)
+
