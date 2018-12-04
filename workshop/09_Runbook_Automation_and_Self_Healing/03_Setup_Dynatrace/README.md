@@ -23,3 +23,8 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
 
     ![integration run](../assets/ansible-integration-run.png)
 
+---
+
+[Previous Step: Setup Tower](../02_Setup_Tower) :arrow_backward: :arrow_forward: [Next Step: Run Playbook](../04_Run_Playbook)
+
+:arrow_up_small: [Back to overview](../)
