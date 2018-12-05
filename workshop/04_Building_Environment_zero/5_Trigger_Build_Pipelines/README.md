@@ -3,7 +3,7 @@
 In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in Kubernetes, so that the services find the infrastructure components that they need to work properly, i.e. the databases for certain services, and RabbitMQ. After that, we'll trigger all build pipelines to populate the `dev` namespace with all artifacts.
 
 ## Steps
-1. Setup all databases and RabbitMQ issueing the following command:
+1. Setup all databases and RabbitMQ executing the following command:
 
     ```
     (bastion)$ kubectl create -f repositories/sockshop-infrastructure/
