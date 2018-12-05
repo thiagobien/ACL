@@ -1,6 +1,6 @@
 # Trigger Build Pipelines
 
-In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in Kubernetes, so that the services find the infrastructure components that they need to work properly, i.e. the databases for certain services, and RabbitMQ. After that, we'll trigger all build pipelines to populate the `dev` namespace with all artefacts.
+In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in Kubernetes, so that the services find the infrastructure components that they need to work properly, i.e. the databases for certain services, and RabbitMQ. After that, we'll trigger all build pipelines to populate the `dev` namespace with all artifacts.
 
 ## Steps
 1. Setup all databases and RabbitMQ issueing the following command:
@@ -15,7 +15,7 @@ In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in 
     (bastion)$ kubectl get deployment --all-namespaces | grep 'db\|rabbit'
     ```
 
-1. To warm up Jenkins and to populate the `dev` namespace in Kubernetes with artefacts from Sockshop, we now trigger all build pipelines in the Sockshop folder in Jenkins. To that end, we enter the Sockshop folder :one: in the Jenkins UI.
+1. To warm up Jenkins and to populate the `dev` namespace in Kubernetes with artifacts from Sockshop, we now trigger all build pipelines in the Sockshop folder in Jenkins. To that end, we enter the Sockshop folder :one: in the Jenkins UI.
 
     ![](../assets/jenkins-ui-enter-sockshop-folder.png)
 
