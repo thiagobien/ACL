@@ -21,7 +21,7 @@ Let's get started!
 1. Navigate to **Project** and create a new project
     - Name: self-healing
     - SCM Type: Git
-    - SCM Url: `https://github.com/dynatrace-innovationlab/acl-docs`
+    - SCM Url: `https://github.com/dynatrace-innovationlab/acl-docs` (might be different for you workshop, please ask your instructor)
     - SCM Credential: git-token
     - SCM Update Options:
       - Check _Clean_: overwrite local changes each time you get latest SCM version
@@ -37,7 +37,7 @@ Let's get started!
       apitoken: "YOUR-API-TOKEN"
       carts_promotion_url: "http://SERVICE-URL/carts/1/items/promotion"
       commentuser: "Ansible Playbook"
-      tower_user: "userX"
+      tower_user: "admin"
       tower_password: "dynatrace"
       dtcommentapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/problem/details/{{pid}}/comments?Api-Token={{apitoken}}"
       dteventapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/events/?Api-Token={{apitoken}}"
