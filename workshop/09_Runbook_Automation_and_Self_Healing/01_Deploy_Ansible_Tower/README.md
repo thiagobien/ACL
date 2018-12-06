@@ -27,7 +27,7 @@ In this lab we are going to deploy Ansible Tower, our chosen tool for automation
     ansible-tower   LoadBalancer   XX.XX.XXX.XXX   XX.XXX.XXX.XXX   443:32096/TCP   18m
     ```
 
-1. Open your favourite browser and navigate to the `external-ip` with port 443. You login credentials are:
+1. Open your favourite browser and navigate to `https://external-ip` (please note the _https_). You login credentials are:
     - Username: admin
     - Password: dynatrace
 
