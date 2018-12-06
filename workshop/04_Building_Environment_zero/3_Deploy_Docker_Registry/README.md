@@ -1,6 +1,6 @@
 # Deploy Docker Registry
 
-We use the Docker registry to save the build artefacts, i.e. Docker containers. The registry allows us to host multiple versions of an artefact. 
+We use the Docker registry to save the build artifacts, i.e. Docker containers. The registry allows us to host multiple versions of an artifact. 
 
 ## Steps
 1. In Preparation for deploying the Docker registry we're going to use throughout the week, we want to create some Kubernetes namespaces (`~/manifests-env-zero/k8s-namespaces.yml`):

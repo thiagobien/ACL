@@ -61,7 +61,7 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
     ![](../assets/jenkins-ui.png)
 
-1. Login to Jenkins using the "log in" link in the upper right corner of the Jenkins UI with the credentials *admin*/*dynatrace123qweASD!*
+1. Login to Jenkins using the "log in" link in the upper right corner of the Jenkins UI with the credentials *admin*/*admin*
 
     ![](../assets/jenkins-ui-login.png)
 
