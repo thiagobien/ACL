@@ -10,15 +10,15 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
 1. Enter your Ansible Tower job template URL and Ansible Tower credentials.
     - Name: e.g., "remediation playbook"
     - Ansible Tower job template URL: copy & paste the Ansible Tower job URL from your Ansible Tower remediation job template, e.g., `https://XX.XXX.XX.XXX/#/templates/job_template/18`
-    - Username: your Ansible Tower username, e.g., `user0`
-    - Password: your Ansible Tower password
+    - Username: your Ansible Tower username `admin`
+    - Password: your Ansible Tower password `dynatrace`
     - Click "Send test notification" --> a green banner should appear
     - Save the integration
 
     ![integration successful](../assets/ansible-integration-successful.png)
 
 1. Login (or navigate back) to your Ansible Tower instance and check what happenend when setting up the integration.
-    - Navigate to _Jobs_ and click on your _remediation-userX_ job
+    - Navigate to _Jobs_ and click on your _remediation-user0_ job
     - You can see all tasks from the playbook that have been triggered by the integration.
 
     ![integration run](../assets/ansible-integration-run.png)
