@@ -13,7 +13,6 @@ Let's get started!
 
 1. Navigate to **Credentials** and add Git credentials to your Ansible Tower organization
     - Name: git-token
-    - Organization: orgX (X... your workshop user number)
     - Credential Type: Source Control (click on magnifier and search for the correct type)
     - Type Details: your Github username and your password (password will be encrypted and can not be shown again once stored)
 
@@ -21,7 +20,6 @@ Let's get started!
 
 1. Navigate to **Project** and create a new project
     - Name: self-healing
-    - Organization: orgX (X... your workshop user number)
     - SCM Type: Git
     - SCM Url: `https://github.com/dynatrace-innovationlab/acl-docs`
     - SCM Credential: git-token
@@ -32,7 +30,6 @@ Let's get started!
 
 1. Navigate to **Inventory** and create a new inventory
     - Name: inventory
-    - Organization: orgX (X... your workshop user number)
     - Variables: copy & paste the following snippet
       ```
       ---
@@ -46,11 +43,13 @@ Let's get started!
       dteventapiurl: "https://{{tenantid}}.live.dynatrace.com/api/v1/events/?Api-Token={{apitoken}}"
       ```
 
-      ![create inventory](../assets/create-inventory.png)
+    Change all placeholders to your own actual values.
+
+    ![create inventory](../assets/create-inventory.png)
 
 1. Navigate to **Templates** and create a new Job Template for the remediation playbook
-    - Name: remediation-userX (X... your workshop user number) <br>
-      (_job template names have to be unique across the whole Ansible Tower installation_)
+    - Name: remediation-user0 <br>
+      (_job template names have to be unique across the whole Ansible Tower installation so we just append an articial username in case we want to add more remedation playbooks later on_)
     - Job Type: Run
     - Inventory: inventory
     - Project: self-healing
@@ -60,7 +59,7 @@ Let's get started!
     ![create job template](../assets/create-job-template.png)
     
 1. Create a new Job Template for stopping the promotion campaign
-    - Name: stop-campaign-userX (X... your workshop user number)
+    - Name: stop-campaign-user0 
     - Job Type: Run
     - Inventory: inventory
     - Project: self-healing
@@ -75,7 +74,7 @@ Let's get started!
     ![promotion](../assets/ansible-stop-promotion.png)
     
 1. Create a new Job Template for starting the promotion campaign
-    - Name: start-campaign-userX (X... your workshop user number)
+    - Name: start-campaign-user0 
     - Job Type: Run
     - Inventory: inventory
     - Project: self-healing
@@ -91,6 +90,6 @@ Let's get started!
     ![promotion](../assets/ansible-start-promotion.png)
 
 ---
-[Previous Step: Check Prerequisites](../01_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Setup Dynatrace](../03_Setup_Dynatrace)
+[Previous Step: Deploy Ansible Tower](../01_Deploy_Ansible_Tower) :arrow_backward: :arrow_forward: [Next Step: Setup Dynatrace](../03_Setup_Dynatrace)
 
 :arrow_up_small: [Back to overview](../)
