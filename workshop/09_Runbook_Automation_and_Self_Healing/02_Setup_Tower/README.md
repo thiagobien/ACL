@@ -47,7 +47,7 @@ Let's get started!
 
     ![create inventory](../assets/create-inventory.png)
 
-1. Navigate to **Templates** and create a new Job Template for the remediation playbook
+1. Navigate to **Templates** and create a new **Job Template** for the remediation playbook
     - Name: remediation-user0 <br>
       (_job template names have to be unique across the whole Ansible Tower installation so we just append an articial username in case we want to add more remedation playbooks later on_)
     - Job Type: Run
@@ -58,7 +58,7 @@ Let's get started!
 
     ![create job template](../assets/create-job-template.png)
     
-1. Create a new Job Template for stopping the promotion campaign
+1. Create a new **Job Template** for stopping the promotion campaign
     - Name: stop-campaign-user0 
     - Job Type: Run
     - Inventory: inventory
@@ -75,7 +75,7 @@ Let's get started!
 
     ![promotion](../assets/ansible-stop-promotion.png)
     
-1. Create a new Job Template for starting the promotion campaign
+1. Create a new **Job Template** for starting the promotion campaign
     - Name: start-campaign-user0 
     - Job Type: Run
     - Inventory: inventory
