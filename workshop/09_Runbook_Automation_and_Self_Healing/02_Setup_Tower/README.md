@@ -68,6 +68,8 @@ Let's get started!
       ---
       promotion_rate: '0'
       remediation_action: 'https://XX.XXX.XX.XXX/api/v2/job_templates/XX/launch/'
+      dt_application: 'carts'
+      dt_environment: 'production'
       ```
       Make sure to adjust the values for the **IP address** (XX.XXX.XX.XXX) and the **job template ID** (XX). The **job template ID** you find in the current URL in your browser.
 
@@ -84,6 +86,8 @@ Let's get started!
       ---
       promotion_rate: '0'
       remediation_action: 'https://XX.XXX.XX.XXX/api/v2/job_templates/XX/launch/'
+      dt_application: 'carts'
+      dt_environment: 'production'
       ```
       Make sure to adjust the values for the **IP address** (XX.XXX.XX.XXX) and the **job template ID** (XX). For the **job template ID** you specify the ID of the *stop-campaign-userX* template. 
 
