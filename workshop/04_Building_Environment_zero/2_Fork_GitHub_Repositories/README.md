@@ -54,9 +54,8 @@
     payment
     queue-master
     shipping
-    shipping-rabbitmq
+    sockshop-infrastructure
     user
-    user-db
     ```
 
 ---
