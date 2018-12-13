@@ -10,7 +10,7 @@ In the last lab, you'll clone the GitHub repositories we've forked in lab 2 to y
 1. Clone all projects from the GitHub organization you've created earlier to your local machine
 
     ```
-    ./cloneall.sh <GITHUB USERNAME> <ORGANIZATION>
+    ./cloneall.sh <ORGANIZATION>
     ```
     
     OR
