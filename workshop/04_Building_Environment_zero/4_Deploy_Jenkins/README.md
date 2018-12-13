@@ -2,6 +2,10 @@
 
 Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deploy Jenkins as a Kubernetes service and use persistent volumes for the workspace and jobs directory, so that these data is persisted, if the pod is restarted. Jenkins will subsequentially start a pod for each build that is triggered. To save bandwidth, we create one more persistent volume that acts as a maven cache volume and is mounted automatically in each pod that runs a maven build.
 
+## Prerequisites
+
+The Jenkins will be exposed on a high port (24711 in our example), so please make sure your network connection allows this. VPNs might cause troubles here and you won't be able to connect to your Jenkins instance later on.
+
 ## Data needed
 * GitHub organization
 * GitHub user email address
