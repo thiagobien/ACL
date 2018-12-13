@@ -13,7 +13,7 @@ In the last lab, you'll clone the GitHub repositories we've forked in lab 2 to y
     ./cloneall.sh <ORGANIZATION>
     ```
     
-    which will git clone these repos
+    which will git clone these repos from your GitHub organization:
     
     ```
     carts
