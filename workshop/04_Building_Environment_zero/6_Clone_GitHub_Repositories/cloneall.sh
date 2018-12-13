@@ -5,23 +5,13 @@ NC='\033[0m'
 
 if [ -z $1 ]
 then
-    echo "Please provide github username"
-    echo ""
-    echo "$ ./cloneall.sh <USERNAME> <ORG to clone>"
-    exit 1
-fi
-
-if [ -z $2 ]
-then
     echo "Please provide github organization"
     echo ""
-    echo "$ ./cloneall.sh <USERNAME> <ORG to clone>"
+    echo "$ ./cloneall.sh <ORG to clone>"
     exit 1
 fi
 
-GITHUB_AT=$1
-ORG=$2
-
+ORG=$1
 
 HTTP_RESPONSE=`curl -s -o /dev/null -I -w "%{http_code}" https://github.com/$ORG`
 
