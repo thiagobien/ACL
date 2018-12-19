@@ -7,20 +7,26 @@ In the last lab, you'll clone the GitHub repositories we've forked in lab 2 to y
 * GitHub user and password
 
 ## Steps
-1. Clone all projects from the GitHub organization you've created earlier to your local machine
+1. Clone all projects from the GitHub organization you've created earlier to your local machine:
 
     ```
-    (local)$ git clone https://github.com/<GitHubOrganization>/carts
-    (local)$ git clone https://github.com/<GitHubOrganization>/catalogue
-    (local)$ git clone https://github.com/<GitHubOrganization>/front-end
-    (local)$ git clone https://github.com/<GitHubOrganization>/k8s-deploy-staging
-    (local)$ git clone https://github.com/<GitHubOrganization>/k8s-deploy-production
-    (local)$ git clone https://github.com/<GitHubOrganization>/orders
-    (local)$ git clone https://github.com/<GitHubOrganization>/payment
-    (local)$ git clone https://github.com/<GitHubOrganization>/queue-master
-    (local)$ git clone https://github.com/<GitHubOrganization>/shipping
-    (local)$ git clone https://github.com/<GitHubOrganization>/shipping-rabbitmq
-    (local)$ git clone https://github.com/<GitHubOrganization>/user
+    ./cloneall.sh <ORGANIZATION>
+    ```
+    
+    which will git clone these repos from your GitHub organization:
+    
+    ```
+    carts
+    catalogue
+    front-end
+    k8s-deploy-staging
+    k8s-deploy-production
+    orders
+    payment
+    queue-master
+    shipping
+    shipping-rabbitmq
+    user
     ```
 
 1. This concludes the lab
