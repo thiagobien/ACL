@@ -77,11 +77,8 @@ The Jenkins will be exposed on a high port (24711 in our example), so please mak
     Please note that for the Personal Access Token, you can choose whatever name you like when creating it, for example "jenkins token". Please give this access token "Full control of private repositories".
     ![git access token](../assets/github-access-token.png)
 
-    ```
-    git-credentials-acm
-    ```
     
-    It's important to use this ID, as the credentials are referenced by this ID by selected builds. To save the credentials click OK :four:.
+    It's important to use this ID `git-credentials-acm`, as the credentials are referenced by this ID by selected builds. To save the credentials click OK :four:.
 
     ![](../assets/jenkins-ui-add-credentials.png)
 
