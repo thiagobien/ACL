@@ -24,7 +24,7 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. Set the name of the management zone: `Dev Team`.
 1. **Add new rule**:
     * Rule applies to: `Services` 
-    * Condition on `Kubernetes` equals `dev`
+    * Condition on `Kubernetes namespace` equals `dev`
 1. Select **Apply to underlying process groups of matching services**.
 1. **Save** and test the Management Zone in the Smartscape View.
 
@@ -33,11 +33,11 @@ Based on this assumption, you will learn how to create Management Zones that wil
 1. Set the name of the management zone: `Architect Team`.
 1. **Add new rule**:
     * Rule applies to: `Services` 
-    * Condition on `Kubernetes` equals `dev`
+    * Condition on `Kubernetes namespace` equals `dev`
 1. Select **Apply to underlying process groups of matching services**.
 1. **Add new rule**:
     * Rule applies to: `Services` 
-    * Condition on `Kubernetes` equals `staging`
+    * Condition on `Kubernete namespaces` equals `staging`
 1. Select **Apply to underlying process groups of matching services**.
 1. **Save** and test the Management Zone in the Smartscape View.
 
