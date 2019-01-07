@@ -23,8 +23,8 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     ```
         ...
         "tags"         : "app:carts,environment:dev",
-        "upperLimit"   : 800,
-        "lowerLimit"   : 600
+        "upperLimit"   : 800.0,
+        "lowerLimit"   : 600.0
     },
     ```
 <!-- 
@@ -40,8 +40,8 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     ```
         ...
         "tags"         : "app:carts,environment:dev",
-        "upperLimit"   : 800,
-        "lowerLimit"   : 600
+        "upperLimit"   : 800.0,
+        "lowerLimit"   : 600.0
     },
     ```
 1. After these steps, the **timeseries** array should look as follows: 
@@ -51,15 +51,15 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
             "timeseriesId"  : "com.dynatrace.builtin:service.responsetime",
             "aggregation"   : "avg",
             "tags"          : "app:carts,environment:dev",
-            "upperLimit"    : 800,
-            "lowerLimit"    : 600
+            "upperLimit"    : 800.0,
+            "lowerLimit"    : 600.0
         },
         {
             "timeseriesId"  : "com.dynatrace.builtin:service.responsetime",
             "aggregation"   : "percentile",
             "tags"          : "app:carts,environment:dev",
-            "upperLimit"    : 3000,
-            "lowerLimit"    : 2800
+            "upperLimit"    : 3000.0,
+            "lowerLimit"    : 2800.0
         },
     ]
     ```
@@ -111,8 +111,8 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     ```
         ...
         "tags"          : "app:carts,environment:dev",
-        "upperLimit"    : 5,
-        "lowerLimit"    : 0
+        "upperLimit"    : 5.0,
+        "lowerLimit"    : 0.0
     },
     ```
 
@@ -128,15 +128,15 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
             "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
             "aggregation" : "avg",
             "tags" : "app:carts,environment:dev",
-            "upperLimit" : 800,
-            "lowerLimit" : 600
+            "upperLimit" : 800.0,
+            "lowerLimit" : 600.0
         },
         {
             "timeseriesId" : "com.dynatrace.builtin:service.failurerate",
             "aggregation" : "avg",
             "tags" : "app:carts,environment:dev",
-            "upperLimit" : 5,
-            "lowerLimit" : 0
+            "upperLimit" : 5.0,
+            "lowerLimit" : 0.0
         }
     ]
 }
