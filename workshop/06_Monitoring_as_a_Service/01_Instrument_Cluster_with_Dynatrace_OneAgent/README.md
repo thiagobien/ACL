@@ -42,6 +42,11 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
 ![generate-api-token](../assets/api_token.png)
 
 ## Step 3. Rollout Dynatrace OneAgent Operator
+1. Create namespace for Dynatrace Operator
+    ```
+    (bastion$) kubectl create namespace dynatrace
+    ```
+    
 1. Create Dynatrace Operator.
     ```
     (bastion$) kubectl create -f https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/master/deploy/kubernetes.yaml
@@ -57,7 +62,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       - HOST_GROUP=k8s_cluster_sockshop
     ```
 
-    See the final configuration:
+    See the final configuration and make sure to change the `ENVIRONMENTID` to your actual tenant ID:
     ```
     apiVersion: dynatrace.com/v1alpha1
     kind: OneAgent
@@ -65,7 +70,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       name: oneagent
       namespace: dynatrace
     spec:
-      apiUrl: CHANGE_TO_API_URL
+      apiUrl: https://ENVIRONMENTID.live.dynatrace.com/api
       skipCertCheck: false
       tokens: ""
       nodeSelector: {}

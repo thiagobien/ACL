@@ -6,7 +6,7 @@ In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in 
 1. Setup all databases and RabbitMQ executing the following command:
 
     ```
-    (bastion)$ kubectl create -f repositories/sockshop-infrastructure/
+    (bastion)$ kubectl create -f repositories/sockshop-infrastructure/manifests/
     ```
 
     Verify the deployments have been successful in each of the namespaces using the following command
