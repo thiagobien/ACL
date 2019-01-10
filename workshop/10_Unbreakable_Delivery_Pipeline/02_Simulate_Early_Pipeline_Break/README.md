@@ -11,7 +11,7 @@ In this lab you'll release a service to staging that is not tested based on perf
 1. Change the value of `delayInMillis` from `0` to `1000` and save.
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
-## Step 1: Create a new Release
+## Step 2: Create a new Release
 
 1. Go to **Jenkins** and **sockshop**.
 1. Click on **create-release-branch** pipeline and **Schedule a build with parameters**.
