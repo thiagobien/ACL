@@ -14,7 +14,7 @@ In this module you will learn how to implement such an *Unbreakable Delivery Pip
 * Setup Self-Healing for Production: [Lab](./03_Setup_Self_Healing_for_Production)
 * Simulate a Bad Production Deployment: [Lab](./04_Simulate_a_Bad_Production_Deployment)
 
-# Pre-Requisites
+# Prerequisites
 
 * Before starting with this module, please complete the following modules:
     * Building Environment zero
