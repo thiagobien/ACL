@@ -1,8 +1,8 @@
 # Virtual Operations and Dynatrace API
 
-This session gives an overview of ...
+Dynatrace API is a powerful HTTP REST API that allows you to seamlessly integrate with Dynatrace to build your own customized tasks.
 
-Daniels example? But applied to the sockshop example and maybe a different usecase. By then, there should be some data in Dynatrace.
-
-Introduce Davis and connect to sockshop tenant.
+In this lab you will use the API to:
+  1. Monitor Host Utilization
+  2. Analyzes deployment events to determine the most volatile service
 
