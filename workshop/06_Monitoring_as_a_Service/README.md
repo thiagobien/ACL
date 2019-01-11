@@ -12,12 +12,11 @@ To achieve that goal, you will learn how to:
 
 For further information on how to organize monitored entities, it is recommended to read: [Best practices on organize monitored entities](https://www.dynatrace.com/support/help/organize-monitored-entities/).
 
-# Pre-Requisites
+# Prerequisites
 
 * Before starting with this module, please complete the following modules:
     * Building Environment zero
     * Developing Microservices
-
-* Access to *Bastion host*
+    * Access to the *Bastion host*
 
 
