@@ -7,9 +7,8 @@ To get familiar with the carts service, you will:
 * Commit a change of carts and re-deploy it to the dev environment: [Lab](./02_Deploy_Microservice_to_Dev)
 * Create a release branch to trigger the pipeline for the staging environment: [Lab](./03_Deploy_Microservice_to_Staging)
 
-# Pre-Requisites
+# Prerequisites
 
 * Before starting with this module, please complete the following modules:
     * Building Environment zero
-
-* Access to *Bastion host*
+    * Access to the *Bastion host*
