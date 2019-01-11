@@ -2,9 +2,6 @@
 
 In this lab, we'll promote the new version of the `front-end` service to production.
 
-## Data needed
-(nil)
-
 ## Steps
 
 1. In your Jenkins instance, trigger the parameterized pipeline `k8s-deploy-production.update` :one:.
