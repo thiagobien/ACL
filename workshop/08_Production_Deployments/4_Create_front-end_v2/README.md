@@ -2,9 +2,6 @@
 
 In this lab, we create an improved version of the front-end service. We'll change the color of the header of the application to be able to see the effect of traffic routing between two different artefact versions.
 
-## Data needed
-(nil)
-
 ## Steps
 
 1. Edit the file `public/topbar.html` in the master branch of the `front-end` repository and change the following lines as seen in the screenshot.
