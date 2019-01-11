@@ -12,12 +12,12 @@ To achieve this goal, you will learn how to:
 * Compare the result of load tests in Dynatrace: [Lab](./06_Compare_Tests_in_Dynatrace)
 
 
-# Pre-Requisites
+# Prerequisites
 
 * Before starting with this module, please complete the following modules:
     * Building Environment zero
     * Developing Microservices
     * Monitoring as a Service
 
-* Access to *Bastion host*
+* Access to the *Bastion host*
 
