@@ -1,29 +1,17 @@
 # Autonomous Cloud Monitoring (ACM) Workshop
 
-In this workshop you'll learn ...
+This workshop provides key cloud animation concepts you can apply to improve your delivery pipeline, release great software faster, and execute a NoOps strategy within your organization. In this workshop, you will complete tasks used to move from a monolithic application to microservices application architecture which is self-healing. In order to successfully complete the workshop, some prerequisites are required.
 
-- The content is summarized here: https://community.dynatrace.com/community/pages/viewpage.action?pageId=251693290
-
-- An example of a (nice) workshop structure is here: https://github.com/aws-samples/aws-serverless-workshops/tree/master/WebApplication
-
-## Pre-Requisites
+## Prerequisites
 
 ### GitHub Account
 
-In order to complete this workshop you'll need a GitHub account.
+GitHub is a web-based service for version control. You will need to set up a GitHub account for the lab. For an introduction to Git and GitHub please access the ACL Preparation Course.
 
 ### Putty
 
-You will need a ... 
+PuTTY is the primary SSH client which provides secure remote access to UNIX or Linux systems. Download PuTTY here or use a similar SSH client tool.
 
 ## Modules
 
-This workshop is broken up into multiple modules. You must complete each module before proceeding to the next.
-
-1. [Autonomous Cloud Concepts](./01_Autonomous_Cloud_Concepts)
-2. [Cloud-native Concepts](./02_Cloud_native_Concepts)
-3. [Monolith to Microservices](./03_Monolith_to_Microservices)
-4. [Building Environment zero](./04_Building_Environment_zero)
-5. ...
-
-After you have completed the workshop you can delete all of the resources that were created by following the `cleanup guide`.
+This workshop is broken up into multiple modules. Each module includes hands on exercises that provides real world experience. Upon completion of the workshop, you can delete all resources created by following the cleanup guide.
