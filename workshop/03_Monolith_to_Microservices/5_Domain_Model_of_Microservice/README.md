@@ -12,14 +12,14 @@ For more details about this lab, please take a look at the following blog post: 
 1. Follow the service flow through BookingService and your custom service. 
 1. Click on the MySQL instance **ticketmonster** and on **View database statements**.
 
-## Step 2: Create Database for Microservice
+## Step 2: Create database for microservice
 
 1. Create the database for the microservice.
     ```
     oc new-app --name=orders-db -e MYSQL_USER=ticket -e MYSQL_PASSWORD=monster -e MYSQL_DATABASE=orders mysql:5.5
     ```
 
-## Step 3: Setup Database
+## Step 3: Setup database
 
 1. Switch to the `orders-service/` directory.
 
