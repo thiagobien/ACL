@@ -6,7 +6,7 @@ In this lab you'll learn how to define the performance signature for the carts s
 * Number of requests and requests/minute
 * Server-side failure rate 
 
-For further performance metrics, [please look at](https://www.dynatrace.com/support/help/shortlink/api-metrics).
+For further performance metrics, [please see this page in the Dynatrace documentation.](https://www.dynatrace.com/support/help/shortlink/api-metrics).
 
 ## Step 1: Add a timeseries for Response Time
 1. Switch to the `carts/` directory and open file `carts/monspec/carts_perfsig.json`.
@@ -116,7 +116,7 @@ For further performance metrics, [please look at](https://www.dynatrace.com/supp
     },
     ```
 
-## Step 3: Save Changes and Push to Repository
+## Step 3: Save changes and push to repository
 1. Save the file. 
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
