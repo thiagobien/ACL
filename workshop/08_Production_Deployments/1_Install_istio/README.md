@@ -2,9 +2,6 @@
 
 In this lab we install all Istio components and verify that they're running in the k8s cluster.
 
-## Data needed
-(nil)
-
 ## Steps
 
 1. Go to your `home` directory on the bastion host and install Istio's custom resource definitions (CRDs). It might take a few seconds to setup all resources for Istio.
