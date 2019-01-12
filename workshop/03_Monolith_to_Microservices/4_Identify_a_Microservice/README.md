@@ -6,15 +6,15 @@ For more details about this lab, please take a look at the following blog post: 
 
 ![virtually_break](../assets/virtually_break.png)
 
-## Step 1: Define Custom Service Entry Points
+## Step 1: Define custom service entry points
 1. Login to the Dynatrace tenant: tenant-url (Please ask instructor for Dynatrace tenant and login credentials.)
 1. Go to **Settings**, **Server-side service monitoring**, and click on **Custom service detection**.
-1. Click on **Define Jave service**, set name of custom service to `project-xx-orders-service` and click **Find entry point**.
+1. Click on **Define Java service**, set name of custom service to `project-xx-orders-service` and click **Find entry point**.
 1. Select the process group that contains your entry point `ticketmonster-monolith` and click **Continue**.
 1. Search for loaded classes and interfaces with name `BookingService`, select `org.jboss.examples.ticketmonster.rest.BookingService` and click **Continue**.
 1. Select `createBooking` as entry point and click **Finish**.
 
-## Step 2: Restart Pods to activate Custom Service Detection
+## Step 2: Restart pods to activate custom service detection
 1. Get your pods and copy the pod name starting with *ticketmonster-monolith*.
     ```
     (bastion)$ oc get pods
@@ -30,15 +30,15 @@ For more details about this lab, please take a look at the following blog post: 
     (bastion)$ oc get pods
     ```
 
-## Step 3: Book a Ticket on TicketMonster
+## Step 3: Book a ticket on TicketMonster
 1. Open your **ticketmonster-ui-v1** in a browser.
 1. Click on **Events**, **Concerts** and on, e.g., **Rock concert of the decade**.
 1. Select the **Venue**, **Date** and click on **Order ticket**.
-1. Select tickets by selecting a section and the number of tickets.
+1. Select tickets by choosing a section and the number of tickets.
 1. **Checkout** your ticket booking after specifying your email.
 1. Review your booking details.
 
-## Step 4: Consider Service Flow in Dynatrace
+## Step 4: Consider service flow in Dynatrace
 1. Choose the **Transaction & services** tab from the left menu.
 1. Select service **TicketMonsterUI**.
 1. Click on **View service flow**.
