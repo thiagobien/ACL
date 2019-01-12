@@ -1,13 +1,10 @@
-# Cloud-native Concepts
+# Cloud-Native Concepts
 
-In this module you will learn a definition of Cloud-native concepts such as *Microservice*, *Container (and Container Image)*, *Container Registry*, and *Kubernetes*. This should build the foundation to follow upcoming modules.   
+In this module, you will learn the definition of cloud-native concepts such as microservices, containers (and container images), Container Registry, and Kubernetes. Learning these concepts will build a foundation for upcoming modules.
 
-To get hands-on experience, there are following prepared lab(s):  
-* Working with Containers and a Container Registry: [Lab](./01_Working_with_Containers)
+# Prerequisites
 
-# Pre-Requisites
-
-* Access to *Bastion host*
+* Access to the *Bastion host*
 
 # Prepare Environment for Labs
 
