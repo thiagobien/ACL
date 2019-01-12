@@ -1,6 +1,6 @@
 # Working with Container Images and Containers
 
-In this lab you'll learn how to create a container image and how to run a container based on this image. Besides, you will pull an image from a global container registry to get hands-on experience with container registries in general. 
+In this lab you'll learn how to create a container image and how to run a container based on this image. During this activity you will pull an image from a global container registry to get hands-on experience with container registries in general. 
 
 ## Step 1: Create a Dockerfile
 
@@ -18,7 +18,7 @@ In this lab you'll learn how to create a container image and how to run a contai
     CMD ["hello_world.sh"]
     ```
 
-## Step 2. Build and tag a Container Image
+## Step 2. Build and Tag a Container Image
 
 1. Build the container image (`-t` specifies the repository and a tag).
     ```
