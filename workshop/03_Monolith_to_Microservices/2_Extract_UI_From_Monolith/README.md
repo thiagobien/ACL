@@ -4,7 +4,7 @@ To start breaking up the monolith, a best practice is extracting the user interf
 
 ![tm-ui-v1](../assets/extract_ui.png)
 
-## Step 1: Define a new Route to the Monolith
+## Step 1: Define a New Route to the Monolith
 
 1. Create another route for TicketMonster monolith under the name `backend`.
     ```
@@ -43,7 +43,7 @@ To start breaking up the monolith, a best practice is extracting the user interf
     oc get routes
     ```
 
-1. Open the route using a browser. Can you read **This UI hits the Monolith** on the start page? Perfect, you are now using TicketMonster via the decoupled user interface.
+1. Open the route using a browser. Can you read **This UI hits the Monolith** on the start page? If yes, you are now using TicketMonster via the decoupled user interface. If you do not see this message, ask an instructor for assistance.
 
 ![ticketmonster](../assets/ticketmonster-ui.png)
 
