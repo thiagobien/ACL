@@ -1,6 +1,6 @@
 # Clone GitHub Repositories
 
-In the last lab, you'll clone the GitHub repositories we've forked in lab 2 to your local environment, so you can edit those files in Visual Studio Code, or any other editor of your choice.
+In this lab, you will clone the GitHub repositories we've forked in lab 2 to your local environment. Then, you can edit those files in Visual Studio Code or any other editor of your choice.
 
 ## Data needed
 * GitHub organization
