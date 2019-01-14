@@ -2,9 +2,6 @@
 
 In this lab, we'll promote all components that are currently in the `staging` namespace to the production namespace.
 
-## Data needed
-(nil)
-
 ## Steps
 
 1. In your Jenkins instance, trigger the `k8s-deploy-production` pipeline :one:.
