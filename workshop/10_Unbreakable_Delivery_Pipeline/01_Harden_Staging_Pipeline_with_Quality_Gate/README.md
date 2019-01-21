@@ -90,3 +90,5 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     "lowerLimit" : 600
     ```
 1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.
+
+:arrow_forward: [Next Step: Simulate Early Pipeline Break](../02_Simulate_Early_Pipeline_Break)
