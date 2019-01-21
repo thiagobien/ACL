@@ -28,7 +28,7 @@ For more details about this lab, please take a look at the following blog post: 
     oc get pods
     ```
 
-1. Copy initalization scripts into pod.
+1. Copy initalization scripts into pod. These scripts will come from ```https://github.com/dynatrace-innovationlab/monolith-to-microservice-openshift.git``` which you should have cloned in the beginning.
     ```
     oc rsync src/main/resources/db/migration/ <your-db-pod>:/var/lib/mysql --no-perms=true
     ```
