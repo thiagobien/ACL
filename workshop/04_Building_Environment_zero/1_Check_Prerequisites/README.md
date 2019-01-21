@@ -24,6 +24,16 @@
 
     ![kubectl config view](../assets/kubectl-config-view.png)
 
+    Also, be sure the current context is set to the gcloud cluster. It should look as follows.
+
+    ![kube context](../assets/kubecontext.png)
+
+    If not, execute the following for your cluster:
+
+    ```
+    kubectl config use-context <your-gke-cluster-name>
+    ```
+
     ```
     (bastion)$ kubectl get namespaces
     ```
