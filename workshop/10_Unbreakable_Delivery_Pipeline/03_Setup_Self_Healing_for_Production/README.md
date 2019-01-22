@@ -47,6 +47,6 @@ Some useful kubectl commands:
 - `Kubectl -n istio-system delete pod **`: delete pod in the Istio namespace
 
 ---
-[Previous Step: Simulate Early Pipeline Break](../02_Simulate_Early_Pipeline_Break) :arrow_backward: :arrow_forward: [Next Step: Simulate a Bad Production Deployment](../04_Simulate_a_Bad_Production_Deployment)
+[Previous Step: Simulate Early Pipeline Break](../02_Simulate_Early_Pipeline_Break) :arrow_backward: :arrow_forward: [Next Step: Simulate a Bad Production Deployment](../04_Introduce_a_Failure_into_Front-End)
 
 :arrow_up_small: [Back to overview](../)

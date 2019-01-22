@@ -19,3 +19,4 @@
 1. Finally, click **Save**.
 
 
+:arrow_forward: [Next Step: Harden Staging Pipeline with Quality Gate](../01_Harden_Staging_Pipeline_with_Quality_Gate)

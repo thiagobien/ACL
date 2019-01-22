@@ -54,7 +54,7 @@ To push deployment events to Dynatrace, extend the `Jenkinsfile` for `carts` ser
 Besides, it is necessary to update the staging pipeline to push deployment events for each service that gets deployed to the staging environment.
 
 1. Open the `Jenkinsfile` for the `k8s-deploy-staging` pipeline.
-1. Add the following stage after the **Deploy to staging namespace** stage.
+1. Add the following stage after the **Deploy to staging namespace** stage or uncomment exisiting **DT Deploy Event**.
     ```
     stage('DT Deploy Event') {
       steps {
