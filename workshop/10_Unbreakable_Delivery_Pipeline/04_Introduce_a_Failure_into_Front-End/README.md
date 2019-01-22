@@ -1,6 +1,6 @@
 # Introduce a Failure into Front-End
 
-In this lab lab you will introduce a Java Script error into front-end. This version will be deployed as version `v2`.
+In this lab you will introduce a Java Script error into the front-end. This version will be deployed as version `v2`.
 
 ## Step 1: Introduce a JavaScript error in the Front-end Service
 1. Make sure you are in the master branch of your front-end.
