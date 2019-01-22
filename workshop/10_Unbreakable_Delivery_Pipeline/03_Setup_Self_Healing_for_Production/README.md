@@ -1,8 +1,8 @@
 # Setup Self-Healing Action for Production Deployment
 
-In this lab you'll create an Ansible Tower job that releases a deployment in a calaray release manner. Additionally, you will create a second job that switches back to the old version in case the *canary* (i.e., the new version of front-end) behaves wrong. 
+In this lab you'll create an Ansible Tower job that releases a deployment in a canary release manner. Additionally, you will create a second job that switches back to the old version in case the *canary* (i.e., the new version of front-end) behaves wrong. 
 
-Pre-requisits coming from module [Runbook Automation and Self-Healing](..\10_Runbook_Automation_and_Self_Healing): 
+Prerequisites coming from module [Runbook Automation and Self-Healing](..\10_Runbook_Automation_and_Self_Healing): 
 * *git-token* Credentials in Ansible Tower
 * *self-healing* Project in Ansible Tower
 * *inventory* in Ansible Tower
