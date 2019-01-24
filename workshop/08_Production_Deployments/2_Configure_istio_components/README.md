@@ -156,7 +156,7 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
     (bastion)$ curl https://{environmentID}.live.dynatrace.com/api/v1/deployment/installer/agent/connectioninfo?Api-Token={paas-token}
     ```
 
-    The output you get will loke something like this. The list of `communcationEndpoints` is what we need in the next step.
+    The output you get will look something like this. The list of `communcationEndpoints` is what we need in the next step.
 
     ```
     {
