@@ -3,7 +3,7 @@
 Let us integration the defined _remediation runbook_ in Dynatrace in a way, that it will be called each time Dynatrace detects a problem. Please note that in a more enterprise scenario, you might want to define _Alerting profiles_ to be able to control in a more fine-grained way when to call a remediation runbook.
 
 1. Setup a **Problem Notification** in Dynatrace
-    - Navigate to _Settings -> Problem notification -> Ansible Tower_ 
+    - Navigate to _Settings -> Integration -> Problem notification -> Ansible Tower_ 
 
     ![integration](../assets/ansible-integration.png)
 
