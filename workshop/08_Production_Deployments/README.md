@@ -1,6 +1,6 @@
 # Blue/green & Canary Deployment, Production Deployment
 
-This session gives an overview of production deplyoments, deployment strategies, and showcases those using Istio on Kubernetes to canary-deploy a new front-end version.
+This session gives an overview of production deployments, deployment strategies, and showcases those using Istio on Kubernetes to canary-deploy a new front-end version.
 
 ## Troubleshooting and useful links
 - [`kubectl` Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
