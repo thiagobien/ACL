@@ -175,7 +175,7 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
     (bastion)$ kubectl apply -f istio/service_entry_oneagent.yml
     ```
 
-    If there is issues, please refer to (./IstioManualConfig.md)
+    If there is issues, please refer to [Istio Manual Config](./IstioManualConfig.md)
 ---
 
 [Previous Step: Install Istio](../1_Install_Istio) :arrow_backward: :arrow_forward: [Next Step: Deploy to Production](../3_Deploy_to_production)
