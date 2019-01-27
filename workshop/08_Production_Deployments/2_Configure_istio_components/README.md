@@ -150,34 +150,24 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
     location: MESH_EXTERNAL
     ```
 
-1. Last but not least, we need to configure `ServiceEntry`s for the Dynatrace OneAgent, so the language specific components that run inside the pods can communicate with the Dynatrace servers. To do that, at first make a GET call to the REST endpoint of your Dynatrace environment. Replace the _environmentId_ with your environment ID and the _paas-token_ with the PaaS token you've created earlier during the Monitoring-as-a-Service session.
+1. Last but not least, we need to configure `ServiceEntry`s for the Dynatrace OneAgent, so the language specific components that run inside the pods can communicate with the Dynatrace servers.
+
+    In order to do this, run the script in k8s-deploy-production.
+    
+    ```
+    ./istioconfig.sh <TENANT URL> <PAAS TOKEN>
+    E.G. ./istioconfig.sh dhgf1234.live.dynatrace.com gjhs84539gjdf34
+    ```
+    
+    Ensure ```service_entry_oneagent.yml``` is filled in with your tenant and active gate component links.
 
     ```
-    (bastion)$ curl https://{environmentID}.live.dynatrace.com/api/v1/deployment/installer/agent/connectioninfo?Api-Token={paas-token}
+    (bastion)$ pwd
+    ~/repositories/k8s-deploy-production
+    (bastion)$ nano istio/service_entry_oneagent.yml
     ```
 
-    The output you get will loke something like this. The list of `communcationEndpoints` is what we need in the next step.
-
-    ```
-    {
-        "tenantUUID": "abc12345", (your environment ID)
-        "tenantToken": "ABCDEF1234567890",
-        "communicationEndpoints": [
-            "https://sg-us-west-2-rrr-sss-ttt-uuu-prod-us-west-2-oregon.live.ruxit.com/communication",
-            "https://sg-us-west-2-www-xxx-yyy-zzz-prod-us-west-2-oregon.live.ruxit.com/communication",
-            ...
-        ]
-    }
-    ```
-
-    In the `k8s-deploy-production` repository, open the file `istio/service_entry_oneagent.yml` and edit the contents so that all `communicationEndpoints` from the previous are listed in that file. Make sure that you 
-    * enter all `communicationEndpoints` in the `ServiceEntry` :one:, 
-    * enter all `communicationEndpoints` in the `VirtualService` :two:,
-    * make sure that a `tls-match` entry exists for each `communicationEndpoint` :three:
-
-    ![service-entry-oneagent.yml](../assets/service-entry-oneagent.png)
-
-    After editing the file, apply the configuration.
+    Apply the configuration.
 
     ```
     (bastion)$ pwd
@@ -185,6 +175,7 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
     (bastion)$ kubectl apply -f istio/service_entry_oneagent.yml
     ```
 
+    If there is issues, please refer to [Istio Manual Config](./IstioManualConfig.md)
 ---
 
 [Previous Step: Install Istio](../1_Install_Istio) :arrow_backward: :arrow_forward: [Next Step: Deploy to Production](../3_Deploy_to_production)
