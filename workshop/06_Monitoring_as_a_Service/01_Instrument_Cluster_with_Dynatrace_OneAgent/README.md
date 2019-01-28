@@ -43,9 +43,10 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     (bastion$) kubectl create namespace dynatrace
     ```
     
-1. Create Dynatrace Operator.
+1. Create the Dynatrace Operator.
     ```
-    (bastion$) kubectl create -f https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/master/deploy/kubernetes.yaml
+    (bastion$) LATEST_RELEASE=$(curl -s https://api.github.com/repos/dynatrace/dynatrace-oneagent-operator/releases/latest | grep tag_name | cut -d '"' -f 4)
+    (bastion$) kubectl create -f https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/$LATEST_RELEASE/deploy/kubernetes.yaml
     ```
 
 1. Define Kubernetes Secret to hold Dynatrace API and PaaS Token.
