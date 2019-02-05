@@ -21,7 +21,7 @@ then
 	exit 1
 fi
 
-declare -a repositories=("carts" "catalogue" "front-end" "k8s-deploy-production" "k8s-deploy-staging" "orders" "payment" "queue-master" "shipping" "shipping-rabbitmq" "sockshop-infrastructure" "user" "user-db")
+declare -a repositories=("carts" "catalogue" "front-end" "k8s-deploy-production" "k8s-deploy-staging" "orders" "payment" "queue-master" "shipping" "sockshop-infrastructure" "user")
 
 for repo in "${repositories[@]}"
 do
