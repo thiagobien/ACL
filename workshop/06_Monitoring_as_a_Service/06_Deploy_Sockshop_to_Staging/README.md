@@ -18,7 +18,7 @@ Now as you have everything correctly setup and configured for the first environm
 1. Create `shipping` release branch as shown above.
 1. Create `queue-master` release branch as shown above.
 1. Create `front-end` release branch as shown above.
-1. Create `users` release branch as shown above.
+1. Create `user` release branch as shown above.
 1. Create `payment` release branch as shown above.
 1. Create `catalogue` release branch as shown above.
 

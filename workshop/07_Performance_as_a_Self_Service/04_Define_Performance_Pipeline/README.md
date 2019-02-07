@@ -66,14 +66,15 @@ Consequently, this part of the pipeline executes a jMeter script (as defined by 
       specFile: "monspec/${env.APP_NAME}_perfsig.json"
     ) 
     ```
-Consequently, this part of the pipeline validates the load test result against the performance signature of the carts service.
+    Consequently, this part of the pipeline validates the load test result against the performance signature of the carts service.
+1. Commit and push changes to the carts repository
 
-## Step 4: Create a Performance Pipeline for Carts
+## Step 4: Validate the Performance Pipeline for Carts
 1. Go to  **Jenkins** and click on the **sockshop** folder.
-1. Click on **New Item** and specify name: `carts.performance`.
-1. Select **Multibranch Pipeline** and click on **OK**.
-1. At *Branch Sources* select **Git** and set the link to your Github Project Repository *carts*.
-1. At *Build Configuration* change *Script Path* from `Jenkins` to `Jenkins.performance`.
+1. Click on `carts.performance`.
+1. Click on **Configure**.
+1. At *Branch Sources* check if the link to your Github Project Repository is set to your *carts* repository.
+1. At *Build Configuration* check if *Script Path* is set to `Jenkins.performance`.
 1. Finally, click **Save**. This step automatically triggers the pipeline.
 
 ## Result: Performance as a Self-Service Pipeline for Carts

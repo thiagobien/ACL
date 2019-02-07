@@ -25,7 +25,6 @@ In this lab, you will clone the GitHub repositories we've forked in lab 2 to you
     payment
     queue-master
     shipping
-    shipping-rabbitmq
     user
     ```
 
