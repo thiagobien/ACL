@@ -25,27 +25,24 @@ To push deployment events to Dynatrace, extend the `Jenkinsfile` for `carts` ser
 1. Add the following stage after the **Deploy to dev namespace** stage.
     ```
     stage('DT Deploy Event') {
-        when {
-            expression {
-            return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
-            }
+      when {
+          expression {
+          return env.BRANCH_NAME ==~ 'release/.*' || env.BRANCH_NAME ==~'master'
+          }
+      }
+      steps {
+        container("curl") {
+          script {
+            def status = pushDynatraceDeploymentEvent (
+              tagRule : tagMatchRules,
+              customProperties : [
+                [key: 'Jenkins Build Number', value: "${env.BUILD_ID}"],
+                [key: 'Git commit', value: "${env.GIT_COMMIT}"]
+              ]
+            )
+          }
         }
-        steps {
-            createDynatraceDeploymentEvent(
-            envId: 'Dynatrace Tenant',
-            tagMatchRules: [
-                [
-                meTypes: [
-                    [meType: 'SERVICE']
-                ],
-                tags: [
-                    [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
-                    [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
-                ]
-                ]
-            ]) {
-            }
-        }
+      }
     }
     ```
 1. Commit/Push the changes to your GitHub Repository *carts*.
@@ -58,19 +55,17 @@ Besides, it is necessary to update the staging pipeline to push deployment event
     ```
     stage('DT Deploy Event') {
       steps {
-        createDynatraceDeploymentEvent(
-          envId: 'Dynatrace Tenant',
-          tagMatchRules: [
-            [
-              meTypes: [
-                [meType: 'SERVICE']
-              ],
-              tags: [
-                [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
-                [context: 'CONTEXTLESS', key: 'environment', value: 'staging']
+        container("curl") {
+          script {
+            tagMatchRules[0].tags[0].value = "${env.APP_NAME}"
+            def status = pushDynatraceDeploymentEvent (
+              tagRule : tagMatchRules,
+              customProperties : [
+                [key: 'Jenkins Build Number', value: "${env.BUILD_ID}"],
+                [key: 'Git commit', value: "${env.GIT_COMMIT}"]
               ]
-            ]
-          ]) {
+            )
+          }
         }
       }
     }
