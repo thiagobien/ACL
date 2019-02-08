@@ -43,8 +43,16 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
     ```
     (bastion)$ kubectl apply -f virtual_service_canary.yml
     ```
+    
+1. Run the `kubectl get svc istio-ingressgateway -n istio-system` command to get the *EXTERNAL-IP* of your *Gateway*.
 
-1. Now generate some traffic by hitting your front-end a couple of times.
+    ```console
+    $ kubectl get svc istio-ingressgateway -n istio-system
+    NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                                      AGE
+    istio-ingressgateway   LoadBalancer   172.21.109.129   1**.2**.1**.1**  80:31380/TCP,443:31390/TCP,31400:31400/TCP   17h
+    ```
+    
+1. Now use a browser to acess this gateway to genereate some traffic and to verify the configuration change.
 
 1. Open Dynatrace and navigate to Transactions&Services and open the `front-end` service screen.
 
