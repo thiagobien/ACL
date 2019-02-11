@@ -64,6 +64,7 @@ Let's get started!
     - Inventory: inventory
     - Project: self-healing
     - Playbook: `09_Runbook_Automation_and_Self_Healing\playbooks\campaign.yaml`
+    - Extra Variables: check box _Prompt on Launch_ 
       ```
       ---
       promotion_rate: '0'
