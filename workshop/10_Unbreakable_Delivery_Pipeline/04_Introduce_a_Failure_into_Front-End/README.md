@@ -38,35 +38,29 @@ In this lab you will introduce a Java Script error into the front-end. This vers
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 2: Create a new Release
-1. Switch to the `front-end/` directory.
-1. Run the following commands to create a new branch.
-    ```
-    (local)$ git checkout -b release/0.9.0
-    (local)$ git push -u origin release/0.9.0 
-    (local)$ git checkout master
-    ```
+1. We need the new version of the `front-end` service in the `staging` namespace. Therefore, we will create a new release branch in the `front-end` repository using our Jenkins pipeline:
 
-## Step 3. Build the new Release in Jenkins
-1. Go to **Jenkins** and **sockshop**.
-1. Click on **front-end** pipeline and **Scan Multibranch Pipeline Now**.
-1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 
-1. (trigger build manually) Click on *release/0.9.0* and click on **Build Now**.
+    1. Go to **Jenkins** and **sockshop**.
+    1. Click on **create-release-branch** pipeline and **Schedule a build with parameters**.
+    1. For the parameter **SERVICE**, enter the name of the service you want to create a release for (**front-end**)
 
-## Step 4. Delete the Virtual Service for Sockshop
+1. After the **create-release-branch** pipeline has finished, we trigger the build pipeline for the `front-end` service and if all goes well, we wait until the new artefacts is deployed to the `staging` namespace.
+
+## Step 3. Delete the Virtual Service for Sockshop
 1. Make sure you are in the `\k8s-deploy-production\istio` folder on bastion.
 1. Run the following command to delete the virtual service for sockshop. 
     ```
     (bastion)$ kubectl delete -f .\virtual_service.yml
     ```    
 
-## Step 5: Deploy the new Front-End to Production
+## Step 4: Deploy the new Front-End to Production
 1. Go to your **Jenkins** and click on **k8s-deploy-production.update**.
 1. Click on **master** and **Build with Parameters**:
     * SERVICE: *front-end*
     * VERSION: *v2*
 1. Hit **Build** and wait until the pipeline shows: *Success*.
 
-## Step 6. Apply the Virtual Service for Sockshop
+## Step 5. Apply the Virtual Service for Sockshop
 1. Run the following command to create the virtual service for sockshop again. 
     ```
     (bastion)$ kubectl create -f .\virtual_service.yml
