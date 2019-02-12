@@ -8,19 +8,17 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     /*
     stage('DT Deploy Event') {
       steps {
-        createDynatraceDeploymentEvent(
-          envId: 'Dynatrace Tenant',
-          tagMatchRules: [
-            [
-              meTypes: [
-                [meType: 'SERVICE']
-              ],
-              tags: [
-                [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
-                [context: 'CONTEXTLESS', key: 'environment', value: 'staging']
+        container("curl") {
+          script {
+            tagMatchRules[0].tags[0].value = "${env.APP_NAME}"
+            def status = pushDynatraceDeploymentEvent (
+              tagRule : tagMatchRules,
+              customProperties : [
+                [key: 'Jenkins Build Number', value: "${env.BUILD_ID}"],
+                [key: 'Git commit', value: "${env.GIT_COMMIT}"]
               ]
-            ]
-          ]) {
+            )
+          }
         }
       }
     }
