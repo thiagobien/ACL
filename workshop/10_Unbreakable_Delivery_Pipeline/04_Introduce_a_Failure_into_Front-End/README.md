@@ -35,6 +35,7 @@ In this lab you will introduce a Java Script error into the front-end. This vers
     <div class="container" style="background-color: purple">
     ```
 1. Open the file `front-end\version` and increase the version from `0.4.13` to `0.9.0`
+1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 2: Create a new Release
 1. Switch to the `front-end/` directory.
