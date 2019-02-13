@@ -9,8 +9,24 @@ In this lab you'll create a deployment of the front-end service that passes the 
 1. At *Frequency and locations* set Monitor my website every **5** minutes.
 1. Select all Locations and finally click on **Monitor single URL** and **Create browser monitor**.
 1. Now, please wait a couple of minutes.
+  
+## Step 2: Run job template in the Ansible Tower
+1. Go to Ansible Tower.
+1. Start the job template **canary userX** to trigger a canary release of version 2 of the front-end service.
 
-## Step (optional): Troubleshooting in case of front-end does not show up in Dynatrace
+## Step 3: Adjust sensitivity of anomaly detection
+1. Go to **Transaction & service** and click on **front-end- [production]**.
+1. Click on the **...** button in the top right corner and select **Edit**.
+1. Go to **Anomaly Detection** and enable the switch for *Detect increases in failure rate*.
+    * Select `using fixed thresholds`
+    * Alert if `2`% custom error rate threshold is exceeded during any 5-minute period.
+    * Sensitivity: `High`
+1. Go back to the **front-end- [production]** service.
+
+## Step 4: Now we need to wait until a problem appears in Dynatrace.
+1. When Dynatrace opens a problem notification, it automatically invokes the remediation action as defined in the canary playbook. In fact, the remediation action refers to the **remediation** playbook, which then triggers the **canary-reset** playbook. Consequently, you see the executed playbooks when navigating to *Ansible Tower* and *Jobs*. Moreover, the failure rate of the front-end service must decrease since new traffic is routed to the previous version of front-end.
+
+## (optional) Troubleshooting: If front-end does not show up in Dynatrace
 1. Make sure to be in the istio folder in bastion.
     ```
     (bastion)$ pwd
@@ -23,23 +39,8 @@ In this lab you'll create a deployment of the front-end service that passes the 
    (bastion)$ kubectl delete -f .\virtual_service.yml
    (bastion)$ kubectl create -f .\virtual_service.yml
    ```
-    
-## Step 2: Run Job Template in the Ansible Tower
-1. Go to Ansible Tower.
-1. Start the job template **canary userX** to trigger a canary release of version 2 of the front-end service.
 
-## Step 3: Adjust Sensitivity of Anomaly Detection
-1. Go to **Transaction & service** and click on **front-end- [production]**.
-1. Click on the **...** button in the top right corner and select **Edit**.
-1. Go to **Anomaly Detection** and enable the switch for *Detect increases in failure rate*.
-    * Select `using fixed thresholds`
-    * Alert if `2`% custom error rate threshold is exceeded during any 5-minute period.
-    * Sensitivity: `High`
-1. Go back to **My web application**.
-
-## Step 4: Now we need to wait until a Problem appears in Dynatrace.
-
-## (optional) Route Traffic to the new Front-End Version
+## (optional) Route traffic to the new front-end version
 1. Go to your **Jenkins** and click on **k8s-deploy-production.canary**.
 1. Click on **master** and **Build with Parameters**:
     * VERSION1: 0
