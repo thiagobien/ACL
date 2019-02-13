@@ -5,11 +5,6 @@
     dt_env: "{{ dt_environment }}"
 
   tasks:
-  - name: update percentage of promotion for {{dt_app}} service
-    uri:
-      url: "{{carts_promotion_url}}/{{promotion_rate}}"
-      method: GET
-
   - name: update promotion configuration for {{dt_app}} service
     uri:
       url: "{{dteventapiurl}}"
@@ -41,4 +36,9 @@
           }'
       return_content: yes
     register: promotionresponse
+    
+  - name: update percentage of promotion for {{dt_app}} service
+    uri:
+      url: "{{carts_promotion_url}}/{{promotion_rate}}"
+      method: GET
 
