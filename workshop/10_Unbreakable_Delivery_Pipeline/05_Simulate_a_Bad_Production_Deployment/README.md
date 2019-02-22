@@ -20,8 +20,8 @@ In this lab you'll create a deployment of the front-end service that passes the 
    ```
    (bastion)$ kubectl get pods -n istio-system
    (bastion)$ kubectl delete pod <the name of your istio-pilot> -n istio-system
-   (bastion)$ kubectl delete -f .\virtual_service.yml
-   (bastion)$ kubectl create -f .\virtual_service.yml
+   (bastion)$ kubectl delete -f ./virtual_service.yml
+   (bastion)$ kubectl create -f ./virtual_service.yml
    ```
     
 ## Step 2: Run Job Template in the Ansible Tower

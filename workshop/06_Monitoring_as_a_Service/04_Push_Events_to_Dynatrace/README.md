@@ -15,7 +15,7 @@ Before using the Performance Signature Plugin in build pipelines, it is necessar
     1. Go to **Settings**, **Integration**, and click on **Dynatrace API**.
     1. Click on **Generate token**, specify a name of the token (e.g. *jenkins_pipeline*) and click on **Generate**.
     1. Open the API Token and **Copy** the token to the clipboard.
-1. Paste the API Token and click on **Add**.
+1. Paste the API Token into "API Token" on the popup "Add Credentials" and click on **Add**.
 1. Test connection by clicking on **Test connection**.
 1. Finally, click **Save**.
 
@@ -77,8 +77,9 @@ Besides, it is necessary to update the staging pipeline to push deployment event
     ```
 1. Commit/Push the changes to your GitHub Repository *k8s-deploy-staging*.
 
-## Step 3: Verify the pushed Events in Dynatrace
+## Step 4: Verify the pushed Events in Dynatrace
 
+1. Create another release branch for carts and verify it makes it to staging by successfully passing ```k8s-deploy-staging```.
 1. Go to **Transaction & services**.
 1. Click in **Filtered by** edit field.
 1. Enter `environment` and select `dev`.
