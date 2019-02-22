@@ -1,5 +1,6 @@
 # Prep-work for Unbreakable Delivery Pipeline
 
+Verify whether the Env Variables of Jenkins and the Pod Template are available as shown below.
 
 ## Step 1: Add Env Variables to Jenkins
 
@@ -15,7 +16,7 @@
 1. Scroll down to **Kubernetes Pod Template** named `kubegit`
 1. Click **Add Container**.
 1. Set name to `curl`
-1. Set Docker image to `byrnedo/alpine-curl`
+1. Set Docker image to `dynatraceacm/alpine-curl`
 1. Finally, click **Save**.
 
 

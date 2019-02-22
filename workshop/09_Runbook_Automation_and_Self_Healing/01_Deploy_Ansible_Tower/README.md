@@ -16,9 +16,9 @@ In this lab we are going to deploy Ansible Tower, our chosen tool for automation
     $ kubectl create -f dep.yml
     $ kubectl create -f svc.yml
     ```
-    This will create a new namespace `tower`, a deployment as well as a service called `ansible-tower`. 
+    This will create a new namespace `tower`, a deployment, as well as a service called `ansible-tower`. 
 
-1. Retrieve the public (external) IP of your Ansible Tower intallation.
+1. Retrieve the public (external) IP of your Ansible Tower installation.
     ```
     $ kubectl get svc -n tower
 

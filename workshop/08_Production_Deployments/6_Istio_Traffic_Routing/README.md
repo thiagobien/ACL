@@ -22,12 +22,12 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
             subset: v1
     ```
 
-1. To see if the new version works properly we only want 10% of the traffic to be redirected to that version initially. To that end, we modify the `virtual-service-canary.yml` in the `k8s-deploy-production` repository and apply it.
+1. To see if the new version works properly we only want 10% of the traffic to be redirected to that version initially. To that end, we modify the `virtual_service_canary.yml` in the `k8s-deploy-production` repository and apply it.
 
     ```
     (bastion)$ pwd
     ~/repositories/k8s-deploy-production/istio
-    (bastion)$ vi virtual-service-canary.yml
+    (bastion)$ vi virtual_service_canary.yml
     ...
     ```
 
@@ -38,6 +38,21 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
     ![modify-canary-yml](../assets/modify-canary-yml.png)
 
     This configuration redirects 10% of all traffic hitting the sockshop `VirtualService` to version 2. Let's take a look how that looks in Dynatrace.
+
+1. To apply the configuration change, execute the following command:
+    ```
+    (bastion)$ kubectl apply -f virtual_service_canary.yml
+    ```
+    
+1. Run the `kubectl get svc istio-ingressgateway -n istio-system` command to get the *EXTERNAL-IP* of your *Gateway*.
+
+    ```console
+    $ kubectl get svc istio-ingressgateway -n istio-system
+    NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                                      AGE
+    istio-ingressgateway   LoadBalancer   172.21.109.129   1**.2**.1**.1**  80:31380/TCP,443:31390/TCP,31400:31400/TCP   17h
+    ```
+    
+1. Now use a browser to acess this gateway to genereate some traffic and to verify the configuration change.
 
 1. Open Dynatrace and navigate to Transactions&Services and open the `front-end` service screen.
 

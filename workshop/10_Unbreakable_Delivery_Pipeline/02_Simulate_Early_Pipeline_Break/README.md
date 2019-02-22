@@ -51,13 +51,10 @@ In this lab you'll release a service to staging that is not tested based on perf
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 6: Create a new Release
-1. Switch to the `carts/` directory.
-1. Run the following commands to create a new branch.
-    ```
-    (local)$ git checkout -b release/0.6.6
-    (local)$ git push -u origin release/0.6.6 
-    (local)$ git checkout master
-    ```
+
+1. Go to **Jenkins** and **sockshop**.
+1. Click on **create-release-branch** pipeline and **Schedule a build with parameters**.
+1. For the parameter **SERVICE**, enter the name of the service you want to create a release for (**carts**)
 
 ## Step 7. Build the new Release in Jenkins
 1. Go to **Jenkins** and **sockshop**.

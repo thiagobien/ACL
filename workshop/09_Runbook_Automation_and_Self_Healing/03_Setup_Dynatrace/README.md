@@ -3,7 +3,7 @@
 Let us integration the defined _remediation runbook_ in Dynatrace in a way, that it will be called each time Dynatrace detects a problem. Please note that in a more enterprise scenario, you might want to define _Alerting profiles_ to be able to control in a more fine-grained way when to call a remediation runbook.
 
 1. Setup a **Problem Notification** in Dynatrace
-    - Navigate to _Settings -> Problem notification -> Ansible Tower_ 
+    - Navigate to _Settings -> Integration -> Problem notification -> Ansible Tower_ 
 
     ![integration](../assets/ansible-integration.png)
 
@@ -22,6 +22,25 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
     - You can see all tasks from the playbook that have been triggered by the integration.
 
     ![integration run](../assets/ansible-integration-run.png)
+
+1. Apply anomaly detection rules
+
+Both problem and anomaly detection in Dynatrace leverage AI technology. This means that the AI learns how each and every microservice behaves and baselines them. Therefore, in a demo scenario like we have right now, we have to override the AI engine with user-defined values to allow the creation of problems due to an artificial increase of a failure rate. (Please note if we would have the application running and simulate end-user traffic for a couple of days there would be no need for this step.)
+
+In your Dynatrace tenant, navigate to "Transaction & services" and filter by: *app:carts* and *environment:production* 
+
+![services](./assets/dynatrace-services.png)
+
+Click on the **ItemsController** and then on the three dots ( <kbd>...</kbd> ) next to the service name. Click on *Edit*. 
+![service-edit](./assets/dynatrace-service-edit.png)
+
+On the next screen, edit the anomaly detection settings as seen in the following screenshot.
+- **Globaly anomaly detection** has to be **turned off**
+- Detect increases in **failure rate** using **fixed thresholds**
+- Alert if **10 %** custom failure rate threshold is exceed during any 5-minute period.
+- Sensitivity: **High**
+
+![anomaly detection](./assets/anomaly-detection.png)
 
 ---
 
