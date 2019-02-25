@@ -17,7 +17,7 @@ For further information on how to capture request attributes, [please see this p
 Screenshot shows this rule definition.
 ![request-attribute](../assets/request_attribute.png)
 
-## Step 3: Create Request Attribute for Load Script Name (LSN)
+## Step 2: Create Request Attribute for Load Script Name (LSN)
 1. Go to **Settings**, **Server-side monitoring**, and click on **Request attributes**.
 1. Click the **Create new request attribute** button.
 1. Provide a unique *Request attribute name*: `LSN`.
@@ -28,7 +28,7 @@ Screenshot shows this rule definition.
 1. At *Preprocess by extracting substring* set: `between` > `LSN=` > `;`
 1. Finally, click **Save**, click **Save**.
 
-## Step 2: Create Request Attribute for Test Script Name (TSN)
+## Step 3: Create Request Attribute for Test Script Name (TSN)
 1. Go to **Settings**, **Server-side monitoring**, and click on **Request attributes**.
 1. Click the **Create new request attribute** button.
 1. Provide a unique *Request attribute name*: `TSN`.

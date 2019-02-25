@@ -10,7 +10,7 @@ In order to tag services, Dynatrace provides **Automated Service Tag Rules**. In
 1. Edit that rule:
     * Rule name: `Container.Namespace`
     * Process group name format: `{ProcessGroup:KubernetesContainerName}.{ProcessGroup:KubernetesNamespace}`
-    * Condition: `Kubernetes namespace`> `exits`
+    * Condition: `Kubernetes namespace`> `exists`
 1. Click on **Preview** and **Save**.
 
 Screenshot shows this rule definition.
@@ -59,7 +59,7 @@ It will take about 30 seconds until the tags are automatically applied to the se
 ## Result: Cart is tagged as shown below
 Screenshot shows tags for cart service
 
-* `Screenshot needed`
+* ![cartstagged](../assets/cartstagged.png)
 
 ---
 

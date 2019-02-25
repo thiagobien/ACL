@@ -62,7 +62,7 @@ In this lab you'll first investigate the code structure of a microservice includ
 
 1. Run kubectl apply command from `.\carts` directory.
     ```
-    (bastion)$ kubectl apply -f lab_manifest
+    (bastion)$ kubectl apply -f lab-manifest
     ```
 
 1. Check all ressources that have been created.

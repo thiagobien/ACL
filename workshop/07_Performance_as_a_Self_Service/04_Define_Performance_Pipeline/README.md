@@ -58,7 +58,7 @@ Consequently, the pipeline pushes a *Custom Info Event* for *Performance Signatu
 Consequently, this part of the pipeline executes a jMeter script (as defined by the sriptName) in the context of a jmeter container. The script receives a list of parameters for its configuration. The condition after the *executeJMeter* function terminates the pipeline in case of a failed test.  
 
 ## Step 3: Validate the Performance Signature Definition
-1. Add the following snippet after the **recordDynatraceSession**:
+1. Add the following snippet after the **recordDynatraceSession** and the **container('jmeter') {** segments:
     ```
     perfSigDynatraceReports(
       envId: 'Dynatrace Tenant', 
@@ -74,7 +74,7 @@ Consequently, this part of the pipeline executes a jMeter script (as defined by 
 1. Click on `carts.performance`.
 1. Click on **Configure**.
 1. At *Branch Sources* check if the link to your Github Project Repository is set to your *carts* repository.
-1. At *Build Configuration* check if *Script Path* is set to `Jenkins.performance`.
+1. At *Build Configuration* check if *Script Path* is set to `Jenkinsfile.performance`.
 1. Finally, click **Save**. This step automatically triggers the pipeline.
 
 ## Result: Performance as a Self-Service Pipeline for Carts
