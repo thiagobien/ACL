@@ -1,20 +1,20 @@
 # Deep Dive into the Microservice Carts
 
-In this lab you'll first investigate the code structure of a microservice including all artifacts that are needed to build, containerize, and to deploy a service. Based on a solid understanding of the microservice, you will deploy it to a Kubernetes cluster to see the service in action. 
+In this lab you'll first investigate the code structure of a microservice including all artifacts that are needed to build, containerize, and to deploy a service. Based on a solid understanding of the microservice, you will deploy it to a Kubernetes cluster to see the service in action.
 
 ## Step 1: Familiarize with Microservice from a Code Perspective
 
 1. The source code of carts is in `carts/src/`.
-    * `main` - Contains the Java sources and the Application properties. 
-    * `test` - Contains all unit tests to test the application logic. 
+    * `main` - Contains the Java sources and the Application properties.
+    * `test` - Contains all unit tests to test the application logic.
 
-1. The `carts/pom.xml` file is used from Maven to build the Java artifact based on all dependencies. 
+1. The `carts/pom.xml` file is used from Maven to build the Java artifact based on all dependencies.
 
 1. The `carts/version` file holds the current version of the microservice.
 
 1. The `carts/Dockerfile` specifies the *Container Image* to run the microservice in a container.
 
-1. The `carts/Jenkisfile` specifies the *Jenkins Pipeline* to build, test, deploy the microservice on a Kubernetes Cluster.
+1. The `carts/Jenkinsfile` specifies the *Jenkins Pipeline* to build, test, deploy the microservice on a Kubernetes Cluster.
 
 ## Step 2. Familiarize with the Deployment and Service Specification
 
@@ -55,9 +55,9 @@ In this lab you'll first investigate the code structure of a microservice includ
       type: LoadBalancer
     ```
 
-1. Specify the container image at spec > containers > image. (Attention, ask instructor for carts version.)
+1. Verify the container image at spec > containers > image.
     ```
-    image: <your container registry>/library/sockshop/carts-<version>
+    image: dynatracesockshop/carts:0.6.0
     ```
 
 1. Run kubectl apply command from `.\carts` directory.
