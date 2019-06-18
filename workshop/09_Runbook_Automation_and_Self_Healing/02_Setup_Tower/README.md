@@ -1,5 +1,10 @@
 # Setup Ansible Tower
 
+## Auto install or manual
+**If you have chosen in the previous section for an automatic installation, this lab has already been completed. Please check the steps below for an overview of what has been done**
+
+## Steps
+
 In this lab, we will setup and configure our Ansible Tower environment.
 Therefore, we will have to 
 - add Github credentials to be able to check out Github repository
