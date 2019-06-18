@@ -2,7 +2,30 @@
 
 In this lab we install all Istio components and verify that they're running in the k8s cluster.
 
-## Steps
+## Data needed
+* Credentials for `bastion host`
+
+## Auto install or manual
+Istio's Pilot service is responsible for allow outgoing connections to for example the Dynatrace Tenant (for OneAgent traffic in Production) and also external data services for Sockshop. We need to configure this component to allow connectivity to specific ranges only. During previous labs we have found that this component has caused some issues and it resets this configuration which requires a manual fix. We will be configuring this component to take the CIDR blocks for the GKE cluster and the GKE services and apply those dynamically. However this requires some extra steps to be executed. For this reason we have created an installation script that takes care of both the installation and also the configuration for external traffic to speed up installation. For a more verbose experience, a manual installation option is also available. **Manual installation is not recommended for stability reasons**
+
+* [Auto Installation](#auto-installation)
+* [Manual Installation](#manual-installation)
+
+## Auto Installation
+
+1. To install Istio automatically, it suffices to execute the following on the bastion host
+    ```
+    (bastion)$ cd
+    (bastion)$ chmod +x installIstio.sh
+    (bastion)$ ./installIstio.sh
+    ```
+1. This script will perform the following steps:
+    - Request the Cluster CIDR and Services CIDR blocks
+    - Add those blocks into the outbound IP ranges
+    - Install Istio's Custom Resource Definitions (CRDs)
+    - Deploy Istio components
+
+## Manual Installation
 
 1. Go to your `home` directory on the bastion host and install Istio's custom resource definitions (CRDs). It might take a few seconds to setup all resources for Istio.
 
