@@ -1,27 +1,11 @@
 # Fork GitHub Repositories
 
 ## Data needed
-* GitHub user and email address and password
+* Access to your bastion host
+* GitHub user, email address and Personal Access Token
+* A Github Organization to fork the repos to (created earlier)
 
 ## Steps
-1. Create a new GitHub organization for your source code repositories. Go to https://github.com, login, and create a new organization by clicking the + icon in the upper right :one: corner and selecting "New Organization" :two:.
-
-    ![](../assets/new-org.png)
-
-1. Provide a unique name :one: - the form tells you if the name you've chosen is already taken or not. Provide your email address as billing email address :two: - no worries, this is free of charge, so there won't be any costs. At the bottom of this screen click "Create organization" :three:.
-
-    ![](../assets/org-detail1.png)
-    ![](../assets/org-detail2.png)
-
-1. On the next screen scroll down to the bottom and click on the "skip this step" link :one:.
-
-    ![](../assets/skip-details.png)
-    
-1. Now you're redirected to the homepage of your new organization.
-
-    ![](../assets/org-ready.png)
-
----
 
 1. Connect to the bastion host ussing ssh and your credentials.
 
@@ -60,6 +44,6 @@
 
 ---
 
-[Previous Step: Check Prerequisites](../1_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Deploy Docker Registry](../3_Deploy_Docker_Registry)
+[Previous Step: Gathering Facts](../1_Gathering_Facts) :arrow_backward: :arrow_forward: [Next Step: Deploy Docker Registry](../3_Deploy_Docker_Registry)
 
 :arrow_up_small: [Back to overview](../)

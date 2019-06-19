@@ -2,8 +2,10 @@
 
 ## Data needed
 * Credentials for bastion host
+* Access to the Dynatrace Tenant created for you
+* A Github account
 
-## Steps
+## Verifying the bastion
 
 1. If you haven't received your user credentials and connection information for the bastion host, please reach out to one of the instructors.
 
@@ -43,8 +45,12 @@
 
     ![kubectl get namespaces](../assets/kubectl-get-namespaces.png)
 
+## Gather information
+
+The next steps will require us to gather information 
+
 ---
 
-:arrow_forward: [Next Step: Fork GitHub Repositories](../2_Fork_GitHub_Repositories)
+:arrow_forward: [Next Step: Gathering Facts](../1_Gathering_Facts)
 
 :arrow_up_small: [Back to overview](../)
