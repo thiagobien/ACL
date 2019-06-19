@@ -12,6 +12,18 @@ In this lab, we'll promote all components that are currently in the `staging` na
 
     Naturally, we dispatch a deployment event to all affected services. This might not work for the first deployment, because the service might not exist as a Dynatrace entity when dispatching the event, but it will work for all consecutive calls.
 
+1. It might be best to also create two synthetic browser monitors. 
+
+    One pinging the istio ingress gateway external ip:
+    ```
+    kubectl get services -n istio-system
+    ```
+
+    and one pinging carts external ip in production:
+    ```
+    kubectl get services -n production
+    ```
+
 ---
 
 [Previous Step: Configure Istio Components](../2_Configure_istio_components) :arrow_backward: :arrow_forward: [Next Step: Create front-end v2](../4_Create_front-end_v2)

@@ -11,7 +11,7 @@ For further performance metrics, [please see this page in the Dynatrace document
 ## Step 1: Add a timeseries for Response Time
 1. Switch to the `carts/` directory and open file `carts/monspec/carts_perfsig.json`.
 1. In this file you find the empty JSON array: **"timeseries": []**
-1. Add the following query to retrieve timeseries data for the **average response time** of the carts service. 
+1. Review the following query to retrieve timeseries data for the **average response time** of the carts service. 
     ```
     {
         "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
@@ -99,10 +99,10 @@ For further performance metrics, [please see this page in the Dynatrace document
     ```
 -->
 ## Step 2: Add a timeseries for Failure Rate
-1. Add the following query to retrieve timeseries data for the **failure rate** of the carts service. 
+1. Review the following query to retrieve timeseries data for the **failure rate** of the carts service. 
     ```
     {
-        "timeseriesId"  : "com.dynatrace.builtin:service.serversidefailurerate",
+        "timeseriesId"  : "com.dynatrace.builtin:service.failurerate",
         "aggregation"   : "avg",
         "tags"          : "app:carts,environment:dev"
     }
@@ -115,11 +115,11 @@ For further performance metrics, [please see this page in the Dynatrace document
         "lowerLimit"    : 0.0
     },
     ```
-
+<!--
 ## Step 3: Save changes and push to repository
 1. Save the file. 
 1. Commit/Push the changes to your GitHub Repository *carts*.
-
+-->
 ## Result: Performance Signature for Carts
 ```
 {

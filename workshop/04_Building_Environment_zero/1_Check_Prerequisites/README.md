@@ -7,6 +7,8 @@
 
 1. If you haven't received your user credentials and connection information for the bastion host, please reach out to one of the instructors.
 
+1. Please sign up for an Ansible license if you haven't already: https://www.ansible.com/license
+
 1. Use your ssh client to connect to the bastion host and ensure the ```kubectl``` is configured for your GKE cluster.
 
     ```
