@@ -16,6 +16,8 @@ The token that we need for the ACL needs at least the following scopes:
 
 To generate a token in your Dynatrace tenant, go to Settings -> Integration -> Dynatrace API.
 
+![generate-api-token](../assets/api_token.png)
+
 More information on how to generate a token, can be found in the  [Dynatrace documentation](https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/basics/dynatrace-api-authentication/#generate-a-token).
 
 ---
