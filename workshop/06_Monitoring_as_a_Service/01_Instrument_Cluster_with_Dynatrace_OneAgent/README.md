@@ -59,7 +59,9 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       - HOST_GROUP=k8s_cluster_sockshop
     ```
 
-    See the final configuration and make sure to change the `ENVIRONMENTID` to your actual tenant ID:
+    See the final configuration and make sure to change the `ENVIRONMENT` to your actual tenant url:
+    - For SaaS: abc123456.live.dynatrace.com
+    - For Managed: mydomain/e/1234567890123456789
     ```
     apiVersion: dynatrace.com/v1alpha1
     kind: OneAgent
@@ -67,7 +69,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       name: oneagent
       namespace: dynatrace
     spec:
-      apiUrl: https://ENVIRONMENTID.live.dynatrace.com/api
+      apiUrl: https://ENVIRONMENT/api
       skipCertCheck: false
       tokens: ""
       nodeSelector: {}
@@ -91,6 +93,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     (bastion$) kubectl delete pods --all -n staging
     (bastion$) kubectl delete pods --all -n production
     ```
+
 ## Step 4. Execute some load on Sockshop
 1. Open the *front-end* URL of your Sockshop and click through the application. 
 
