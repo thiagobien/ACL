@@ -30,7 +30,9 @@ In this lab you'll first investigate the code structure of a microservice includ
 
 ## Step 3. Deploy Carts on Kubernetes Cluster
 
-1. Copy the `manifest` folder to `lab-manifest`.
+1. Login to the bastion.
+
+1. On the bastion, Copy the `manifest` folder to `lab-manifest`.
 
 1. Open `carts.yml` and change namespace from `dev` to `lab-dev` (1x in deployment and 1x in service specification).
 

@@ -6,7 +6,7 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 1. Edit the file `public/topbar.html` in the master branch of the `front-end` repository and change the following lines as seen in the screenshot.
 
-    ![change-topbar-html](../assets/change-topbar-html.png)
+    ![change-topbar-html](../assets/topbar_html_change.jpg)
 
     Save the changes to that file.
 
