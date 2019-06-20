@@ -109,6 +109,12 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
         version: v2
     ```
 
+---
+
+## Allow connections to external services
+
+**Note:** This is not required when in the previous step you opted for *Automatic Installation*
+
 1. We'll define `ServiceEntry`s that add entries to Istio's internal service registry and allow for connection to services that are external to the service mesh, e.g. mesh-external hosted databases for the `carts` and `orders` service.
 
     ```
