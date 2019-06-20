@@ -19,7 +19,9 @@ During this section we will gather all the information that we will lateron use 
     (bastion)$ ./defineCredentials.sh
     ```
 1. This will ask you for the following information:
-    * Dynatrace Tenant (8-digits tenant identifier only, no .live.dynatrace.com)
+    * Dynatrace Tenant (both without https)
+        - For SaaS: abc123456.live.dynatrace.com
+        - For Managed: mydomain/e/1234567890123456789
     * Dynatrace API Token
     * GitHub User Name
     * GitHub Personal Access Token

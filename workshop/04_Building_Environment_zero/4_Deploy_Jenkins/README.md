@@ -49,7 +49,7 @@ In order to have this step go faster, an automatic installation option has been 
     - your GitHub orginzation
     - the email address of your GitHub user
     - the IP address of the Docker registry we've deployed in the previous step
-    - the Dynatrace tenant URL
+    - the Dynatrace tenant URL (without https, as specified in [Gathering Facts](../1_Gathering_Facts))
     - an API Token form your Dynatrace tenant.
 
     ![](../assets/jenkins-env-vars.png)

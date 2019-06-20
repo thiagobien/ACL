@@ -59,7 +59,9 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       - HOST_GROUP=k8s_cluster_sockshop
     ```
 
-    See the final configuration and make sure to change the `ENVIRONMENTID` to your actual tenant ID:
+    See the final configuration and make sure to change the `ENVIRONMENT` to your actual tenant url:
+    - For SaaS: abc123456.live.dynatrace.com
+    - For Managed: mydomain/e/1234567890123456789
     ```
     apiVersion: dynatrace.com/v1alpha1
     kind: OneAgent
@@ -67,7 +69,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
       name: oneagent
       namespace: dynatrace
     spec:
-      apiUrl: https://ENVIRONMENTID.live.dynatrace.com/api
+      apiUrl: https://ENVIRONMENT/api
       skipCertCheck: false
       tokens: ""
       nodeSelector: {}
@@ -92,17 +94,10 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     (bastion$) kubectl delete pods --all -n production
     ```
 
-## Step 4. Enable Go monitoring
-To have full insights in your Go applications, make sure to enable Go monitoring.
-
-1. Navigate to _Settings -> Monitoring -> Monitoring technologies_ 
-1. In the Tab _Supported Technologies_ enable "Go"
-
-
-## Step 5. Execute some load on Sockshop
+## Step 4. Execute some load on Sockshop
 1. Open the *front-end* URL of your Sockshop and click through the application. 
 
-## Step 6. Explore automated Monitoring Result in Dynatrace
+## Step 5. Explore automated Monitoring Result in Dynatrace
 
 Here are a couple of things that happened *automagically* due to the installation of Dynatrace OneAgent Operator.
 
