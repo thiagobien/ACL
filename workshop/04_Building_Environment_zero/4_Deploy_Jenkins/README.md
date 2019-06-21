@@ -2,10 +2,6 @@
 
 Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deploy Jenkins as a Kubernetes service and use persistent volumes for the workspace and jobs directory, so that these data is persisted, if the pod is restarted. Jenkins will subsequentially start a pod for each build that is triggered. To save bandwidth, we create one more persistent volume that acts as a maven cache volume and is mounted automatically in each pod that runs a maven build.
 
-## Prerequisites
-
-The Jenkins will be exposed on a high port (24711 in our example), so please make sure your network connection allows this. VPNs might cause troubles here and you won't be able to connect to your Jenkins instance later on.
-
 ## Data needed
 * GitHub organization
 * GitHub user email address
@@ -22,7 +18,6 @@ In order to have this step go faster, an automatic installation option has been 
 1. To install Jenkins automatically, it suffices to execute the following on the bastion host
     ```
     (bastion)$ cd
-    (bastion)$ chmod +x installJenkins.sh
     (bastion)$ ./installJenkins.sh
     ```
 1. This script will take the values that are required to install Jenkins and use `sed` to copy them into the Kubernetes Deployment specificator as environment variables. The following will be applied:
@@ -68,13 +63,6 @@ In order to have this step go faster, an automatic installation option has been 
 
     ![](../assets/kubectl-create-jenkinsdeployment.png)
 
-1. Ensure Jenkins service is deployed and get `EXTERNAL-IP` of Jenkins
-
-    ```
-    (bastion)$ kubectl -n cicd get services
-    ```
- 
-    ![](../assets/kubectl-get-services-cicd.png)
 
 1. Give Jenkins `clusteradmin` rights, so she can query for running pods and spawn pods when needed.
 
@@ -84,6 +72,13 @@ In order to have this step go faster, an automatic installation option has been 
 ---
 
 ## Add GIT credentials
+1. Ensure Jenkins service is deployed and get `EXTERNAL-IP` of Jenkins
+
+    ```
+    (bastion)$ kubectl -n cicd get services
+    ```
+ 
+    ![](../assets/kubectl-get-services-cicd.png)
 1. Open `EXTERNAL-IP` in your browser and see the Jenkins UI with the preconfigured build pipelines for the Sockshop projects.
 
     ![](../assets/jenkins-ui.png)

@@ -31,7 +31,7 @@ We use the Docker registry to save the build artifacts, i.e. Docker containers. 
 1. We create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data, even when the pod is restarted. 
 
     ```
-    (bastion)$ kubectl create -f manifests-env-zero/k8s-docker-registry-pvc.yml
+    (bastion)$ kubectl create -f manifests-docker-registry/k8s-docker-registry-pvc.yml
     ```
 
     Expected output:
@@ -41,7 +41,7 @@ We use the Docker registry to save the build artifacts, i.e. Docker containers. 
 1. We create the service and the deployment for the Docker registry.
 
     ```
-    (bastion)$ kubectl create -f manifests-env-zero/k8s-docker-registry-service.yml
+    (bastion)$ kubectl create -f manifests-docker-registry/k8s-docker-registry-service.yml
     ```
     
     Expected output:
@@ -49,7 +49,7 @@ We use the Docker registry to save the build artifacts, i.e. Docker containers. 
     ![](../assets/kubectl-create-registrysvc.png)
 
     ```
-    (bastion)$ kubectl create -f manifests-env-zero/k8s-docker-registry-deployment.yml
+    (bastion)$ kubectl create -f manifests-docker-registry/k8s-docker-registry-deployment.yml
     ```
 
     Expected output: 

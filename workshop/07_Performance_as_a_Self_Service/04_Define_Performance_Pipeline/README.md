@@ -38,7 +38,7 @@ Consequently, the pipeline pushes a *Custom Info Event* for *Performance Signatu
       script {
         def status = executeJMeter ( 
           scriptName: "jmeter/${env.APP_NAME}_perfcheck.jmx",
-          resultsDir: "PerfCheck_${env.APP_NAME}",
+          resultsDir: "PerfCheck_${env.APP_NAME}_${env.VERSION}_${BUILD_NUMBER}",
           serverUrl: "${env.APP_NAME}.dev", 
           serverPort: 80,
           checkPath: '/health',
@@ -81,6 +81,18 @@ Consequently, this part of the pipeline executes a jMeter script (as defined by 
 ```
 @Library('dynatrace@master') _
 
+def tagMatchRules = [
+  [
+    meTypes: [
+      [meType: 'SERVICE']
+    ],
+    tags : [
+      [context: 'CONTEXTLESS', key: 'app', value: 'carts'],
+      [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
+    ]
+  ]
+]
+
 pipeline {
   agent {
     label 'git'
@@ -89,36 +101,54 @@ pipeline {
     APP_NAME = "carts"
   }
   stages {
-    stage('Performance Check') {
+    stage('Warm up') {
       steps {
         checkout scm
 
+        container('jmeter') {
+          script {
+            def status = executeJMeter ( 
+              scriptName: "jmeter/${env.APP_NAME}_perfcheck.jmx",
+              resultsDir: "PerfCheck_Warmup_${env.APP_NAME}_${env.BRANCH_NAME}_${BUILD_NUMBER}",
+              serverUrl: "${env.APP_NAME}.dev", 
+              serverPort: 80,
+              checkPath: '/health',
+              vuCount: 1,
+              loopCount: 10,
+              LTN: "PerfCheck_Warmup_${BUILD_NUMBER}",
+              funcValidation: false,
+              avgRtValidation: 4000
+            )
+            if (status != 0) {
+              currentBuild.result = 'FAILED'
+              error "Performance check failed."
+            }
+          }
+        }
+        
+        echo "Waiting for a minute to not skew data in DT"
+        sleep(60)
+      }
+    }
+
+    stage('Performance Check') {
+      steps {
         recordDynatraceSession(
           envId: 'Dynatrace Tenant',
           testCase: 'loadtest',
-          tagMatchRules: [
-            [
-              meTypes: [
-                [meType: 'SERVICE']
-              ],
-              tags: [
-                [context: 'CONTEXTLESS', key: 'app', value: "${env.APP_NAME}"],
-                [context: 'CONTEXTLESS', key: 'environment', value: 'dev']
-              ]
-            ]
-          ]
+          tagMatchRules: tagMatchRules
         ) 
         {
           container('jmeter') {
             script {
               def status = executeJMeter ( 
                 scriptName: "jmeter/${env.APP_NAME}_perfcheck.jmx",
-                resultsDir: "PerfCheck_${env.APP_NAME}",
+                resultsDir: "PerfCheck_${env.APP_NAME}_${env.BRANCH_NAME}_${BUILD_NUMBER}",
                 serverUrl: "${env.APP_NAME}.dev", 
                 serverPort: 80,
                 checkPath: '/health',
-                vuCount: 10,
-                loopCount: 250,
+                vuCount: 5,
+                loopCount: 500,
                 LTN: "PerfCheck_${BUILD_NUMBER}",
                 funcValidation: false,
                 avgRtValidation: 4000
@@ -130,6 +160,9 @@ pipeline {
             }
           }
         }
+
+        echo "Waiting for a minute so data can be processed in Dynatrace"
+        sleep(60)
 
         perfSigDynatraceReports(
           envId: 'Dynatrace Tenant', 
