@@ -87,17 +87,20 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     ```
     (bastion$) kubectl create -f oneagent.yml
     ```
-1. Restart all pods to get method-level insight into your services
+
+## Step 4. Verifiy OneAgent in Dynatrace
+1. Inside Dynatrace navigate to the Hosts screen. After a couple of minutes the kubernetes cluster nodes should appear.
+1. ***After** the hosts appeared in Dynatrace, restart all pods to get method-level insight into your services
     ```
     (bastion$) kubectl delete pods --all -n dev
     (bastion$) kubectl delete pods --all -n staging
     (bastion$) kubectl delete pods --all -n production
     ```
 
-## Step 4. Execute some load on Sockshop
+## Step 5. Execute some load on Sockshop
 1. Open the *front-end* URL of your Sockshop and click through the application. 
 
-## Step 5. Explore automated Monitoring Result in Dynatrace
+## Step 6. Explore automated Monitoring Result in Dynatrace
 
 Here are a couple of things that happened *automagically* due to the installation of Dynatrace OneAgent Operator.
 

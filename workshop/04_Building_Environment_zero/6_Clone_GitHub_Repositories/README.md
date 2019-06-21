@@ -7,6 +7,7 @@ In this lab, you will clone the GitHub repositories we've forked in lab 2 to you
 * GitHub user and password
 
 ## Steps
+1. Download the `cloneall.sh` script that is in this folder to your local machine
 1. Clone all projects from the GitHub organization you've created earlier to your local machine:
 
     ```

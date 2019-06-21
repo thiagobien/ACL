@@ -49,9 +49,39 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
 1. Open the file `monspec\e2e_perfsig.json`.
 1. Set the upper and lower limit for the response time as follows:
     ```
-    "upperLimit" : 800,
-    "lowerLimit" : 600
+    "upperSevere" : 800,
+    "upperWarning" : 600
     ```
 1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.
+
+## Step 3: Add a quality gate for Service Method addToCart
+In some cases it is not sufficient to look at the Service level for performance degradations. This is certainly so in large tests that hit many endpoints of a service. This could lead to the results being skewed as very fast responses on one service method could average out the (perhaps fewer in number) slow requests on the degraded service methods.
+
+To remediate this, we will add another quality gate to our Performance Signature.
+
+1. Open the file `monspec\e2e_perfsig.json`.
+1. Add another quality gate like below
+    ```
+    {
+        "timeseriesId" : "com.dynatrace.builtin:servicemethod.responsetime",
+        "aggregation" : "avg",
+        "entityIds": "[ADDTOCART_SERVICE-METHOD]",
+        "upperSevere": 800.0,
+        "upperWarning" : 600.0
+    },
+    ```
+1. Replace [ADDTOCART_SERVICE-METHOD] with the Entity Id of the Add To Cart Service Method. The easiest way to retrieve it is by navigating to the `ItemsController` service in `staging` inside Dynatrace.
+  ![](../assets/itemscontroller-staging.png)
+1. Click on `View requests`
+1. Scroll down to the bottom of the page to `Top Contributors` and click on `addToCart` 
+  ![](../assets/itemscontroller-contributors.png)
+1. Make `addToCart` a `Key Request`
+  ![](../assets/itemscontroller-addtocart-keyrequest.png)
+1. In the address bar of your browser window you can find the Entity Id of the `addToCart` Service Method
+  ![](../assets/itemscontroller-addtocart-servicemethod.png)
+1. Copy this value into the performance signature
+1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.
+
+---
 
 :arrow_forward: [Next Step: Simulate Early Pipeline Break](../02_Simulate_Early_Pipeline_Break)

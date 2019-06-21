@@ -27,7 +27,7 @@ You can use custom and existing meta-data from, e.g.: Java Properties, Environme
 
 1. Commit/Push the changes to your GitHub Repository *carts*. 
 
-1. Re-deploy the carts service by triggering the Jenkins pipeline for carts.
+1. Re-deploy the carts service by triggering the Jenkins pipeline for carts `master` branch.
 
 1. Identify the tag and custom meta-data in Dynatrace for the *carts* service and process group as shown below.
 

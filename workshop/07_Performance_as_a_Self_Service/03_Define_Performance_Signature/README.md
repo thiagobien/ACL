@@ -14,17 +14,17 @@ For further performance metrics, [please see this page in the Dynatrace document
 1. Review the following query to retrieve timeseries data for the **average response time** of the carts service. 
     ```
     {
-        "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
-        "aggregation"  : "avg",
-        "tags"         : "app:carts,environment:dev",
-    },
+        "timeseriesId": "com.dynatrace.builtin:service.responsetime",
+        "aggregation": "avg",
+        "tags" : "app:carts,environment:dev"
+	},
     ```
 1. Specify the upper limit and lower limit.
     ```
         ...
-        "tags"         : "app:carts,environment:dev",
-        "upperLimit"   : 800.0,
-        "lowerLimit"   : 600.0
+        "tags" : "app:carts,environment:dev",
+        "upperWarning": 800,
+        "upperSevere": 1200
     },
     ```
 <!-- 
@@ -102,17 +102,17 @@ For further performance metrics, [please see this page in the Dynatrace document
 1. Review the following query to retrieve timeseries data for the **failure rate** of the carts service. 
     ```
     {
-        "timeseriesId"  : "com.dynatrace.builtin:service.failurerate",
-        "aggregation"   : "avg",
-        "tags"          : "app:carts,environment:dev"
+        "timeseriesId" : "com.dynatrace.builtin:service.failurerate",
+        "aggregation" : "avg",
+        "tags" : "app:carts,environment:dev",
     }
     ```
 1. Specify the upper limit and lower limit.
     ```
         ...
-        "tags"          : "app:carts,environment:dev",
-        "upperLimit"    : 5.0,
-        "lowerLimit"    : 0.0
+        "tags" : "app:carts,environment:dev",
+        "upperSevere" : 5.0,
+        "upperWarning" : 0.5
     },
     ```
 <!--
@@ -123,23 +123,25 @@ For further performance metrics, [please see this page in the Dynatrace document
 ## Result: Performance Signature for Carts
 ```
 {
-    "timeseries" : [
-        {
-            "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
-            "aggregation" : "avg",
-            "tags" : "app:carts,environment:dev",
-            "upperLimit" : 800.0,
-            "lowerLimit" : 600.0
-        },
-        {
-            "timeseriesId" : "com.dynatrace.builtin:service.failurerate",
-            "aggregation" : "avg",
-            "tags" : "app:carts,environment:dev",
-            "upperLimit" : 5.0,
-            "lowerLimit" : 0.0
+	"spec_version": "2.0",
+	"timeseries": [
+		{
+			"timeseriesId": "com.dynatrace.builtin:service.responsetime",
+			"aggregation": "avg",
+			"tags" : "app:carts,environment:dev",
+			"upperWarning": 800,
+			"upperSevere": 1200
+		},
+		{
+			"timeseriesId" : "com.dynatrace.builtin:service.failurerate",
+			"aggregation" : "avg",
+			"tags" : "app:carts,environment:dev",
+			"upperSevere" : 5.0,
+			"upperWarning" : 0.5
         }
     ]
 }
+
 ```
 
 ---
