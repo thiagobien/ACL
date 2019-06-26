@@ -137,7 +137,7 @@ For further performance metrics, [please see this page in the Dynatrace document
 			"aggregation" : "avg",
 			"tags" : "app:carts,environment:dev",
 			"upperSevere" : 5.0,
-			"upperWarning" : 0.5
+			"upperWarning" : 0.0
         }
     ]
 }
