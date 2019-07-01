@@ -109,7 +109,7 @@ pipeline {
           script {
             def status = executeJMeter ( 
               scriptName: "jmeter/${env.APP_NAME}_perfcheck.jmx",
-              resultsDir: "PerfCheck_Warmup_${env.APP_NAME}_${env.BRANCH_NAME}_${BUILD_NUMBER}",
+              resultsDir: "PerfCheck_Warmup_${env.APP_NAME}_${env.VERSION}_${BUILD_NUMBER}",
               serverUrl: "${env.APP_NAME}.dev", 
               serverPort: 80,
               checkPath: '/health',
@@ -143,7 +143,7 @@ pipeline {
             script {
               def status = executeJMeter ( 
                 scriptName: "jmeter/${env.APP_NAME}_perfcheck.jmx",
-                resultsDir: "PerfCheck_${env.APP_NAME}_${env.BRANCH_NAME}_${BUILD_NUMBER}",
+                resultsDir: "PerfCheck_${env.APP_NAME}_${env.VERSION}_${BUILD_NUMBER}",
                 serverUrl: "${env.APP_NAME}.dev", 
                 serverPort: 80,
                 checkPath: '/health',
