@@ -19,7 +19,7 @@
 1. Execute the `~/forkGitHubRepositories.sh` script in your home directory. This script takes the name of the GitHub organization you have created earlier.
 
     ```
-    (bastion)$ chmod +x forkGitHubRepositories.sh
+    (bastion)$ cd
     (bastion)$ ./forkGitHubRepositories.sh <GitHubOrg>
     ```
 
