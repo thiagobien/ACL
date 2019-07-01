@@ -16,7 +16,6 @@ Istio's Pilot service is responsible for allow outgoing connections to for examp
 1. To install Istio automatically, it suffices to execute the following on the bastion host
     ```
     (bastion)$ cd
-    (bastion)$ chmod +x installIstio.sh
     (bastion)$ ./installIstio.sh
     ```
 1. This script will perform the following steps:
