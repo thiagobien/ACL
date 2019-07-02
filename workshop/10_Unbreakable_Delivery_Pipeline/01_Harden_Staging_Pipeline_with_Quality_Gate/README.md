@@ -5,6 +5,46 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
 ## Step 1: Add e2e Test to Staging Pipeline
 1. Uncomment the following snippet in the Jenkins pipeline of `k8s-deploy-staging`.
     ```
+    stage('Staging Warm Up') {
+      steps {
+        echo "Waiting for the service to start..."
+        container('kubectl') {
+          script {
+            def status = waitForDeployment (
+              deploymentName: "${env.APP_NAME}",
+              environment: 'staging'
+            )
+            if(status !=0 ){
+              currentBuild.result = 'FAILED'
+              error "Deployment did not finish before timeout."
+            }
+          }
+        }
+        echo "Running one iteration with one VU to warm up service"
+        container('jmeter') {
+          script {
+            def status = executeJMeter (
+              scriptName: "jmeter/front-end_e2e_load.jmx",
+              resultsDir: "e2eCheck_${env.APP_NAME}_warmup_${env.VERSION}_${BUILD_NUMBER}",
+              serverUrl: "front-end.staging",
+              serverPort: 8080,
+              checkPath: '/health',
+              vuCount: 1,
+              loopCount: 1,
+              LTN: "e2eCheck_${BUILD_NUMBER}_warmup",
+              funcValidation: false,
+              avgRtValidation: 4000
+            )
+            if (status != 0) {
+              currentBuild.result = 'FAILED'
+              error "Warm up round in staging failed."
+            }
+          }
+        }
+        sleep 60
+      }
+    }
+
     stage('Run production ready e2e check in staging') {
       steps {
         echo "Waiting for the service to start..."
