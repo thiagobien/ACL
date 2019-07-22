@@ -38,7 +38,7 @@ It will take about 30 seconds until the tags are automatically applied to the se
 
 ## Step 4: Create Service Tag for App Name based on K8S Container Name
 1. Go to **Settings**, **Tags**, and click on **Automatically applied tags**.
-1. Create a new custom tag with the name `app`.
+1. Create a new custom tag with the name `app`. **THIS TAG NAME IS CASE SENSITIVE.**
 1. Edit that tag and **Add new rule**.
     * Rule applies to: `Services` 
     * Optional tag value: `{ProcessGroup:KubernetesContainerName}`
@@ -48,7 +48,7 @@ It will take about 30 seconds until the tags are automatically applied to the se
 
 ## Step 5: Create Service Tag for Environment based on K8S Namespace
 1. Go to **Settings**, **Tags**, and click on **Automatically applied tags**.
-1. Create a new custom tag with the name `environment`.
+1. Create a new custom tag with the name `environment`. **THIS TAG NAME IS CASE SENSITIVE.**
 1. Edit that tag and **Add new rule**.
     * Rule applies to: `Services` 
     * Optional tag value: `{ProcessGroup:KubernetesNamespace}`

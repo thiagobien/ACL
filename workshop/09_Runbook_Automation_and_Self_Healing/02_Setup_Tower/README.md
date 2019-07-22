@@ -40,7 +40,7 @@ Let's get started!
       ---
       tenant: "YOUR-TENANT"
       apitoken: "YOUR-API-TOKEN"
-      carts_promotion_url: "http://SERVICE-URL/carts/1/items/promotion"
+      carts_promotion_url: "http://CARTS-EXTERNAL-IP/carts/1/items/promotion"
       commentuser: "Ansible Playbook"
       tower_user: "admin"
       tower_password: "dynatrace"

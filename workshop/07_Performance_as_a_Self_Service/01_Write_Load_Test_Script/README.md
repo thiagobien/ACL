@@ -17,7 +17,7 @@ Each request needs to be correctly tagged in order to identify them later on. Th
 * **LTN** - The Load Test Name uniquely identifies a test execution (for example, 6h Load Test – June 25)
 
 ## Step 1: Open Performance Test Template
-1. Open the file `carts_perfcheck.jmx` in ```.carts/jmeter```.
+1. Open the file `carts_perfcheck.jmx` in ```carts/jmeter```.
 1. In this file, locate the XML tag `<stringProp name="script">`, which contains the following Java code fragment:
     ```
     import org.apache.jmeter.util.JMeterUtils;
@@ -61,7 +61,7 @@ Each request needs to be correctly tagged in order to identify them later on. Th
     hm.add(new org.apache.jmeter.protocol.http.control.Header(&quot;x-dynatrace-test&quot;, headerValue));  
     ```
 
-## Step 4: Move file to tests script folder of carts service
+## Step 4: Commit changes
 1. Save the file. 
 1. Commit/Push the changes to your GitHub Repository *carts*.
 

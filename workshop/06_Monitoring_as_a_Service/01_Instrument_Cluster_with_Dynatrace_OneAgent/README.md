@@ -45,7 +45,7 @@ In this lab you'll instrument the Kubernetes Cluster (from *Building Environment
     
 1. Create the Dynatrace Operator.
     ```
-    (bastion$) LATEST_RELEASE=$(curl -s https://api.github.com/repos/dynatrace/dynatrace-oneagent-operator/releases/latest | grep tag_name | cut -d '"' -f 4)
+    (bastion$) export LATEST_RELEASE=$(curl -s https://api.github.com/repos/dynatrace/dynatrace-oneagent-operator/releases/latest | grep tag_name | cut -d '"' -f 4)
     (bastion$) kubectl create -f https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/$LATEST_RELEASE/deploy/kubernetes.yaml
     ```
 

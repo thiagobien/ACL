@@ -27,12 +27,12 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
 
 Both problem and anomaly detection in Dynatrace leverage AI technology. This means that the AI learns how each and every microservice behaves and baselines them. Therefore, in a demo scenario like we have right now, we have to override the AI engine with user-defined values to allow the creation of problems due to an artificial increase of a failure rate. (Please note if we would have the application running and simulate end-user traffic for a couple of days there would be no need for this step.)
 
-In your Dynatrace tenant, navigate to "Transaction & services" and filter by: *app:carts* and *environment:production* 
+In your Dynatrace tenant, navigate to "Transaction & services" and filter by: *Tag:app:carts* and *Tag:environment:production* 
 
-![services](./assets/dynatrace-services.png)
+![services](../assets/dynatrace-services.png)
 
 Click on the **ItemsController** and then on the three dots ( <kbd>...</kbd> ) next to the service name. Click on *Edit*. 
-![service-edit](./assets/dynatrace-service-edit.png)
+![service-edit](../assets/dynatrace-service-edit.png)
 
 On the next screen, edit the anomaly detection settings as seen in the following screenshot.
 - **Globaly anomaly detection** has to be **turned off**
@@ -40,7 +40,7 @@ On the next screen, edit the anomaly detection settings as seen in the following
 - Alert if **10 %** custom failure rate threshold is exceed during any 5-minute period.
 - Sensitivity: **High**
 
-![anomaly detection](./assets/anomaly-detection.png)
+![anomaly detection](../assets/anomaly-detection.png)
 
 ---
 
