@@ -8,7 +8,7 @@ Dedicated release branches have been created which tie into a particular version
 
 **Do not use the master branch as it is the working branch and might be unstable!**
 
-- [release-v2.0](tree/release-2.0) is the current stable release and is to be used for all ACLs
+- [release-v2.5](https://github.com/Dynatrace/acl-docs/tree/release-2.5) is the current stable release and is to be used for all ACLs
 
 <!--
 - [jenkins-x on kubernetes](./jenkins-x)
