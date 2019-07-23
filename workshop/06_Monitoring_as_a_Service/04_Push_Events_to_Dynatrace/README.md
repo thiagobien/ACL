@@ -85,6 +85,6 @@ Besides, it is necessary to update the staging pipeline to push deployment event
 
 ---
 
-[Previous Step: Tagging of Services](../03_Tagging_of_Services) :arrow_backward: :arrow_forward: [Next Step: Define Management Zones](../05_Define_Management_Zones)
+[Previous Step: Tagging of Services](../03_Tagging_and_Naming_of_Services) :arrow_backward: :arrow_forward: [Next Step: Define Management Zones](../05_Define_Management_Zones)
 
 :arrow_up_small: [Back to overview](../)
