@@ -12,7 +12,7 @@
 1. Execute the `~/forkGitHubRepositories.sh` script in your home directory.
 
     ```
-    (bastion)$ cd
+    (bastion)$ cd ~
     (bastion)$ ./forkGitHubRepositories.sh
     ```
 
@@ -25,6 +25,7 @@
     carts
     catalogue
     front-end
+    jenkins-release-branch
     k8s-deploy-production
     k8s-deploy-staging
     orders
