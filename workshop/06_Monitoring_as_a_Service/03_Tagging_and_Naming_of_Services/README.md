@@ -59,7 +59,7 @@ It will take about 30 seconds until the tags are automatically applied to the se
 ## Result: Cart is tagged as shown below
 Screenshot shows tags for cart service
 
-* ![cartstagged](../assets/cartstagged.png)
+* ![carts-tagging-example](../assets/carts-tagging-example.png)
 
 ---
 
