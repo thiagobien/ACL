@@ -98,7 +98,7 @@ For further performance metrics, [please see this page in the Dynatrace document
     },
     ```
 -->
-## Step 2: Review a timeseries for Failure Rate
+## Step 2: View a timeseries for Failure Rate
 1. Review the following query to retrieve timeseries data for the **failure rate** of the carts service. 
     ```
     {
