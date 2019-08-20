@@ -8,9 +8,9 @@ In this lab you'll learn how to define the performance signature for the carts s
 
 For further performance metrics, [please see this page in the Dynatrace documentation.](https://www.dynatrace.com/support/help/shortlink/api-metrics).
 
-## Step 1: Add a timeseries for Response Time
-1. Switch to the `carts/` directory and open file `carts/monspec/carts_perfsig.json`.
-1. In this file you find the empty JSON array: **"timeseries": []**
+## Step 1: View a timeseries for Response Time
+1. Switch to the `carts/` directory and open the file `carts/monspec/carts_perfsig.json`.
+1. In this file you will find the JSON array: **"timeseries"**
 1. Review the following query to retrieve timeseries data for the **average response time** of the carts service. 
     ```
     {
@@ -19,7 +19,7 @@ For further performance metrics, [please see this page in the Dynatrace document
         "tags" : "app:carts,environment:dev"
 	},
     ```
-1. Specify the upper limit and lower limit.
+1. Upper limit and lower limits set:
     ```
         ...
         "tags" : "app:carts,environment:dev",
@@ -98,7 +98,7 @@ For further performance metrics, [please see this page in the Dynatrace document
     },
     ```
 -->
-## Step 2: Add a timeseries for Failure Rate
+## Step 2: Review a timeseries for Failure Rate
 1. Review the following query to retrieve timeseries data for the **failure rate** of the carts service. 
     ```
     {
@@ -107,7 +107,7 @@ For further performance metrics, [please see this page in the Dynatrace document
         "tags" : "app:carts,environment:dev",
     }
     ```
-1. Specify the upper limit and lower limit.
+1. Upper and lower limits set:
     ```
         ...
         "tags" : "app:carts,environment:dev",
@@ -120,7 +120,7 @@ For further performance metrics, [please see this page in the Dynatrace document
 1. Save the file. 
 1. Commit/Push the changes to your GitHub Repository *carts*.
 -->
-## Result: Performance Signature for Carts
+## Performance Signature for Carts should look like this:
 ```
 {
 	"spec_version": "2.0",
