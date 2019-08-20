@@ -2,7 +2,8 @@
 
 ## Data needed
 * Credentials for bastion host (Will be provided via Etherpad)
-* Access to the Dynatrace Tenant provided for the lab. For participants who already had a tenant prior to the ACL: preferably tenant should be on Sprint or Production environments as there is limited functionality on Dev Tenants such as tagging resources
+* Access to the Dynatrace Tenant provided for the lab. 
+Note: Dynatrace Tenant should preferably be on Sprint or Production environments as certain functionality like tagging and custom properties can be unstable/limited on DEV Tenants.
 * A Github account
 
 ## Verifying the bastion
