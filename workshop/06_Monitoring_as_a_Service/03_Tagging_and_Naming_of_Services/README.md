@@ -33,7 +33,7 @@ Screenshot shows this rule definition.
 It will take about 30 seconds until the tags are automatically applied to the services.
 1. Go to **Transaction & services**.
 1. Click in **Filtered by** edit field.
-1. Select `SERVICE_TYPE` and select `FRONTEND`.
+1. Select `Tag`:`SERVICE_TYPE` and select `FRONTEND`.
 1. You should see the service `front-end`. Open it up.
 
 ## Step 4: Create Service Tag for App Name based on K8S Container Name
