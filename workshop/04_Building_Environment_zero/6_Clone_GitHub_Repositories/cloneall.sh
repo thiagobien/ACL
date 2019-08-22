@@ -21,7 +21,16 @@ then
 	exit 1
 fi
 
-declare -a repositories=("carts" "catalogue" "front-end" "k8s-deploy-production" "k8s-deploy-staging" "orders" "payment" "queue-master" "shipping" "sockshop-infrastructure" "user")
+declare -a repositories=( $(curl -s https://api.github.com/orgs/${ORG}/repos | jq -r '.[].name') )
+
+if [ ${#repositories[@]} -eq 0 ]
+then
+    echo "No GitHub repositories found in ${ORG}"
+    exit 1
+fi
+
+mkdir $1
+cd $1
 
 for repo in "${repositories[@]}"
 do
@@ -29,3 +38,8 @@ do
 	git clone -q "https://github.com/$ORG/$repo"
 	echo -e "${YLW}Done. ${NC}"
 done
+
+echo ""
+echo "The repositories have been cloned to: ${PWD}"
+echo ""
+cd ..
