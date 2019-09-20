@@ -15,7 +15,7 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
     - On your **local machine**, Navigate to the `9_Runbook_Automation_and_Self_Healing` folder
     - Start the [load generator](../scripts/) (adjust the IP for the cart service, receive the IP via <br> `kubectl get svc -n production` ): 
       ```
-      $ cd 9_Runbook_Automation_and_Self_Healing\scripts
+      $ cd ~
       $ ./add-to-cart.sh http://XX.XXX.XXX.XX/carts/1/items
       ```
 

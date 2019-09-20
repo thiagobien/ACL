@@ -1,15 +1,14 @@
 # Check Prerequisites
 
 ## Data needed
-* Credentials for bastion host
-* Access to the Dynatrace Tenant created for you
+* Credentials for bastion host (Will be provided via Etherpad)
+* Access to the Dynatrace Tenant provided for the lab. 
+Note: Dynatrace Tenant should preferably be on Sprint or Production environments as certain functionality like tagging and custom properties can be unstable/limited on DEV Tenants.
 * A Github account
 
 ## Verifying the bastion
 
 1. If you haven't received your user credentials and connection information for the bastion host, please reach out to one of the instructors.
-
-1. Please sign up for an Ansible license if you haven't already: https://www.ansible.com/license
 
 1. Use your ssh client to connect to the bastion host and ensure the ```kubectl``` is configured for your GKE cluster.
 
