@@ -14,7 +14,7 @@ During this section we will gather all the information that we will lateron use 
 
 1. After you have gathered all the information that you need, execute the following command on your bastion host from your home directory:
     ```
-    (bastion)$ cd
+    (bastion)$ cd ~
     (bastion)$ chmod +x defineCredentials.sh
     (bastion)$ ./defineCredentials.sh
     ```

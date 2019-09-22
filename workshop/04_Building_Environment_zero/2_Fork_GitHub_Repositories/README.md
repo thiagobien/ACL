@@ -9,21 +9,14 @@
 
 1. Connect to the bastion host ussing ssh and your credentials.
 
-1. Configure your git user name and email address in the commandline on the bastion host.
+1. Execute the `~/forkGitHubRepositories.sh` script in your home directory.
 
     ```
-    (bastion)$ git config --global user.name "<GitHubUser>"
-    (bastion)$ git config --global user.email "<GitHubEmail>"
+    (bastion)$ cd ~
+    (bastion)$ ./forkGitHubRepositories.sh
     ```
 
-1. Execute the `~/forkGitHubRepositories.sh` script in your home directory. This script takes the name of the GitHub organization you have created earlier.
-
-    ```
-    (bastion)$ cd
-    (bastion)$ ./forkGitHubRepositories.sh <GitHubOrg>
-    ```
-
-    This script `clone`s all needed repositories and the uses the `hub` command ([hub](https://hub.github.com/)) to fork those repositories to the passed GitHub organization. After that, the script deletes all repositories and `clone`s them again from the new URL.
+    This script `clone`s all needed repositories and uses the [`hub`](https://hub.github.com/) command to fork those repositories to the passed GitHub organization. After that, the script deletes all repositories and `clone`s them again from the new URL.
 
 1. Ensure that all repositories have been cloned in the `~/repositories' folder on the bastion host - we need them later.
 
@@ -32,6 +25,7 @@
     carts
     catalogue
     front-end
+    jenkins-release-branch
     k8s-deploy-production
     k8s-deploy-staging
     orders

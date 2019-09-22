@@ -158,9 +158,10 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
 
 1. Last but not least, we need to configure `ServiceEntry`s for the Dynatrace OneAgent, so the language specific components that run inside the pods can communicate with the Dynatrace servers.
 
-    In order to do this, run the script in k8s-deploy-production.
+    In order to do this, run the following commands:
     
     ```
+    cd ~/repositories/k8s-deploy-production/istio/
     ./istioconfig.sh <TENANT URL> <PAAS TOKEN>
     E.G. ./istioconfig.sh dhgf1234.live.dynatrace.com gjhs84539gjdf34
     ```
@@ -168,9 +169,7 @@ In this lab, we enable Istio's automatic sidecar injection for one k8s namespace
     Ensure ```service_entry_oneagent.yml``` is filled in with your tenant and active gate component links.
 
     ```
-    (bastion)$ pwd
-    ~/repositories/k8s-deploy-production
-    (bastion)$ nano istio/service_entry_oneagent.yml
+    nano ~/repositories/k8s-deploy-production/istio/service_entry_oneagent.yml
     ```
 
     Apply the configuration.
