@@ -8,9 +8,8 @@
 
 1. In case you don't have your license yet, you can get a free license here: [https://www.ansible.com/license]
 2. To avoid unnecessary issue detection and problem generation for transactions and services, complete the following steps:
-
-- Go to Settings, Anomaly Detection, Frequent issue detection, and click on the button next to Detect frequent issues within transactions and services to disable it.
-- Click on Save Changes
+    - Go to Settings, Anomaly Detection, Frequent issue detection, and click on the button next to Detect frequent issues within transactions and services to disable it.
+    - Click on Save Changes
 [Disable Frequent Issue Detection]
 
 ## Troubleshooting
