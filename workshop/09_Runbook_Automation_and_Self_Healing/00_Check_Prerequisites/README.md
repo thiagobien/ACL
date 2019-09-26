@@ -10,7 +10,8 @@
 2. To avoid unnecessary issue detection and problem generation for transactions and services, complete the following steps:
     - Go to Settings, Anomaly Detection, Frequent issue detection, and click on the button next to Detect frequent issues within transactions and services to disable it.
     - Click on Save Changes
-[Disable Frequent Issue Detection]
+
+![Disable Frequent Issue Detection](./assets/frequent_issue_detection.png)
 
 ## Troubleshooting
 
@@ -29,4 +30,3 @@ Execute with:
 :arrow_up_small: [Back to overview](../)
 
 [https://www.ansible.com/license]:https://www.ansible.com/license  
-[Disable Frequent Issue Detection]:[./assets/frequent_issue_detection.png]
