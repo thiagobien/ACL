@@ -30,4 +30,4 @@ Execute with:
 :arrow_up_small: [Back to overview](../)
 
 [https://www.ansible.com/license]:https://www.ansible.com/license  
-[Disable Frequent Issue Detection]:[./assets/frequen_issue_detection.png]
+[Disable Frequent Issue Detection]:[./assets/frequent_issue_detection.png]
