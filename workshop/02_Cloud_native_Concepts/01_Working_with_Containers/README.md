@@ -2,15 +2,15 @@
 
 In this lab you'll learn how to create a container image and how to run a container based on this image. During this activity you will pull an image from a global container registry to get hands-on experience with container registries in general.
 
-## Step 1: Create a Dockerfile
+## Step 1: View the Dockerfile
 
-1. Create a file `Dockerfile` and open it using an editor.
+1. View the `Dockerfile` using an editor.
     ```
     (bastion)$ cd ~/acl-repo/01_Working_with_Containers
     (bastion)$ vi Dockerfile
     ```
 
-1. Copy the following snippet into the `Dockerfile` and save it.
+1. The `Dockerfile` should look like this:
     ```
     FROM ubuntu:latest
     COPY . /app
