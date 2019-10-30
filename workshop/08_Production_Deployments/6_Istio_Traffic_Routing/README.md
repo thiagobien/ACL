@@ -22,22 +22,46 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
             subset: v1
     ```
 
-1. To see if the new version works properly we only want 10% of the traffic to be redirected to that version initially. To that end, we modify the `virtual_service_canary.yml` in the `k8s-deploy-production` repository and apply it.
+1. To see if the new version works properly we only want 50% of the traffic to be redirected to that version initially. To that end, we will apply the `virtual_service_canary.yml` in the `k8s-deploy-production` repository.
 
     ```
     (bastion)$ pwd
     ~/repositories/k8s-deploy-production/istio
     (bastion)$ vi virtual_service_canary.yml
-    ...
     ```
 
-    Edit the file like this:
+    The file should look like this:
 
     **!!! YOU MUST NOT DELETE THE COMMENTS #v1 AND #v2 - WE NEED THOSE LATER ON !!!**
 
-    ![modify-canary-yml](../assets/modify-canary-yml.png)
+        apiVersion: networking.istio.io/v1alpha3
+        kind: VirtualService
+        metadata:
+        name: sockshop
+        spec:
+        hosts:
+        - "*"
+        gateways:
+        - sockshop-gateway
+        http:
+        - match:
+            - uri:
+                prefix: "/carts"
+            route:
+            - destination:
+                host: carts.production.svc.cluster.local
+        - route:
+            - destination:
+                host: front-end.production.svc.cluster.local
+                subset: v1
+            weight: 50 #v1
+            - destination:
+                host: front-end.production.svc.cluster.local
+                subset: v2
+            weight: 50 #v2
 
-    This configuration redirects 10% of all traffic hitting the sockshop `VirtualService` to version 2. Let's take a look how that looks in Dynatrace.
+
+    This configuration redirects 50% of all traffic hitting the sockshop `VirtualService` to version 2. Let's take a look how that looks in Dynatrace.
 
 1. To apply the configuration change, execute the following command:
     ```
@@ -76,7 +100,7 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     ![chart-done](../assets/chart-done.png)
 
-1. You can now change the weight distribution of verison 1 and 2 to arbitrary values and see it reflect in the chart you've just created.
+1. You can now change the weight distribution of version 1 and 2 to arbitrary values and see it reflect in the chart you've just created.
 
 1. (Optional) You can decide traffic routing also based on information that is included in the HTTP header. For example, you can present version 2 only to users that are logged in. See the following configuration that enables that.
 
