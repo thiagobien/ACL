@@ -8,9 +8,9 @@ In this module, you will learn the definition of cloud-native concepts such as m
 
 # Prepare Environment for Labs
 
-1. Clone or download this GitHub repository to your local machine.
+1. Clone or download this GitHub repository to your local machine or Bastion host (Git URL will be provided by instructor).
     ```
-    git clone https://github.com/dynatrace-innovationlab/acl-docs.git
+    git clone [GIT_URL]
     ```
 
 1. Switch to the directory `02_Cloud_native_Concepts`.
