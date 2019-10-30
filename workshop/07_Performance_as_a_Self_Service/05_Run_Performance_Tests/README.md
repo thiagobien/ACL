@@ -29,18 +29,18 @@ In this lab you'll trigger a performance test for (1) the current implementation
 
 
 
-## Step 5: Explore Results in Jenkins
+## Step 5: Review Performance Signature Plugin Configuration
 
 1. Review the Jenkinsfile.performance perfSigDynatraceReports step:
 
-```
-perfSigDynatraceReports(
-    envId: 'Dynatrace Tenant', 
-    nonFunctionalFailure: 1, 
-    specFile: "monspec/${env.APP_NAME}_perfsig.json"
-```
+    ```
+    perfSigDynatraceReports(
+        envId: 'Dynatrace Tenant', 
+        nonFunctionalFailure: 1, 
+        specFile: "monspec/${env.APP_NAME}_perfsig.json"
+    ```
 
-In this case the pipeline will be mark as unstable due to the nonFunctionalFailure parameter being set to 1.
+1. In this case the pipeline will be marked as unstable due to the nonFunctionalFailure parameter being set to 1.
 
 - This parameter has 3 possible values:
     - 0: don’t impact the build state
@@ -48,6 +48,8 @@ In this case the pipeline will be mark as unstable due to the nonFunctionalFailu
     - 2: mark the build as failed
 
 ![performance_trend](../assets/carts_performance_pipeline.png)
+
+## Step 6: Explore Results in Jenkins
 
 1. After a successful pipeline execution, click on **Performance Trend**. 
 This opens a trend analysis of the jMeter test results. In more details, it shows a chart for the throughput, response time, and percentage of errors as shown below.

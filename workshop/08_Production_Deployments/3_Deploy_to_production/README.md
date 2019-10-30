@@ -32,7 +32,7 @@ In this lab, we'll promote all components that are currently in the `staging` na
 1. Click on **Create a browser monitor**.
 1. Type in the public IP of your front-end and give your monitor a name (e.g. Sockshop Monitor).
     ```
-    kubectl get svc carts -n production -o json | jq -r  .status[].ingress[].ip
+    kubectl get svc carts -n production -o json | jq -r .status[].ingress[].ip
     ```
 1. At *Frequency and locations* set Monitor my website every **5** minutes.
 1. Select all Locations and finally click on **Monitor single URL** and **Create browser monitor**.
