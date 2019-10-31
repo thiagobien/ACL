@@ -32,30 +32,36 @@ In this lab you'll first investigate the code structure of a microservice includ
 
 1. Login to the bastion.
 
-1. On the bastion, Copy the `manifest` folder to `lab-manifest`.
+1. On the bastion, go to the carts directory and copy the `manifest` folder and name it `lab-manifest`.
 
-1. Open `carts.yml` and change namespace from `dev` to `lab-dev` (1x in deployment and 1x in service specification).
-
-1. Add the namespace specification on top of `carts.yml`.
     ```
-    ---
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: lab-dev
+    cd ~/repositories/carts/
+    cp -R manifest/ lab-manifest/
     ```
 
-1. Add a LoadBalancer to the service specification (on the bottom) and save file.
-    ```
-    spec:
-      ports:
-      - name: http
-        port: 80
-        targetPort: 8080
-      selector:
-        app: carts
-      type: LoadBalancer
-    ```
+1. Open `carts.yml` inside the `lab-manifest` directory  and change namespace from `dev` to `lab-dev` (1x in deployment and 1x in service specification).
+
+    * Update the namespace on the deployment specification to lab-dev on top of `carts.yml`.
+        ```
+        ---
+        apiVersion: extensions/v1beta1
+        kind: Deployment
+        metadata:
+            name: carts
+            namespace: lab-dev
+        ```
+
+    * Update the namespace to lab-dev on the service specification (on the bottom) and save file.
+        ```
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+            name: carts
+            labels:
+                app: carts
+            namespace: lab-dev
+        ```
 
 1. Verify the container image at spec > containers > image.
     ```
@@ -64,22 +70,26 @@ In this lab you'll first investigate the code structure of a microservice includ
 
 1. Run kubectl apply command from `.\carts` directory.
     ```
-    (bastion)$ kubectl apply -f lab-manifest
+    kubectl apply -f lab-manifest
     ```
 
 1. Check all ressources that have been created.
     ```
-    (bastion)$ kubectl get deployments,pods,services -n lab-dev
+    kubectl get deployments,pods,services -n lab-dev
     ```
 
 1. Retrieve the external IP of your carts service and open it in a browser by adding the `/health` endpoint.
 
 1. Delete all resources that have been created.
     ```
-    (bastion)$ kubectl delete namespace lab-dev
+    kubectl delete namespace lab-dev
     ```
 
 1. Delete `lab-manifest` folder.
+
+```
+rm -rf lab-manifest
+```
 
 ---
 

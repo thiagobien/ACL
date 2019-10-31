@@ -14,15 +14,29 @@ In this lab, we'll promote all components that are currently in the `staging` na
 
 1. It might be best to also create two synthetic browser monitors. 
 
-    One pinging the istio ingress gateway external ip:
-    ```
-    kubectl get services -n istio-system
-    ```
+## Step 1: Simulation of real-user traffic to front-end service
 
-    and one pinging carts external ip in production:
+1. In your Dynatrace tenant, go to **Synthetic** and click on **Create a synthetic monitor**
+1. Click on **Create a browser monitor**.
+1. Type in the public IP of your front-end and give your monitor a name (e.g. Sockshop Monitor).
     ```
-    kubectl get services -n production
+    kubectl get svc istio-ingressgateway -n istio-system -o json | jq -r .status.loadBalancer.ingress[].ip
     ```
+1. At *Frequency and locations* set Monitor my website every **5** minutes.
+1. Select all Locations and finally click on **Monitor single URL** and **Create browser monitor**.
+1. Now, please wait a couple of minutes.
+
+## Step 2: Simulation of real-user traffic to carts service
+
+1. In your Dynatrace tenant, go to **Synthetic** and click on **Create a synthetic monitor**
+1. Click on **Create a browser monitor**.
+1. Type in the public IP of your front-end and give your monitor a name (e.g. Sockshop Monitor).
+    ```
+    kubectl get svc carts -n production -o json | jq -r .status[].ingress[].ip
+    ```
+1. At *Frequency and locations* set Monitor my website every **5** minutes.
+1. Select all Locations and finally click on **Monitor single URL** and **Create browser monitor**.
+1. Now, please wait a couple of minutes.
 
 ---
 
