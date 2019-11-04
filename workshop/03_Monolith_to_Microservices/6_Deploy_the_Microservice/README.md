@@ -9,35 +9,250 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 ## Step 1: Deploy the Microservice
 
 1. Create a new application representing the microservice **OrdersService**.
-    ```
-    oc new-app --docker-image=dynatraceacm/ticketmonster-orders-service:latest
-    ```
+    
+    Checkout the `manifests-ticketmonster/ticket-orders.yml` file.
+    <details>
+        <summary>ticket-orders.yml</summary>
 
-1. Expose your microservice.
+        ---
+        apiVersion: extensions/v1beta1
+        kind: Deployment
+        metadata:
+        name: ticketmonster-orders-service
+        namespace: ticketmonster
+        spec:
+        replicas: 1
+        template:
+            metadata:
+            labels:
+                app: ticketmonster-orders-service
+                version: v1
+            spec:
+            containers:
+            - name: ticketmonster-orders-service
+                image: dynatraceacm/ticketmonster-orders-service:latest
+                resources:
+                limits:
+                    cpu: 500m
+                    memory: 2048Mi
+                requests:
+                    cpu: 400m
+                    memory: 2048Mi
+                ports:
+                - containerPort: 8080
+                livenessProbe:
+                httpGet:
+                    path: /health
+                    port: 8080
+                initialDelaySeconds: 120
+                periodSeconds: 10
+                timeoutSeconds: 15
+                readinessProbe:
+                httpGet:
+                    path: /health
+                    port: 8080
+                initialDelaySeconds: 120
+                periodSeconds: 10
+                timeoutSeconds: 15
+            nodeSelector:
+                beta.kubernetes.io/os: linux
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+        name: ticketmonster-orders-service
+        labels:
+            app: ticketmonster-orders-service
+        namespace: ticketmonster
+        spec:
+        ports:
+        - name: http
+            port: 8080
+            targetPort: 8080
+        selector:
+            app: ticketmonster-orders-service
+        ---
+    </details>
+
+    Apply the yaml file to create the service
+
     ```
-    oc expose service ticketmonster-orders-service --name=orders-service
+    (bastion) $ kubectl create -f manifests-ticketmonster/ticket-orders.yml
+
+    deployment.extensions/ticketmonster-orders-service created
+    service/ticketmonster-orders-service created
     ```
 
 ## Step 2. Deploy a new backend version (v2) of the Monolith
-
 1. Create a new version of the monolith that can deal with the microservice **OrdersService**.
+    Checkout the `manifests-ticketmonster/ticket-backend-v2.yml` file. 
+    <details>
+        <summary>ticket-backend-v2.yml</summary>
+
+        ---
+        apiVersion: extensions/v1beta1
+        kind: Deployment
+        metadata:
+        name: ticketmonster-backend-v2
+        namespace: ticketmonster
+        spec:
+        replicas: 1
+        template:
+            metadata:
+            labels:
+                app: ticketmonster-backend-v2
+                version: v1
+            spec:
+            containers:
+            - name: ticketmonster-backend-v2
+                image: dynatraceacm/ticketmonster-backend-v2:latest
+                env:
+                - name: MYSQL_SERVICE_HOST
+                value: ticketmonster-db
+                - name: MYSQL_SERVICE_PORT
+                value: "3306"
+                resources:
+                limits:
+                    cpu: 500m
+                    memory: 1024Mi
+                requests:
+                    cpu: 400m
+                    memory: 768Mi
+                ports:
+                - containerPort: 8080
+                livenessProbe:
+                httpGet:
+                    path: /ff4j-console
+                    port: 8080
+                initialDelaySeconds: 120
+                periodSeconds: 10
+                timeoutSeconds: 15
+                readinessProbe:
+                httpGet:
+                    path: /ff4j-console
+                    port: 8080
+                initialDelaySeconds: 120
+                periodSeconds: 10
+                timeoutSeconds: 15
+            nodeSelector:
+                beta.kubernetes.io/os: linux
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+        name: ticketmonster-backend-v2
+        labels:
+            app: ticketmonster-backend-v2
+        namespace: ticketmonster
+        spec:
+        ports:
+        - name: http
+            port: 80
+            targetPort: 8080
+        selector:
+            app: ticketmonster-backend-v2
+        type: LoadBalancer
+        ---
+    </details>
+
+    Apply the yaml file to create the service.
+
     ```
-    oc new-app -e MYSQL_SERVICE_HOST=ticketmonster-db -e MYSQL_SERVICE_PORT=3306 --docker-image=dynatraceacm/ticketmonster-backend-v2:latest
+    (bastion) $ kubectl apply -f manifests-ticketmonster/ticket-backend-v2.yml
+
+    deployment.extensions/ticketmonster-backend-v2 created
+    service/ticketmonster-backend-v2 created
     ```
 
-1. Expose the backend service.
-    ```
-    oc expose service ticketmonster-backend-v2 --name=backend-v2
-    ```
 
-1. Re-route the backend route to hit the new backend service.
+1. Create a new version of the ui that can deal with the new backend **OrdersService**.
+    Checkout the `manifests-ticketmonster/ticket-ui-v2.yml` file. This deployment has a `BACKENDURL` environment variable that is set to the `ticketmonster-backend-v2` which can handle the new `OrdersService`
+    <details>
+        <summary>ticket-ui-v2.yml</summary>
+
+        ---
+        apiVersion: extensions/v1beta1
+        kind: Deployment
+        metadata:
+        name: ticketmonster-ui
+        namespace: ticketmonster
+        spec:
+        replicas: 1
+        template:
+            metadata:
+            labels:
+                app: ticketmonster-ui
+                version: v1
+            spec:
+            containers:
+            - name: ticketmonster-ui
+                image: dynatraceacm/ticketmonster-ui-v1:latest
+                env:
+                - name: BACKENDURL
+                value: ticketmonster-backend-v2
+                resources:
+                limits:
+                    cpu: 500m
+                    memory: 1024Mi
+                requests:
+                    cpu: 400m
+                    memory: 768Mi
+                ports:
+                - containerPort: 8080
+                livenessProbe:
+                httpGet:
+                    path: /
+                    port: 8080
+                initialDelaySeconds: 30
+                periodSeconds: 10
+                timeoutSeconds: 15
+                readinessProbe:
+                httpGet:
+                    path: /
+                    port: 8080
+                initialDelaySeconds: 30
+                periodSeconds: 10
+                timeoutSeconds: 15
+            nodeSelector:
+                beta.kubernetes.io/os: linux
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+        name: ticketmonster-ui
+        labels:
+            app: ticketmonster-ui
+        namespace: ticketmonster
+        spec:
+        ports:
+        - name: http
+            port: 80
+            targetPort: 8080
+        selector:
+            app: ticketmonster-ui
+        type: LoadBalancer
+        ---
+    </details>
+
+    Apply the yaml file to create the service.
+
     ```
-    oc set route-backends backend ticketmonster-monolith=0 ticketmonster-backend-v2=100 
+    (bastion) $ kubectl apply -f manifests-ticketmonster/ticket-ui-v2.yml
+
+    deployment.extensions/ticketmonster-ui configured
+    service/ticketmonster-ui configured
     ```
 
 ## Step 3: Switch feature flag and test your Microservice
 
-1. In your browser, navigate to your `ff4j` console: `https://<your-backend>-XX.<ip>/ff4j-console`. You will be able to switch on/off your new microservice from here. 
+1. Wait for the updated pod to come online and get the public endpoint of the backend **ticketmonster-backend-v2**.
+    ```
+    (bastion) $ kubectl -n ticketmonster get service/ticketmonster-backend-v2
+    NAME                       TYPE           CLUSTER-IP        EXTERNAL-IP     PORT(S)        AGE
+    ticketmonster-backend-v2   LoadBalancer   xxx.xxx.xxx.xxx   35.205.224.18   80:32526/TCP   3m46s
+    ```
+
+1. In your browser, navigate to your `ff4j` console: `https://<your-backend>/ff4j-console`. You will be able to switch on/off your new microservice from here. 
 
 ![ff4j_console](../assets/ff4j_console.png)
 
@@ -51,10 +266,10 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
     1. From the left menu, choose the **Transaction & services** tab.
     1. Select service **TicketMonsterUI**.
     1. Click on **View service flow**.
-    1. Finally, you see the service flow containing the microservice `orders-service`.
+    1. Finally, you see the service flow containing the microservice `OrdersService`.
 
 ---
 
-[Previous Step: Domain Model of Microservice](../5_Domain_Model_of_Microservice) :arrow_backward: :arrow_forward: [Next Step: Clean up](../9_Clean_up)
+[Previous Step: Domain Model of Microservice](../5_Domain_Model_of_Microservice) :arrow_backward:
 
 :arrow_up_small: [Back to overview](../)

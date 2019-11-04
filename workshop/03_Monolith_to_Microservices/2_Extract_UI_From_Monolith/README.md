@@ -4,43 +4,94 @@ To start breaking up the monolith, a best practice is extracting the user interf
 
 ![tm-ui-v1](../assets/extract_ui.png)
 
-## Step 1: Define a New Route to the Monolith
+## Step 1: Deploy TicketMonster
 
-1. Create another route for TicketMonster monolith under the name `backend`.
-    ```
-    oc expose service ticketmonster-monolith --name=backend
-    ``` 
+1. Deploy the Ticketmonster monolith application
 
-1. Copy HOST/PORT of backend to clipboard.
+    Checkout the `manifests-ticketmonster/ticket-ui.yml` file. It will be used to create a new front end for TicketMonster that talks to the backend.
+    <details>
+        <summary>ticket-ui.yml</summary>
+
+        ---
+        apiVersion: extensions/v1beta1
+        kind: Deployment
+        metadata:
+        name: ticketmonster-ui
+        namespace: ticketmonster
+        spec:
+        replicas: 1
+        template:
+            metadata:
+            labels:
+                app: ticketmonster-ui
+                version: v1
+            spec:
+            containers:
+            - name: ticketmonster-ui
+                image: dynatraceacm/ticketmonster-ui-v1:latest
+                env:
+                - name: BACKENDURL
+                value: ticketmonster-monolith
+                resources:
+                limits:
+                    cpu: 500m
+                    memory: 1024Mi
+                requests:
+                    cpu: 400m
+                    memory: 768Mi
+                ports:
+                - containerPort: 8080
+                livenessProbe:
+                httpGet:
+                    path: /
+                    port: 8080
+                initialDelaySeconds: 30
+                periodSeconds: 10
+                timeoutSeconds: 15
+                readinessProbe:
+                httpGet:
+                    path: /
+                    port: 8080
+                initialDelaySeconds: 30
+                periodSeconds: 10
+                timeoutSeconds: 15
+            nodeSelector:
+                beta.kubernetes.io/os: linux
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+        name: ticketmonster-ui
+        labels:
+            app: ticketmonster-ui
+        namespace: ticketmonster
+        spec:
+        ports:
+        - name: http
+            port: 80
+            targetPort: 8080
+        selector:
+            app: ticketmonster-ui
+        type: LoadBalancer
+        ---
+    </details>
+
+    Apply the yaml file to create the service
+
     ```
-    oc get routes 
+    (bastion) $ kubectl apply -f manifests-ticketmonster/ticket-ui.yml
+
+    deployment.extensions/ticketmonster-ui created
+    service/ticketmonster-ui created
     ```
 
-## Step 2: Decouple the UI from the Monolith
+## Step 2: Test UI that hits the Monolith
 
-1. (optional) Switch to the `tm-ui-v1` directory.
-
-1. (optional) Familiarize with configuration of **Proxy** and **ReverseProxy** in `tm-ui-v1/httpd.conf`.
+1. Get the public endpoint of the user interface **ticketmonster-ui**.
     ```
-    ProxyPass "/rest" "http://${BACKENDURL}/rest"
-    ProxyPassReverse "/rest" "http://${BACKENDURL}/rest"
-    ```
-    
-1. Deploy the user interface. Paste your backend-url in the following format, e.g., `backend-ticketmonster.XX.XX.XX.XX.nip.io`
-    ```
-    oc new-app -e BACKENDURL=<your-backend-url> --docker-image=dynatraceacm/ticketmonster-ui-v1:latest
-    ```
-
-1. Expose the user interface service.
-    ```
-    oc expose service ticketmonster-ui-v1
-    ```
-
-## Step 3: Test UI that hits the Monolith
-
-1. Get the public endpoint of the user interface **ticketmonster-ui-v1**.
-    ```
-    oc get routes
+    kubectl -n ticketmonster get service/ticketmonster-ui
+    NAME               TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)        AGE
+    ticketmonster-ui   LoadBalancer   10.90.11.110   xxx.xxx.xxx.xxx   80:31621/TCP   63s
     ```
 
 1. Open the route using a browser. Can you read **This UI hits the Monolith** on the start page? If yes, you are now using TicketMonster via the decoupled user interface. If you do not see this message, ask an instructor for assistance.
