@@ -35,6 +35,6 @@ This lab runs a load generation script for TicketMonster. The script simulates r
     ![scaling_up](../assets/ticketmonster_load.png)
 ---
 
-[Previous Step: Extract UI From Monolith](../2_Extract_UI_From_Monolith) :arrow_backward: :arrow_forward: [Next Step: Identify a Microservice](../4_Identify_a_Microservice)
+[Previous Step: Extract UI From Monolith](../3_Extract_UI_From_Monolith) :arrow_backward: :arrow_forward: [Next Step: Identify a Microservice](../5_Identify_a_Microservice)
 
 :arrow_up_small: [Back to overview](../)

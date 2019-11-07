@@ -270,6 +270,6 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 
 ---
 
-[Previous Step: Domain Model of Microservice](../5_Domain_Model_of_Microservice) :arrow_backward:
+[Previous Step: Domain Model of Microservice](../6_Domain_Model_of_Microservice) :arrow_backward:
 
 :arrow_up_small: [Back to overview](../)

@@ -100,6 +100,6 @@ To start breaking up the monolith, a best practice is extracting the user interf
 
 ---
 
-[Previous Step: Lift and Shift TicketMonster](../1_Lift-and-Shift_TicketMonster) :arrow_backward: :arrow_forward: [Next Step: Generate Load on UI](../3_Generate_Load_on_UI)
+[Previous Step: Lift and Shift TicketMonster](../2_Lift-and-Shift_TicketMonster) :arrow_backward: :arrow_forward: [Next Step: Generate Load on UI](../4_Generate_Load_on_UI)
 
 :arrow_up_small: [Back to overview](../)

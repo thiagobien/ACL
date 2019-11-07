@@ -2,6 +2,8 @@
 
 In this lab you'll instrument the Kubernetes Cluster (from *Building Environment zero*) with Dynatrace OneAgent, which automatically monitors all your processes, containers, services, applications, and end-users. For more information about the OneAgent Operator and how it works, please follow this [link](https://www.dynatrace.com/support/help/cloud-platforms/kubernetes/full-stack/what-is-oneagent-operator/). 
 
+## Note: If you have already deployed the OneAgent during the Monolith to Microservices lab then this lab is not required
+
 ## Step 1: Define the Cluster Role Binding
 1. Get the current cluster user.
     ```

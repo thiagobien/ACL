@@ -50,6 +50,6 @@ The next steps will require us to gather information
 
 ---
 
-:arrow_forward: [Next Step: Gathering Facts](../1_Gathering_Facts)
+:arrow_forward: [Next Step: Gathering Facts and installing the OneAgent Operator](../1_Facts_and_OneAgent)
 
 :arrow_up_small: [Back to overview](../)

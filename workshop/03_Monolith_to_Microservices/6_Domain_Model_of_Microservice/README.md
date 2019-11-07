@@ -194,6 +194,6 @@ For more details about this lab, please take a look at the following blog post: 
 
 ---
 
-[Previous Step: Identify a Microservice](../4_Identify_a_Microservice) :arrow_backward: :arrow_forward: [Next Step: Deploy the Microservice](../6_Deploy_the_Microservice)
+[Previous Step: Identify a Microservice](../5_Identify_a_Microservice) :arrow_backward: :arrow_forward: [Next Step: Deploy the Microservice](../7_Deploy_the_Microservice)
 
 :arrow_up_small: [Back to overview](../)

@@ -213,6 +213,6 @@ In this lab you'll learn how to move a monolithic application to a cloud platfor
 
 ---
 
-:arrow_forward: [Next Step: Extract UI From Monolith](../2_Extract_UI_From_Monolith)
+[Previous Step: Gathering Facts and installing the OneAgent Operator](../1_Facts_and_OneAgent) :arrow_backward: :arrow_forward: [Next Step: Extract UI From Monolith](../3_Extract_UI_From_Monolith)
 
 :arrow_up_small: [Back to overview](../)
