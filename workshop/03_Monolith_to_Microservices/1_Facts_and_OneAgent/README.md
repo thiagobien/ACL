@@ -47,6 +47,6 @@ This script will take information you have entered in the previous step and use 
 
 ---
 
-[Previous Step: Check Prerequisites](../0_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Fork Github Repositories](../2_Extract_UI_From_Monolith)
+[Previous Step: Check Prerequisites](../0_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Lift and shift Ticket Monster](../2_Lift-and-Shift_TicketMonster)
 
 :arrow_up_small: [Back to overview](../)

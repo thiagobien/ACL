@@ -18,16 +18,6 @@ We use the Docker registry to save the build artifacts, i.e. Docker containers. 
 
     ![](../assets/kubectl-create-namespaces.png)
 
-1. We specify that we want to have fast SSD storage by executing the following command (`~/manifests-env-zero/k8s-storage.yml`):
-
-    ```
-    (bastion)$ kubectl create -f manifests-env-zero/k8s-storage.yml
-    ```
-
-    Expected output:
-
-    ![](../assets/kubectl-create-storageclass.png)
-
 1. We create a `PersistentVolumeClaim` (PVC) where Docker images of the registry will be stored. We use a PVC to have persistent data, even when the pod is restarted. 
 
     ```
@@ -84,6 +74,6 @@ We use the Docker registry to save the build artifacts, i.e. Docker containers. 
 
 ---
 
-[Previous Step: Check Prerequisites](../2_Fork_GitHub_Repositories) :arrow_backward: :arrow_forward: [Next Step: Deploy Jenkins](../4_Deploy_Jenkins)
+[Previous Step: Check Prerequisites](../1_Fork_GitHub_Repositories) :arrow_backward: :arrow_forward: [Next Step: Deploy Jenkins](../3_Deploy_Jenkins)
 
 :arrow_up_small: [Back to overview](../)

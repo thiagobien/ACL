@@ -260,13 +260,15 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 
 ![ff4j_console](../assets/ff4j_feature_flags.png)
 
-1. When now order a ticket, the order will be operated and persisted by the **OrderService** instead of the monolithic booking service (in fact, the booking service calls the OrderService).
+1. Open ticketmonster-ui on a browser and order a ticket again, the order will be operated and persisted by the **OrdersService** instead of the monolithic booking service (in fact, the booking service calls the OrderService).
 
 1. We can verify the service flow in Dynatrace.
     1. From the left menu, choose the **Transaction & services** tab.
     1. Select service **TicketMonsterUI**.
     1. Click on **View service flow**.
     1. Finally, you see the service flow containing the microservice `OrdersService`.
+
+![orders-microservice](../assets/orders-microservice.png)
 
 ---
 

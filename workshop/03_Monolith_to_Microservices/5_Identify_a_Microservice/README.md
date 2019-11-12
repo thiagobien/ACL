@@ -12,7 +12,9 @@ For more details about this lab, please take a look at the following blog post: 
 1. Click on **Define Java service**, set name of custom service to `orders-service` and click **Find entry point**.
 1. Select the process group that contains your entry point `ticketmonster-monolith` and click **Continue**.
 1. Search for loaded classes and interfaces with name `BookingService`, select `org.jboss.examples.ticketmonster.rest.BookingService` and click **Continue**.
-1. Select `createBooking` as entry point and click **Finish**.
+1. Select **Use the selected class** and click **Continue**.
+1. Select `public javax.ws.rs.core.Response createBooking (org.jboss.examples.ticketmonster.rest.BookingService)` as the entry point and click **Finish**.
+1. Click on Save changes.
 
 ## Step 2: Restart pods to activate custom service detection
 1. Get your pods and copy the pod name starting with *ticketmonster-monolith*.
