@@ -6,7 +6,7 @@ In this module you'll learn how to migrate a monolithic application to the cloud
 
 In this module you will go through the following actions:
 
-1. [Check Prerequisits](0_Check_Prerequisites)
+1. [Check Prerequisites](0_Check_Prerequisites)
 1. [Gathering Facts and installing the OneAgent Operator](1_Facts_and_OneAgent)
 1. [Lift and Shift Ticketmonster](2_Lift-and-Shift_TicketMonster)
 1. [Extract the UI from the Monolith](3_Extract_UI_From_Monolith)

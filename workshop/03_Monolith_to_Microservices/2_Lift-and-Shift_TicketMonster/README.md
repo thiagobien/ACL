@@ -6,6 +6,15 @@ In this lab you'll learn how to move a monolithic application to a cloud platfor
 
 ## Step 1: Create a namespace for Ticketmonster
 
+1. Provision the storage class that will be used during the ACL by executing the following command (~/manifests-env-zero/k8s-storage.yml):
+    ```
+    (bastion)$ kubectl create -f manifests-env-zero/k8s-storage.yml
+    ```
+
+    Expected output:
+
+    ![storage-class](../assets/kubectl-create-storageclass.png)
+
 1. Create a namespace for ticketmonster
     ```
     (bastion) $ kubectl create ns ticketmonster

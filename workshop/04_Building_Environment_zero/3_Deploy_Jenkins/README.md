@@ -101,6 +101,6 @@ In order to have this step go faster, an automatic installation option has been 
 
 ---
 
-[Previous Step: Deploy Docker Registry](../3_Deploy_Docker_Registry) :arrow_backward: :arrow_forward: [Next Step: Trigger Build Pipeline](../5_Trigger_Build_Pipelines)
+[Previous Step: Deploy Docker Registry](../2_Deploy_Docker_Registry) :arrow_backward: :arrow_forward: [Next Step: Trigger Build Pipeline](../4_Trigger_Build_Pipelines)
 
 :arrow_up_small: [Back to overview](../)

@@ -43,6 +43,6 @@ In this lab, you will clone the GitHub repositories we've forked in lab 2 to you
 
 ---
 
-[Previous Step: Trigger Build Pipelines](../5_Trigger_Build_Pipelines) :arrow_backward:
+[Previous Step: Trigger Build Pipelines](../4_Trigger_Build_Pipelines) :arrow_backward:
 
 :arrow_up_small: [Back to overview](../)

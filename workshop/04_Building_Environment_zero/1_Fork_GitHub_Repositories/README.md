@@ -38,6 +38,6 @@
 
 ---
 
-[Previous Step: Gathering Facts](../1_Gathering_Facts) :arrow_backward: :arrow_forward: [Next Step: Deploy Docker Registry](../3_Deploy_Docker_Registry)
+:arrow_forward: [Next Step: Deploy Docker Registry](../2_Deploy_Docker_Registry)
 
 :arrow_up_small: [Back to overview](../)
