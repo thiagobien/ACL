@@ -14,7 +14,7 @@ You can use custom and existing meta-data from, e.g.: Java Properties, Environme
 
 1. Switch to the `carts/` directory and open `./manifest/carts.yml`.
 
-1. Add the **DT_TAGS** and **DT_CUSTOM_PROP** environment variable with the values shown below.
+1. Verify that the **DT_TAGS** and **DT_CUSTOM_PROP** environment variables appear as shown below.
     ```
     env:
       - name: JAVA_OPTS
@@ -24,10 +24,6 @@ You can use custom and existing meta-data from, e.g.: Java Properties, Environme
       - name: DT_CUSTOM_PROP
         value: "SERVICE_TYPE=BACKEND"
     ```
-
-1. Commit/Push the changes to your GitHub Repository *carts*. 
-
-1. Re-deploy the carts service by triggering the Jenkins pipeline for carts `master` branch.
 
 1. Identify the tag and custom meta-data in Dynatrace for the *carts* service and process group as shown below.
 
