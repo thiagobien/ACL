@@ -11,7 +11,7 @@ Execute the following command from your home directory to clone the keptn exampl
 ```
 
 ## Step 2: Create a project
-The project will be created using the provided `shipjard` file:
+The project will be created using the provided `shipyard` file:
 ```
 stages:
 - name: "dev"
@@ -52,6 +52,9 @@ stages:
         (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter/load.jmx --resourceUri=jmeter/load.jmx
         ```
 1. Onboard the *carts-db* service using the onboard service command. The `--deployment-strategy` flag specifies that for this service a direct deployment strategy in all stages should be used regardless of the deployment strategy specified in the shipyard. Thus, the database is not blue/green deployed.
+    ```
+    (bastion)$ keptn onboard service carts-db --project=sockshop --chart=./carts-db --deployment-strategy=direct
+    ```
 1. During the onboarding of the services, Keptn creates a namespace for each stage based on the pattern: `projectname-stagename`.
     ```
     (bastion)$ kubectl get namespaces
@@ -94,6 +97,6 @@ Inside this workshop folder you will find a file called `Carts-Viewer.html`.
 
 Download this file to your local machine and open it with your favourite text editor.
 
-![carts_viewer_](../assets/Carts_Viewer.png)
+![carts_viewer_](../assets/carts_viewer.png)
 
 On lines `15, 16 and 17`; replace the ip address placeholders (`xxx.xxx.xxx.xxx`) with your keptn endpoint IP and save the file. When you open this file you will be presented with a single view with all namespaces (dev/staging/production) visible.
