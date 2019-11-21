@@ -97,6 +97,6 @@ Inside this workshop folder you will find a file called `Carts-Viewer.html`.
 
 Download this file to your local machine and open it with your favourite text editor.
 
-![carts_viewer_](../assets/carts_Viewer.png)
+![carts_viewer_](../assets/carts_viewer.png)
 
 On lines `15, 16 and 17`; replace the ip address placeholders (`xxx.xxx.xxx.xxx`) with your keptn endpoint IP and save the file. When you open this file you will be presented with a single view with all namespaces (dev/staging/production) visible.
