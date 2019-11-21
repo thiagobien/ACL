@@ -26,6 +26,9 @@ After triggering the deployment of the carts service in version v0.9.2, the foll
 To verify, check the Carts-Viewer.html file for the `dev` stage.
 * Staging stage: In this stage, version v0.9.2 will be deployed and the performance test starts to run for about 10 minutes. After the test is completed, Keptn triggers the test evaluation and identifies the slowdown. Consequently, a roll-back to version v0.9.1 in this stage is conducted and the promotion to production is not triggered.
 To verify, check the Carts-Viewer.html file for the `staging` stage. The Keptn’s bridge shows the deployment of v0.9.2 and then the failed test in staging including the roll-back:
+```
+(bastion)$ echo https://bridge.keptn.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}') 
+```
 ![quality_gates](../assets/quality_gates.png)
 * Production stage: The slow version is not promoted to the production namespace because of the active quality gate in place. Thus, still version v0.9.1 is expected to be in production.
 To verify, check the Carts-Viewer.html file for the `production` stage.

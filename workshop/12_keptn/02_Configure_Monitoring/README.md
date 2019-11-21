@@ -16,4 +16,4 @@ The OneAgent Operator has already been deployed in earlier stages of the lab. Ho
 
 
 # Step 2: Configure Prometheus
-Prometheus will be configured lateron during the lab exercises.
+Prometheus will be configured later on during the lab exercises.
