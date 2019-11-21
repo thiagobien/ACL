@@ -100,3 +100,9 @@ Download this file to your local machine and open it with your favourite text ed
 ![carts_viewer_](../assets/carts_viewer.png)
 
 On lines `15, 16 and 17`; replace the ip address placeholders (`xxx.xxx.xxx.xxx`) with your keptn endpoint IP and save the file. When you open this file you will be presented with a single view with all namespaces (dev/staging/production) visible.
+
+---
+
+[Previous Step: Configure Monitoring](../02_Configure_Monitoring) :arrow_backward: :arrow_forward: [Next Step: Quality Gates](../04_Quality_Gates)
+
+:arrow_up_small: [Back to overview](../)

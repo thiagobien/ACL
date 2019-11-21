@@ -2,13 +2,7 @@
 
 n this tutorial you will learn how to use the capabilities of Keptn to provide self-healing for an application without modifying any of the applications code. The tutorial presented in the following will scale up the pods of an application if the application undergoes heavy CPU saturation.
 
-## Step 1: Clone the examples repo
-```
-(bastion)$ cd 
-(bastion)$ git clone --branch 0.5.0 https://github.com/keptn/examples.git --single-branch
-```
-
-## Step 2: Configure Prometheus monitoring
+## Step 1: Configure Prometheus monitoring
 To inform Keptn about any issues in a production environment, monitoring has to be set up. The Keptn CLI helps with automated setup and configuration of Prometheus as the monitoring solution running in the Kubernetes cluster.
 
 For the configuration, Keptn relies on different specification files that define service level indicators (SLI), service level objectives (SLO), and remediation actions for self-healing if service level objectives are not achieved. To learn more about the service-indicator, service-objective, and remediation file, click here [Specifications for Site Reliability Engineering with Keptn](https://github.com/keptn/keptn/blob/0.5.0/specification/sre.md).
@@ -29,7 +23,7 @@ Executing this command will perform the following tasks:
 * Set up the Alert Manager to manage alerts
 * Add the `service-indicators.yaml`, `service-objectives.yaml` and `remediation.yaml` to your Keptn configuration repository
 
-## Step 3: Run self-healing
+## Step 2: Run self-healing
 
 ### Deploy an unhealthy service version
 Make sure that carts has been deployed to production succesfully. The verion is not important as all have the same performance issue that will be handled here.
@@ -40,7 +34,7 @@ Make sure that carts has been deployed to production succesfully. The verion is 
 In a new terminal window, execute the following:
 ```
 (bastion)$ cd ../load-generation/bin
-(bastion)$ ./loadgenerator-linux.sh "http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')" cpu
+(bastion)$ ./loadgenerator-linux "http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')" cpu
 ```
 
 ### Create a virtual service for Prometheus
@@ -95,3 +89,9 @@ Finally, we can consult the Keptn bridge to find the problem event.
 ```
 In this example, the bridge shows that the remediation service triggered an update of the configuration of the carts service by increasing the number of replicas to 2. When the additional replica was available, the wait-service waited for three minutes for the remediation action to take effect. Afterwards, an evaluation by the pitometer-service was triggered to check if the remediation action resolved the problem. In this case, increasing the number of replicas achieved the desired effect, since the evaluation of the service level objectives has been successful.
 ![bridge-remediation](../assets/bridge_remediation.png)
+
+---
+
+[Previous Step: Quality Gates](../04_Quality_Gates) :arrow_backward: :arrow_forward: [Next Step: Runbook Automation](../06_Runbook_Automation)
+
+:arrow_up_small: [Back to overview](../)
