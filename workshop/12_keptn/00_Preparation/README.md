@@ -9,3 +9,8 @@ We will be deploying carts as part of the workshop. However, this is a slightly 
 We will need to create a new repo in your org for the project we will create in keptn. The name is not important, a suggestion is `sockshop`. Make sure to initialiaze this repo with a README.
 ![keptn](../assets/keptnRepo.png)
 
+## Step 2: Sign up for a ServiceNow developer Account and request a free dev instance
+Go to https://developer.servicenow.com/ and register for a new account.
+Once your account has been created and you have signed in to the developer portal, click on `Manage` at the top of the screen. Here you can request your free developer instance.
+
+Sign up for a `London` or `Madrid` release instance.
