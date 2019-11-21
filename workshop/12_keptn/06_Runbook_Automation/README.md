@@ -137,3 +137,9 @@ You can check both the new custom configuration change on the service overview p
 
 Once the problem is resolved, Dynatrace sends out another notification which again is handled by the ServiceNow service. Now the incidents gets resolved and another comment is sent to Dynatrace. The image shows the updated incident in ServiceNow. The comment can be found if you navigate to the closed problem ticket in Dynatrace.
 ![servicenow-incident-resolved](../assets/service-now-incident-resolved.png)
+
+---
+
+[Previous Step: Self Healing](../05_Self-Healing) :arrow_backward:
+
+:arrow_up_small: [Back to overview](../)
