@@ -23,6 +23,6 @@ Prometheus will be configured later on during the lab exercises.
 
 ---
 
-[Previous Step: Install Keptn](../01_Install_Keptn) :arrow_backward: :arrow_forward: [Next Step: Onboard Service](../03_Onboard_service)
+[Previous Step: Install Keptn](../01_Install_Keptn) :arrow_backward: :arrow_forward: [Next Step: Onboard Service](../03_Onboard_Service)
 
 :arrow_up_small: [Back to overview](../)
