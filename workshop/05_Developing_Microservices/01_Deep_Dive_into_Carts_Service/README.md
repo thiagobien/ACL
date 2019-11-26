@@ -92,7 +92,7 @@ In this lab you'll first investigate the code structure of a microservice includ
 1. Delete `lab-manifest` folder.
 
     ```
-    rm -rf lab-manifest
+    rm -rf ~/repositories/carts/lab-manifest
     ```
 
 ---
