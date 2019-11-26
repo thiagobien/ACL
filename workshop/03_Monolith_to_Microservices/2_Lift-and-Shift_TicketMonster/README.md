@@ -1,6 +1,6 @@
 # Lift-and-Shift TicketMonster to a Cloud Platform
 
-In this lab you'll learn how to move a monolithic application to a cloud platform, OpenShift in this case. The applied moving approach follows a lift-and-shift concept. This means that the application is not prepared as a cloud-native application. However, the database for the application will be a service that runs on OpenShift. 
+In this lab you'll learn how to move a monolithic application to a cloud platform, Kubernetes in this case. The applied moving approach follows a lift-and-shift concept. This means that the application is not prepared as a cloud-native application. However, the database for the application will be a service that runs on OpenShift. 
 
 ![lift-and-shift](../assets/lift_and_shift.png)
 
