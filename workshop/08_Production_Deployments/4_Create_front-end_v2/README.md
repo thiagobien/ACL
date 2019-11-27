@@ -4,9 +4,35 @@ In this lab, we create an improved version of the front-end service. We'll chang
 
 ## Steps
 
-1. Edit the file `public/topbar.html` in the master branch of the `front-end` repository and change the following lines as seen in the screenshot.
+1. Edit the file `public/topbar.html` in the master branch of the `front-end` repository and change the following lines:
 
-    ![change-topbar-html](../assets/topbar_html_change.jpg)
+    ```
+        <!-- *** TOPBAR ***
+    _________________________________________________________ -->
+    <div id="top">
+        <div class="container">
+            <!-- add dummy errors -->
+            <!-- end dummy errors -->
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+                <a href="#" class="btn btn-success btn-sm"
+                data-animate-hover="shake">Offer of the day</a> <a href="#">Buy 1000 socks, get a shoe for free</a>
+            </div>
+    ```
+
+- Add a background color and insert V2 into the topbar as shown below:
+
+    ```
+    <!-- *** TOPBAR ***
+    _________________________________________________________ -->
+    <div id="top" style="background-color:royalblue"> 
+        <div class="container">
+            <!-- add dummy errors -->
+            <!-- end dummy errors -->
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+                <a href="#" class="btn btn-success btn-sm"
+                data-animate-hover="shake">Offer of the day</a> <a href="#">Buy 1000 socks, get a shoe for free - V2</a>
+            </div>
+    ```
 
     Save the changes to that file.
 

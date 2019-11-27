@@ -12,9 +12,10 @@ In this lab you'll learn how to create a container image and how to run a contai
 
 1. The `Dockerfile` should look like this:
     ```
-    FROM ubuntu:latest
-    COPY . /app
-    WORKDIR /app  
+    FROM alpine:latest 
+    COPY . /app 
+    WORKDIR /app
+    RUN apk add --no-cache wget
     ENTRYPOINT [ "sh" ]  
     CMD ["hello_world.sh"]
     ```

@@ -45,6 +45,8 @@ On your bastion, execute the following
 
 This script will take information you have entered in the previous step and use it to automatically deploy the OneAgent. Automation at its finest!
 
+For more information about installing the OneAgent operator visit this [page.](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/installation-and-operation/full-stack/deploy-oneagent-on-kubernetes/)
+
 ---
 
 [Previous Step: Check Prerequisites](../0_Check_Prerequisites) :arrow_backward: :arrow_forward: [Next Step: Lift and shift Ticket Monster](../2_Lift-and-Shift_TicketMonster)

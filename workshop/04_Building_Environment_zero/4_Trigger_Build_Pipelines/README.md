@@ -27,6 +27,6 @@ In this lab, we'll prepare the `dev`, `staging`, and `production` namespaces in 
 
 ---
 
-[Previous Step: Deploy Jenkins](../4_Deploy_Jenkins) :arrow_backward: :arrow_forward: [Next Step: Clone GitHub Repositories](../5_Clone_GitHub_Repositories)
+[Previous Step: Deploy Jenkins](../3_Deploy_Jenkins) :arrow_backward: :arrow_forward: [Next Step: Clone GitHub Repositories](../5_Clone_GitHub_Repositories)
 
 :arrow_up_small: [Back to overview](../)

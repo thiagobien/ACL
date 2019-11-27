@@ -16,18 +16,16 @@ In this lab you'll trigger a performance test for (1) the current implementation
 
 ## Step 3: Build this new Version
 
-1. Go to your **Jenkins** and click on **sockshop** folder.
+1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts** and select the **master** branch.
-1. Click on **Build Now** to trigger the performance pipeline.
+1. Click on **Build Now** to trigger the pipeline.
 1. Wait until the pipeline shows: *Success*.
 
 ## Step 4: Run Performance Test on new Version
 
-1. Go to **Jenkins** and click on **sockshop** folder.
+1. Go to **Jenkins** and click on the **sockshop** folder.
 1. Click on **carts.performance** and select the **master** branch.  
 1. Click on **Build Now** to trigger the performance pipeline.
-
-
 
 ## Step 5: Review Performance Signature Plugin Configuration
 

@@ -100,15 +100,15 @@ In some cases it is not sufficient to look at the Service level for performance 
 To remediate this, we will add another quality gate to our Performance Signature.
 
 1. Open the file `monspec\e2e_perfsig.json`.
-1. Add another quality gate like below
+1. Add another metric evaluation at the end of the file as shown below (make sure to add commas where needed)
     ```
     {
         "timeseriesId" : "com.dynatrace.builtin:servicemethod.responsetime",
         "aggregation" : "avg",
-        "entityIds": "[ADDTOCART_SERVICE-METHOD]",
-        "upperSevere": 800.0,
+        "entityIds" : "[ADDTOCART_SERVICE-METHOD]",
+        "upperSevere" : 800.0,
         "upperWarning" : 600.0
-    },
+    }
     ```
 1. Replace [ADDTOCART_SERVICE-METHOD] with the Entity Id of the Add To Cart Service Method. The easiest way to retrieve it is by navigating to the `ItemsController` service in `staging` inside Dynatrace.
   ![](../assets/itemscontroller-staging.png)
@@ -119,7 +119,43 @@ To remediate this, we will add another quality gate to our Performance Signature
   ![](../assets/itemscontroller-addtocart-keyrequest.png)
 1. In the address bar of your browser window you can find the Entity Id of the `addToCart` Service Method
   ![](../assets/itemscontroller-addtocart-servicemethod.png)
-1. Copy this value into the performance signature
+1. Copy this value into the performance signature file
+1. The file should look like this
+    ```
+    {
+      "spec_version": "2.0",
+      "timeseries": [
+        {
+            "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
+            "aggregation" : "avg",
+            "tags" : "app:carts,environment:staging",
+            "upperSevere": 800.0,
+            "upperWarning" : 600.0
+        },
+        {
+            "timeseriesId" : "com.dynatrace.builtin:service.failurerate",
+            "aggregation" : "avg",
+            "tags" : "app:carts,environment:staging",
+            "upperSevere" : 5.0,
+            "upperWarning" : 0.5
+        },
+        {
+            "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
+            "aggregation" : "avg",
+            "tags" : "app:front-end,environment:staging",
+            "upperSevere" : 800.0,
+            "upperWarning" : 600.0
+        },
+        {
+            "timeseriesId" : "com.dynatrace.builtin:servicemethod.responsetime",
+            "aggregation" : "avg",
+            "entityIds" : "SERVICE_METHOD-xxxxxxxxxxxxxxxx",
+            "upperSevere" : 800.0,
+            "upperWarning" : 600.0
+        }
+      ]
+    }
+    ```
 1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.
 
 ---
