@@ -9,7 +9,7 @@
 1. In case you don't have your license yet, you can get a free license here: [https://www.ansible.com/license]
 2. If not already enabled, select Problems from the navigation menu. Then, click the Switch to next generation AI button on the in-product teaser.
 ![Next generation AI](./assets/next_gen_ai.png)
-3. To avoid unnecessary issue detection and problem generation for transactions and services, complete the following steps:
+3. To ensure that the same issue detected generates a problem, disable the frequent issue detection toggle:
     - Go to Settings, Anomaly Detection, Frequent issue detection, and click on the button next to Detect frequent issues within transactions and services to disable it.
     - Click on Save Changes
 
