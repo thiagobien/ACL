@@ -12,6 +12,7 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
     - Ansible Tower job template URL: copy & paste the Ansible Tower job URL from your Ansible Tower remediation job template, e.g., `https://XX.XXX.XX.XXX/#/templates/job_template/18`
     - Username: your Ansible Tower username `admin`
     - Password: your Ansible Tower password `dynatrace`
+    - Set the alert profile to `Sockshop Error Profile'
     - Click "Send test notification" --> a green banner should appear
     - Save the integration
 

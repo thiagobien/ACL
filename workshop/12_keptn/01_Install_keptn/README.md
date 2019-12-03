@@ -22,3 +22,11 @@ In this lab you'll install the keptn runtime on your GKE cluster
     - GKE project (should already be prefilled)
     ![keptn](../assets/keptnInstall.png)
 1. Confirm your entry. The keptn installation process will commence.
+
+![keptn_install](../assets/keptn_installation_logs.png)
+
+---
+
+[Previous Step: Preparation](../00_Preparation) :arrow_backward: :arrow_forward: [Next Step: Configure Monitoring](../02_Configure_Monitoring)
+
+:arrow_up_small: [Back to overview](../)

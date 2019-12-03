@@ -249,10 +249,10 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
     ```
     (bastion) $ kubectl -n ticketmonster get service/ticketmonster-backend-v2
     NAME                       TYPE           CLUSTER-IP        EXTERNAL-IP     PORT(S)        AGE
-    ticketmonster-backend-v2   LoadBalancer   xxx.xxx.xxx.xxx   35.205.224.18   80:32526/TCP   3m46s
+    ticketmonster-backend-v2   LoadBalancer   10.21.0.212       xxx.xxx.xxx.xxx 80:32526/TCP   3m46s
     ```
 
-1. In your browser, navigate to your `ff4j` console: `https://<your-backend>/ff4j-console`. You will be able to switch on/off your new microservice from here. 
+1. In your browser, navigate to your `ff4j` console: `http://<your-backend>/ff4j-console`. You will be able to switch on/off your new microservice from here. 
 
 ![ff4j_console](../assets/ff4j_console.png)
 
@@ -270,8 +270,11 @@ In this lab you'll use feature flags and OpenShift routing mechanism to smoothly
 
 ![orders-microservice](../assets/orders-microservice.png)
 
----
+## (Optional) Clean up resources created
 
+    kubectl delete ns ticketmonster
+
+---
 [Previous Step: Domain Model of Microservice](../6_Domain_Model_of_Microservice) :arrow_backward:
 
 :arrow_up_small: [Back to overview](../)
