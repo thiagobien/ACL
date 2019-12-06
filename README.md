@@ -1,6 +1,6 @@
 # Autonomous Cloud Labs - Docs
 
-This repository is used during an Autonomous Cloud Lab
+This repository is used during the Autonomous Cloud Lab
 
 ## Release branches
 
