@@ -4,8 +4,9 @@ During this section we will gather all the information that we will lateron use 
 
 ## Data needed
 * Credentials for `bastion host`
-* Access to the `Dynatrace Tenant` created for you
+* Access to a `Dynatrace Tenant`.
 * A `Dynatrace API token`. More information can be found [here](dynatrace_api_token.md)
+* A `Dynatrace PAAS token`.
 * A `Github account`
 * A `Github organization` which we will use to fork the sockshop repositories. More information can be found [here](github_org.md)
 * A `Github PAT` (Personal Access Token) which we will use to authenticate with Github. More information can be found [here](github_pat.md)
@@ -44,6 +45,8 @@ On your bastion, execute the following
 ```
 
 This script will take information you have entered in the previous step and use it to automatically deploy the OneAgent. Automation at its finest!
+
+For more information about installing the OneAgent operator visit this [page.](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/installation-and-operation/full-stack/deploy-oneagent-on-kubernetes/)
 
 ---
 

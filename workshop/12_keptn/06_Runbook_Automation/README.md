@@ -99,12 +99,10 @@ In the section `Anomaly detection` override the global anomaly detection and set
 
 ## Step 6: Run the usecase
 ### Configuration change at runtime
-1. In another terminal window than the load generation (do not stop the load generation), execute the following:
+1. Return to the previous terminal window than the load generation (do not stop the load generation), execute the following:
 
     ```
     (bastion)$ cd ~/servicenow-service/usecase
-    (bastion)$ export DT_TENANT=$(kubectl get secret dynatrace -n keptn -o=jsonpath='{.data.DT_TENANT}' | base64 --decode)
-    (bastion)$ export DT_API_TOKEN=$(kubectl get secret dynatrace -n keptn -o=jsonpath='{.data.DT_API_TOKEN}' | base64 --decode)
     (bastion)$ echo $DT_TENANT $DT_API_TOKEN
     (bastion)$ ./enable-promotion.sh "carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')" 30
     ```

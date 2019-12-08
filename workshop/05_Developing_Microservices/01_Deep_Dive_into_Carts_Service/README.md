@@ -35,8 +35,7 @@ In this lab you'll first investigate the code structure of a microservice includ
 1. On the bastion, go to the carts directory and copy the `manifest` folder and name it `lab-manifest`.
 
     ```
-    cd ~/repositories/carts/
-    cp -R manifest/ lab-manifest/
+    cp -R ~/repositories/carts/manifest/ ~/repositories/carts/lab-manifest/
     ```
 
 1. Open `carts.yml` inside the `lab-manifest` directory  and change namespace from `dev` to `lab-dev` (1x in deployment and 1x in service specification).
@@ -68,12 +67,17 @@ In this lab you'll first investigate the code structure of a microservice includ
     image: dynatracesockshop/carts:0.6.0
     ```
 
-1. Run kubectl apply command from `.\carts` directory.
+1. Create the `lab-dev` namespace.
     ```
-    kubectl apply -f lab-manifest
+    kubectl create ns lab-dev
     ```
 
-1. Check all ressources that have been created.
+1. Run kubectl apply command
+    ```
+    kubectl apply -f ~/repositories/carts/lab-manifest
+    ```
+
+1. Check that all ressources that have been created.
     ```
     kubectl get deployments,pods,services -n lab-dev
     ```
@@ -87,9 +91,9 @@ In this lab you'll first investigate the code structure of a microservice includ
 
 1. Delete `lab-manifest` folder.
 
-```
-rm -rf lab-manifest
-```
+    ```
+    rm -rf ~/repositories/carts/lab-manifest
+    ```
 
 ---
 
