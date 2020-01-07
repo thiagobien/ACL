@@ -3,12 +3,13 @@
 In this lab you'll release a service to staging that is not tested based on performance tests. Intentionally, the service is slowed down to fail at the e2e check in the staging pipeline.
 
 ## Step 1: Introduce a Slowdown into the Carts Service
+
 1. Make sure you are in the master branch.
     ```
     (local)$ git checkout master
     ```
 1. In the directory of `carts\`, open the file: `carts\src\main\resources\application.properties`.
-1. Change the value of `delayInMillis` from `0` to `1000` and save.
+1. Change the value of `delayInMillis` from `0` to `1300` and save.
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 2: Create a new Release
@@ -33,6 +34,7 @@ In this lab you'll release a service to staging that is not tested based on perf
 1. (trigger build manually) Click on the newly detected release branch and click on **Build Now**.
 
 ## Step 4: Follow the Jenkins Build Pipelines
+
 1. Open the current build by clicking on the **#no**.
 1. In the Console Output wait for *Starting building: k8s-deploy-staging* and click on that link.
 1. The pipeline should fail due to a too high response time. 
@@ -41,13 +43,13 @@ In this lab you'll release a service to staging that is not tested based on perf
 ![break_early](../assets/break_early.png)
 
 ## Step 5: Remove the Slowdown in the Carts Service
+
 1. Make sure you are in the master branch.
     ```
     (local)$ git checkout master
     ```
 1. In the directory of `carts\`, open the file: `carts\src\main\resources\application.properties`.
-1. Change the value of `delayInMillis` from `1000` to `0` and save.
-1. Open the file `carts\version` and increase the version from `0.6.5` to `0.6.6`
+1. Change the value of `delayInMillis` from `1300` to `0` and save.
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 6: Create a new Release
@@ -57,6 +59,7 @@ In this lab you'll release a service to staging that is not tested based on perf
 1. For the parameter **SERVICE**, enter the name of the service you want to create a release for (**carts**)
 
 ## Step 7. Build the new Release in Jenkins
+
 1. Go to **Jenkins** and **sockshop**.
 1. Click on **carts** pipeline and **Scan Multibranch Pipeline Now**.
 1. Hit **F5** and you should see the new branch, which gets built and deployed to staging. 

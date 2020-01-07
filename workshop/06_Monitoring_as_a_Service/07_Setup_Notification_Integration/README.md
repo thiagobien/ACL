@@ -9,6 +9,7 @@ In this lab you'll learn how to define an alerting profile for a particular prob
 1. At *Filter problems by tag* select *Only include entities that have any tags*.
 1. **Create tag filter** and *Choose a tag*: `[Environment]product:sockshop`.
 1. **Create tag filter** and *Choose a tag*: `environment:production`.
+    - **Note:** Since nothing has been yet deployed to the production namespace, a manually applied tag: `environment:production` will need to be created for for this step.
 1. Finally, click **Done**.
 ![tagging-rule](../assets/alerting_profile.png)
 
