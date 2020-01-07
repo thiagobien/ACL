@@ -9,7 +9,7 @@ In this lab you'll release a service to staging that is not tested based on perf
     (local)$ git checkout master
     ```
 1. In the directory of `carts\`, open the file: `carts\src\main\resources\application.properties`.
-1. Change the value of `delayInMillis` from `0` to `1300` and save.
+1. Change the value of `delayInMillis` from `0` to `1100` and save.
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 2: Create a new Release
@@ -49,7 +49,7 @@ In this lab you'll release a service to staging that is not tested based on perf
     (local)$ git checkout master
     ```
 1. In the directory of `carts\`, open the file: `carts\src\main\resources\application.properties`.
-1. Change the value of `delayInMillis` from `1300` to `0` and save.
+1. Change the value of `delayInMillis` from `1100` to `0` and save.
 1. Commit/Push the changes to your GitHub Repository *carts*.
 
 ## Step 6: Create a new Release
