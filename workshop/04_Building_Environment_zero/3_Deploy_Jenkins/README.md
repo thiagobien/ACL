@@ -31,7 +31,7 @@ In order to have this step go faster, an automatic installation option has been 
 1. To install Jenkins automatically, it suffices to execute the following on the bastion host
     ```
     (bastion)$ cd
-    (bastion)$ ./installJenkins.sh
+    (bastion)$ ./deployJenkins.sh
     ```
 
 1. This script will take the values that are required to install Jenkins and use `sed` to copy them into the Kubernetes Deployment specificator as environment variables. The following will be applied:
