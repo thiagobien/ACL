@@ -5,7 +5,7 @@ In this module you will learn about what the keptn framework is, how to install 
 This lab is divided into the following sections
 
 * [Preparation](00_Preparation)
-* [Install Keptn](01_Install_Keptn)
+* [Install Keptn](01_Install_keptn)
 * [Configure Monitoring](02_Configure_Monitoring)
 * [Onboard a Service](03_Onboard_Service)
 * [Quality Gates](04_Quality_Gates)

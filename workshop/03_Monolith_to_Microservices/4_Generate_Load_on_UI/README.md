@@ -19,7 +19,7 @@ This lab runs a load generation script for TicketMonster. The script simulates r
 
 1. Start script using the container.
     ```
-    (bastion) $ docker run -d dynatraceacm/ticketmonster-load-generator /bin/bash loadgeneration.sh http://xxx.xxx.xxx.xxx 60 15
+    (bastion) $ docker run -d dynatraceacm/ticketmonster-load-generator:$USER /bin/bash loadgeneration.sh http://xxx.xxx.xxx.xxx 60 15
     ```
 
 1. Verify the container is running

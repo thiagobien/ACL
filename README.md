@@ -4,7 +4,7 @@ This repository is used during the Autonomous Cloud Lab
 
 ## Release branches
 
-Dedicated release branches have been created which tie into a particular version of the ACL. 
+Dedicated release branches have been created which tie into a particular version of the ACL.
 
 - [release-v3.0](https://github.com/Dynatrace/acl-docs/tree/release-3.0) is the current stable release and is to be used for all ACLs
 
