@@ -13,10 +13,10 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 
 1. Generate load for the `carts` service
     - On your **local machine**, Navigate to the `9_Runbook_Automation_and_Self_Healing` folder
-    - Start the [load generator](../scripts/) (adjust the IP for the cart service, receive the IP via <br> `kubectl get svc -n production` ): 
+    - Start the [load generator](../scripts/) script by executing the following command:
       ```
-      $ cd ~
-      $ ./add-to-cart.sh http://XX.XXX.XXX.XX/carts/1/items
+      (bastion)$ cd ~
+      (bastion)$ ./add-to-cart.sh http://$(kubectl -n production get svc carts -o json | jq -r .status.loadBalancer.ingress[].ip)/carts/1/items
       ```
 
 1. Run the promotional campain
@@ -25,7 +25,7 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
     ![run template](../assets/ansible-template-run.png)
     - Adjust the values accordingly for you promotional campaign:
       - Set the value for `promotion_rate: '20'` to allow for 20 % of the user interactions to receive the promotional gift
-      - Do not change the `remediation_action` 
+      - Do not change the `remediation_action`
     - Click _Next_
     - Click _Launch_
 

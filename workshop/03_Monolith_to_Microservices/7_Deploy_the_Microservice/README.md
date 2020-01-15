@@ -2,7 +2,7 @@
 
 Based on the result of the previous labs, you identified the microservice **OrdersService** that has its own code repository and defines its own domain model. To launch this service, it is not recommended to directly route traffic to this new service since we cannot fully ensure that it works as supposed. For this reason, we strangle the microservice around the monolith. In other words, all incoming requests will still be intercepted by the backend service, which forwards synthetic or live traffic to **OrdersService**.
 
-In this lab you'll use feature flags and OpenShift routing mechanism to smoothly incorporate the new microservice into the monolith. The final state of this lab is shown below:
+In this lab you'll use feature flags and Kubernetes routing mechanism to smoothly incorporate the new microservice into the monolith. The final state of this lab is shown below:
 
 ![deploy_microservice](../assets/deploy_microservice.png)
 
