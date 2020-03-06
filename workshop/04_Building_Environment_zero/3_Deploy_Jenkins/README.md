@@ -4,7 +4,6 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
 ## Data needed
 
-* creds.json file populated
 * GitHub organization
 * GitHub user email address
 * Docker Registry IP address (from previous step)
@@ -59,19 +58,15 @@ In order to have this step go faster, an automatic installation option has been 
 
     ![](../assets/jenkins-ui-login.png)
 
-
 1. After logging in, you will be presented with the Jenkins UI with the preconfigured build pipelines for the Sockshop projects.
 
     ![](../assets/jenkins-ui.png)
 
 1. For later use we configure Git credentials in Jenkins, so that selected pipelines can commit commit to Git with the provided credentials. Click "Credentials" :one: in the Jenkins UI, then the small black arrow next to "global", that shows when you put the mouse cursor over "global" :two:. Finally, click "Add credentials :three:.
 
-    ![](../assets/jenkins-ui-credentials.png)
-
-1. Provide your Git username :one:, your [Personal Access token](https://github.com/settings/tokens/new) :two:, and the ID :three:.
-
     ![](../assets/jenkins-ui-add-credentials.png)
 
+1. Provide your Git username :one:, your [Personal Access token](https://github.com/settings/tokens/new) :two:, and the ID :three:.
     **It's important to use this ID `git-credentials-acm`, as the credentials are referenced by this ID by selected builds.** To save the credentials click OK :four:.
 
 ---

@@ -6,7 +6,7 @@ In this lab you'll onboard a service to keptn
 Execute the following command from your home directory to clone the keptn examples repo
 ```
 (bastion)$ cd
-(bastion)$ git clone --branch 0.5.0 https://github.com/keptn/examples.git --single-branch
+(bastion)$ git clone --branch 0.6.0 https://github.com/keptn/examples.git --single-branch
 (bastion)$ cd examples/onboarding-carts
 ```
 
