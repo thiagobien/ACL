@@ -8,11 +8,16 @@ In this lab you'll learn how to push deployment and configuration events to Dyna
 Before using the Performance Signature Plugin in build pipelines, it is necessary to configure it in Jenkins.
 1. Go to **Jenkins** and click on **Manage Jenkins**.
 1. Click on **Configure System** and scroll down to **Performance Signature: Dynatrace Saas/Managed**.
-1. The **Performance Signature Plugin** has already been configured as part of the Jenkins deployment.
-1. Test connection by clicking on **Test connection**:
-
-    ![](../assets/dynatrace-jenkins-plugin-config.png)
-
+1. Select **add Dynatrace server** and for `Name` enter `Dynatrace Tenant` and then add your Dynatrace tenant URL.
+1. Create a Dynatrace API Token by clicking on **Add** > **Jenkins** (Jenkins Credential Provider).
+1. Select `Kind` as **Dynatrace API Token** and specify `ID` as `dynatraceToken`.
+1. To retrieve the API token from Dynatrace:
+    1. Go to **Settings**, **Integration**, and click on **Dynatrace API**.
+    1. Click on **Generate token**, specify a name of the token (e.g. *jenkins_pipeline*) and click on **Generate**.
+    1. Open the API Token and **Copy** the token to the clipboard.
+1. Paste the copied token into `API Token` on the Jenkins popupu and click on **Add**.
+1. Test connection by clicking on **Test connection**.
+1. Finally, click **Save**.
 
     ![](../assets/dynatrace-jenkins-plugin-config.png)
 
