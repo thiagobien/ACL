@@ -25,6 +25,6 @@ In order to have this step go faster, an automatic installation option has been 
 
 ---
 
-:arrow_forward: [Next Step: Setup Tower](../02_Setup_Tower)
+:arrow_forward: [Next Step: Setup Dynatrace](../03_Setup_Dynatrace)
 
 :arrow_up_small: [Back to overview](../)
