@@ -256,7 +256,7 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
 
 ![ff4j_console](../assets/ff4j_console.png)
 
-1. Set the flags as shown for **life-traffic**.
+1. Set the flags as shown for **live-traffic**.
 
 ![ff4j_console](../assets/ff4j_feature_flags.png)
 
