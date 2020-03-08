@@ -273,6 +273,7 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
 ## (Optional) Clean up resources created
 
     kubectl delete ns ticketmonster
+    docker stop $USER
 
 ---
 [Previous Step: Domain Model of Microservice](../6_Domain_Model_of_Microservice) :arrow_backward:
