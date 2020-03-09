@@ -3,7 +3,7 @@
 In this lab you will introduce a Java Script error into the front-end. This version will be deployed as version `v2`.
 
 ## Step 1: Introduce an error in the front-end service
-1. Open the file `server.js` in the master branch of the `~/front-end` and set the property `response-error-probability` to 20: 
+1. Open the file `server.js` in the master branch of the `front-end` repository and set the property `response-error-probability` to 20: 
     ```js
     ...
     global.acmws['request-latency'] = 0;
@@ -33,7 +33,7 @@ In this lab you will introduce a Java Script error into the front-end. This vers
 
 ## Step 3: Deploy the new front-end to production
 1. Go to your **Jenkins** and click on **k8s-deploy-production.update**.
-1. Click on **master** and **Build with Parameters**:
+1. Click on **Build with Parameters**:
     * SERVICE: *front-end*
     * VERSION: *v2*
 1. Hit **Build** and wait until the pipeline shows: *Success*.
