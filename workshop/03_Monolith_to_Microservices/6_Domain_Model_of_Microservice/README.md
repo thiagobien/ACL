@@ -9,8 +9,12 @@ For more details about this lab, please take a look at the following blog post: 
 ## Step 1: Use Dynatrace to learn more about the Domain Model
 
 1. Open service flow as explained in **Lab 4 - Identify a Microservice** at **Step 3**.
-1. Follow the service flow through BookingService and your custom service. 
+1. Follow the service flow through BookingService and your custom service.
 1. Click on the MySQL instance **ticketmonster** and on **View database statements**.
+1. Apply a filter to view the SQL statements from the orders-service:
+    - Filtered by `Called by: orders-service`
+
+![sql_statements](../assets/ticketmonster_sql.png)
 
 ## Step 2: Create database for microservice
 

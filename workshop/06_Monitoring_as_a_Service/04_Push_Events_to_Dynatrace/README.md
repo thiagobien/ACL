@@ -19,6 +19,9 @@ Before using the Performance Signature Plugin in build pipelines, it is necessar
 1. Test connection by clicking on **Test connection**.
 1. Finally, click **Save**.
 
+    ![](../assets/dynatrace-jenkins-plugin-config.png)
+
+
 ## Step 2: Add additional Step to Carts Pipeline
 To push deployment events to Dynatrace, extend the `Jenkinsfile` for `carts` service as follows:
 1. Open the `Jenkinsfile` in the `~/repositories/carts` folder (Or edit the file directly on the GitHub carts repository within your Organization). 
