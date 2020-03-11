@@ -29,7 +29,7 @@
       
     - name: debug customproperties
       debug:
-        msg: {{ customproperties }}
+        msg: "{{ customproperties }}"
 
     - name: parse configuration events
       when: state == "OPEN"
@@ -40,7 +40,7 @@
       
     - name: debug configuration_events
       debug:
-        msg: {{ configuration_events }}
+        msg: "{{ configuration_events }}"
 
     - name: get most recent configuration event
       when: state == "OPEN"
