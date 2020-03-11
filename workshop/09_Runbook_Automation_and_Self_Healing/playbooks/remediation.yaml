@@ -46,6 +46,10 @@
       when: state == "OPEN"
       set_fact:
         myItem: "{{ configuration_events | first }}"
+        
+    - name: debug myItem
+      debug:
+        msg: "{{ myItem }}"
 
     - name: call remediation action
       uri:
@@ -57,9 +61,13 @@
         status_code: [200,201,202]
         validate_certs: no
         return_content: yes
-      when: state == "OPEN" and myItem.customProperties.RemediationAction is defined
+      when: state == "OPEN" and myItem.customProperties.remediationAction is defined
       ignore_errors: yes
       register: result
+      
+    - name: debug result
+      debug:
+        msg: "{{ result }}"
 
     - name: push success comment to dynatrace
       uri:
