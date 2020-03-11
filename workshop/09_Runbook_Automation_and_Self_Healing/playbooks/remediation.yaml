@@ -26,6 +26,10 @@
       when: state == "OPEN"
       register: customproperties
       ignore_errors: no
+      
+    - name: debug customproperties
+      debug:
+        msg: {{ customproperties }}
 
     - name: parse configuration events
       when: state == "OPEN"
@@ -33,6 +37,10 @@
         configuration_events: "{{item.json.events}}"
       with_items: "{{ customproperties.results }}"
       register: app_result
+      
+    - name: debug configuration_events
+      debug:
+        msg: {{ configuration_events }}
 
     - name: get most recent configuration event
       when: state == "OPEN"
