@@ -2,7 +2,7 @@
 - name: autoremediaton playbook
   hosts: localhost
   vars:
-    relative_time: "hour"
+    relative_time: "day"
 
   tasks:
     - name: push comment to dynatrace
