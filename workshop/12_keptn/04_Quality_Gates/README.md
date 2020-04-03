@@ -2,12 +2,25 @@
 
 In this lab you'll set up automated quality gates using keptn.
 
-## Step 1: Inform Dynatrace about SLO definition
-To set up the quality gates for the carts service, please navigate to the `examples/onboarding-carts` folder. This folder contains the files `service-indicators.yaml` and `service-objectives-with-dynatrace.yaml`. To set the quality gates based on those files, upload it via the following command:
-```
+## Step 1: Setup quality gate and monitoring
+Keptn requires a performance specification for the quality gate. This specification is described in a file called slo.yaml, which specifies a Service Level Objective (SLO) that should be met by a service.
+
+Navigate to the `examples/onboarding-carts` folder and upload the `slo-quality-gates.yaml` file using the add-resource command:
+```bash
 (bastion)$ cd ~/examples/onboarding-carts
-(bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=service-indicators.yaml --resourceUri=service-indicators.yaml
-(bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=service-objectives-dynatrace-only.yaml --resourceUri=service-objectives.yaml
+(bastion)$ keptn add-resource --project=sockshop --stage=staging --service=carts --resource=slo-quality-gates.yaml --resourceUri=slo.yaml
+```
+
+During the evaluation of a quality gate, an SLI provider is required to fetch the values for the indicators referenced in an SLO configuration.
+
+To install the `dynatrace-sli-service`, run the following:
+```bash
+(bastion)$ kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/dynatrace-sli-service/0.3.1/deploy/service.yaml
+```
+
+Now configure the SLIs for Dynatrace as specified in `sli-config-dynatrace.yaml`:
+```bash
+keptn add-resource --project=sockshop --stage=staging --service=carts --resource=sli-config-dynatrace.yaml --resourceUri=dynatrace/sli.yaml
 ```
 
 ## Step 2: Open the Carts Viewer Page
