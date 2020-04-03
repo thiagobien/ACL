@@ -76,7 +76,7 @@ stages:
 ## Step 5: Deploy the keptn's bridge to visualize deployments
 ```
 (bastion)$ cd
-(bastion)$ ./installKeptnBridge.sh
+(bastion)$ ./exposeKeptnBridge.sh
 ```    
 ![bridge](../assets/keptnBridge.png)
 
