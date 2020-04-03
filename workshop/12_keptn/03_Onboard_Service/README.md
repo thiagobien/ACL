@@ -65,11 +65,11 @@ stages:
 ## Step 4: Send new artifacts and watch Keptn doing the deployment
 1. Deploy the carts-db service by executing the keptn send event new-artifact command:
     ```
-    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo
+    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo --tag=4.2.2
     ```
-1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.9.1.
+1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.10.1.
     ```
-    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.9.1
+    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.10.1
     ```
 ## Step 5: Deploy the keptn's bridge to visualize deployments
 ```
