@@ -26,8 +26,8 @@ stages:
 ```
 1. Execute the following commands to set environment variables and creating the project. Replace `YOURKEPTNURL` with the URL of the repo you created for the project *apending the .git*, e.g.: https://github.com/myaclorg/sockshop.git
     ```
-    (bastion)$ export GIT_USER=$(cat ../../creds.json | jq -r '.githubUserName')
-    (bastion)$ export GIT_TOKEN=$(cat ../../creds.json | jq -r '.githubPersonalAccessToken')
+    (bastion)$ export GIT_USER=$(jq -r '.githubUserName' ~/creds.json)
+    (bastion)$ export GIT_TOKEN=$(jq -r '.githubPersonalAccessToken' ~/creds.json)
     (bastion)$ export GIT_REMOTE_URL=YOURKEPTNURL
     (bastion)$ keptn create project sockshop --shipyard=./shipyard.yaml --git-user=$GIT_USER --git-token=$GIT_TOKEN --git-remote-url=$GIT_REMOTE_URL
     ```
