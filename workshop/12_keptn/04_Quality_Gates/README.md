@@ -20,7 +20,7 @@ To install the `dynatrace-sli-service`, run the following:
 
 Now configure the SLIs for Dynatrace as specified in `sli-config-dynatrace.yaml`:
 ```bash
-keptn add-resource --project=sockshop --stage=staging --service=carts --resource=sli-config-dynatrace.yaml --resourceUri=dynatrace/sli.yaml
+(bastion)$ keptn add-resource --project=sockshop --stage=staging --service=carts --resource=sli-config-dynatrace.yaml --resourceUri=dynatrace/sli.yaml
 ```
 
 ## Step 2: Open the Carts Viewer Page
