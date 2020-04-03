@@ -16,14 +16,14 @@ In this lab you'll install the keptn runtime on your GKE cluster
     ```
     (bastion)$ keptn install --platform=gke --istio-install-option=Overwrite
     ```
-1. The installer will ask you for the following information:
+2. The installer will ask you for the following information:
     - Cluster name (should already be prefilled)
     - Cluster zone (should already be prefilled)
     - GKE project (should already be prefilled)
 
 ![keptn](../assets/keptnInstall.png)
 
-1. Confirm your entry. The keptn installation process will commence.
+3. Confirm your entry. The keptn installation process will commence.
 
 ![keptn_install](../assets/keptn_installation_logs.png)
 
