@@ -6,7 +6,7 @@ In this lab you'll onboard a service to keptn
 Execute the following command from your home directory to clone the keptn examples repo
 ```
 (bastion)$ cd
-(bastion)$ git clone --branch 0.5.0 https://github.com/keptn/examples.git --single-branch
+(bastion)$ git clone --branch 0.6.1 https://github.com/keptn/examples.git --single-branch
 (bastion)$ cd examples/onboarding-carts
 ```
 
@@ -26,8 +26,8 @@ stages:
 ```
 1. Execute the following commands to set environment variables and creating the project. Replace `YOURKEPTNURL` with the URL of the repo you created for the project *apending the .git*, e.g.: https://github.com/myaclorg/sockshop.git
     ```
-    (bastion)$ export GIT_USER=$(cat ../../creds.json | jq -r '.githubUserName')
-    (bastion)$ export GIT_TOKEN=$(cat ../../creds.json | jq -r '.githubPersonalAccessToken')
+    (bastion)$ export GIT_USER=$(jq -r '.githubUserName' ~/creds.json)
+    (bastion)$ export GIT_TOKEN=$(jq -r '.githubPersonalAccessToken' ~/creds.json)
     (bastion)$ export GIT_REMOTE_URL=YOURKEPTNURL
     (bastion)$ keptn create project sockshop --shipyard=./shipyard.yaml --git-user=$GIT_USER --git-token=$GIT_TOKEN --git-remote-url=$GIT_REMOTE_URL
     ```
@@ -76,7 +76,7 @@ stages:
 ## Step 5: Deploy the keptn's bridge to visualize deployments
 ```
 (bastion)$ cd
-(bastion)$ ./installKeptnBridge.sh
+(bastion)$ ./exposeKeptnBridge.sh
 ```    
 ![bridge](../assets/keptnBridge.png)
 

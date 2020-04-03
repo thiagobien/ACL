@@ -41,7 +41,7 @@ In a new terminal window, execute the following:
 In the other terminal window, execute the following to expose Prometheus as a virtual service
 ```
 (bastion)$ cd
-(bastion)$ ./installPrometheusVirtualService.sh
+(bastion)$ ./exposePrometheus.sh
 ```
 This script will expose Prometheus and output the URL.
 Open this URL in a browser
