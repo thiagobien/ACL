@@ -4,9 +4,7 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
 ## Data needed
 
-* GitHub organization
-* GitHub user email address
-* Docker Registry IP address (from previous step)
+* creds.json file populated
 
 ## Setup all the namespaces, databases and RabbitMQ executing the following command:
 
