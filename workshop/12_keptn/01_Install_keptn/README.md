@@ -20,6 +20,7 @@ In this lab you'll install the keptn runtime on your GKE cluster
     - Cluster name (should already be prefilled)
     - Cluster zone (should already be prefilled)
     - GKE project (should already be prefilled)
+
 ![keptn](../assets/keptnInstall.png)
 
 1. Confirm your entry. The keptn installation process will commence.
