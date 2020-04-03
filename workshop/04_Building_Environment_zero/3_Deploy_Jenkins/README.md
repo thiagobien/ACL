@@ -12,13 +12,13 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
 In this lab, we'll also prepare the `dev`, `staging`, and `production` namespaces in Kubernetes, so that the services find the infrastructure components that they need to work properly, i.e. the databases for certain services, and RabbitMQ. 
 
-    ```
+    ```bash
     (bastion)$ kubectl create -f repositories/sockshop-infrastructure/manifests/
     ```
 
 Verify the deployments have been successful in each of the namespaces using the following command
 
-    ```
+    ```bash
     (bastion)$ kubectl get deployment --all-namespaces | grep 'db\|rabbit'
     ```
 
@@ -31,7 +31,7 @@ In order to have this step go faster, an automatic installation option has been 
 ## Auto Installation
 
 1. To install Jenkins automatically, it suffices to execute the following on the bastion host
-    ```
+    ```bash
     (bastion)$ cd
     (bastion)$ ./deployJenkins.sh
     ```
@@ -45,11 +45,10 @@ In order to have this step go faster, an automatic installation option has been 
 
 ## Confirm Jenkins configuration
 
-1. Get the `Jenkins URL` to visit by running these commands in the same shell (can be obtained from the helm output):
+1. Find the IP for Jenkins by retrieving the `jenkins` service which was deployed:
 
     ```bash
-    (bastion)$ export SERVICE_IP=$(kubectl get svc --namespace cicd jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
-    (bastion)$ echo http://$SERVICE_IP:80/login
+    (bastion)$ kubectl -n cicd get svc jenkins
     ```
 
 1. Open the `Jenkins URL` in your browser and login with the following credentials:
