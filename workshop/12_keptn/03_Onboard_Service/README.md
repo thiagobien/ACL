@@ -44,11 +44,9 @@ stages:
     * Functional tests
         ```
         (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=dev --resource=jmeter/basiccheck.jmx --resourceUri=jmeter/basiccheck.jmx
-        (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter/basiccheck.jmx --resourceUri=jmeter/basiccheck.jmx
         ```
     * Performance tests
         ```
-        (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=dev --resource=jmeter/load.jmx --resourceUri=jmeter/load.jmx
         (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter/load.jmx --resourceUri=jmeter/load.jmx
         ```
 1. Onboard the *carts-db* service using the onboard service command. The `--deployment-strategy` flag specifies that for this service a direct deployment strategy in all stages should be used regardless of the deployment strategy specified in the shipyard. Thus, the database is not blue/green deployed.
@@ -67,11 +65,11 @@ stages:
 ## Step 4: Send new artifacts and watch Keptn doing the deployment
 1. Deploy the carts-db service by executing the keptn send event new-artifact command:
     ```
-    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo
+    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo --tag=4.2.2
     ```
-1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.9.1.
+1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.10.1.
     ```
-    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.9.1
+    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.10.1
     ```
 ## Step 5: Deploy the keptn's bridge to visualize deployments
 ```
