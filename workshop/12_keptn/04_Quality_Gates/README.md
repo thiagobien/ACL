@@ -22,6 +22,10 @@ Now configure the SLIs for Dynatrace as specified in `sli-config-dynatrace.yaml`
 ```bash
 (bastion)$ keptn add-resource --project=sockshop --stage=staging --service=carts --resource=sli-config-dynatrace.yaml --resourceUri=dynatrace/sli.yaml
 ```
+To have keptn use the Dynatrace SLI provider for the project sockshop, execute the following:
+```bash
+(bastion)$ keptn configure monitoring dynatrace --project=sockshop
+```
 
 ## Step 2: Open the Carts Viewer Page
 In the previous lab ([Onboard Service](../03_Onboard_Service)), we set up a html file that shows all three environments alongside. Open this file.
