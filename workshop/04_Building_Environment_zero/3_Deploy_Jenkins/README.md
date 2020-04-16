@@ -10,13 +10,13 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
 In this lab, we'll also prepare the `dev`, `staging`, and `production` namespaces in Kubernetes, so that the services find the infrastructure components that they need to work properly, i.e. the databases for certain services, and RabbitMQ. 
 
-    ```
+    ```bash
     (bastion)$ kubectl create -f repositories/sockshop-infrastructure/manifests/
     ```
 
 Verify the deployments have been successful in each of the namespaces using the following command
 
-    ```
+    ```bash
     (bastion)$ kubectl get deployment --all-namespaces | grep 'db\|rabbit'
     ```
 
@@ -29,7 +29,7 @@ In order to have this step go faster, an automatic installation option has been 
 ## Auto Installation
 
 1. To install Jenkins automatically, it suffices to execute the following on the bastion host
-    ```
+    ```bash
     (bastion)$ cd
     (bastion)$ ./deployJenkins.sh
     ```
@@ -43,11 +43,10 @@ In order to have this step go faster, an automatic installation option has been 
 
 ## Confirm Jenkins configuration
 
-1. Get the `Jenkins URL` to visit by running these commands in the same shell (can be obtained from the helm output):
+1. Find the IP for Jenkins by retrieving the `jenkins` service which was deployed:
 
-    ```
-    (bastion)$ export SERVICE_IP=$(kubectl get svc --namespace cicd jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
-    (bastion)$ echo http://$SERVICE_IP:80/login
+    ```bash
+    (bastion)$ kubectl -n cicd get svc jenkins
     ```
 
 1. Open the `Jenkins URL` in your browser and login with the following credentials:
@@ -56,15 +55,16 @@ In order to have this step go faster, an automatic installation option has been 
 
     ![](../assets/jenkins-ui-login.png)
 
-
 1. After logging in, you will be presented with the Jenkins UI with the preconfigured build pipelines for the Sockshop projects.
 
     ![](../assets/jenkins-ui.png)
 
-1.The credentials needed for this lab should already be configured on Jenkins, this can be verified by navigating to Credentials -> System -> Global credentials (unrestricted):
+1. For later use we configure Git credentials in Jenkins, so that selected pipelines can commit commit to Git with the provided credentials. Click "Credentials" :one: in the Jenkins UI, then the small black arrow next to "global", that shows when you put the mouse cursor over "global" :two:. Finally, click "Add credentials :three:.
 
-![](../assets/jenkins-ui-credentials.png)
+    ![](../assets/jenkins-ui-add-credentials.png)
 
+1. Provide your Git username :one:, your [Personal Access token](https://github.com/settings/tokens/new) :two:, and the ID :three:.
+    **It's important to use this ID `git-credentials-acm`, as the credentials are referenced by this ID by selected builds.** To save the credentials click OK :four:.
 
 ---
 

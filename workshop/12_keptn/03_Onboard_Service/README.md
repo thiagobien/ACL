@@ -6,7 +6,7 @@ In this lab you'll onboard a service to keptn
 Execute the following command from your home directory to clone the keptn examples repo
 ```
 (bastion)$ cd
-(bastion)$ git clone --branch 0.5.0 https://github.com/keptn/examples.git --single-branch
+(bastion)$ git clone --branch 0.6.1 https://github.com/keptn/examples.git --single-branch
 (bastion)$ cd examples/onboarding-carts
 ```
 
@@ -26,8 +26,8 @@ stages:
 ```
 1. Execute the following commands to set environment variables and creating the project. Replace `YOURKEPTNURL` with the URL of the repo you created for the project *apending the .git*, e.g.: https://github.com/myaclorg/sockshop.git
     ```
-    (bastion)$ export GIT_USER=$(cat ../../creds.json | jq -r '.githubUserName')
-    (bastion)$ export GIT_TOKEN=$(cat ../../creds.json | jq -r '.githubPersonalAccessToken')
+    (bastion)$ export GIT_USER=$(jq -r '.githubUserName' ~/creds.json)
+    (bastion)$ export GIT_TOKEN=$(jq -r '.githubPersonalAccessToken' ~/creds.json)
     (bastion)$ export GIT_REMOTE_URL=YOURKEPTNURL
     (bastion)$ keptn create project sockshop --shipyard=./shipyard.yaml --git-user=$GIT_USER --git-token=$GIT_TOKEN --git-remote-url=$GIT_REMOTE_URL
     ```
@@ -44,11 +44,9 @@ stages:
     * Functional tests
         ```
         (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=dev --resource=jmeter/basiccheck.jmx --resourceUri=jmeter/basiccheck.jmx
-        (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter/basiccheck.jmx --resourceUri=jmeter/basiccheck.jmx
         ```
     * Performance tests
         ```
-        (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=dev --resource=jmeter/load.jmx --resourceUri=jmeter/load.jmx
         (bastion)$ keptn add-resource --project=sockshop --service=carts --stage=staging --resource=jmeter/load.jmx --resourceUri=jmeter/load.jmx
         ```
 1. Onboard the *carts-db* service using the onboard service command. The `--deployment-strategy` flag specifies that for this service a direct deployment strategy in all stages should be used regardless of the deployment strategy specified in the shipyard. Thus, the database is not blue/green deployed.
@@ -67,16 +65,16 @@ stages:
 ## Step 4: Send new artifacts and watch Keptn doing the deployment
 1. Deploy the carts-db service by executing the keptn send event new-artifact command:
     ```
-    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo
+    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo --tag=4.2.2
     ```
-1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.9.1.
+1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.10.1.
     ```
-    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.9.1
+    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.10.1
     ```
 ## Step 5: Deploy the keptn's bridge to visualize deployments
 ```
 (bastion)$ cd
-(bastion)$ ./installKeptnBridge.sh
+(bastion)$ ./exposeKeptnBridge.sh
 ```    
 ![bridge](../assets/keptnBridge.png)
 

@@ -1,39 +1,36 @@
 # Self-healing with Keptn and Prometheus
 
-n this tutorial you will learn how to use the capabilities of Keptn to provide self-healing for an application without modifying any of the applications code. The tutorial presented in the following will scale up the pods of an application if the application undergoes heavy CPU saturation.
+In this tutorial you will learn how to use the capabilities of Keptn to provide self-healing for an application without modifying any of the applications code. The tutorial presented in the following will scale up the pods of an application if the application undergoes heavy CPU saturation.
 
 ## Step 1: Configure Prometheus monitoring
-To inform Keptn about any issues in a production environment, monitoring has to be set up. The Keptn CLI helps with automated setup and configuration of Prometheus as the monitoring solution running in the Kubernetes cluster.
+Keptn CLI by default uses Prometheus to capture data about deployed services. Like Dynatrace, however, we must first deploy a service to properly orchestrate Prometheus monitoring.
 
-For the configuration, Keptn relies on different specification files that define service level indicators (SLI), service level objectives (SLO), and remediation actions for self-healing if service level objectives are not achieved. To learn more about the service-indicator, service-objective, and remediation file, click here [Specifications for Site Reliability Engineering with Keptn](https://github.com/keptn/keptn/blob/0.5.0/specification/sre.md).
-
-In order to add these files to Keptn and to automatically configure Prometheus, execute the following commands:
+```bash
+(bastion)$ kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/prometheus-service/release-0.3.2/deploy/service.yaml
 ```
-(bastion)$ cd examples/onboarding-carts
-(bastion)$ keptn add-resource --project=sockshop --service=carts --stage=production --resource=service-indicators.yaml --resourceUri=service-indicators.yaml
-(bastion)$ keptn add-resource --project=sockshop --service=carts --stage=production --resource=service-objectives-prometheus-only.yaml --resourceUri=service-objectives.yaml
-(bastion)$ keptn add-resource --project=sockshop --service=carts --stage=production --resource=remediation.yaml --resourceUri=remediation.yaml
+
+In the same `examples` repository, we will find a Prometheus SLI file (`sli-config-prometheus.yaml`), a self-healing SLO file (`slo-self-healing.yaml`), and also a remediation file (`remediation.yaml`), which defines what actions to take when certain SLO thresholds are exceeded.
+
+Apply the configuration:
+```bash
+(bastion)$ keptn add-resource --project=sockshop --stage=production --service=carts --resource=sli-config-prometheus.yaml --resourceUri=prometheus/sli.yaml
+(bastion)$ keptn add-resource --project=sockshop --stage=production --service=carts --resource=slo-self-healing.yaml --resourceUri=slo.yaml
+(bastion)$ keptn add-resource --project=sockshop --stage=production --service=carts --resource=remediation.yaml --resourceUri=remediation.yaml
+```
+
+Finally, deploy the Prometheus service for the `carts` service.
+```bash 
 (bastion)$ keptn configure monitoring prometheus --project=sockshop --service=carts
 ```
 
-Executing this command will perform the following tasks:
-
-* Set up Prometheus
-* Configure Prometheus with scrape jobs and alerting rules for the service
-* Set up the Alert Manager to manage alerts
-* Add the `service-indicators.yaml`, `service-objectives.yaml` and `remediation.yaml` to your Keptn configuration repository
-
 ## Step 2: Run self-healing
 
-### Deploy an unhealthy service version
-Make sure that carts has been deployed to production succesfully. The verion is not important as all have the same performance issue that will be handled here.
-
-
+**Before you begin**, make sure that the `carts` service has been successfully deployed to production.
 
 ### Generate load for the service
 In a new terminal window, execute the following:
 ```
-(bastion)$ cd ../load-generation/bin
+(bastion)$ cd ~/examples/load-generation/bin
 (bastion)$ ./loadgenerator-linux "http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')" cpu
 ```
 
@@ -41,7 +38,7 @@ In a new terminal window, execute the following:
 In the other terminal window, execute the following to expose Prometheus as a virtual service
 ```
 (bastion)$ cd
-(bastion)$ ./installPrometheusVirtualService.sh
+(bastion)$ ./exposePrometheus.sh
 ```
 This script will expose Prometheus and output the URL.
 Open this URL in a browser

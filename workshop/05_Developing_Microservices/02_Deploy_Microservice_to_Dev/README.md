@@ -51,7 +51,7 @@ In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, 
 1. Click on **carts** pipeline and **Scan Multibranch Pipeline Now**.
 1. Click on the **build** and open the **Console output** to follow the progress of the pipeline.
 1. View the newly configured health checks on the carts microservice:
-    - Expected output: `{"health":[{"service":"carts","status":"OK","date":"2019-12-10T15:47:32.434Z"},{"service":"carts-db","status":"OK","date":"2019-12-10T15:47:32.434Z"}]}
+    - Expected output: `{"health":[{"service":"carts","status":"OK","date":"2019-12-10T15:47:32.434Z"},{"service":"carts-db","status":"OK","date":"2019-12-10T15:47:32.434Z"}]}`
     - The carts health url endpoint can be retrieved from the command on step 1.
 
 ---
