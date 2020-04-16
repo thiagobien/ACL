@@ -6,7 +6,7 @@ In this lab you'll learn how to create a container image and how to run a contai
 
 1. View the `Dockerfile` using an editor.
     ```
-    (bastion)$ cd ~/acl-repo/01_Working_with_Containers
+    (bastion)$ cd acl-docs/01_Working_with_Containers
     (bastion)$ vi Dockerfile
     ```
 
@@ -24,7 +24,7 @@ In this lab you'll learn how to create a container image and how to run a contai
 
 1. Build the container image (`-t` specifies the repository and a tag). The `$USER` variable will tag the image with your username.
     ```
-    (bastion)$ docker build -t acm-workshop/hello-world:$USER .
+    (bastion)$ docker build -t acl/hello-world:$USER .
     ```
 
 1. List all container images on your local machine.
@@ -34,7 +34,7 @@ In this lab you'll learn how to create a container image and how to run a contai
 
 1. (optional) Set another tag.
     ```
-    (bastion)$ docker tag acm-workshop/hello-world:$USER acm-workshop/hello-world:$USER-stable
+    (bastion)$ docker tag acl/hello-world:$USER acl/hello-world:$USER-stable
     ```
 
 1. List all container images on your local machine.
@@ -46,5 +46,5 @@ In this lab you'll learn how to create a container image and how to run a contai
 
 1. Run the container based on a container image.
     ```
-    (bastion)$ docker run acm-workshop/hello-world:$USER-stable
+    (bastion)$ docker run acl/hello-world:$USER-stable
     ```

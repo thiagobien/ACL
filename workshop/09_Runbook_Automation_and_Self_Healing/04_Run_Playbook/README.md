@@ -12,7 +12,6 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 ## Run the campaign in our PRODUCTION environment
 
 1. Generate load for the `carts` service
-    - On your **local machine**, Navigate to the `9_Runbook_Automation_and_Self_Healing` folder
     - Start the [load generator](../scripts/) script by executing the following command:
       ```
       (bastion)$ cd ~
@@ -21,7 +20,7 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 
 1. Run the promotional campain
     - Navigate to _Templates_ in your Ansible Tower
-    - Click on the "rocket" icon (🚀) next to your _start campaign userX_ job template
+    - Click on the "rocket" icon (🚀) next to your _start campaign_ job template
     ![run template](../assets/ansible-template-run.png)
     - Adjust the values accordingly for you promotional campaign:
       - Set the value for `promotion_rate: '20'` to allow for 20 % of the user interactions to receive the promotional gift
@@ -33,13 +32,13 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 1. Verify the update in the `carts` service in Dynatrace: navigate to the `carts` service in your Dynatrace tenant and verify the configuration change that has been applied and sent to Dynatrace.
     ![custom configuration event](../assets/service-custom-configuration-event.png)
 
-1. Experience an increase of the failure rate: you will experience an increase of the failure rate of the `carts-ItemController` in Dynatrace once you enable the promotional campaign. 
+1. Experience an increase of the failure rate: you will experience an increase of the failure rate of the `ItemController` in Dynatrace once you enable the promotional campaign. 
     ![failure rate increase](../assets/failure-rate-increase.png)
 
 1. Dynatrace will open a problem ticket for the increase of the failure rate. Since we have setup the problem notification with Ansible Tower, the according `remediation` playbook will be executed once Dynatrace sends out the notification.
 
 1. Verify executed playbooks in Ansible Tower:
-    Navigate to "Jobs" and verify that Ansible Tower has executed two jobs. The first job - `remediation-userX` was called since Dynatrace sent out the problem notification to Ansible Tower. This job was then executing the remediation tasks which include the execution of the remediation action that is defined in the custom configuration event of the impacted entities (the `carts` service). Therefore, you will also see the `stop-campaign-userX` that was executed.
+    Navigate to "Jobs" and verify that Ansible Tower has executed two jobs. The first job - `remediation` was called since Dynatrace sent out the problem notification to Ansible Tower. This job was then executing the remediation tasks which include the execution of the remediation action that is defined in the custom configuration event of the impacted entities (the `carts` service). Therefore, you will also see the `stop-campaign` that was executed.
 
     ![remediation job execution](../assets/ansible-remediation-execution.png)
 

@@ -18,7 +18,7 @@ In this lab, we'll confirm that the build pipelines to populate the `dev` namesp
 
     ![](../assets/jenkins-failed-builds.png)
 
-1. Execute the pipeline for that job again in case there are any failed builds:
+1. Execute the pipeline for that job again in case there are any failed builds by selecting the job and then executing the `master` branch:
 
     ![](../assets/jenkins-ui-trigger-build.png)
 

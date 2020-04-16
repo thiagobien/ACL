@@ -84,21 +84,15 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
 
     You see, that there are two service instances to the `front-end` service, i.e. the two different deployments we've done earlier, as you can see in the brackets of the processes (front-end-v1-... and front-end-v2-...). Dynatrace is aware of the two versions.
 
-1. Let's create a chart in Dynatrace that shows the traffic distribution between two service versions. To that end, click on the "Create" button in the "Multidimensional analysis views" section on the service screen. In the next screen select the metric `Total requests - Server` and click "Build chart"
+1. Let's create a chart in Dynatrace that shows the traffic distribution between two service versions. To that end, click on the "Create chart" button in the "Multidimensional analysis views" section on the service screen. In the next screen select the metric `Request count`. In the `Split by dimension` field, remove the current dimension and select `{Service:Instance}`. Under `View chart as:`, select `Bar` and which will result in a graph similar to below:
 
     ![chart-select-metric](../assets/chart-select-metric.png)
 
-1. Rename the chart and configure the filter so only requests that contain the string `index` are taken into account for that chart. By doing that, we filter out the readiness and liveness probe requests.
+1. An additional step we can take is filtering out the health check requests to give us a more accurate view of incoming user requests. In the `Filter requests:` field, select `Requests` and then enter `/` (index).
 
-    ![chart-rename-filter](../assets/chart-rename-filter.png)
+    ![chart-add-filter](../assets/chart-add-filter.png)
 
-1. Click on the metric :one: under the chart, select either "Stacked Area" or "Stacked Bar" chart :two:, and select "Service instance" as dimension :three:.
-
-    ![chart-select-dimension](../assets/chart-select-dimension.png)
-
-1. Your chart should now look something like this, already showing the traffic distribution between the two service instances. Finally, click the "Save to Service" button :one: in the upper right corner, so you can easily access this chart form the service overview from now on.
-
-    ![chart-done](../assets/chart-done.png)
+1. Finally, click the "Save to Service" button :one: in the upper right corner, so you can easily access this chart form the service overview from now on.
 
 1. You can now change the weight distribution of version 1 and 2 to arbitrary values and see it reflect in the chart you've just created.
 

@@ -5,7 +5,7 @@ In this lab you'll trigger a performance test for (1) the current implementation
 ## Step 1: Run Performance Test on current Implementation
 
 1. Go to  **Jenkins** and click on **sockshop** folder.
-1. Click on **carts.performance** and select the **master** branch.  
+1. Click on **carts.performance**.
 1. Click on **Build Now** to trigger the performance pipeline.
 
 ## Step 2: Introduce a slowdown in the Carts Service
