@@ -84,14 +84,16 @@ stages:
 
 ## Step 6: View the carts service
 Get the URL for your carts service with the following commands in the respective namespaces:
-```
+
+```bash
 (bastion)$ echo http://carts.sockshop-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 
 (bastion)$ echo http://carts.sockshop-staging.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 
 (bastion)$ echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 ```
-Navigate to the URLs to inspect the carts service. In the production namespace, you should receive an output similar to this:
+
+Navigate to the URLs to inspect the carts service. In the development namespace, you should receive an output similar to this:
 ![carts-dev](../assets/cartsDev.png)
 
 ## Step 7: Prepare the Carts Viewer
