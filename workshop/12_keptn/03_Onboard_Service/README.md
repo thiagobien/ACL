@@ -12,7 +12,8 @@ Execute the following command from your home directory to clone the keptn exampl
 
 ## Step 2: Create a project
 The project will be created using the provided `shipyard` file:
-```
+
+```bash
 stages:
 - name: "dev"
     deployment_strategy: "direct"
@@ -24,13 +25,16 @@ stages:
     deployment_strategy: "blue_green_service"
     remediation_strategy: "automated"
 ```
-1. Execute the following commands to set environment variables and creating the project. Replace `YOURKEPTNURL` with the URL of the repo you created for the project *apending the .git*, e.g.: https://github.com/myaclorg/sockshop.git
-    ```
+
+1. Execute the following commands to set environment variables and creating the project.
+
+    ```bash
     (bastion)$ export GIT_USER=$(jq -r '.githubUserName' ~/creds.json)
     (bastion)$ export GIT_TOKEN=$(jq -r '.githubPersonalAccessToken' ~/creds.json)
-    (bastion)$ export GIT_REMOTE_URL=YOURKEPTNURL
+    (bastion)$ export GIT_REMOTE_URL=https://github.com/$(jq -r '.githubOrg' ~/creds.json)/sockshop.git
     (bastion)$ keptn create project sockshop --shipyard=./shipyard.yaml --git-user=$GIT_USER --git-token=$GIT_TOKEN --git-remote-url=$GIT_REMOTE_URL
     ```
+
     ![keptn](../assets/keptnCreateProject.png)
 1. Go into your repository on github and verify the results (new branches created, helm charts created).
 
@@ -80,14 +84,16 @@ stages:
 
 ## Step 6: View the carts service
 Get the URL for your carts service with the following commands in the respective namespaces:
-```
+
+```bash
 (bastion)$ echo http://carts.sockshop-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 
 (bastion)$ echo http://carts.sockshop-staging.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 
 (bastion)$ echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 ```
-Navigate to the URLs to inspect the carts service. In the production namespace, you should receive an output similar to this:
+
+Navigate to the URLs to inspect the carts service. In the development namespace, you should receive an output similar to this:
 ![carts-dev](../assets/cartsDev.png)
 
 ## Step 7: Prepare the Carts Viewer
