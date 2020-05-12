@@ -12,6 +12,8 @@ In this tutorial, you will learn how to use the capabilities of Keptn to provide
 
 The Dynatrace platform is built on top of AI, which is great for production use cases, but for this demo we have to override some default settings in order for Dynatrace to trigger the problem.
 
+1. Refer to steps 1 and 2 on [Simulate user traffic](#simulate-user-traffic) in the case that the `ItemsController` service in production does not appear on dynatrace
+
 1. Navigate to Transaction & services and find the service ItemsController in the sockshop-production environment.
 
     ![dynatrace service edit](../assets/dynatrace-service-edit.png)
