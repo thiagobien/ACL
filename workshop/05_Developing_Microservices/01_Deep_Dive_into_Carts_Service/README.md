@@ -34,14 +34,17 @@ In this lab you'll first investigate the code structure of a microservice includ
 
 1. On the bastion, go to the carts directory and copy the `manifest` folder and name it `lab-manifest`.
 
-    ```
-    cp -R ~/repositories/carts/manifest/ ~/repositories/carts/lab-manifest/
+    ```bash
+    (bastion)$ cd ~/repositories/carts/
+    (bastion)$ cp -R manifest/ lab-manifest/
+    (bastion)$ cd lab-manifest
     ```
 
 1. Open `carts.yml` inside the `lab-manifest` directory  and change namespace from `dev` to `lab-dev` (1x in deployment and 1x in service specification).
 
     * Update the namespace on the deployment specification to lab-dev on top of `carts.yml`.
-        ```
+
+        ```bash
         ---
         apiVersion: extensions/v1beta1
         kind: Deployment
@@ -51,7 +54,8 @@ In this lab you'll first investigate the code structure of a microservice includ
         ```
 
     * Update the namespace to lab-dev on the service specification (on the bottom) and save file.
-        ```
+
+        ```bash
         ---
         apiVersion: v1
         kind: Service
@@ -63,36 +67,42 @@ In this lab you'll first investigate the code structure of a microservice includ
         ```
 
 1. Verify the container image at spec > containers > image.
-    ```
+
+    ```bash
     image: dynatracesockshop/carts:0.6.0
     ```
 
 1. Create the `lab-dev` namespace.
-    ```
-    kubectl create ns lab-dev
+
+    ```bash
+    (bastion)$ kubectl create ns lab-dev
     ```
 
 1. Run kubectl apply command
-    ```
-    kubectl apply -f ~/repositories/carts/lab-manifest
+
+    ```bash
+    (bastion)$ cd
+    (bastion)$ kubectl apply -f ~/repositories/carts/lab-manifest
     ```
 
 1. Check that all ressources that have been created.
-    ```
-    kubectl get deployments,pods,services -n lab-dev
+
+    ```bash
+    (bastion)$ kubectl get deployments,pods,services -n lab-dev
     ```
 
 1. Retrieve the external IP of your carts service and open it in a browser by adding the `/health` endpoint.
 
 1. Delete all resources that have been created.
-    ```
-    kubectl delete namespace lab-dev
+
+    ```bash
+    (bastion)$ kubectl delete namespace lab-dev
     ```
 
 1. Delete `lab-manifest` folder.
 
-    ```
-    rm -rf ~/repositories/carts/lab-manifest
+    ```bash
+    (bastion)$ rm -rf ~/repositories/carts/lab-manifest
     ```
 
 ---
