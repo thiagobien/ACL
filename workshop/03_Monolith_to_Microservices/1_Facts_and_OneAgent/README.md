@@ -42,7 +42,7 @@ On your bastion, execute the following:
 
 ```bash
 (bastion)$ cd ~
-(bastion)$ ./deployOneagentOperator.sh
+(bastion)$ ./deployOneAgentOperator.sh
 ```
 
 This script will take information you have entered in the previous step and use it to automatically deploy the OneAgent. Automation at its finest!
