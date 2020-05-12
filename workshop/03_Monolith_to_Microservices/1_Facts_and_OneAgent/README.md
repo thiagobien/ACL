@@ -36,12 +36,13 @@ Dynatrace can be a great help in rearchitecting a monolithic application to a mi
 
 We will cover the intristics of the OneAgent Operator in a future section and at this point we will focus only on getting the OneAgent installed.
 
-For that we have provided a OneAgent Operator installation script which will perform all the necesary steps for you. 
+For that we have provided a OneAgent Operator installation script which will perform all the necesary steps for you.
 
-On your bastion, execute the following
-```
+On your bastion, execute the following:
+
+```bash
 (bastion)$ cd ~
-(bastion)$ ./deployDynatraceOperator.sh
+(bastion)$ ./deployOneagentOperator.sh
 ```
 
 This script will take information you have entered in the previous step and use it to automatically deploy the OneAgent. Automation at its finest!
