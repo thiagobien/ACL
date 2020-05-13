@@ -15,7 +15,8 @@ Before using the Performance Signature Plugin in build pipelines, it is necessar
     1. Go to **Settings**, **Integration**, and click on **Dynatrace API**.
     1. Click on **Generate token**, specify a name of the token (e.g. *jenkins_pipeline*) and click on **Generate**.
     1. Open the API Token and **Copy** the token to the clipboard.
-1. Paste the copied token into `API Token` on the Jenkins popupu and click on **Add**.
+1. Paste the copied token into `API Token` on the Jenkins popup and click on **Add**.
+1. Select the newly created token from the dropdown menu.
 1. Test connection by clicking on **Test connection**.
 1. Finally, click **Save**.
 

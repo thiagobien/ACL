@@ -8,21 +8,18 @@ The OneAgent Operator has already been deployed in earlier stages of the lab. Ho
 
 1. Execute the following command from your home directory to install the Dynatrace Service for keptn
 
-    ```
+    ```bash
     (bastion)$ cd
     (bastion)$ ./installDynatraceServiceForKeptn.sh
     ```
+
 1. This script will perform the following steps:
     - Configure automated tagging rules in Dynatrace for environment, service and test-subject
     - Configure a problem notification in Dynatrace for sending events to the keptn api
     - Set up the Dynatrace Service in keptn
 
-## Step 2: Configure Prometheus
-
-Prometheus will be configured later on during the lab exercises.
-
 ---
 
-[Previous Step: Install Keptn](../01_Install_keptn) :arrow_backward: :arrow_forward: [Next Step: Onboard Service](../03_Onboard_Service)
+[Previous Step: Install keptn](../01_Install_keptn) :arrow_backward: :arrow_forward: [Next Step: Onboard a Service](../03_Onboard_Service)
 
 :arrow_up_small: [Back to overview](../)

@@ -22,7 +22,7 @@ Screenshot shows this rule definition.
 1. Edit that tag and **Add new rule**.
     * Rule applies to: `Services` 
     * Optional tag value: `{ProcessGroup:Environment:SERVICE_TYPE}`
-    * Condition on `Process group properties -> SERVICE_TYPE` if `exists`
+    * Condition on `Process group properties -> SERVICE_TYPE (Environment)` if `exists`
 1. Click on **Preview** to validate rule works.
 1. Click on **Create rule** for saving the rule and then **Save changes**.
 

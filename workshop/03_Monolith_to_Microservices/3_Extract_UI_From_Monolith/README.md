@@ -4,9 +4,9 @@ To start breaking up the monolith, a best practice is extracting the user interf
 
 ![tm-ui-v1](../assets/extract_ui.png)
 
-## Step 1: Deploy TicketMonster
+## Step 1: Deploy TicketMonster UI
 
-1. Deploy the Ticketmonster monolith application
+1. Deploy the Ticketmonster UI microservice
 
     Checkout the `manifests-ticketmonster/ticket-ui.yml` file. It will be used to create a new front end for TicketMonster that talks to the backend.
     <details>
@@ -78,7 +78,7 @@ To start breaking up the monolith, a best practice is extracting the user interf
 
     Apply the yaml file to create the service
 
-    ```
+    ```bash
     (bastion) $ kubectl apply -f manifests-ticketmonster/ticket-ui.yml
 
     deployment.extensions/ticketmonster-ui created
@@ -88,8 +88,9 @@ To start breaking up the monolith, a best practice is extracting the user interf
 ## Step 2: Test UI that hits the Monolith
 
 1. Get the public endpoint of the user interface **ticketmonster-ui**.
-    ```
-    kubectl -n ticketmonster get service/ticketmonster-ui
+
+    ```bash
+    (bastion) $ kubectl -n ticketmonster get service/ticketmonster-ui
     NAME               TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)        AGE
     ticketmonster-ui   LoadBalancer   10.90.11.110   xxx.xxx.xxx.xxx   80:31621/TCP   63s
     ```

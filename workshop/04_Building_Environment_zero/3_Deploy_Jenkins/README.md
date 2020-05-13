@@ -4,25 +4,24 @@ Jenkins will be the CI/CD pipeline tool of choice for this workshop. We'll deplo
 
 ## Data needed
 
-* GitHub organization
-* GitHub user email address
-* Docker Registry IP address (from previous step)
+* creds.json file populated
 
 ## Setup all the namespaces, databases and RabbitMQ executing the following command:
 
 In this lab, we'll also prepare the `dev`, `staging`, and `production` namespaces in Kubernetes, so that the services find the infrastructure components that they need to work properly, i.e. the databases for certain services, and RabbitMQ. 
 
-    ```
-    (bastion)$ kubectl create -f repositories/sockshop-infrastructure/manifests/
-    ```
+```bash
+(bastion)$ kubectl create -f repositories/sockshop-infrastructure/manifests/
+```
 
 Verify the deployments have been successful in each of the namespaces using the following command
 
-    ```
-    (bastion)$ kubectl get deployment --all-namespaces | grep 'db\|rabbit'
-    ```
+```bash
+(bastion)$ kubectl get deployment --all-namespaces | grep 'db\|rabbit'
+```
 
 ## Auto install or manual
+
 In order to have this step go faster, an automatic installation option has been provided. This will take the information that was provided earlier and stored in the creds.json file and use that to install and configure Jenkins. For a more verbose experience, a manual installation option is also available.
 
 * [Auto Installation](#auto-installation)
@@ -31,10 +30,11 @@ In order to have this step go faster, an automatic installation option has been 
 ## Auto Installation
 
 1. To install Jenkins automatically, it suffices to execute the following on the bastion host
-    ```
-    (bastion)$ cd
-    (bastion)$ ./deployJenkins.sh
-    ```
+
+```bash
+(bastion)$ cd
+(bastion)$ ./deployJenkins.sh
+```
 
 1. This script will take the values that are required to install Jenkins and use `sed` to copy them into the Kubernetes Deployment specificator as environment variables. The following will be applied:
     - your GitHub organization
@@ -45,16 +45,15 @@ In order to have this step go faster, an automatic installation option has been 
 
 ## Confirm Jenkins configuration
 
-1. Get the `Jenkins URL` to visit by running these commands in the same shell (can be obtained from the helm output):
+1. Find the IP for Jenkins by retrieving the `jenkins` service which was deployed:
 
-    ```bash
-    (bastion)$ export SERVICE_IP=$(kubectl get svc --namespace cicd jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
-    (bastion)$ echo http://$SERVICE_IP:80/login
-    ```
+```bash
+(bastion)$ kubectl -n cicd get svc jenkins
+```
 
 1. Open the `Jenkins URL` in your browser and login with the following credentials:
     * username: *admin*
-    * password: *dynatrace123qweASD!*
+    * password: *dynatrace*
 
     ![](../assets/jenkins-ui-login.png)
 

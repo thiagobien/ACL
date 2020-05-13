@@ -13,28 +13,21 @@ For more details about this lab, please take a look at the following blog post: 
 1. Select the process group that contains your entry point `ticketmonster-monolith` and click **Continue**.
 1. Search for loaded classes and interfaces with name `BookingService`, select `org.jboss.examples.ticketmonster.rest.BookingService` and click **Continue**.
 1. Select **Use the selected class** and click **Continue**.
-1. Select `public javax.ws.rs.core.Response createBooking (org.jboss.examples.ticketmonster.rest.BookingService)` as the entry point and click **Finish**.
+1. Select `public javax.ws.rs.core.Response createBooking (org.jboss.examples.ticketmonster.rest.BookingRequest)` as the entry point and click **Finish**.
 1. Click on Save changes.
 
 ## Step 2: Restart pods to activate custom service detection
-1. Get your pods and copy the pod name starting with *ticketmonster-monolith*.
-    ```
-    (bastion)$ kubectl get pods -n ticketmonster
 
-    NAME                                      READY   STATUS    RESTARTS   AGE
-    ticketmonster-db-<your-pod-id>         1/1     Running   0          57m
-    ticketmonster-monolith-<your-pod-id>   1/1     Running   0          49m
-    ticketmonster-ui-<your-pod-id>         1/1     Running   0          28m
-    ```
+1. Delete the *ticketmonster-monolith* pod.
 
-1. Delete the pod.
     ```
-    (bastion)$ kubectl -n ticketmonster delete pod ticketmonster-monolith-<your-pod-id>
+    (bastion)$ kubectl delete pod -l app=ticketmonster-monolith -n ticketmonster
 
     pod "ticketmonster-monolith-<your-pod-id>" deleted
     ```
 
 ## Step 3: Book a ticket on TicketMonster
+
 1. Open your **ticketmonster-ui** in a browser.
 1. Click on **Events**, **Concerts** and on, e.g., **Rock concert of the decade**.
 1. Select the **Venue**, **Date** and click on **Order ticket**.
@@ -43,6 +36,7 @@ For more details about this lab, please take a look at the following blog post: 
 1. Review your booking details.
 
 ## Step 4: Consider service flow in Dynatrace
+
 1. Choose the **Transaction & services** tab from the left menu.
 1. Select service **TicketMonsterUI**.
 1. Click on **View service flow**.

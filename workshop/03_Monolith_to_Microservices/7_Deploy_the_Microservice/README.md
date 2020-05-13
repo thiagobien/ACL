@@ -4,7 +4,7 @@ Based on the result of the previous labs, you identified the microservice **Orde
 
 In this lab you'll use feature flags and Kubernetes routing mechanism to smoothly incorporate the new microservice into the monolith. The final state of this lab is shown below:
 
-![deploy_microservice](../assets/deploy_microservice.png)
+![deploy_microservice](../assets/tm-orders-service.png)
 
 ## Step 1: Deploy the Microservice
 
@@ -256,9 +256,13 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
 
 ![ff4j_console](../assets/ff4j_console.png)
 
-1. Set the flags as shown for **life-traffic**.
+1. By default, ff4j is configured to have the `orders-internal` feature flag enabled which will continue using the legacy orders implementation.
 
-![ff4j_console](../assets/ff4j_feature_flags.png)
+1. To start using the new orders microservice, disable the `orders-internal` feature flag and enable the `orders-service` as shown below:
+
+![ff4j_console](../assets/ff4j_orders_service_ff.png)
+
+## Step 4: Verify that the new microservice and database are now in use
 
 1. Open ticketmonster-ui on a browser and order a ticket again, the order will be operated and persisted by the **OrdersService** instead of the monolithic booking service (in fact, the booking service calls the OrderService).
 
@@ -273,6 +277,7 @@ In this lab you'll use feature flags and Kubernetes routing mechanism to smoothl
 ## (Optional) Clean up resources created
 
     kubectl delete ns ticketmonster
+    docker stop $USER
 
 ---
 [Previous Step: Domain Model of Microservice](../6_Domain_Model_of_Microservice) :arrow_backward:

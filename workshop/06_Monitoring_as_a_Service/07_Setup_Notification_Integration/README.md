@@ -2,18 +2,24 @@
 
 In this lab you'll learn how to define an alerting profile for a particular problem identified by Dynatrace. Based on that alerting profile, an email notification will be send to a person who is in charge of the issue. 
 
-## Step 1: Definition of an Alerting Profile
-1. Go to **Settings**, **Alerting** and click on **Alerting profiles**.
-1. Specify the name for the profile, e.g., `Sockshop Error Profile`.
-1. Click **Create alerting rule** and select **Error** as *problem severity level*.
-1. At *Filter problems by tag* select *Only include entities that have any tags*.
-1. **Create tag filter** and *Choose a tag*: `[Environment]product:sockshop`.
-1. **Create tag filter** and *Choose a tag*: `environment:production`.
-    - **Note:** Since nothing has been yet deployed to the production namespace, a manually applied tag: `environment:production` will need to be created for for this step.
-1. Finally, click **Done**.
+## Step 1: Create an Alerting Profile via the configuration API
+
+1. In this step we will leverage the dynatrace configuration API to automatically create an alerting profile along with all of its filters and rules.
+1. Run the `create-alerting-profile.sh` script located on your home directory to automatically create the required alerting profile:
+
+    ```bash
+    bastion:$ cd ~
+    bastion:$ ./createAlertingProfile.sh
+    ```
+
+1. (Optional) Review the `create-alerting-profile.sh` script to understand what will be created and how the API works.
+
+1. Confirm that the newly created alerting profile should look like this:
+
 ![tagging-rule](../assets/alerting_profile.png)
 
 ## Step 2: Set up Email Notification
+
 1. Go to **Settings**, **Integration** and click on **Problem notifications**.
 1. Click on **+ Set up notifications** and select **Email**.
 1. Specify the name for the notification, e.g., `Service Notification`.

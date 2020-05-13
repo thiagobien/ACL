@@ -85,19 +85,43 @@ In this lab you'll add an additional quality gate to your CI pipeline. In other 
     }
     ```
 
-## Step 2: Set the Upper and Lower Limit in the Performance Signature
-1. Open the file `monspec\e2e_perfsig.json`.
-1. Set the upper and lower limit for the response time as follows:
+## Step 2: Review Performance Signature
+1. Examine the file `monspec\e2e_perfsig.json` outlined below.
     ```
-    "upperSevere" : 800,
-    "upperWarning" : 600
+    {
+    	"spec_version": "2.0",
+    	"timeseries": [
+            {
+                "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
+                "aggregation" : "avg",
+                "tags" : "app:carts,environment:staging",
+                "upperSevere": 800.0,
+                "upperWarning" : 600.0
+            },
+            {
+                "timeseriesId" : "com.dynatrace.builtin:service.failurerate",
+                "aggregation" : "avg",
+                "tags" : "app:carts,environment:staging",
+                "upperSevere": 5.0,
+                "upperWarning" : 0.5
+            },
+            {
+                "timeseriesId" : "com.dynatrace.builtin:service.responsetime",
+                "aggregation" : "avg",
+                "tags" : "app:front-end,environment:staging",
+                "upperSevere": 800.0,
+                "upperWarning" : 600.0
+            }
+        ]
+    }
     ```
-1. Commit/Push the changes to your GitHub repository *k8s-deploy-staging*.
 
-## Step 3: Add a quality gate for Service Method addToCart
+1. Note the additional timeseries for the `front-end` service. The `staging` environment will be the target for our testing.
+
+## Step 3: Add a timeseries metric for Service Method addToCart
 In some cases it is not sufficient to look at the Service level for performance degradations. This is certainly so in large tests that hit many endpoints of a service. This could lead to the results being skewed as very fast responses on one service method could average out the (perhaps fewer in number) slow requests on the degraded service methods.
 
-To remediate this, we will add another quality gate to our Performance Signature.
+To remediate this, we will add another timeseries metric to our Performance Signature.
 
 1. Open the file `monspec\e2e_perfsig.json`.
 1. Add another metric evaluation at the end of the file as shown below (make sure to add commas where needed)
@@ -105,17 +129,17 @@ To remediate this, we will add another quality gate to our Performance Signature
     {
         "timeseriesId" : "com.dynatrace.builtin:servicemethod.responsetime",
         "aggregation" : "avg",
-        "entityIds" : "[ADDTOCART_SERVICE-METHOD]",
+        "entityIds" : "",
         "upperSevere" : 800.0,
         "upperWarning" : 600.0
     }
     ```
-1. Replace [ADDTOCART_SERVICE-METHOD] with the Entity Id of the Add To Cart Service Method. The easiest way to retrieve it is by navigating to the `ItemsController` service in `staging` inside Dynatrace.
+1. For the `entityIds` key, add the Entity Id of the Add To Cart Service Method. The easiest way to retrieve it is by navigating to the `ItemsController` service in `staging` inside Dynatrace.
   ![](../assets/itemscontroller-staging.png)
 1. Click on `View requests`
 1. Scroll down to the bottom of the page to `Top Contributors` and click on `addToCart` 
   ![](../assets/itemscontroller-contributors.png)
-1. Make `addToCart` a `Key Request`
+1. Make `addToCart` a `Key Request`. This is required to retrieve method-level metrics from the API.
   ![](../assets/itemscontroller-addtocart-keyrequest.png)
 1. In the address bar of your browser window you can find the Entity Id of the `addToCart` Service Method
   ![](../assets/itemscontroller-addtocart-servicemethod.png)
