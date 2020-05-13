@@ -8,7 +8,8 @@ In this lab you'll learn how to define an alerting profile for a particular prob
 1. Run the `create-alerting-profile.sh` script located on your home directory to automatically create the required alerting profile:
 
     ```bash
-    bastion:$ sh ~/create-alerting-profile.sh
+    bastion:$ cd ~
+    bastion:$ ./createAlertingProfile.sh
     ```
 
 1. (Optional) Review the `create-alerting-profile.sh` script to understand what will be created and how the API works.

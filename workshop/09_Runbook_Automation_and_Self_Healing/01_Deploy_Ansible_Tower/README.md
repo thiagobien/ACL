@@ -26,7 +26,7 @@ In this lab we are going to deploy Ansible Tower, our chosen tool for automation
 
 ```bash
     (bastion)$ cd
-    (bastion)$ ./update-jenkins-credentials.sh
+    (bastion)$ ./updateJenkinsPassword.sh
 ```
 
 ## Auto install or manual
