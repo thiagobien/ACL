@@ -1,4 +1,4 @@
-# Deploy front-end v2
+# Istio traffic routing
 
 In this lab, we'll configure traffic routing in Istio to redirect traffic based on different criteria to the version 2 of the `front-end`. We'll cover how to redirect traffic using weight rules, redirecting only logged in users to the version 2, and redirecting only Chrome users to version 2.
 
