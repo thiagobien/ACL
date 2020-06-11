@@ -38,20 +38,27 @@ In order to have this step go faster, an automatic installation option has been 
 ## Auto Installation
 
 1. To install Ansible Tower automatically, it suffices to execute the following on the bastion host
-    ```
+
+    ```bash
     (bastion)$ cd
     (bastion)$ ./installAnsible.sh
     ```
+
 1. This script will not only create the necessary K8s resources, but it will also automatically import a self-service license and set up the configuration for Ansible Tower to trigger runbooks as outlined in the [Next Step: Setup Tower](../02_Setup_Tower)
 
 1. The script will output the ansible tower URL that can be then accessed on your browser:
 
-    ```
+    ```bash
     Ansible has been configured successfully! Copy the following URL to set it as an Ansible Job URL in the Dynatrace notification settings:
     https://XX.XX.XX.XXX/#/templates/job_template/XX
 
     Ansible Tower login URL: https://XX.XX.XX.XXX/
     ```
+
+1. Login to ansible tower with the following credentials:
+
+    * username: `admin`
+    * password: `dynatrace`
 
 1. You should see the default Dashboard of Ansible Tower:
 ![ansible tower dashboard](../assets/ansible-tower-initial.png)
