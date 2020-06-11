@@ -23,7 +23,6 @@ If the [Self-healing] lab was successfully completed, all the remediation files 
     (bastion):$ cd
     (bastion):$ echo "" > disable_remediation.yaml
     (bastion):$ keptn add-resource --project=sockshop --service=carts --stage=production --resource=disable_remediation.yaml --resourceUri=remediation.yaml
-    Adding resource disable_remediation.yaml to service carts in stage production in project sockshop
     ```
 
 ## Activate required ServiceNow plugins
