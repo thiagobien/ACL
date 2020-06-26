@@ -1,18 +1,18 @@
-# Setup Alerting Profile for Availability Issues and Integrate with a ChatOps Tool
+# Setup Alerting Profile for availability issues and configure email notification
 
 In this lab you'll learn how to define an alerting profile for a particular problem identified by Dynatrace. Based on that alerting profile, an email notification will be send to a person who is in charge of the issue. 
 
 ## Step 1: Create an Alerting Profile via the configuration API
 
 1. In this step we will leverage the dynatrace configuration API to automatically create an alerting profile along with all of its filters and rules.
-1. Run the `create-alerting-profile.sh` script located on your home directory to automatically create the required alerting profile:
+1. Run the `createAlertingProfile.sh` script located on your home directory to automatically create the required alerting profile:
 
     ```bash
     bastion:$ cd ~
     bastion:$ ./createAlertingProfile.sh
     ```
 
-1. (Optional) Review the `create-alerting-profile.sh` script to understand what will be created and how the API works.
+1. (Optional) Review the `createAlertingProfile.sh` script to understand what will be created and how the API works.
 
 1. Confirm that the newly created alerting profile should look like this:
 
