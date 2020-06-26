@@ -149,7 +149,7 @@ To remediate this, we will add another timeseries metric to our Performance Sign
 
     ```bash
       (bastion)$ cd
-      (bastion)$ timeout 3s ./add-to-cart.sh http://$http://$(kubectl -n staging get svc carts -o json | jq -r .status.loadBalancer.ingress[].ip)/carts/1/items
+      (bastion)$ timeout 3s ./add-to-cart.sh http://$(kubectl -n staging get svc carts -o json | jq -r .status.loadBalancer.ingress[].ip)/carts/1/items
     ```
 
 1. Make `addToCart` a `Key Request`. This is required to retrieve method-level metrics from the API.
