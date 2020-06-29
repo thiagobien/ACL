@@ -134,7 +134,7 @@ For ServiceNow to be able to connect to the Unleash server, we have to add creat
     - Name: unleash connection
     - Credential: unleash creds
     - Connection alias: unleash
-    - Connection URL: `http://unleash.unleash-dev.XX.XX.XX.XXX.xip.io/`
+    - Connection URL: `http://unleash.unleash-dev.XX.XX.XX.XXX.xip.io`
 1. Click on submit
 
 ![unleash creds](../assets/unleash-creds.png)
@@ -158,13 +158,13 @@ A ServiceNow Update Set is provided to run this tutorial. To install the Update 
 
     ![servicenow updateset list](../assets/service-now-update-set-list.png)
 
-6. In the right upper corner, click on Preview Update Set and once previewed, click on Commit Update Set to add the required configurations required for this tutorial to your instance.
+1. In the right upper corner, click on Preview Update Set and once previewed, click on Commit Update Set to add the required configurations required for this tutorial to your instance.
 
     ![servicenow updateset commit](../assets/service-now-update-set-commit.png)
 
     **Note:** The update set will add an alert management rule named `keptn - Create incident and run remediation subflow` and a subflow: `keptn auto-remediate service failure rate` to your instance on the global application scope.
 
-1. Navigate to `Integration Hub` -> `Action Designer` and search for the action `keptn auto-remediate service failure rate`
+1. Navigate to `Integration Hub` -> `Action Designer` and search for the action `keptn disable feature toggle`
 
     ![servicenow-keptn-action](../assets/servicenow-keptn-action.png)
 
