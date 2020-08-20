@@ -7,9 +7,7 @@ During this section we will gather all the information that we will lateron use 
 * Access to a `Dynatrace Tenant`.
 * A `Dynatrace API token`. More information can be found [here](dynatrace_api_token.md)
 * A `Dynatrace PAAS token`.
-* A `Github account`
-* A `Github organization` which we will use to fork the sockshop repositories. More information can be found [here](github_org.md)
-* A `Github PAT` (Personal Access Token) which we will use to authenticate with Github. More information can be found [here](github_pat.md)
+
 
 ## Step 1 - Gathering Facts
 
@@ -24,10 +22,7 @@ During this section we will gather all the information that we will lateron use 
         - For Managed: mydomain/e/1234567890123456789
     * Dynatrace API Token
     * Dynatrace PaaS Token
-    * GitHub User Name
-    * GitHub Personal Access Token
-    * GitHub User Email
-    * GitHub Organization
+
 1. Confirm the details
 
 ## Step 2 - Deploying the OneAgent Operator
