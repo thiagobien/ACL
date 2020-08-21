@@ -23,7 +23,25 @@ During this section we will gather all the information that we will lateron use 
     * Dynatrace API Token
     * Dynatrace PaaS Token
 
-1. Confirm the details
+1. Ensure that the `creds.json` has been updated to the correct values:
+   
+   ```
+   (bastion)$ cat creds.json
+   {
+       "jenkinsUser": "admin",
+       "jenkinsPassword": "JENKINS_PASSWORD_PLACEHOLDER",
+       "docsOrg": "kristofre",
+       "docsRepo": "acl-docs",
+       "docsBranch": "master",
+       "dynatraceTenant": "<YOUR ACTUAL TENANT>.live.dynatrace.com",
+       "dynatraceApiToken": "<YOUR ACTUAL TOKEN>",
+       "dynatracePaasToken": "<YOUR ACTUAL TOKEN>",
+       "githubUserName": "dynatrace",
+       "githubPersonalAccessToken": "PERSONAL_ACCESS_TOKEN_PLACEHOLDER",
+       "githubUserEmail": "ace@dynatrace.com",
+       "githubOrg": "sockshop"
+   } 
+   ```
 
 ## Step 2 - Deploying the OneAgent Operator
 
