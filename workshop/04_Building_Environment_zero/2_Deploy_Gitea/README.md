@@ -38,9 +38,7 @@
 
     ![](../assets/gitea_home.png)
     <br />
-    <br />
     You can log in to Gitea using username: `dynatrace` and password: `dynatrace`
-    <br />
     <br />
     ![](../assets/gitea_logged_in.png)
 
