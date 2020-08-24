@@ -37,8 +37,8 @@ In order to have this step go faster, an automatic installation option has been 
 ```
 
 1. This script will take the values that are required to install Jenkins and use `sed` to copy them into the Kubernetes Deployment specificator as environment variables. The following will be applied:
-    - your GitHub organization
-    - the email address of your GitHub user
+    - your Gitea organization
+    - the email address of your Gitea user
     - the IP address of the Docker registry we've deployed in the previous step
     - the Dynatrace tenant URL
     - an API Token form your Dynatrace tenant.
@@ -61,11 +61,11 @@ In order to have this step go faster, an automatic installation option has been 
 
     ![](../assets/jenkins-ui.png)
 
-1. For later use we configure Git credentials in Jenkins, so that selected pipelines can commit commit to Git with the provided credentials. Click "Credentials" :one: in the Jenkins UI, then the small black arrow next to "global", that shows when you put the mouse cursor over "global" :two:. Finally, click "Add credentials :three:.
+1. For later use we configure Gitea credentials in Jenkins, so that selected pipelines can commit commit to Gitea with the provided credentials. Click "Credentials" :one: in the Jenkins UI, then the small black arrow next to "global", that shows when you put the mouse cursor over "global" :two:. Finally, click "Add credentials :three:.
 
     ![](../assets/jenkins-ui-add-credentials.png)
 
-1. Provide your Git username :one:, your [Personal Access token](https://github.com/settings/tokens/new) :two:, and the ID :three:.
+1. Provide your Gitea username :one:, your `Personal Access token` (get this from `creds.json` file on your bastion host, use the 'cat' or 'vi' command to view) :two:, and the ID :three:.
     **It's important to use this ID `git-credentials-acm`, as the credentials are referenced by this ID by selected builds.** To save the credentials click OK :four:.
 
 ---

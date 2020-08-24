@@ -3,8 +3,8 @@
 In this lab, you will clone the GitHub repositories we've forked in lab 2 to your local environment. Then, you can edit those files in Visual Studio Code or any other editor of your choice.
 
 ## Prerequisites
-* GitHub organization
-* GitHub user and password
+* Gitea organization
+* Gitea user and password
 * git installed on your local environment
 
 ## Steps - Linux/macOS

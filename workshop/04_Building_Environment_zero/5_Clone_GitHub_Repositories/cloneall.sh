@@ -5,37 +5,38 @@ NC='\033[0m'
 
 if [ -z $1 ]
 then
-    echo "Please provide github organization"
+    echo "Please provide Gitea IP address"
     echo ""
-    echo "$ ./cloneall.sh <ORG to clone>"
+    echo "$ ./cloneall.sh <Gitea IP>"
     exit 1
 fi
 
-ORG=$1
+IP=$1
 
-HTTP_RESPONSE=`curl -s -o /dev/null -I -w "%{http_code}" https://github.com/$ORG`
+
+HTTP_RESPONSE=`curl -k -s -o /dev/null -I -w "%{http_code}" https://gitea.$IP.nip.io/sockshop`
 
 if [ $HTTP_RESPONSE -ne 200 ]
 then
-	echo "GitHub organization doesn't exist - https://github.com/$ORG - HTTP status code $HTTP_RESPONSE"
+	echo "GitHub organization doesn't exist - https://gitea.$IP.nip.io/sockshop - HTTP status code $HTTP_RESPONSE"
 	exit 1
 fi
 
-declare -a repositories=( $(curl -s https://api.github.com/orgs/${ORG}/repos | jq -r '.[].name') )
+declare -a repositories=( $(curl -k -s https://gitea.$IP.nip.io/api/v1/orgs/sockshop/repos | jq -r '.[].name') )
 
 if [ ${#repositories[@]} -eq 0 ]
 then
-    echo "No GitHub repositories found in ${ORG}"
+    echo "No GitHub repositories found in sockshop"
     exit 1
 fi
 
-mkdir $1
-cd $1
+mkdir sockshop
+cd sockshop
 
 for repo in "${repositories[@]}"
 do
-	echo -e "${YLW}Cloning https://github.com/$ORG/$repo ${NC}"
-	git clone -q "https://github.com/$ORG/$repo"
+	echo -e "${YLW}Cloning https://gitea.$IP.nip.io/sockshop/$repo ${NC}"
+	git clone -q "https://gitea.$IP.nip.io/sockshop/$repo"
 	echo -e "${YLW}Done. ${NC}"
 done
 
