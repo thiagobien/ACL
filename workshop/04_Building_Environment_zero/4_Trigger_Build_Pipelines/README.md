@@ -26,6 +26,6 @@ In this lab, we'll confirm that the build pipelines to populate the `dev` namesp
 
 ---  
 
-[Previous Step: Deploy Jenkins](../3_Deploy_Jenkins) :arrow_backward: :arrow_forward: [Next Step: Clone GitHub Repositories](../5_Clone_GitHub_Repositories)
+[Previous Step: Deploy Jenkins](../3_Deploy_Jenkins) :arrow_backward: :arrow_forward: [Next Step: Clone GitHub Repositories](../5_Clone_Gitea_Repositories)
 
 :arrow_up_small: [Back to overview](../)
