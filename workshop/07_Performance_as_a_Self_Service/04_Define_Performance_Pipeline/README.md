@@ -72,7 +72,7 @@ Consequently, the pipeline pushes a *Custom Info Event* for *Performance Signatu
 Consequently, this part of the pipeline executes a jMeter script (as defined by the sriptName) in the context of a jmeter container. The script receives a list of parameters for its configuration. The condition after the *executeJMeter* function terminates the pipeline in case of a failed test.  
 
 ## Step 4: Review step - Performance Signature Definition
-1. Add the following snippet after the **recordDynatraceSession** and the **container('jmeter') {** segments:
+1. Reveiw the following snippet after the **recordDynatraceSession** and the **container('jmeter') {** segments:
     ```
     perfSigDynatraceReports(
       envId: 'Dynatrace Tenant', 
@@ -80,7 +80,7 @@ Consequently, this part of the pipeline executes a jMeter script (as defined by 
       specFile: "monspec/${env.APP_NAME}_perfsig.json"
     ) 
     ```
-    Consequently, this part of the pipeline validates the load test result against the performance signature of the carts service.
+    This part of the pipeline validates the load test result against the performance signature of the carts service.
 1. Commit and push changes to the carts repository
 
 ## Step 5: Validate the Performance Pipeline for Carts
