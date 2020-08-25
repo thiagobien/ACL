@@ -4,7 +4,7 @@ In this module you'll learn how to setup your environment in your own GKE cluste
 
 1. [Prepare Environment](0_Prepare_Environment)
 2. [Deploy Docker Registry](1_Deploy_Docker_Registry)
-3. [Deploy Gitea Gitea](2_Deploy_Gitea)
+3. [Deploy Gitea](2_Deploy_Gitea)
 4. [Deploy Jenkins](3_Deploy_Jenkins)
 5. [Trigger Build Pipelines](4_Trigger_Build_Pipelines)
 6. [Clone Gitea Repositories](5_Clone_Gitea_Repositories)
