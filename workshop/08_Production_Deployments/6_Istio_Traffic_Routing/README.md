@@ -70,8 +70,8 @@ In this lab, we'll configure traffic routing in Istio to redirect traffic based 
     
 1. Run the `kubectl get svc istio-ingressgateway -n istio-system` command to get the *EXTERNAL-IP* of your *Gateway*.
 
-    ```console
-    $ kubectl get svc istio-ingressgateway -n istio-system
+    ```
+    (bastion)$ kubectl get svc istio-ingressgateway -n istio-system
     NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                                      AGE
     istio-ingressgateway   LoadBalancer   172.21.109.129   1**.2**.1**.1**  80:31380/TCP,443:31390/TCP,31400:31400/TCP   17h
     ```
