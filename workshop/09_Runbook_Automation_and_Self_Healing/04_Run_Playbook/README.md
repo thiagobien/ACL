@@ -53,6 +53,14 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 
 1. (optional) Use Dynatrace to find the corresponding Java class as well as the exact line number that was responsible for the increase of the failure rate to be able to fix the issue and prevent it to happen again for future campaigns.
 
+1. In order to free up resources for the following labs please make sure to delete the Ansible Tower namespace in kubernetes.
+
+```
+(bastion)$ kubectl delete ns tower
+namespace "tower" deleted
+```
+
+
 ---
 
 [Previous Step: Setup Dynatrace](../03_Setup_Dynatrace) :arrow_backward:
