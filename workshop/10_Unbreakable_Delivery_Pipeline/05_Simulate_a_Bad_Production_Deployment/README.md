@@ -40,6 +40,13 @@ In this lab you'll create a deployment of the front-end service that passes the 
     * REMEDIATIONURL: *empty*
 1. Hit **Build** and wait until the pipeline shows: *Success*.
 
+1. In order to free up resources for the following labs please make sure to delete the Ansible Tower namespace in kubernetes.
+
+```
+(bastion)$ kubectl delete ns tower
+namespace "tower" deleted
+```
+
 ---
 [Previous Step: Setup Self Healing for Production](../03_Setup_Self_Healing_for_Production) :arrow_backward:
 
