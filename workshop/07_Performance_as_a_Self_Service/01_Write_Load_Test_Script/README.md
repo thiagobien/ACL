@@ -28,13 +28,28 @@ Each request needs to be correctly tagged in order to identify them later on. Th
     // -------------------------------------------------------------------------------------
     // Generate the x-dynatrace-test header 
     // -------------------------------------------------------------------------------------
-    
+    String LTN=JMeterUtils.getProperty(&quot;DT_LTN&quot;);
+if((LTN == null) || (LTN.length() == 0)) {
+    if(vars != null) {
+        LTN = vars.get(&quot;DT_LTN&quot;);
+    }
+}
+if(LTN == null) LTN = &quot;NoTestName&quot;;
+
+String LSN = (bsh.args.length &gt; 0) ? bsh.args[0] : &quot;Test Scenario&quot;;
+String TSN = sampler.getName();
+String VU = ctx.getThreadGroup().getName() + ctx.getThreadNum();
+String headerValue = &quot;LSN=&quot;+ LSN + &quot;;TSN=&quot; + TSN + &quot;;LTN=&quot; + LTN + &quot;;VU=&quot; + VU + &quot;;&quot;;
 
     // -------------------------------------------
     // Set header
     // -------------------------------------------
 
     ```
+
+HeaderManager hm = sampler.getHeaderManager();
+hm.removeHeaderNamed(&quot;x-dynatrace-test&quot;);
+hm.add(new org.apache.jmeter.protocol.http.control.Header(&quot;x-dynatrace-test&quot;, headerValue));
 
 ## Step 2: Generate the x-dynatrace-test header
 1. Add the following snippet after the comment section: **// Generate the x-dynatrace-test header**.
