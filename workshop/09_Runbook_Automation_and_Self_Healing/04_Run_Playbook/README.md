@@ -53,6 +53,9 @@ The campaign playbook has already been set up in [Lab 2](../2_Setup_Tower).
 
 1. (optional) Use Dynatrace to find the corresponding Java class as well as the exact line number that was responsible for the increase of the failure rate to be able to fix the issue and prevent it to happen again for future campaigns.
 
+
+
+
 ---
 
 [Previous Step: Setup Dynatrace](../03_Setup_Dynatrace) :arrow_backward:

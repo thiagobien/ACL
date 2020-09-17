@@ -24,7 +24,7 @@ Let us integration the defined _remediation runbook_ in Dynatrace in a way, that
     - Navigate to _Jobs_ and click on your _remediation-user0_ job
     - You can see all tasks from the playbook that have been triggered by the integration.
 
-    ![integration run](../assets/ansible-integration-run.png)
+    ![integration run](../assets/ansible-integration-test.png)
 
 1. Apply anomaly detection rules
 
@@ -35,6 +35,8 @@ In your Dynatrace tenant, navigate to "Transaction & services" and filter by: *T
 ![services](../assets/dynatrace-services.png)
 
 Click on the **ItemsController** and then on the three dots ( <kbd>...</kbd> ) next to the service name. Click on *Edit*. 
+
+
 ![service-edit](../assets/dynatrace-service-edit.png)
 
 On the next screen, edit the anomaly detection settings as seen in the following screenshot.

@@ -43,7 +43,7 @@ In this lab you'll learn how the Jenkins pipeline is designed to build, deploy, 
 
 1. Switch to the `carts/` directory and open file `carts/src/main/java/works/weave/socks/cart/controllers/HealthCheckController.java`. 
 1. Activate the code sections that address the database connection test and save file (i.e., remove all comments).
-1. Commit/Push the changes to your GitHub Repository *carts*.
+1. Commit/Push the changes to your Gitea Repository *carts*.
 
 ## Step 2. Build new Version in Jenkins
 

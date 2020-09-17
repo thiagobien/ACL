@@ -74,6 +74,6 @@ We use the Docker registry to save the build artifacts, i.e. Docker containers. 
 
 ---
 
-[Previous Step: Check Prerequisites](../1_Fork_GitHub_Repositories) :arrow_backward: :arrow_forward: [Next Step: Deploy Jenkins](../3_Deploy_Jenkins)
+[Previous Step: Prepare Environment](../0_Prepare_Environment) :arrow_backward: :arrow_forward: [Next Step: Deploy Gitea](../2_Deploy_Gitea)
 
 :arrow_up_small: [Back to overview](../)

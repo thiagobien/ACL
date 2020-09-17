@@ -29,14 +29,14 @@ stages:
 1. Execute the following commands to set environment variables and creating the project.
 
     ```bash
-    (bastion)$ export GIT_USER=$(jq -r '.githubUserName' ~/creds.json)
-    (bastion)$ export GIT_TOKEN=$(jq -r '.githubPersonalAccessToken' ~/creds.json)
-    (bastion)$ export GIT_REMOTE_URL=https://github.com/$(jq -r '.githubOrg' ~/creds.json)/sockshop.git
+    (bastion)$ export GIT_USER={YOUR GITHUB USER ID}
+    (bastion)$ export GIT_TOKEN={YOUR GITHUB PERSONAL ACCESS TOKEN}
+    (bastion)$ export GIT_REMOTE_URL=https://github.com/{YOUR GITHUB ORG}/sockshop.git
     (bastion)$ keptn create project sockshop --shipyard=./shipyard.yaml --git-user=$GIT_USER --git-token=$GIT_TOKEN --git-remote-url=$GIT_REMOTE_URL
     ```
 
     ![keptn](../assets/keptnCreateProject.png)
-1. Go into your repository on github and verify the results (new branches created, helm charts created).
+2. Go into your repository on github and verify the results (new branches created, helm charts created).
 
 ## Step 3: Onboard services to project
 1. Onboard the carts service
