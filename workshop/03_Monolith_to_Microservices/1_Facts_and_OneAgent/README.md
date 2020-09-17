@@ -30,8 +30,8 @@ During this section we will gather all the information that we will lateron use 
    {
        "jenkinsUser": "admin",
        "jenkinsPassword": "JENKINS_PASSWORD_PLACEHOLDER",
-       "docsOrg": "kristofre",
-       "docsRepo": "acl-docs",
+       "docsOrg": "sockshop",
+       "docsRepo": "sockshop-infrastructure",
        "docsBranch": "master",
        "dynatraceTenant": "<YOUR ACTUAL TENANT>.live.dynatrace.com",
        "dynatraceApiToken": "<YOUR ACTUAL TOKEN>",
