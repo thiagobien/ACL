@@ -2,11 +2,11 @@
 
 ## Data needed
 
-- You personal license for Ansible Tower (Confirm with instructor)
+- (Optional)You personal license for Ansible Tower
 
 ## Steps
 
-1. In case you don't have your license yet, you can get a free license here: [https://www.ansible.com/license]
+1. There is an Ansible Tower license that will be deployed automatically for our lab. In case you would like to continue practicing with Ansible Tower on your own, you can get a free license here: [https://www.ansible.com/license]
 
 3. To ensure that the same issue detected generates a problem, disable the frequent issue detection toggle:
     - Go to Settings, Anomaly Detection, Frequent issue detection, and click on the button next to Detect frequent issues within transactions and services to disable it.

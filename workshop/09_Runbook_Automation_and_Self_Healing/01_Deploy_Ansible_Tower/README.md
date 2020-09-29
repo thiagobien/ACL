@@ -46,7 +46,7 @@ In order to have this step go faster, an automatic installation option has been 
 
 1. This script will not only create the necessary K8s resources, but it will also automatically import a self-service license and set up the configuration for Ansible Tower to trigger runbooks as outlined in the [Next Step: Setup Tower](../02_Setup_Tower)
 
-1. The script will output the ansible tower URL that can be then accessed on your browser:
+1. The script will output the ansible tower URL that can be then accessed in your browser. Make sure to save the job template URL, as we will use it for our Ansible integration in Dynartace.
 
     ```bash
     Ansible has been configured successfully! Copy the following URL to set it as an Ansible Job URL in the Dynatrace notification settings:

@@ -7,7 +7,7 @@ In this lab you'll learn how to create a container image and how to run a contai
 1. View the `Dockerfile` using an editor.
 
     ```bash
-    (bastion)$ cd acl-docs/workshop/02_Cloud_native_Concepts/01_Working_with_Containers/
+    (bastion)$ cd docker/
     (bastion)$ vi Dockerfile
     ```
 
