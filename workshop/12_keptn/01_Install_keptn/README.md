@@ -14,16 +14,14 @@ In this lab you'll install the keptn runtime on your GKE cluster
 # Step 2: Install the keptn runtime
 1. To install the keptn runtime on your cluster, execute the following command:
     ```
-    (bastion)$ keptn install --platform=gke --istio-install-option=Overwrite
+    (bastion)$ keptn install --endpoint-service-type=LoadBalancer --use-case=continuous-delivery
     ```
 2. The installer will ask you for the following information:
     - Cluster name (should already be prefilled)
-    - Cluster zone (should already be prefilled)
-    - GKE project (should already be prefilled)
 
-![keptn](../assets/keptnInstall.png)
+![keptn](../assets/keptn-Install.png)
 
-3. Confirm your entry. The keptn installation process will commence.
+1. Confirm your entry. The keptn installation process will commence.
 
 ![keptn_install](../assets/keptn_installation_logs.png)
 

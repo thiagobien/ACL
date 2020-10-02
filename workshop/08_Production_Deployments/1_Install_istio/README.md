@@ -16,12 +16,12 @@ Istio's Pilot service is responsible for allow outgoing connections to for examp
 
 ## Step 1 - Auto Install Istio via script
 
-1. To install Istio automatically, it suffices to execute the following on the bastion host
+1. To install Istio execute the following on the bastion host
     ```
     (bastion)$ cd
-    (bastion)$ ./installIstio.sh
+    (bastion)$ istioctl install --set profile=demo
     ```
-1. This script will perform the following steps:
+1. This will perform the following steps:
     - Request the Cluster CIDR and Services CIDR blocks
     - Add those blocks into the outbound IP ranges
     - Install Istio's Custom Resource Definitions (CRDs)
