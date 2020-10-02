@@ -52,10 +52,10 @@ To quickly get an Unleash server up and running with Keptn, follow these instruc
     (bastion)$ keptn send event new-artifact --project=unleash --service=unleash --image=docker.io/keptnexamples/unleash:1.0.0
     ```
 
-1. Get the URL (unleash.unelash-dev.KEPTN_DOMAIN):
+1. Get the URL (unleash.unleash-dev.x.x.x.x.nip.io):
 
     ```bash 
-    (bastion)$ echo http://unleash.unleash-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+    (bastion)$ echo http://unleash.unleash-dev.$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')
     ```
 
 1. Open the URL in your browser and log in using the following credentials:
@@ -99,22 +99,37 @@ Now, everything is set up in the Unleash server. For Keptn to be able to connect
     ```bash
     (bastion)$ kubectl delete pod -l=run=remediation-service -n keptn
     ```
-
-1. Finally, switch to the carts example (cd examples/onboarding-carts) and add the following remediation instructions
-
+1. Install the Unleash action provider which is responsible for acting upon an alert, thus it is the part that will actually resolve issues by changing the stage of the feature flags.
     ```bash
-    remediations:
-    - name: "Response time degradation"
-    actions:
-    - action: featuretoggle
-        value: EnableItemCache:on
-    - name: "Failure rate increase"
-    actions:
-    - action: featuretoggle
-        value: EnablePromotion:off
+    (bastion)$ kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/unleash-service/release-0.1.0/deploy/service.yaml
     ```
 
-    using the commands:
+2. Finally, switch to the carts example (cd examples/onboarding-carts) and verify the contents of remediation_feature_toggle.yaml which should look like:
+
+    ```bash
+    apiVersion: spec.keptn.sh/0.1.4
+    kind: Remediation
+    metadata:
+    name: carts-remediation
+    spec:
+    remediations:
+        - problemType: Response time degradation
+        actionsOnOpen:
+            - action: toggle-feature
+            name: Toogle feature flag
+            description: Toogle feature flag EnableItemCache to ON
+            value:
+                EnableItemCache: "on"
+        - problemType: Failure rate increase
+        actionsOnOpen:
+            - action: toggle-feature
+            name: Toogle feature flag
+            description: Toogle feature flag EnablePromotion to OFF
+            value:
+                EnablePromotion: "off"
+    ```
+
+    now add the resource, using the commands:
 
     ```bash
     (bastion)$ cd ~/examples/onboarding-carts

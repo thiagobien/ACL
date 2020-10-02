@@ -6,7 +6,7 @@ In this lab you'll onboard a service to keptn
 Execute the following command from your home directory to clone the keptn examples repo
 ```
 (bastion)$ cd
-(bastion)$ git clone --branch 0.6.1 https://github.com/keptn/examples.git --single-branch
+(bastion)$ git clone --branch release-0.7.0 https://github.com/keptn/examples.git --single-branch
 (bastion)$ cd examples/onboarding-carts
 ```
 
@@ -71,14 +71,15 @@ stages:
     ```
     (bastion)$ keptn send event new-artifact --project=sockshop --service=carts-db --image=mongo --tag=4.2.2
     ```
-1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.10.1.
+1. Deploy the carts service by specifying the built artifact, which is stored on DockerHub and tagged with version 0.11.1.
     ```
-    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.10.1
+    (bastion)$ keptn send event new-artifact --project=sockshop --service=carts --image=docker.io/keptnexamples/carts --tag=0.11.1
     ```
-## Step 5: Deploy the keptn's bridge to visualize deployments
+## Step 5: Get keptn credentials and Bridge URL
 ```
 (bastion)$ cd
-(bastion)$ ./exposeKeptnBridge.sh
+(bastion)$ keptn configure bridge --output
+(bastion)$ echo http://$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')/bridge
 ```    
 ![bridge](../assets/keptnBridge.png)
 
@@ -93,7 +94,7 @@ Get the URL for your carts service with the following commands in the respective
 (bastion)$ echo http://carts.sockshop-production.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
 ```
 
-Navigate to the URLs to inspect the carts service. In the development namespace, you should receive an output similar to this:
+Navigate to the URLs to inspect the carts service. In the development namespace, you should receive an output similar to this for Dev. Staging and Production will be empty for now.
 ![carts-dev](../assets/cartsDev.png)
 
 ## Step 7: Prepare the Carts Viewer

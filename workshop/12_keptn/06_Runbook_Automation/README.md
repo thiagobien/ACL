@@ -126,7 +126,7 @@ For ServiceNow to be able to connect to the Unleash server, we have to add creat
 1. Retrieve the unleash URL:
 
     ```bash 
-    (bastion)$ echo http://unleash.unleash-dev.$(kubectl get cm keptn-domain -n keptn -o=jsonpath='{.data.app_domain}')
+    (bastion)$ echo http://unleash.unleash-dev.$(kubectl -n keptn get ingress api-keptn-ingress -ojsonpath='{.spec.rules[0].host}')
     ```
 
 1. Under connections, click on new.
@@ -134,7 +134,7 @@ For ServiceNow to be able to connect to the Unleash server, we have to add creat
     - Name: unleash connection
     - Credential: unleash creds
     - Connection alias: unleash
-    - Connection URL: `http://unleash.unleash-dev.XX.XX.XX.XXX.xip.io`
+    - Connection URL: `http://unleash.unleash-dev.XXX.XXX.XXX.XXX.nip.io`
 1. Click on submit
 
 ![unleash creds](../assets/unleash-creds.png)
