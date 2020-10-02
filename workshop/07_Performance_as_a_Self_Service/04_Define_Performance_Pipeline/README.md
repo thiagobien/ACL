@@ -87,9 +87,9 @@ Consequently, this part of the pipeline executes a jMeter script (as defined by 
 1. Go to  **Jenkins** and click on the **sockshop** folder.
 1. Click on `carts.performance`.
 1. Click on **Configure**.
-1. At *Branch Sources* check if the link to your Github Project Repository is set to your *carts* repository.
+1. At *Branch Sources* check if the link to your Gitea Project Repository is set to your *carts* repository.
 1. At *Build Configuration* check if *Script Path* is set to `Jenkinsfile.performance`.
-1. Finally, click **Save**. This step automatically triggers the pipeline.
+2. Finally, click **Save**.
 
 ## Result: Performance as a Self-Service Pipeline for Carts
 ```

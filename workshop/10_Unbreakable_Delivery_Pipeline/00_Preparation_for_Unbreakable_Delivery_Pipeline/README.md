@@ -1,6 +1,6 @@
 # Prep-work for Unbreakable Delivery Pipeline
 
-## Prereqquisites
+## Prerequisites
 
 Complete the following labs:
 
